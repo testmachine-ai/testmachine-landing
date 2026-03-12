@@ -2,12 +2,8 @@
   import { onMount } from 'svelte';
   
   let mounted = false;
-  let sectionElement: HTMLElement;
-  let contactInfoElement: HTMLElement;
-  let contactFormElement: HTMLElement;
   let showSuccess = false;
   
-  // Form state
   let formData = {
     firstName: '',
     lastName: '',
@@ -21,87 +17,29 @@
   
   onMount(() => {
     mounted = true;
-    
-    // Intersection observer for scroll animations
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
-    );
-    
-    [contactInfoElement, contactFormElement].forEach(el => {
-      if (el) observer.observe(el);
-    });
-    
-    return () => {
-      observer.disconnect();
-    };
   });
 
   function validateForm(): boolean {
     formErrors = {};
-    
-    if (!formData.firstName.trim()) {
-      formErrors.firstName = 'First name is required';
-    }
-    
-    if (!formData.lastName.trim()) {
-      formErrors.lastName = 'Last name is required';
-    }
-    
-    if (!formData.email.trim()) {
-      formErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      formErrors.email = 'Please enter a valid email address';
-    }
-    
-    if (!formData.message.trim()) {
-      formErrors.message = 'Message is required';
-    } else if (formData.message.trim().length < 10) {
-      formErrors.message = 'Message must be at least 10 characters';
-    }
-    
+    if (!formData.firstName.trim()) formErrors.firstName = 'Required';
+    if (!formData.lastName.trim()) formErrors.lastName = 'Required';
+    if (!formData.email.trim()) formErrors.email = 'Required';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) formErrors.email = 'Invalid email';
+    if (!formData.message.trim()) formErrors.message = 'Required';
     return Object.keys(formErrors).length === 0;
   }
 
   async function handleSubmit(event: Event) {
     event.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
-    
+    if (!validateForm()) return;
     isSubmitting = true;
-    
     try {
-      // Simulate form submission (replace with actual endpoint)
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Show success message
       showSuccess = true;
-      
-      // Reset form
-      formData = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        message: '',
-        newsletter: false
-      };
-      
-      // Hide success message after 5 seconds
-      setTimeout(() => {
-        showSuccess = false;
-      }, 5000);
-      
+      formData = { firstName: '', lastName: '', email: '', message: '', newsletter: false };
+      setTimeout(() => { showSuccess = false; }, 5000);
     } catch (error) {
       console.error('Form submission error:', error);
-      // Handle error (you could show an error message)
     } finally {
       isSubmitting = false;
     }
@@ -109,20 +47,16 @@
 
   function clearError(field: string) {
     if (formErrors[field]) {
-      const { [field]: removed, ...rest } = formErrors;
+      const { [field]: _, ...rest } = formErrors;
       formErrors = rest;
     }
   }
 </script>
 
-<section class="contact" id="contact" bind:this={sectionElement}>
+<section class="contact" id="contact">
   <div class="container">
     <div class="contact-grid">
-      <div 
-        class="contact-info" 
-        class:visible={mounted}
-        bind:this={contactInfoElement}
-      >
+      <div class="contact-info" class:visible={mounted}>
         <h2 class="section-title">Get in Touch</h2>
         <p class="contact-desc">
           Ready to secure your Web3 project? Let's talk about how TestMachine 
@@ -147,24 +81,12 @@
         </div>
         
         <div class="contact-social">
-          <a 
-            href="https://x.com/testmachine_ai" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="social-link" 
-            aria-label="X (Twitter)"
-          >
+          <a href="https://x.com/testmachine_ai" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="X (Twitter)">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
           </a>
-          <a 
-            href="https://www.linkedin.com/company/testmachine-ai/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="social-link" 
-            aria-label="LinkedIn"
-          >
+          <a href="https://www.linkedin.com/company/testmachine-ai/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
@@ -172,116 +94,48 @@
         </div>
       </div>
       
-      <div 
-        class="contact-form-wrap" 
-        class:visible={mounted}
-        bind:this={contactFormElement}
-      >
-        <form 
-          class="contact-form" 
-          class:success={showSuccess}
-          on:submit={handleSubmit} 
-          novalidate
-        >
-          <div class="form-row">
-            <div class="form-group">
-              <label for="firstName">First name</label>
-              <input 
-                type="text" 
-                id="firstName" 
-                name="firstName" 
-                bind:value={formData.firstName}
-                on:input={() => clearError('firstName')}
-                class:error={formErrors.firstName}
-                required 
-                autocomplete="given-name"
-              />
-              {#if formErrors.firstName}
-                <span class="form-error">{formErrors.firstName}</span>
-              {/if}
+      <div class="contact-form-wrap" class:visible={mounted}>
+        {#if !showSuccess}
+          <form class="contact-form" on:submit={handleSubmit} novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" bind:value={formData.firstName} on:input={() => clearError('firstName')} required autocomplete="given-name" />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" bind:value={formData.lastName} on:input={() => clearError('lastName')} required autocomplete="family-name" />
+              </div>
             </div>
+            
             <div class="form-group">
-              <label for="lastName">Last name</label>
-              <input 
-                type="text" 
-                id="lastName" 
-                name="lastName" 
-                bind:value={formData.lastName}
-                on:input={() => clearError('lastName')}
-                class:error={formErrors.lastName}
-                required 
-                autocomplete="family-name"
-              />
-              {#if formErrors.lastName}
-                <span class="form-error">{formErrors.lastName}</span>
-              {/if}
+              <label for="email">Email</label>
+              <input type="email" id="email" bind:value={formData.email} on:input={() => clearError('email')} required autocomplete="email" />
             </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="5" bind:value={formData.message} on:input={() => clearError('message')} required></textarea>
+            </div>
+            
+            <div class="form-checkbox-group">
+              <label class="form-checkbox">
+                <input type="checkbox" bind:checked={formData.newsletter} />
+                <span class="checkbox-box"></span>
+                <span>Subscribe to our newsletter for updates</span>
+              </label>
+            </div>
+            
+            <button type="submit" class="btn btn--primary btn--block" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Submit'}
+            </button>
+          </form>
+        {:else}
+          <div class="form-success active">
+            <p class="form-success-title">Message Sent</p>
+            <p class="form-success-text">Thank you for reaching out. We'll get back to you shortly.</p>
           </div>
-          
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              bind:value={formData.email}
-              on:input={() => clearError('email')}
-              class:error={formErrors.email}
-              required 
-              autocomplete="email"
-            />
-            {#if formErrors.email}
-              <span class="form-error">{formErrors.email}</span>
-            {/if}
-          </div>
-          
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea 
-              id="message" 
-              name="message" 
-              rows="5" 
-              bind:value={formData.message}
-              on:input={() => clearError('message')}
-              class:error={formErrors.message}
-              required
-            ></textarea>
-            {#if formErrors.message}
-              <span class="form-error">{formErrors.message}</span>
-            {/if}
-          </div>
-          
-          <div class="form-checkbox-group">
-            <label class="form-checkbox">
-              <input 
-                type="checkbox" 
-                name="newsletter" 
-                bind:checked={formData.newsletter}
-              />
-              <span class="checkbox-box"></span>
-              <span>Subscribe to our newsletter for updates</span>
-            </label>
-          </div>
-          
-          <button 
-            type="submit" 
-            class="btn btn--primary btn--block"
-            disabled={isSubmitting}
-          >
-            {#if isSubmitting}
-              Sending...
-            {:else}
-              Submit
-            {/if}
-          </button>
-        </form>
-        
-        <div class="form-success" class:visible={showSuccess}>
-          <p class="form-success-title">Message Sent</p>
-          <p class="form-success-text">
-            Thank you for reaching out. We'll get back to you shortly.
-          </p>
-        </div>
+        {/if}
       </div>
     </div>
   </div>
@@ -290,180 +144,164 @@
 <style>
   .contact {
     padding: var(--section-py) 0;
-    background: var(--bg-base);
-    position: relative;
+    border-bottom: 1px solid var(--border-subtle);
   }
   
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(40px, 6vw, 80px);
     align-items: start;
   }
   
   .contact-info {
     opacity: 0;
-    transform: translateX(-30px);
-    transition: all 0.8s ease-out;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
   
-  .contact-info.visible,
-  .contact-info:global(.animate-in) {
+  .contact-info.visible {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
   
   .section-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-family: var(--font-display);
+    font-size: clamp(1.875rem, 4vw, 3rem);
     font-weight: 700;
-    line-height: 1.1;
-    color: var(--fg-primary);
-    font-family: var(--font-sans);
-    margin: 0 0 1.5rem 0;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.5rem;
   }
   
   .contact-desc {
-    font-size: 1.125rem;
-    line-height: 1.6;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
     color: var(--fg-muted);
-    margin-bottom: 1.5rem;
-    font-family: var(--font-serif);
+    line-height: 1.7;
+    margin-bottom: 12px;
   }
   
   .contact-response {
-    font-size: 1rem;
-    color: var(--fg-secondary);
-    margin-bottom: 1rem;
-    font-weight: 500;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--fg-dim);
+    margin-bottom: 8px;
   }
   
   .contact-email-alt {
-    font-size: 1rem;
-    color: var(--fg-muted);
-    margin-bottom: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--fg-dim);
+    margin-bottom: 28px;
   }
   
   .contact-email-alt a {
-    color: var(--accent-primary);
-    text-decoration: none;
-    font-weight: 500;
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--transition);
   }
   
   .contact-email-alt a:hover {
-    text-decoration: underline;
+    color: var(--accent-hover);
   }
   
   .contact-details {
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
   }
   
   .contact-detail {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    font-size: 0.9375rem;
+    gap: 10px;
+    font-size: 0.875rem;
     color: var(--fg-muted);
   }
   
   .contact-detail svg {
-    color: var(--accent-primary);
+    color: var(--fg-dim);
     flex-shrink: 0;
   }
   
   .contact-social {
     display: flex;
-    gap: 1rem;
+    gap: 8px;
   }
   
   .social-link {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: var(--bg-raised);
-    border: 1px solid var(--border-muted);
-    border-radius: 8px;
     color: var(--fg-muted);
-    text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all var(--transition);
   }
   
   .social-link:hover {
-    background: var(--accent-primary);
-    border-color: var(--accent-primary);
-    color: white;
-    transform: translateY(-2px);
+    color: var(--fg);
+    border-color: var(--fg);
+    transform: translateY(-1px);
   }
   
   .contact-form-wrap {
     opacity: 0;
-    transform: translateX(30px);
-    transition: all 0.8s ease-out 0.1s;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition-delay: 0.1s;
   }
   
-  .contact-form-wrap.visible,
-  .contact-form-wrap:global(.animate-in) {
+  .contact-form-wrap.visible {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
   
   .contact-form {
-    background: var(--bg-raised);
-    border: 1px solid var(--border-muted);
-    border-radius: 16px;
-    padding: 2.5rem;
-    position: relative;
-  }
-  
-  .contact-form.success {
-    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
   }
   
   .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .form-group {
-    margin-bottom: 1.5rem;
-    position: relative;
+    gap: 18px;
   }
   
   .form-group label {
     display: block;
-    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
     font-weight: 600;
-    color: var(--fg-secondary);
-    margin-bottom: 0.5rem;
-    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--fg-muted);
+    margin-bottom: 8px;
   }
   
   .form-group input,
   .form-group textarea {
     width: 100%;
-    padding: 0.75rem 1rem;
-    background: var(--bg-base);
-    border: 1px solid var(--border-muted);
-    border-radius: 8px;
-    font-size: 1rem;
-    color: var(--fg-primary);
-    font-family: var(--font-sans);
-    transition: all 0.2s ease;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    background: var(--input-bg);
+    color: var(--fg);
+    font-size: 0.9375rem;
+    border-radius: 0;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    font-family: inherit;
   }
   
   .form-group input:focus,
   .form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.1);
-  }
-  
-  .form-group input.error,
-  .form-group textarea.error {
-    border-color: #ef4444;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
   }
   
   .form-group textarea {
@@ -471,175 +309,84 @@
     min-height: 120px;
   }
   
-  .form-error {
-    display: block;
-    font-size: 0.875rem;
-    color: #ef4444;
-    margin-top: 0.25rem;
-    font-weight: 500;
-  }
-  
   .form-checkbox-group {
-    margin-bottom: 2rem;
+    margin-top: 4px;
   }
   
   .form-checkbox {
     display: flex;
     align-items: flex-start;
-    gap: 0.75rem;
+    gap: 10px;
     cursor: pointer;
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
     color: var(--fg-muted);
     line-height: 1.5;
   }
   
-  .form-checkbox input[type="checkbox"] {
-    display: none;
-  }
+  .form-checkbox input { display: none; }
   
   .checkbox-box {
-    width: 20px;
-    height: 20px;
-    background: var(--bg-base);
-    border: 1px solid var(--border-muted);
-    border-radius: 4px;
-    position: relative;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--border);
     flex-shrink: 0;
-    transition: all 0.2s ease;
-    margin-top: 0.125rem;
+    margin-top: 2px;
+    position: relative;
+    transition: all var(--transition);
   }
   
   .checkbox-box::after {
     content: '';
     position: absolute;
-    top: 3px;
-    left: 7px;
+    top: 2px;
+    left: 5px;
     width: 5px;
     height: 9px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-    opacity: 0;
-    transition: opacity 0.2s ease;
+    border-right: 1.5px solid var(--btn-fg);
+    border-bottom: 1.5px solid var(--btn-fg);
+    transform: rotate(45deg) scale(0);
+    transition: transform var(--transition);
   }
   
   .form-checkbox input:checked + .checkbox-box {
-    background: var(--accent-primary);
-    border-color: var(--accent-primary);
+    background: var(--btn-bg);
+    border-color: var(--btn-bg);
   }
   
   .form-checkbox input:checked + .checkbox-box::after {
-    opacity: 1;
-  }
-  
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.875rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    font-family: var(--font-sans);
-    text-decoration: none;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  .btn--primary {
-    background: var(--accent-gradient);
-    color: white;
-  }
-  
-  .btn--primary:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(45, 212, 191, 0.3);
-  }
-  
-  .btn--primary:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-    transform: none;
-  }
-  
-  .btn--block {
-    width: 100%;
+    transform: rotate(45deg) scale(1);
   }
   
   .form-success {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--bg-raised);
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: none;
+    padding: 48px 20px;
     text-align: center;
-    padding: 2rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
+    border: 1px solid var(--border);
   }
   
-  .form-success.visible {
-    opacity: 1;
-    visibility: visible;
+  .form-success.active {
+    display: block;
   }
   
   .form-success-title {
-    font-size: 1.5rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
     font-weight: 700;
-    color: var(--fg-primary);
-    margin: 0 0 0.5rem 0;
-    font-family: var(--font-sans);
+    margin-bottom: 8px;
   }
   
   .form-success-text {
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: var(--fg-muted);
-    margin: 0;
-    line-height: 1.5;
   }
   
-  /* Mobile adjustments */
   @media (max-width: 1024px) {
     .contact-grid {
       grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-    
-    .contact-info {
-      transform: translateY(-30px);
-    }
-    
-    .contact-form-wrap {
-      transform: translateY(30px);
     }
   }
   
   @media (max-width: 768px) {
-    .contact {
-      padding: calc(var(--section-py) * 0.75) 0;
-    }
-    
-    .contact-grid {
-      gap: 2.5rem;
-    }
-    
-    .contact-form {
-      padding: 2rem;
-    }
-    
-    .form-row {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-    
     .social-link {
       width: 44px;
       height: 44px;
@@ -647,13 +394,8 @@
   }
   
   @media (max-width: 480px) {
-    .contact-form {
-      padding: 1.5rem;
-    }
-    
-    .form-group input,
-    .form-group textarea {
-      padding: 0.625rem 0.875rem;
+    .form-row {
+      grid-template-columns: 1fr;
     }
   }
 </style>

@@ -1,0 +1,90 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:oklch(0.21 0.005 260);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:oklch(0.18 0.005 260);stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="oklch(0.1 0 0)" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Card Background -->
+  <rect x="20" y="20" width="560" height="360" rx="12" fill="url(#cardBg)" filter="url(#cardShadow)" stroke="oklch(0.32 0.005 260)" stroke-width="1"/>
+  
+  <!-- Priority Badge -->
+  <rect x="40" y="40" width="80" height="24" rx="12" fill="#ef4444" opacity="0.9"/>
+  <text x="80" y="56" text-anchor="middle" fill="white" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">HIGH P1</text>
+  
+  <!-- Main Action -->
+  <text x="140" y="56" fill="oklch(0.92 0 0)" font-family="Manrope, sans-serif" font-size="16" font-weight="600">
+    Contact Vitalik Buterin - Ethereum Foundation
+  </text>
+  
+  <!-- Context Section -->
+  <text x="40" y="90" fill="oklch(0.72 0.12 192)" font-family="Manrope, sans-serif" font-size="12" font-weight="600">
+    INTELLIGENT CONTEXT
+  </text>
+  
+  <!-- Context Items -->
+  <rect x="40" y="100" width="520" height="80" rx="6" fill="oklch(0.16 0.005 260)" stroke="oklch(0.25 0.005 260)" stroke-width="1"/>
+  
+  <text x="55" y="120" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="11">
+    • Recent Activity: Posted about L2 scaling solutions 3 days ago (47K likes)
+  </text>
+  <text x="55" y="135" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="11">
+    • Pain Point: Expressed concerns about MEV and validator centralization
+  </text>
+  <text x="55" y="150" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="11">
+    • Timing: Best to reach Tuesday-Thursday 2-4 PM EST (historical response pattern)
+  </text>
+  <text x="55" y="165" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="11">
+    • Connection: Knows Joseph Lubin (mutual LinkedIn connections: 12)
+  </text>
+  
+  <!-- Suggested Approach -->
+  <text x="40" y="210" fill="oklch(0.72 0.12 192)" font-family="Manrope, sans-serif" font-size="12" font-weight="600">
+    SUGGESTED APPROACH
+  </text>
+  
+  <rect x="40" y="220" width="520" height="60" rx="6" fill="oklch(0.16 0.005 260)" stroke="oklch(0.25 0.005 260)" stroke-width="1"/>
+  
+  <text x="55" y="240" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="11">
+    "Hi Vitalik, saw your recent thoughts on MEV extraction. At TestMachine,
+  </text>
+  <text x="55" y="255" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="11">
+    we're tackling similar centralization risks in DeFi security auditing.
+  </text>
+  <text x="55" y="270" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="11">
+    Would love to show you how we're solving validator security at scale."
+  </text>
+  
+  <!-- Action Buttons -->
+  <rect x="40" y="300" width="100" height="32" rx="6" fill="oklch(0.72 0.12 192)" cursor="pointer"/>
+  <text x="90" y="320" text-anchor="middle" fill="oklch(0.18 0.005 260)" font-family="Manrope, sans-serif" font-size="12" font-weight="600">
+    Send Email
+  </text>
+  
+  <rect x="160" y="300" width="100" height="32" rx="6" fill="oklch(0.25 0.005 260)" stroke="oklch(0.45 0 0)" stroke-width="1" cursor="pointer"/>
+  <text x="210" y="320" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="Manrope, sans-serif" font-size="12" font-weight="600">
+    LinkedIn DM
+  </text>
+  
+  <rect x="280" y="300" width="100" height="32" rx="6" fill="oklch(0.25 0.005 260)" stroke="oklch(0.45 0 0)" stroke-width="1" cursor="pointer"/>
+  <text x="330" y="320" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="Manrope, sans-serif" font-size="12" font-weight="600">
+    Twitter Reply
+  </text>
+  
+  <!-- Intelligence Indicators -->
+  <circle cx="520" cy="50" r="6" fill="#22c55e"/>
+  <text x="530" y="55" fill="#22c55e" font-family="JetBrains Mono, monospace" font-size="10">Active</text>
+  
+  <circle cx="520" cy="70" r="6" fill="oklch(0.72 0.12 192)"/>
+  <text x="530" y="75" fill="oklch(0.72 0.12 192)" font-family="JetBrains Mono, monospace" font-size="10">High Value</text>
+  
+  <!-- Context Score -->
+  <text x="40" y="360" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="10">
+    Context Score: 94/100 • Last Updated: 2 hours ago • AI Confidence: High
+  </text>
+</svg>

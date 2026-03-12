@@ -25,8 +25,9 @@
 
 <style>
   .social-proof {
-    padding: var(--section-py) 0;
-    background: var(--bg-raised);
+    padding: clamp(64px, 8vw, 100px) 0;
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg);
   }
   
   .social-proof-inner {
@@ -34,8 +35,8 @@
     margin: 0 auto;
     text-align: center;
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
   
   .social-proof-inner.visible {
@@ -44,78 +45,49 @@
   }
   
   .social-proof-text {
-    font-family: var(--font-body);
-    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    font-family: var(--font-display);
+    font-size: clamp(1.125rem, 2.5vw, 1.625rem);
     font-weight: 400;
     line-height: 1.6;
     color: var(--fg);
     font-style: italic;
-    margin-bottom: 2rem;
+    margin-bottom: 32px;
     position: relative;
-  }
-  
-  .social-proof-text::before,
-  .social-proof-text::after {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 2px;
-    background: var(--accent);
+    padding: 0 24px;
   }
   
   .social-proof-text::before {
-    top: -1rem;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .social-proof-text::after {
-    bottom: -1rem;
-    left: 50%;
-    transform: translateX(-50%);
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: var(--accent);
+    margin: 0 auto 32px;
   }
   
   .social-proof-attribution {
-    font-family: var(--font-mono);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
   }
   
   .social-proof-name {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--fg);
-    margin-bottom: 0.25rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 700;
   }
   
   .social-proof-role {
-    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
     color: var(--fg-muted);
-    line-height: 1.5;
   }
   
   @media (max-width: 768px) {
-    .social-proof {
-      padding: clamp(60px, 8vw, 100px) 0;
-    }
-    
     .social-proof-text {
-      font-size: 1.125rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .social-proof-text::before,
-    .social-proof-text::after {
-      width: 30px;
-    }
-    
-    .social-proof-name {
-      font-size: 0.85rem;
-    }
-    
-    .social-proof-role {
-      font-size: 0.75rem;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      padding: 0;
     }
   }
 </style>

@@ -1,0 +1,141 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="boxBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:oklch(0.21 0.005 260);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:oklch(0.18 0.005 260);stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="boxGlow">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="oklch(0.72 0.12 192)" flood-opacity="0.2"/>
+    </filter>
+    
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:oklch(0.72 0.12 192);stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:oklch(0.72 0.12 192);stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main Container -->
+  <rect x="20" y="20" width="760" height="560" rx="16" fill="url(#boxBg)" filter="url(#boxGlow)" stroke="oklch(0.72 0.12 192)" stroke-width="2"/>
+  
+  <!-- Header -->
+  <rect x="20" y="20" width="760" height="80" rx="16" fill="url(#headerGradient)"/>
+  <rect x="20" y="84" width="760" height="16" fill="url(#headerGradient)" opacity="0.3"/>
+  
+  <text x="60" y="55" fill="oklch(0.18 0.005 260)" font-family="Manrope, sans-serif" font-size="24" font-weight="700">
+    Interactive Action Items with Complete Context
+  </text>
+  <text x="60" y="78" fill="oklch(0.18 0.005 260)" font-family="JetBrains Mono, monospace" font-size="13" opacity="0.8">
+    Intelligent sales automation powered by multi-source intelligence
+  </text>
+  
+  <!-- Main Content Area -->
+  <rect x="40" y="120" width="720" height="440" rx="8" fill="oklch(0.16 0.005 260)" stroke="oklch(0.32 0.005 260)" stroke-width="1"/>
+  
+  <!-- Action Item 1 -->
+  <g id="action-1">
+    <rect x="60" y="140" width="680" height="120" rx="6" fill="oklch(0.18 0.005 260)" stroke="oklch(0.45 0 0)" stroke-width="1"/>
+    
+    <!-- Priority Badge -->
+    <rect x="80" y="155" width="60" height="20" rx="10" fill="#ef4444"/>
+    <text x="110" y="169" text-anchor="middle" fill="white" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600">P1</text>
+    
+    <!-- Contact Info -->
+    <text x="160" y="169" fill="oklch(0.92 0 0)" font-family="Manrope, sans-serif" font-size="14" font-weight="600">
+      Brian Brooks, CEO @ Bitfury
+    </text>
+    <text x="160" y="185" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="11">
+      brian@bitfury.com • LinkedIn: 12 mutual connections • Twitter: 45K followers
+    </text>
+    
+    <!-- Context Pills -->
+    <rect x="80" y="200" width="90" height="18" rx="9" fill="oklch(0.25 0.005 260)" stroke="#22c55e" stroke-width="1"/>
+    <text x="125" y="212" text-anchor="middle" fill="#22c55e" font-family="JetBrains Mono, monospace" font-size="9">Active on Twitter</text>
+    
+    <rect x="180" y="200" width="100" height="18" rx="9" fill="oklch(0.25 0.005 260)" stroke="#f59e0b" stroke-width="1"/>
+    <text x="230" y="212" text-anchor="middle" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="9">Mining Security Focus</text>
+    
+    <rect x="290" y="200" width="80" height="18" rx="9" fill="oklch(0.25 0.005 260)" stroke="#3b82f6" stroke-width="1"/>
+    <text x="330" y="212" text-anchor="middle" fill="#3b82f6" font-family="JetBrains Mono, monospace" font-size="9">2 PM EST Best</text>
+    
+    <!-- AI Suggestion -->
+    <text x="160" y="235" fill="oklch(0.72 0.12 192)" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">
+      💡 AI Suggestion: Mention recent mining pool decentralization concerns (posted yesterday)
+    </text>
+    <text x="160" y="250" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="10">
+      Confidence: 92% • Last intelligence update: 45 minutes ago
+    </text>
+  </g>
+  
+  <!-- Action Item 2 -->
+  <g id="action-2">
+    <rect x="60" y="280" width="680" height="120" rx="6" fill="oklch(0.18 0.005 260)" stroke="oklch(0.45 0 0)" stroke-width="1"/>
+    
+    <!-- Priority Badge -->
+    <rect x="80" y="295" width="60" height="20" rx="10" fill="#f59e0b"/>
+    <text x="110" y="309" text-anchor="middle" fill="white" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600">P2</text>
+    
+    <!-- Contact Info -->
+    <text x="160" y="309" fill="oklch(0.92 0 0)" font-family="Manrope, sans-serif" font-size="14" font-weight="600">
+      Kris Marszalek, CEO @ Crypto.com
+    </text>
+    <text x="160" y="325" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="11">
+      kris@crypto.com • LinkedIn: 8 mutual connections • Recent: Compliance focus
+    </text>
+    
+    <!-- Context Pills -->
+    <rect x="80" y="340" width="120" height="18" rx="9" fill="oklch(0.25 0.005 260)" stroke="#22c55e" stroke-width="1"/>
+    <text x="140" y="352" text-anchor="middle" fill="#22c55e" font-family="JetBrains Mono, monospace" font-size="9">Regulatory Expertise</text>
+    
+    <rect x="210" y="340" width="100" height="18" rx="9" fill="oklch(0.25 0.005 260)" stroke="#ef4444" stroke-width="1"/>
+    <text x="260" y="352" text-anchor="middle" fill="#ef4444" font-family="JetBrains Mono, monospace" font-size="9">Recent Hack ($34M)</text>
+    
+    <rect x="320" y="340" width="90" height="18" rx="9" fill="oklch(0.25 0.005 260)" stroke="#3b82f6" stroke-width="1"/>
+    <text x="365" y="352" text-anchor="middle" fill="#3b82f6" font-family="JetBrains Mono, monospace" font-size="9">Security Priority</text>
+    
+    <!-- AI Suggestion -->
+    <text x="160" y="375" fill="oklch(0.72 0.12 192)" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">
+      💡 AI Suggestion: Lead with post-incident security assessment offering
+    </text>
+    <text x="160" y="390" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="10">
+      Timing: Wait 2 weeks post-incident • Approach: Email then LinkedIn
+    </text>
+  </g>
+  
+  <!-- Action Item 3 -->
+  <g id="action-3">
+    <rect x="60" y="420" width="680" height="120" rx="6" fill="oklch(0.18 0.005 260)" stroke="oklch(0.45 0 0)" stroke-width="1"/>
+    
+    <!-- Priority Badge -->
+    <rect x="80" y="435" width="60" height="20" rx="10" fill="#3b82f6"/>
+    <text x="110" y="449" text-anchor="middle" fill="white" font-family="JetBrains Mono, monospace" font-size="10" font-weight="600">P3</text>
+    
+    <!-- Contact Info -->
+    <text x="160" y="449" fill="oklch(0.92 0 0)" font-family="Manrope, sans-serif" font-size="14" font-weight="600">
+      Sam Bankman-Fried, Founder @ Alameda Research
+    </text>
+    <text x="160" y="465" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="11">
+      sam@alameda-research.com • Status: Incarcerated • Priority: Monitor only
+    </text>
+    
+    <!-- Context Pills -->
+    <rect x="80" y="480" width="100" height="18" rx="9" fill="oklch(0.25 0.005 260)" stroke="#ef4444" stroke-width="1"/>
+    <text x="130" y="492" text-anchor="middle" fill="#ef4444" font-family="JetBrains Mono, monospace" font-size="9">Legal Issues</text>
+    
+    <rect x="190" y="480" width="80" height="18" rx="9" fill="oklch(0.25 0.005 260)" stroke="#6b7280" stroke-width="1"/>
+    <text x="230" y="492" text-anchor="middle" fill="#6b7280" font-family="JetBrains Mono, monospace" font-size="9">Unavailable</text>
+    
+    <!-- AI Suggestion -->
+    <text x="160" y="515" fill="oklch(0.72 0.12 192)" font-family="JetBrains Mono, monospace" font-size="10" font-weight="500">
+      💡 AI Suggestion: Remove from active outreach, monitor for status changes
+    </text>
+    <text x="160" y="530" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="10">
+      Intelligence: Auto-flagged for legal status • Next review: Q4 2026
+    </text>
+  </g>
+  
+  <!-- Footer Stats -->
+  <text x="60" y="580" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="11">
+    📊 Pipeline Intelligence: 756 contacts • 382 companies • 94% context completeness • Real-time updates enabled
+  </text>
+</svg>

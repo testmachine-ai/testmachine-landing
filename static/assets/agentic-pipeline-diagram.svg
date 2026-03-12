@@ -1,0 +1,158 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:oklch(0.20 0.005 260);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:oklch(0.16 0.005 260);stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:oklch(0.80 0.12 192);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:oklch(0.65 0.12 192);stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+    
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="oklch(0.72 0.12 192)" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Title -->
+  <text x="600" y="50" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="Manrope, sans-serif" font-size="28" font-weight="600">
+    The Agentic Pipeline in Action
+  </text>
+  
+  <text x="600" y="78" text-anchor="middle" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="14">
+    Automated prospect discovery and qualification without human intervention
+  </text>
+  
+  <!-- GitHub Repository Discovery -->
+  <g id="github-discovery">
+    <rect x="50" y="120" width="200" height="120" rx="8" fill="oklch(0.21 0.005 260)" stroke="oklch(0.72 0.12 192)" stroke-width="2"/>
+    <text x="150" y="145" text-anchor="middle" fill="oklch(0.72 0.12 192)" font-family="Manrope, sans-serif" font-size="16" font-weight="600">GitHub Scanner</text>
+    <text x="150" y="165" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="12">Automated Repository</text>
+    <text x="150" y="180" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="12">Discovery</text>
+    
+    <!-- Scanner icons -->
+    <circle cx="80" cy="210" r="8" fill="oklch(0.72 0.12 192)" opacity="0.6"/>
+    <circle cx="120" cy="210" r="8" fill="oklch(0.72 0.12 192)" opacity="0.8"/>
+    <circle cx="160" cy="210" r="8" fill="oklch(0.72 0.12 192)" opacity="0.4"/>
+    <circle cx="200" cy="210" r="8" fill="oklch(0.72 0.12 192)" opacity="0.9"/>
+  </g>
+  
+  <!-- Security Incident Tracking -->
+  <g id="security-tracking">
+    <rect x="50" y="280" width="200" height="120" rx="8" fill="oklch(0.21 0.005 260)" stroke="oklch(0.72 0.12 192)" stroke-width="2"/>
+    <text x="150" y="305" text-anchor="middle" fill="oklch(0.72 0.12 192)" font-family="Manrope, sans-serif" font-size="16" font-weight="600">Security Monitor</text>
+    <text x="150" y="325" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="12">Real-time Incident</text>
+    <text x="150" y="340" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="12">Tracking</text>
+    
+    <!-- Alert indicators -->
+    <circle cx="80" cy="370" r="6" fill="#ef4444" filter="url(#glow)"/>
+    <circle cx="120" cy="370" r="6" fill="#f59e0b"/>
+    <circle cx="160" cy="370" r="6" fill="#ef4444" filter="url(#glow)"/>
+    <circle cx="200" cy="370" r="6" fill="#f59e0b"/>
+  </g>
+  
+  <!-- Multi-source Intelligence -->
+  <g id="intelligence-sources">
+    <rect x="50" y="440" width="200" height="120" rx="8" fill="oklch(0.21 0.005 260)" stroke="oklch(0.72 0.12 192)" stroke-width="2"/>
+    <text x="150" y="465" text-anchor="middle" fill="oklch(0.72 0.12 192)" font-family="Manrope, sans-serif" font-size="16" font-weight="600">Intelligence Hub</text>
+    <text x="150" y="485" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="12">Multi-source Data</text>
+    <text x="150" y="500" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="12">Enrichment</text>
+    
+    <!-- Data streams -->
+    <line x1="70" y1="530" x2="230" y2="530" stroke="oklch(0.72 0.12 192)" stroke-width="2" opacity="0.6"/>
+    <line x1="70" y1="540" x2="210" y2="540" stroke="oklch(0.72 0.12 192)" stroke-width="2" opacity="0.4"/>
+    <line x1="70" y1="550" x2="220" y2="550" stroke="oklch(0.72 0.12 192)" stroke-width="2" opacity="0.8"/>
+  </g>
+  
+  <!-- Central Processing Engine -->
+  <g id="processing-engine">
+    <rect x="400" y="300" width="300" height="200" rx="12" fill="oklch(0.18 0.005 260)" stroke="oklch(0.72 0.12 192)" stroke-width="3"/>
+    <text x="550" y="330" text-anchor="middle" fill="oklch(0.72 0.12 192)" font-family="Manrope, sans-serif" font-size="20" font-weight="700">Agentic Processing Engine</text>
+    
+    <!-- Processing modules -->
+    <rect x="420" y="350" width="80" height="40" rx="6" fill="oklch(0.25 0.005 260)" stroke="oklch(0.45 0 0)" stroke-width="1"/>
+    <text x="460" y="375" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="10">Analysis</text>
+    
+    <rect x="510" y="350" width="80" height="40" rx="6" fill="oklch(0.25 0.005 260)" stroke="oklch(0.45 0 0)" stroke-width="1"/>
+    <text x="550" y="375" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="10">Correlation</text>
+    
+    <rect x="600" y="350" width="80" height="40" rx="6" fill="oklch(0.25 0.005 260)" stroke="oklch(0.45 0 0)" stroke-width="1"/>
+    <text x="640" y="375" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="10">Scoring</text>
+    
+    <rect x="465" y="410" width="80" height="40" rx="6" fill="oklch(0.25 0.005 260)" stroke="oklch(0.45 0 0)" stroke-width="1"/>
+    <text x="505" y="435" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="10">ML Models</text>
+    
+    <rect x="555" y="410" width="80" height="40" rx="6" fill="oklch(0.25 0.005 260)" stroke="oklch(0.45 0 0)" stroke-width="1"/>
+    <text x="595" y="435" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="10">Risk Engine</text>
+  </g>
+  
+  <!-- Qualified Prospects Output -->
+  <g id="prospect-output">
+    <rect x="950" y="200" width="200" height="180" rx="8" fill="oklch(0.21 0.005 260)" stroke="oklch(0.72 0.12 192)" stroke-width="2"/>
+    <text x="1050" y="225" text-anchor="middle" fill="oklch(0.72 0.12 192)" font-family="Manrope, sans-serif" font-size="16" font-weight="600">Qualified Prospects</text>
+    
+    <!-- Prospect cards -->
+    <rect x="970" y="240" width="160" height="25" rx="4" fill="oklch(0.25 0.005 260)" stroke="#22c55e" stroke-width="1"/>
+    <text x="980" y="257" fill="#22c55e" font-family="JetBrains Mono, monospace" font-size="10">High Priority Lead</text>
+    <circle cx="1120" cy="252" r="4" fill="#22c55e"/>
+    
+    <rect x="970" y="275" width="160" height="25" rx="4" fill="oklch(0.25 0.005 260)" stroke="#f59e0b" stroke-width="1"/>
+    <text x="980" y="292" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="10">Medium Priority</text>
+    <circle cx="1120" cy="287" r="4" fill="#f59e0b"/>
+    
+    <rect x="970" y="310" width="160" height="25" rx="4" fill="oklch(0.25 0.005 260)" stroke="#3b82f6" stroke-width="1"/>
+    <text x="980" y="327" fill="#3b82f6" font-family="JetBrains Mono, monospace" font-size="10">Research Target</text>
+    <circle cx="1120" cy="322" r="4" fill="#3b82f6"/>
+    
+    <rect x="970" y="345" width="160" height="25" rx="4" fill="oklch(0.25 0.005 260)" stroke="#22c55e" stroke-width="1"/>
+    <text x="980" y="362" fill="#22c55e" font-family="JetBrains Mono, monospace" font-size="10">Immediate Outreach</text>
+    <circle cx="1120" cy="357" r="4" fill="#22c55e"/>
+  </g>
+  
+  <!-- Data Flow Arrows -->
+  <line x1="250" y1="180" x2="400" y2="350" stroke="oklch(0.72 0.12 192)" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="250" y1="340" x2="400" y2="400" stroke="oklch(0.72 0.12 192)" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="250" y1="500" x2="400" y2="450" stroke="oklch(0.72 0.12 192)" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <line x1="700" y1="400" x2="950" y2="290" stroke="oklch(0.72 0.12 192)" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Automation Indicators -->
+  <g id="automation-badge">
+    <rect x="500" y="600" width="200" height="60" rx="30" fill="oklch(0.72 0.12 192)" opacity="0.2"/>
+    <text x="600" y="625" text-anchor="middle" fill="oklch(0.72 0.12 192)" font-family="Manrope, sans-serif" font-size="14" font-weight="600">100% AUTOMATED</text>
+    <text x="600" y="645" text-anchor="middle" fill="oklch(0.92 0 0)" font-family="JetBrains Mono, monospace" font-size="12">No Human Intervention Required</text>
+  </g>
+  
+  <!-- Performance Metrics -->
+  <g id="metrics">
+    <text x="50" y="720" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="12">24/7 Monitoring</text>
+    <text x="200" y="720" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="12">Real-time Processing</text>
+    <text x="400" y="720" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="12">Multi-source Intelligence</text>
+    <text x="650" y="720" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="12">Automated Qualification</text>
+    <text x="950" y="720" fill="oklch(0.65 0 0)" font-family="JetBrains Mono, monospace" font-size="12">Priority Scoring</text>
+  </g>
+  
+  <!-- Animated data flow particles -->
+  <g id="data-particles">
+    <circle cx="325" cy="265" r="3" fill="oklch(0.72 0.12 192)" opacity="0.8">
+      <animate attributeName="cx" values="325;370;400" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="775" cy="345" r="3" fill="oklch(0.72 0.12 192)" opacity="0.6">
+      <animate attributeName="cx" values="775;825;875" dur="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0.3;0.6" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

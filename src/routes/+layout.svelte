@@ -6,12 +6,48 @@
   import Footer from '$lib/components/layout/Footer.svelte';
   import '../app.css';
 
-  // Initialize theme on mount
+  // Initialize theme on mount + global scroll animations
   onMount(() => {
     if (browser) {
       const savedTheme = localStorage.getItem('tm-theme') || 'dark';
       document.documentElement.setAttribute('data-theme', savedTheme);
       theme.set(savedTheme);
+      
+      // Global IntersectionObserver for [data-animate] elements
+      // Mirrors the original site's scroll animation behavior
+      const animObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      
+      // Observe existing elements
+      document.querySelectorAll('[data-animate]').forEach(el => animObserver.observe(el));
+      
+      // Also observe dynamically added elements via MutationObserver
+      const mutObserver = new MutationObserver((mutations) => {
+        mutations.forEach(mutation => {
+          mutation.addedNodes.forEach(node => {
+            if (node instanceof HTMLElement) {
+              if (node.hasAttribute('data-animate')) {
+                animObserver.observe(node);
+              }
+              node.querySelectorAll?.('[data-animate]')?.forEach((el: Element) => animObserver.observe(el));
+            }
+          });
+        });
+      });
+      mutObserver.observe(document.body, { childList: true, subtree: true });
+      
+      return () => {
+        animObserver.disconnect();
+        mutObserver.disconnect();
+      };
     }
   });
 </script>

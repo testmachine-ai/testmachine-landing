@@ -8,7 +8,6 @@
   let navElement: HTMLElement;
   let mobileMenuOpen = false;
   
-  // Handle scroll state for glassmorphism effect
   function handleScroll() {
     scrolled = window.scrollY > 40;
   }
@@ -28,27 +27,23 @@
 
 <nav bind:this={navElement} class="nav" class:scrolled>
   <div class="nav-container">
-    <!-- Logo -->
     <a href="/" class="nav-logo">
       <img src="/assets/logo-icon-white.png" alt="" class="nav-logo-icon" />
       <span class="nav-logo-text">TestMachine</span>
     </a>
     
-    <!-- Desktop Navigation -->
     <div class="nav-links">
-      <a href="/" class="nav-link" class:active={$page.url.pathname === '/'}>Home</a>
-      <a href="/solutions" class="nav-link" class:active={$page.url.pathname === '/solutions'}>How It Works</a>
-      <a href="/products" class="nav-link" class:active={$page.url.pathname === '/products'}>Products</a>
-      <a href="/blog" class="nav-link" class:active={$page.url.pathname === '/blog'}>Blog</a>
-      <a href="/contact" class="nav-link" class:active={$page.url.pathname === '/contact'}>Contact</a>
+      <a href="/" class="nav-link" class:nav-link--active={$page.url.pathname === '/'}>Home</a>
+      <a href="/solutions" class="nav-link" class:nav-link--active={$page.url.pathname === '/solutions'}>How It Works</a>
+      <a href="/products" class="nav-link" class:nav-link--active={$page.url.pathname === '/products'}>Products</a>
+      <a href="/blog" class="nav-link" class:nav-link--active={$page.url.pathname === '/blog'}>Blog</a>
+      <a href="/contact" class="nav-link" class:nav-link--active={$page.url.pathname === '/contact'}>Contact</a>
     </div>
     
-    <!-- Actions -->
     <div class="nav-actions">
       <ThemeToggle />
       <a href="https://app.testmachine.ai/" class="btn btn--primary btn--nav">Launch App</a>
       
-      <!-- Hamburger -->
       <button 
         class="hamburger" 
         class:active={mobileMenuOpen}
@@ -64,7 +59,6 @@
   </div>
 </nav>
 
-<!-- Mobile Menu -->
 <MobileMenu 
   open={mobileMenuOpen} 
   on:close={closeMobileMenu}
@@ -76,19 +70,22 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
-    background: var(--nav-bg);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-bottom: 1px solid transparent;
-    transition: all var(--transition);
     height: var(--nav-h);
+    z-index: 1000;
+    background: var(--nav-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition), background var(--transition);
   }
   
   .nav.scrolled {
-    background: var(--nav-bg);
-    border-bottom-color: var(--border);
-    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.1);
+    border-bottom-color: var(--border-subtle);
+    background: oklch(0.18 0.005 260 / 0.95);
+  }
+  
+  :global([data-theme="light"]) .nav.scrolled {
+    background: oklch(0.97 0.003 260 / 0.95);
   }
   
   .nav-container {
@@ -104,65 +101,84 @@
   .nav-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-family: var(--font-mono);
-    font-weight: 700;
-    font-size: 1.125rem;
-    letter-spacing: 0.05em;
-    color: var(--fg);
-    transition: opacity var(--transition);
-  }
-  
-  .nav-logo:hover {
-    opacity: 0.8;
+    gap: 10px;
+    flex-shrink: 0;
   }
   
   .nav-logo-icon {
-    width: 28px;
-    height: 28px;
-    filter: var(--logo-filter);
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    filter: brightness(0) invert(70%) sepia(40%) saturate(500%) hue-rotate(130deg) brightness(1.05);
+    transition: filter var(--transition);
+  }
+  
+  :global([data-theme="light"]) .nav-logo-icon {
+    filter: brightness(0) invert(45%) sepia(50%) saturate(600%) hue-rotate(130deg);
+  }
+  
+  .nav-logo-text {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
   
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 32px;
   }
   
   .nav-link {
     font-family: var(--font-mono);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 500;
     color: var(--fg-muted);
     transition: color var(--transition);
     position: relative;
   }
   
-  .nav-link:hover {
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width var(--transition);
+  }
+  
+  .nav-link:hover,
+  .nav-link.nav-link--active {
     color: var(--fg);
   }
   
-  .nav-link.active {
+  .nav-link:hover::after,
+  .nav-link.nav-link--active::after {
+    width: 100%;
+  }
+  
+  .nav-link.nav-link--active {
     color: var(--accent);
   }
   
   .nav-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
-  }
-  
-  .btn--nav {
-    font-size: 0.75rem;
-    padding: 10px 20px;
+    gap: 12px;
   }
   
   .hamburger {
     display: none;
+    width: 40px;
+    height: 40px;
     flex-direction: column;
-    justify-content: space-between;
-    width: 24px;
-    height: 18px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    z-index: 1001;
     background: none;
     border: none;
     cursor: pointer;
@@ -170,15 +186,15 @@
   
   .hamburger span {
     display: block;
-    width: 100%;
-    height: 2px;
+    width: 20px;
+    height: 1.5px;
     background: var(--fg);
-    transition: all 0.3s ease;
+    transition: all var(--transition);
     transform-origin: center;
   }
   
   .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: translateY(6.5px) rotate(45deg);
   }
   
   .hamburger.active span:nth-child(2) {
@@ -186,10 +202,10 @@
   }
   
   .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
+    transform: translateY(-6.5px) rotate(-45deg);
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .nav-links {
       display: none;
     }
@@ -197,9 +213,21 @@
     .hamburger {
       display: flex;
     }
+  }
+  
+  @media (max-width: 768px) {
+    .nav-logo-icon {
+      width: 34px;
+      height: 34px;
+    }
     
-    .btn--nav {
-      display: none;
+    .nav-logo-text {
+      font-size: 1.3rem;
+    }
+    
+    .hamburger {
+      width: 44px;
+      height: 44px;
     }
   }
 </style>

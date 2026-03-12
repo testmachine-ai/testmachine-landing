@@ -10,7 +10,7 @@
   }
   
   const stats: Stat[] = [
-    { value: 8.1, suffix: 'M+', label: 'Tokens analyzed', delay: 0 },
+    { value: 1, suffix: 'M+', label: 'Tokens analyzed', delay: 0 },
     { value: 100, suffix: '%', label: 'Rug pull detection accuracy', delay: 200 },
     { value: 120, prefix: '$', suffix: 'M+', label: 'In rug pulls identified from 11K token validation set', delay: 400 },
     { value: 0, suffix: '', label: 'False positives in Coinbase evaluation', delay: 600 }
@@ -23,7 +23,6 @@
   onMount(() => {
     mounted = true;
     
-    // Intersection Observer for animation trigger
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -61,11 +60,8 @@
     function update(currentTime: number) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
-      // Easing function (ease-out-quart)
       const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4);
       const easedProgress = easeOutQuart(progress);
-      
       const currentValue = stat.value * easedProgress;
       const displayValue = stat.value % 1 === 0 
         ? Math.floor(currentValue) 
@@ -87,7 +83,7 @@
     <span class="section-label" class:visible={mounted}>By the Numbers</span>
     <div bind:this={containerElement} class="stats-grid" class:visible={mounted}>
       {#each stats as stat, index}
-        <div class="stats-card" style="--delay: {index * 100}ms">
+        <div class="stats-card" style="--i:{index}">
           <span 
             class="stats-number" 
             data-stat={index}
@@ -104,15 +100,22 @@
 <style>
   .stats {
     padding: var(--section-py) 0;
-    background: var(--bg);
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--bg-raised);
   }
   
   .section-label {
     display: block;
-    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--fg-muted);
+    margin-bottom: 0.5rem;
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.6s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
   
   .section-label.visible {
@@ -122,13 +125,11 @@
   
   .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap);
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-    transition-delay: 0.2s;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
   
   .stats-grid.visible {
@@ -138,81 +139,54 @@
   
   .stats-card {
     text-align: center;
-    padding: 2.5rem 1.5rem;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideInUp 0.6s ease forwards;
-    animation-delay: var(--delay);
+    padding: 36px 28px;
+    border: 1px solid var(--border-subtle);
+    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    transition-delay: calc(var(--i, 0) * 0.08s);
   }
   
   .stats-card:hover {
-    transform: translateY(-8px);
-    background: var(--bg-raised);
-    border-color: var(--accent);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--border);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px oklch(0 0 0 / 0.12);
   }
   
   .stats-number {
     display: block;
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
     font-weight: 800;
-    color: var(--accent);
+    letter-spacing: -0.03em;
     line-height: 1;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+    color: var(--accent);
   }
   
   .stats-label {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
     color: var(--fg-muted);
     line-height: 1.5;
-    font-weight: 500;
-  }
-  
-  @keyframes slideInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
   
   @media (max-width: 768px) {
     .stats-grid {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    
-    .stats-card {
-      padding: 2rem 1rem;
-    }
-    
-    .stats-number {
-      font-size: 2.5rem;
-      margin-bottom: 0.75rem;
-    }
-    
-    .stats-label {
-      font-size: 0.85rem;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   
   @media (max-width: 480px) {
     .stats-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
     
     .stats-card {
-      padding: 1.5rem 1rem;
+      padding: 24px 14px;
     }
     
     .stats-number {
-      font-size: 2rem;
+      font-size: 1.75rem;
     }
   }
 </style>
