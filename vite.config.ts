@@ -4,6 +4,11 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [sveltekit()],
   
+  server: {
+    host: true,
+    allowedHosts: ['fermihome.local', 'FERMIHOME.local']
+  },
+  
   optimizeDeps: {
     include: ['intersection-observer']
   },
