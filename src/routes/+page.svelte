@@ -2,7 +2,10 @@
   import Hero from '$lib/components/sections/Hero.svelte';
   import SocialProof from '$lib/components/sections/SocialProof.svelte';
   import Stats from '$lib/components/sections/Stats.svelte';
-  // Other section imports will be added as components are created
+  import Problem from '$lib/components/sections/Problem.svelte';
+  import Comparison from '$lib/components/sections/Comparison.svelte';
+  import Partnerships from '$lib/components/sections/Partnerships.svelte';
+  import Contact from '$lib/components/sections/Contact.svelte';
 </script>
 
 <svelte:head>
@@ -36,20 +39,28 @@
 <!-- Statistics -->
 <Stats />
 
-<!-- Other sections will be added as components are created -->
-<section class="sections-placeholder">
+<!-- Problem Statement -->
+<Problem />
+
+<!-- Dynamic vs Static Comparison -->
+<Comparison />
+
+<!-- Partnerships/Trusted By -->
+<Partnerships />
+
+<!-- Contact Form -->
+<Contact />
+
+<!-- Note: Complex sections like Predator Technology, Azimuth, Differentiator, and Backed By will be added in future phases -->
+<section class="remaining-sections-placeholder">
   <div class="container">
     <div class="placeholder-content">
-      <h2 class="section-title">Additional Sections Coming Soon</h2>
+      <h2 class="section-title">Advanced Sections Coming Soon</h2>
       <ul style="list-style: disc; margin-left: 2rem; color: var(--fg-muted);">
-        <li>Problem Statement</li>
-        <li>Dynamic vs Static Comparison</li>
-        <li>Predator Technology Demo</li>
-        <li>Azimuth Analysis Simulation</li>
-        <li>Differentiator Comparison</li>
-        <li>Backed By Investors</li>
-        <li>Partnerships Grid</li>
-        <li>Contact Form</li>
+        <li>Predator Technology Demo (Interactive Terminal)</li>
+        <li>Azimuth Analysis Simulation (Complex UI)</li>
+        <li>Differentiator Comparison (Advanced Layout)</li>
+        <li>Backed By Investors (Logo Grid)</li>
       </ul>
     </div>
   </div>
@@ -57,7 +68,7 @@
 
 <style>
   .trajectory-placeholder,
-  .sections-placeholder {
+  .remaining-sections-placeholder {
     padding: var(--section-py) 0;
     background: var(--bg-deeper);
   }
@@ -73,11 +84,11 @@
     margin: 1rem 0;
   }
   
-  .sections-placeholder {
+  .remaining-sections-placeholder {
     background: var(--bg-raised);
   }
   
-  .sections-placeholder ul {
+  .remaining-sections-placeholder ul {
     text-align: left;
     font-family: var(--font-mono);
     font-size: 0.875rem;
