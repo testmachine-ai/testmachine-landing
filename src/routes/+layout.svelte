@@ -9,7 +9,7 @@
   // Initialize theme on mount + global scroll animations
   onMount(() => {
     if (browser) {
-      const savedTheme = localStorage.getItem('tm-theme') || 'dark';
+      const savedTheme = (localStorage.getItem('tm-theme') || 'dark') as import('$lib/stores/theme').Theme;
       document.documentElement.setAttribute('data-theme', savedTheme);
       theme.set(savedTheme);
       

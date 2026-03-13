@@ -37,7 +37,7 @@
       <a href="/solutions" class="nav-link" class:nav-link--active={$page.url.pathname === '/solutions'}>How It Works</a>
       <a href="/products" class="nav-link" class:nav-link--active={$page.url.pathname === '/products'}>Products</a>
       <a href="/blog" class="nav-link" class:nav-link--active={$page.url.pathname === '/blog'}>Blog</a>
-      <a href="/contact" class="nav-link" class:nav-link--active={$page.url.pathname === '/contact'}>Contact</a>
+      <a href="/#contact" class="nav-link">Contact</a>
     </div>
     
     <div class="nav-actions">

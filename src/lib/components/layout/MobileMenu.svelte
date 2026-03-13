@@ -45,10 +45,9 @@
     >
       Blog
     </a>
-    <a 
-      href="/contact" 
+    <a
+      href="/#contact"
       class="mobile-menu-link"
-      class:active={$page.url.pathname === '/contact'}
       on:click={handleLinkClick}
     >
       Contact
