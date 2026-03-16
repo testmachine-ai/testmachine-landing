@@ -11,6 +11,8 @@ env:
 jobs:
   deploy-staging:
     runs-on: ubuntu-latest
+    # Skip until staging infrastructure has been provisioned via Terraform
+    if: ${{ vars.LANDING_STAGING_BUCKET != '' && secrets.AWS_STAGING_ROLE_ARN != '' }}
     permissions:
       id-token: write
       contents: read
