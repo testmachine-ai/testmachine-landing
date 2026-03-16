@@ -433,7 +433,8 @@ resource "aws_cloudfront_function" "staging_viewer_request" {
           statusCode: 401,
           statusDescription: 'Unauthorized',
           headers: {
-            'www-authenticate': { value: 'Basic realm="TestMachine Staging"' }
+            'www-authenticate': { value: 'Basic realm="TestMachine Staging"' },
+            'cache-control': { value: 'no-store' }
           }
         };
       }
@@ -478,6 +479,7 @@ resource "aws_cloudfront_distribution" "landing_staging" {
 
     forwarded_values {
       query_string = false
+      headers      = ["Authorization"]
       cookies {
         forward = "none"
       }
