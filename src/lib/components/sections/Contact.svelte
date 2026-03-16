@@ -14,6 +14,10 @@
   
   let formErrors: Record<string, string> = {};
   let isSubmitting = false;
+  let submitError = false;
+
+  const HUBSPOT_PORTAL_ID = '23470671';
+  const HUBSPOT_FORM_GUID = '19da09d1-35e3-4e6e-b8a0-1bc7e51a3929';
   
   onMount(() => {
     mounted = true;
@@ -33,13 +37,42 @@
     event.preventDefault();
     if (!validateForm()) return;
     isSubmitting = true;
+    submitError = false;
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const hutk = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('hubspotutk='))
+        ?.split('=')[1];
+
+      const res = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_GUID}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fields: [
+              { name: 'firstname', value: formData.firstName },
+              { name: 'lastname',  value: formData.lastName },
+              { name: 'email',     value: formData.email },
+              { name: 'message',   value: formData.message }
+            ],
+            context: {
+              ...(hutk ? { hutk } : {}),
+              pageUri: window.location.href,
+              pageName: document.title
+            }
+          })
+        }
+      );
+
+      if (!res.ok) throw new Error(`HubSpot returned ${res.status}`);
+
       showSuccess = true;
       formData = { firstName: '', lastName: '', email: '', message: '', newsletter: false };
       setTimeout(() => { showSuccess = false; }, 5000);
     } catch (error) {
       console.error('Form submission error:', error);
+      submitError = true;
     } finally {
       isSubmitting = false;
     }
@@ -129,6 +162,10 @@
             <button type="submit" class="btn btn--primary btn--block" disabled={isSubmitting}>
               {isSubmitting ? 'Sending...' : 'Submit'}
             </button>
+
+            {#if submitError}
+              <p class="form-error">Something went wrong — please try again or email us directly.</p>
+            {/if}
           </form>
         {:else}
           <div class="form-success active">
@@ -378,6 +415,13 @@
   .form-success-text {
     font-size: 0.875rem;
     color: var(--fg-muted);
+  }
+
+  .form-error {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: #f87171;
+    margin-top: 4px;
   }
   
   @media (max-width: 1024px) {
