@@ -30,6 +30,9 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          PUBLIC_GA_ID: G-P68WYR8NL7
+          PUBLIC_GAINSIGHT_ID: AP-YYLJ60QOHXIJ-1
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
