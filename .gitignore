@@ -39,3 +39,9 @@ coverage/
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
+
+# Terraform — provider cache and local state (commit .terraform.lock.hcl)
+**/.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
