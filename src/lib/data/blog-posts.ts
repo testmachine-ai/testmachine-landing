@@ -74,7 +74,7 @@ export const blogPosts: BlogPost[] = [
 
     <p>Together, Coinbase and TestMachine are proving that scale and trust can move in lockstep, and that the next era of decentralized trading will be defined by intelligence, not compromise.</p>
 
-    <p>Learn more about how TestMachine powers token safety at <a href="https://testmachine.ai/">testmachine.ai</a> or reach us at contact@testmachine.ai. Experience and learn more about <a href="https://www.coinbase.com/trade-crypto/dex">Coinbase DEX</a>.</p>
+    <p>Learn more about how TestMachine powers token safety at <a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">testmachine.ai</a> or reach us at contact@testmachine.ai. Experience and learn more about <a href="https://www.coinbase.com/trade-crypto/dex" target="_blank" rel="noopener noreferrer">Coinbase DEX</a>.</p>
 
     <p class="article-disclaimer"><em>Disclaimer: Coinbase &amp; TestMachine make no guarantees that users will not be exposed to malicious tokens on Coinbase DEX.</em></p>`
   },
@@ -173,7 +173,7 @@ export const blogPosts: BlogPost[] = [
 
     <p>At TestMachine, we specialize in uncovering threats in smart contracts before they can be exploited. Automated security analysis is critical in the rapidly evolving world of blockchain and smart contracts, and TestMachine's Predator platform uses a technique called reinforcement learning to autonomously scan and detect vulnerabilities in smart contracts at scale—without human intervention.</p>
 
-    <p>Recently, Predator uncovered a severe vulnerability in the <a href="http://app.virtuals.io/">Virtuals AI Agent</a> protocol that could allow an attacker to artificially inflate token balances to near-maximum values, posing a significant risk to users and market integrity. This vulnerability was present despite the fact that Virtuals participated in at least <a href="https://whitepaper.virtuals.io/about-virtuals/important-links/security-audits">two human-conducted audits</a> from major auditing firms in the last year. We have reported the flaw to the Virtuals security team.</p>
+    <p>Recently, Predator uncovered a severe vulnerability in the <a href="http://app.virtuals.io/" target="_blank" rel="noopener noreferrer">Virtuals AI Agent</a> protocol that could allow an attacker to artificially inflate token balances to near-maximum values, posing a significant risk to users and market integrity. This vulnerability was present despite the fact that Virtuals participated in at least <a href="https://whitepaper.virtuals.io/about-virtuals/important-links/security-audits" target="_blank" rel="noopener noreferrer">two human-conducted audits</a> from major auditing firms in the last year. We have reported the flaw to the Virtuals security team.</p>
 
     <p>Predator, on the other hand, can scan tens of thousands of tokens per hour, while human auditors cannot even identify such subtle vulnerabilities in a single contract over the course of a several week audit.</p>
 
@@ -181,7 +181,7 @@ export const blogPosts: BlogPost[] = [
 
     <h3>What is Virtuals.io?</h3>
 
-    <p><a href="http://virtuals.io/">Virtuals.io</a> is a decentralized AI agent platform that transforms autonomous, multimodal agents into tokenized, co-owned digital entities. Each agent operates across multiple platforms—games, social media, chat apps—with consistent memory and personality, powered by a modular AI framework called GAME. Using blockchain infrastructure, Virtuals enables fractional ownership of agents via fungible tokens, decentralized governance, and on-chain revenue sharing. Agents can earn and spend crypto, evolve through community contributions, and monetize through real-world applications, such as live-streaming or in-game interactions. By combining AI autonomy, immersive interaction, and tokenized economics, Virtuals.io pioneers a new class of intelligent, composable, and investable digital actors.</p>
+    <p><a href="http://virtuals.io/" target="_blank" rel="noopener noreferrer">Virtuals.io</a> is a decentralized AI agent platform that transforms autonomous, multimodal agents into tokenized, co-owned digital entities. Each agent operates across multiple platforms—games, social media, chat apps—with consistent memory and personality, powered by a modular AI framework called GAME. Using blockchain infrastructure, Virtuals enables fractional ownership of agents via fungible tokens, decentralized governance, and on-chain revenue sharing. Agents can earn and spend crypto, evolve through community contributions, and monetize through real-world applications, such as live-streaming or in-game interactions. By combining AI autonomy, immersive interaction, and tokenized economics, Virtuals.io pioneers a new class of intelligent, composable, and investable digital actors.</p>
 
     <p>Virtuals tokens are used within the ecosystem to facilitate operations, with taxation mechanisms built into their contracts to support liquidity, development, and operational costs. However, flaws in these taxation mechanisms can lead to unintended security vulnerabilities, as demonstrated by the issue Predator identified.</p>
 
@@ -247,7 +247,7 @@ export const blogPosts: BlogPost[] = [
 
     <p>With Predator, TestMachine is leading the charge in proactive security, uncovering exploits before they can be weaponized. As the DeFi and AI-agent space continues to expand, projects must embrace automated, self-evolving security tools to stay ahead of attackers. It's security through offense rather than passive inspection.</p>
 
-    <p>Want to ensure your contracts are secure? <a href="https://app.testmachine.ai/">Run a Predator scan today</a>.</p>`
+    <p>Want to ensure your contracts are secure? <a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">Run a Token Custody scan today</a>.</p>`
   },
   {
     slug: 'funding-announcement',
@@ -257,7 +257,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "TestMachine has raised $6.5M to scale Predator, its AI platform analyzing 1M+ tokens and delivering real-time blockchain security for exchanges, developers, and DeFi.",
     content: `<p><em>TestMachine has raised $6.5M to scale Predator, its AI platform monitoring 1M+ tokens and delivering real-time blockchain security for exchanges, developers, and DeFi.</em></p>
 
-    <p><a href="http://www.testmachine.ai/">TestMachine</a>, the AI-driven blockchain security company safeguarding billions in digital assets, today announced it has raised $6.5 million in venture funding to accelerate the global rollout of its flagship platform, Predator. The round was led by BlockChange Ventures, Decasonic, Delphi Ventures, and New Form Capital. The investment will accelerate the development and deployment of TestMachine's flagship AI platform, Predator, which is now fully integrated into Coinbase's token security and deployment process.</p>
+    <p><a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">TestMachine</a>, the AI-driven blockchain security company safeguarding billions in digital assets, today announced it has raised $6.5 million in venture funding to accelerate the global rollout of its flagship platform, Predator. The round was led by BlockChange Ventures, Decasonic, Delphi Ventures, and New Form Capital. The investment will accelerate the development and deployment of TestMachine's flagship AI platform, Predator, which is now fully integrated into Coinbase's token security and deployment process.</p>
 
     <p>Other participants in the round included Baboon, UDHC, Auros Global, Generative Ventures, Contango Digital and Santiago Santos. The funding will support the further development of the Predator high-fidelity simulation capabilities.</p>
 
@@ -275,13 +275,13 @@ export const blogPosts: BlogPost[] = [
 
     <h3>About TestMachine</h3>
 
-    <p><a href="http://www.testmachine.ai/">TestMachine</a> was founded in 2021 with a core mission: to ensure the safety, transparency, and reliability of smart contracts, digital assets, and blockchain infrastructure—empowering a secure and trustworthy decentralized future. TestMachine's flagship technology, Predator, provides developers, DeFi protocols, traders, and exchanges with an AI-driven, continuous security platform that detects, mitigates, and prevents risk in real time.</p>
+    <p><a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">TestMachine</a> was founded in 2021 with a core mission: to ensure the safety, transparency, and reliability of smart contracts, digital assets, and blockchain infrastructure—empowering a secure and trustworthy decentralized future. TestMachine's flagship technology, Predator, provides developers, DeFi protocols, traders, and exchanges with an AI-driven, continuous security platform that detects, mitigates, and prevents risk in real time.</p>
 
     <p>TestMachine's Predator leverages AI to dynamically identify and exploit smart contract vulnerabilities. Unlike traditional code audits, it offers a complete view of blockchain assets—from economic risk to software vulnerabilities and semantic behaviors. By combining continuous testing with real-time behavioral analysis, TestMachine delivers the most proactive and adaptive layer of security in Web3.</p>
 
     <p>TestMachine is currently monitoring over 1 million tokens in real time, surfacing an unprecedented volume of real-world risks. From a validation set of 11,000 tokens, the system correctly identified 100% of rug pulls, totaling over $120M in value.</p>
 
-    <p>Users can visit <a href="http://www.testmachine.ai/">www.testmachine.ai</a> for more information and to get started today!</p>`
+    <p>Users can visit <a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">www.testmachine.ai</a> for more information and to get started today!</p>`
   }
 ];
 

@@ -6,15 +6,15 @@
 </script>
 
 <svelte:head>
-  <title>Signals in Noise — TestMachine</title>
-  <meta name="description" content="Insights on Web3 security, AI-driven smart contract auditing, and the future of blockchain infrastructure from the TestMachine team." />
+  <title>Beyond the Audit — TestMachine</title>
+  <meta name="description" content="Insights on real exploits, token risk, and AI systems that test security through execution — not static analysis." />
 </svelte:head>
 
 <!-- Blog Hero -->
 <section class="blog-hero">
   <div class="container">
-    <h1 class="blog-hero-title" data-animate>Signals in Noise</h1>
-    <p class="blog-hero-desc" data-animate>Insights on AI-driven security and the future of Web3 infrastructure.</p>
+    <h1 class="blog-hero-title" data-animate>Beyond the Audit</h1>
+    <p class="blog-hero-desc" data-animate>Insights on real exploits, token risk, and AI systems that test security through execution — not static analysis.</p>
   </div>
 </section>
 
