@@ -12,7 +12,7 @@
       </h1>
 
       <p class="hero-subtitle">
-        Two products. Zero false positives. From token risk scoring to deep protocol analysis — security that scales with the chain.
+        From token risk scoring to deep protocol analysis — security that scales with the chain. Two products. Zero false positives.
       </p>
 
       <div class="hero-actions">
