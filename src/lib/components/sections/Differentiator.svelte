@@ -82,7 +82,7 @@
       </div>
     </div>
     <div class="diff-cta" data-animate>
-      <a href="/products" class="btn btn--secondary">Explore Products &rarr;</a>
+      <a href="/products/token-custody" class="btn btn--secondary">Explore Products &rarr;</a>
     </div>
   </div>
 </section>
