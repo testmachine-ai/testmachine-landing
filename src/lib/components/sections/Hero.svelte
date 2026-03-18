@@ -22,7 +22,7 @@
       </h1>
       
       <p class="hero-subtitle" class:visible={mounted}>
-        RL agents that attack your contracts. Risk scores across 8M+ tokens. 
+        RL agents that attack your contracts. Risk scores across 9M+ tokens. 
         Security that never sleeps.
       </p>
       

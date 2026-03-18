@@ -946,7 +946,7 @@
   <div class="container">
     <div class="eng-section-header" data-animate><span class="section-label">Products</span><h2 class="eng-section-title">Powered by the engine</h2></div>
     <div class="eng-products-grid" data-animate>
-      <div class="eng-product-card"><div class="eng-product-label">Product 01</div><h3>Token Explorer</h3><p>Risk scoring for 8M+ tokens across all EVM chains. Every token analyzed for confiscation, hidden minting, proxy manipulation, and more. Scores from &minus;100 (critical) to +100 (safe).</p></div>
+      <div class="eng-product-card"><div class="eng-product-label">Product 01</div><h3>Token Explorer</h3><p>Risk scoring for 9M+ tokens across all EVM chains. Every token analyzed for confiscation, hidden minting, proxy manipulation, and more. Scores from &minus;100 (critical) to +100 (safe).</p></div>
       <div class="eng-product-card"><div class="eng-product-label">Product 02</div><h3>Azimuth</h3><p>Deep security analysis for protocols and smart contracts. RL agents attack your code, generate proof-of-concept exploits, and verify that fixes work. Every finding confirmed.</p></div>
     </div>
   </div>

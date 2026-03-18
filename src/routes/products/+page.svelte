@@ -296,7 +296,7 @@
 
 <svelte:head>
   <title>Products — TestMachine</title>
-  <meta name="description" content="Your security stack: Token Explorer for 8M+ tokens and Azimuth deep security analysis. Zero false positives." />
+  <meta name="description" content="Your security stack: Token Explorer for 9M+ tokens and Azimuth deep security analysis. Zero false positives." />
   <meta name="keywords" content="Web3 security, token risk scoring, smart contract audit, blockchain security, AI security, DeFi security, token explorer, azimuth" />
 </svelte:head>
 
@@ -348,7 +348,7 @@
     <div class="pd-section-header" data-animate>
       <span class="section-label">Product 01</span>
       <h2 class="pd-section-title">Token Explorer</h2>
-      <p class="pd-section-desc">Risk scoring for 8M+ tokens across every EVM chain. Autonomous AI agents probe every function of every contract, classifying behaviors and producing risk scores from &minus;100 (critical danger) to +100 (safe). Continuously re-tested as contracts change.</p>
+      <p class="pd-section-desc">Risk scoring for 9M+ tokens across every EVM chain. Autonomous AI agents probe every function of every contract, classifying behaviors and producing risk scores from &minus;100 (critical danger) to +100 (safe). Continuously re-tested as contracts change.</p>
       <div class="pd-section-features">
         <span class="pd-feature">8.1M+ tokens</span>
         <span class="pd-feature">7 EVM chains</span>
@@ -644,7 +644,7 @@
 <section class="pd-cta" id="cta">
   <div class="container" data-animate>
     <h2 class="pd-cta-title">Start securing your protocol</h2>
-    <p class="pd-cta-sub">Explore 8M+ tokens. Run deep security analysis. Zero false positives. All in one platform.</p>
+    <p class="pd-cta-sub">Explore 9M+ tokens. Run deep security analysis. Zero false positives. All in one platform.</p>
     <a href="https://app.testmachine.ai/" class="btn btn--primary">Launch App</a>
   </div>
 </section>
