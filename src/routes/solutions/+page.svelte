@@ -934,7 +934,7 @@
     <div class="eng-section-header" data-animate><span class="section-label">Infrastructure</span><h2 class="eng-section-title">The infrastructure moat</h2><p class="eng-section-desc">This isn't something you can replicate with a prompt. TestMachine's engine requires dedicated infrastructure that runs at scale, continuously.</p></div>
     <div class="eng-infra-grid" data-animate>
       <div class="eng-infra-card"><span class="eng-infra-icon" aria-hidden="true">&#9878;</span><h3>Forked Environments</h3><p>Full blockchain fork per protocol analysis. Real state, real balances, real contract code.</p></div>
-      <div class="eng-infra-card"><span class="eng-infra-icon" aria-hidden="true">&#9889;</span><h3>GPU Compute</h3><p>Hundreds of GPU hours per analysis. RL agent training and exploration at scale.</p></div>
+      <div class="eng-infra-card"><span class="eng-infra-icon" aria-hidden="true">&#9878;</span><h3>Zero False Positives</h3><p>RL agents don't just find vulnerabilities — they exploit them on forked chains. Every finding is verified with a working proof-of-concept.</p></div>
       <div class="eng-infra-card"><span class="eng-infra-icon" aria-hidden="true">&#8634;</span><h3>Continuous Re-testing</h3><p>Contracts are re-analyzed as they upgrade. Markets shift, new functions appear &mdash; the engine adapts.</p></div>
       <div class="eng-infra-card"><span class="eng-infra-icon" aria-hidden="true">&#127760;</span><h3>All EVM Chains</h3><p>Ethereum, Base, Arbitrum, Optimism, Polygon, Avalanche, BSC. One engine, full coverage.</p></div>
     </div>
