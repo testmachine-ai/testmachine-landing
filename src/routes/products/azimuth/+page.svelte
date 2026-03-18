@@ -62,7 +62,7 @@
 
 <svelte:head>
   <title>Azimuth — TestMachine</title>
-  <meta name="description" content="Azimuth — RL-powered deep security analysis for protocols and smart contracts. Every finding comes with a working proof-of-concept exploit. Zero false positives." />
+  <meta name="description" content="Azimuth deploys AI agents that actively attack your smart contracts. Running against forked mainnet with real transaction execution. Zero false positives — results in minutes, not weeks." />
   <meta name="keywords" content="Web3 security, smart contract audit, blockchain security, AI security, DeFi security, protocol analysis, penetration testing, azimuth" />
 </svelte:head>
 
@@ -72,9 +72,9 @@
      ========================================================= -->
 <section class="pd-hero">
   <div class="container">
-    <span class="pd-hero-tag">Azimuth</span>
-    <h1 class="pd-hero-title">Deep Protocol Security</h1>
-    <p class="pd-hero-sub">RL-powered agents attack your code in sandboxed forked environments. Every finding comes with a <strong>working proof-of-concept exploit.</strong> If it's reported, it was actually exploited.</p>
+    <span class="pd-hero-tag">Automated Security Analysis</span>
+    <h1 class="pd-hero-title">AI Agents That Actively Attack Your Smart Contracts</h1>
+    <p class="pd-hero-sub">Running against forked mainnet environments with real transaction execution, Azimuth probes every function, chains multi-step attacks, and proves exploits end-to-end. If Azimuth reports a vulnerability, it was <strong>actually exploited</strong> — not just theoretically possible.</p>
   </div>
 </section>
 
@@ -86,10 +86,10 @@
   <div class="container">
     <div class="pd-section-header" data-animate>
       <span class="section-label">How It Works</span>
-      <h2 class="pd-section-title">Azimuth &mdash; Deep Security Analysis</h2>
-      <p class="pd-section-desc">The RL-powered security engine for protocols and smart contracts. Agents attack your code in sandboxed forked environments. Every finding comes with a working proof-of-concept exploit. If it's reported, it was actually exploited.</p>
+      <h2 class="pd-section-title">Azimuth &mdash; Automated Security Analysis</h2>
+      <p class="pd-section-desc">Azimuth deploys AI agents that actively attack your smart contracts. Running against forked mainnet environments with real transaction execution, Azimuth probes every function, chains multi-step attacks, and proves exploits end-to-end. If Azimuth reports a vulnerability, it was actually exploited — not just theoretically possible.</p>
       <div class="pd-section-features">
-        <span class="pd-feature">RL-powered agents</span>
+        <span class="pd-feature">AI agents</span>
         <span class="pd-feature">Zero false positives</span>
         <span class="pd-feature">Working PoC for every finding</span>
         <span class="pd-feature">CI/CD integration</span>

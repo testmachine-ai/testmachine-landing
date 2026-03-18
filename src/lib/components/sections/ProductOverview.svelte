@@ -44,11 +44,11 @@
         <span class="product-label">Product 02</span>
         <h3 class="product-title">Azimuth</h3>
         <p class="product-desc">
-          RL-powered agents that fork the blockchain, deploy attack strategies, 
-          and prove exploits — automatically. Every finding comes with a working 
-          proof of concept.
+          AI agents that actively attack your smart contracts in forked mainnet
+          environments with real transaction execution. If Azimuth reports it,
+          it was actually exploited — not just theoretically possible.
         </p>
-        <span class="product-stats">Zero false positives · Seconds, not weeks · Full PoC generation</span>
+        <span class="product-stats">Zero false positives · Minutes, not weeks · Full PoC generation</span>
         <span class="product-link">Explore Azimuth &rarr;</span>
       </a>
     </div>

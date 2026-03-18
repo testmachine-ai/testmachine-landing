@@ -314,7 +314,7 @@
     <div class="azimuth-header" data-animate>
       <span class="section-label">Automated Security Analysis</span>
       <h2 class="section-title">Azimuth</h2>
-      <p class="azimuth-desc">Azimuth deploys reinforcement learning agents against your smart contracts. Real transactions. Forked mainnet. Dynamic execution, not static analysis. They probe every function, chain multi-step attacks, and prove exploits end-to-end. If Azimuth reports it, it was actually exploited. Zero false positives — in minutes, not weeks.</p>
+      <p class="azimuth-desc">Azimuth deploys AI agents that actively attack your smart contracts. Running against forked mainnet environments with real transaction execution, Azimuth probes every function, chains multi-step attacks, and proves exploits end-to-end. If Azimuth reports a vulnerability, it was actually exploited — not just theoretically possible. Zero false positives. Results in minutes, not weeks.</p>
     </div>
     <div class="az-frame-wrap" data-animate>
       <div class="az-browser-frame">
