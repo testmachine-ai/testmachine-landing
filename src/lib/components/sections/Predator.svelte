@@ -22,14 +22,14 @@
   });
 </script>
 
-<!-- Predator Technology -->
+<!-- Token Custody Technology -->
 <section class="predator" id="solutions">
   <div class="container">
     <div class="predator-grid">
       <div class="predator-text" data-animate>
         <span class="section-label">Our Technology</span>
-        <h2 class="section-title">Predator</h2>
-        <p class="predator-desc">Predator secures tokens at scale for Coinbase, exchanges, and DeFi protocols. Every token listed on-chain is analyzed for dangerous behaviors — confiscation, hidden minting, proxy manipulation — in real time. Over 8 million tokens analyzed. Zero false positives.</p>
+        <h2 class="section-title">Token Custody</h2>
+        <p class="predator-desc">Token Custody secures tokens at scale for Coinbase, exchanges, and DeFi protocols. Every token listed on-chain is analyzed for dangerous behaviors — confiscation, hidden minting, proxy manipulation — in real time. Over 9 million tokens analyzed. Zero false positives.</p>
       </div>
       <div class="predator-terminal" data-animate>
         <div class="token-explorer-mock">

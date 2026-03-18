@@ -10,7 +10,7 @@
   }
   
   const stats: Stat[] = [
-    { value: 1, suffix: 'M+', label: 'Tokens analyzed', delay: 0 },
+    { value: 9, suffix: 'M+', label: 'Tokens analyzed', delay: 0 },
     { value: 100, suffix: '%', label: 'Rug pull detection accuracy', delay: 200 },
     { value: 120, prefix: '$', suffix: 'M+', label: 'In rug pulls identified from 11K token validation set', delay: 400 },
     { value: 0, suffix: '', label: 'False positives in Coinbase evaluation', delay: 600 }

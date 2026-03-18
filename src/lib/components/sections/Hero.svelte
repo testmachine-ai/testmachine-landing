@@ -8,12 +8,11 @@
       </div>
 
       <h1 class="hero-title">
-        Web3 Security<br />That Actually Works
+        Security Infrastructure<br />for Web3
       </h1>
 
       <p class="hero-subtitle">
-        RL agents that attack your contracts. Risk scores across 9M+ tokens.
-        Security that never sleeps.
+        Two products. Zero false positives. From token risk scoring to deep protocol analysis — security that scales with the chain.
       </p>
 
       <div class="hero-actions">

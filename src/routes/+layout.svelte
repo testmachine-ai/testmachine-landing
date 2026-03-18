@@ -57,7 +57,7 @@
   <meta name="description" content="AI-powered Web3 security. Continuous penetration testing, vulnerability detection, and automated fixes for smart contracts and blockchain protocols." />
   <meta name="keywords" content="Web3 security, smart contract audit, blockchain security, AI security, penetration testing, DeFi security" />
   <meta property="og:title" content="TestMachine — Web3 Security That Actually Works" />
-  <meta property="og:description" content="AI-powered continuous security for Web3. Predator technology finds exploitable vulnerabilities before hackers do." />
+  <meta property="og:description" content="Two products. Zero false positives. From token risk scoring to deep protocol analysis — security infrastructure that scales with the chain." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://testmachine.ai" />
   <meta name="twitter:card" content="summary_large_image" />

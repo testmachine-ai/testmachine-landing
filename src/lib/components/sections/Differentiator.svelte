@@ -48,7 +48,7 @@
         <div class="diff-divider-line"></div>
       </div>
       <div class="diff-side diff-side--new">
-        <div class="diff-side-label">TestMachine Predator</div>
+        <div class="diff-side-label">TestMachine</div>
         <div class="diff-side-content">
           <div class="diff-item diff-item--new">
             <span class="diff-item-icon">&check;</span>
@@ -75,7 +75,7 @@
             <span class="diff-item-icon">&check;</span>
             <div class="diff-item-text">
               <strong>Zero false positives</strong>
-              <span>Predator either drains tokens or it doesn't. No noise. No guesswork.</span>
+              <span>TestMachine either drains tokens or it doesn't. No noise. No guesswork.</span>
             </div>
           </div>
         </div>
