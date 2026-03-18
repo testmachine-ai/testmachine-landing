@@ -1922,8 +1922,8 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   }
 
   .article-body {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: clamp(20px, 4vw, 40px);
+    padding-right: clamp(20px, 4vw, 40px);
   }
 
   .article-body pre {
@@ -1932,7 +1932,8 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   }
 
   .article-header-inner {
-    padding-right: 0;
+    padding-left: clamp(20px, 4vw, 40px);
+    padding-right: clamp(20px, 4vw, 40px);
   }
 
   .article-title {
