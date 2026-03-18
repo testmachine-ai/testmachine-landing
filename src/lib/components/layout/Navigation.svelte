@@ -257,12 +257,13 @@
     top: calc(100% + 12px);
     left: 50%;
     transform: translateX(-50%);
-    background: var(--bg-panel);
-    border: 1px solid var(--border-subtle);
+    background: oklch(0.15 0.005 260);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 8px 0;
     min-width: 160px;
-    box-shadow: 0 8px 32px oklch(0 0 0 / 0.12);
+    box-shadow: 0 8px 32px oklch(0 0 0 / 0.4);
+    backdrop-filter: blur(12px);
     opacity: 0;
     visibility: hidden;
     transform: translateX(-50%) translateY(-8px);
