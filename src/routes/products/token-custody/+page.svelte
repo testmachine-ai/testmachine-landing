@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
+  import RiskWidget from '$lib/components/sections/RiskWidget.svelte';
 
   // ========================================
   // TOKEN EXPLORER DATA & STATE
@@ -434,26 +435,9 @@
 
 
 <!-- =========================================================
-     RUG PULL DETECTION WIDGET
+     RUG PULL DETECTION WIDGET (native component)
      ========================================================= -->
-<section class="pd-section" id="rug-detection">
-  <div class="container">
-    <div class="pd-section-header" data-animate>
-      <span class="section-label">Live Demo</span>
-      <h2 class="pd-section-title">Rug pull detection in action</h2>
-      <p class="pd-section-desc">Watch the model classify tokens in real time. The visualization below shows how TestMachine separates legitimate tokens from rug pulls using on-chain signal distributions.</p>
-    </div>
-    <div class="rug-widget-container" data-animate>
-      <iframe
-        src="/rug-pull-widget.html"
-        title="Rug Pull Detection Visualization"
-        class="rug-widget-iframe"
-        loading="lazy"
-        sandbox="allow-scripts"
-      ></iframe>
-    </div>
-  </div>
-</section>
+<RiskWidget />
 
 
 <!-- =========================================================
@@ -1035,25 +1019,7 @@
     display: block;
   }
 
-  /* ================================
-     RUG PULL WIDGET
-     ================================ */
-  .rug-widget-container {
-    border: 1px solid var(--border-subtle);
-    background: oklch(0.13 0.005 260);
-    overflow: hidden;
-    position: relative;
-  }
-  :global([data-theme="light"]) .rug-widget-container {
-    background: oklch(0.97 0 0);
-    border-color: oklch(0.85 0 0);
-  }
-  .rug-widget-iframe {
-    width: 100%;
-    height: 700px;
-    border: none;
-    display: block;
-  }
+  /* (Rug pull widget styles moved to RiskWidget.svelte component) */
 
   /* -- Responsive -- */
   @media (max-width: 900px) {
@@ -1079,9 +1045,7 @@
       grid-template-columns: 1fr;
       gap: 32px;
     }
-    .rug-widget-iframe {
-      height: 500px;
-    }
+
   }
   @media (max-width: 480px) {
     .pd-scale-grid {

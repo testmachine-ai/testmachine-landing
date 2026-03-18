@@ -1,112 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Token Risk Analysis — TestMachine Widget</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  background: oklch(0.10 0.005 260);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  max-height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  font-family: 'JetBrains Mono', monospace;
-}
-.widget-container {
-  width: 100%;
-  max-width: 1120px;
-  max-height: 100vh;
-  margin: 32px auto;
-  background: oklch(0.13 0.005 260);
-  border: 1px solid oklch(0.25 0.005 260);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.widget-header {
-  padding: 10px 20px;
-  border-bottom: 1px solid oklch(0.20 0.005 260);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  color: oklch(0.55 0 0);
-  text-transform: uppercase;
-}
-.widget-canvas {
-  display: block;
-  width: 100%;
-  max-height: 100vh;
-  aspect-ratio: 2 / 1;
-}
-/* Short screens (laptops, embedded iframes) — taller ratio so content fits */
-@media (max-height: 700px) {
-  .widget-canvas { aspect-ratio: 16 / 9; }
-}
-@media (max-height: 550px) {
-  .widget-canvas { aspect-ratio: 16 / 10; }
-}
-@media (max-height: 450px) {
-  .widget-canvas { aspect-ratio: 4 / 3; max-height: 100vh; }
-}
-/* When embedded in an iframe (no scrollbar, tight fit) */
-@media (max-height: 800px) {
-  .widget-container { margin: 8px auto; }
-  body { align-items: flex-start; padding-top: 4px; }
-}
-@media (max-height: 500px) {
-  .widget-container { margin: 0; border: none; border-radius: 0; max-width: 100%; }
-  body { padding: 0; }
-}
-@media (max-width: 768px) {
-  .widget-canvas {
-    aspect-ratio: 3 / 4;
-  }
-  .widget-container {
-    margin: 0;
-    border: none;
-    border-radius: 0;
-  }
-}
-</style>
-</head>
-<body>
-<div class="widget-container">
-  <canvas class="widget-canvas" id="c"></canvas>
-</div>
+// @ts-nocheck
+// Auto-extracted from rug-pull-widget.html — do not edit manually
+export function initRugPullWidget(canvas, statsModal, modalCloseBtn) {
+  'use strict';
 
-<!-- Stats explanation modal -->
-<div id="stats-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:1000; background:rgba(0,0,0,0.7); justify-content:center; align-items:center;">
-  <div style="background:oklch(0.16 0.005 260); border:1px solid oklch(0.30 0.005 260); border-radius:8px; max-width:560px; width:90%; padding:32px; position:relative; font-family:'Manrope',sans-serif; color:#e8e8ec;">
-    <button id="modal-close" style="position:absolute; top:12px; right:16px; background:none; border:none; color:#9898a0; font-size:24px; cursor:pointer; font-family:sans-serif;">&times;</button>
-    <h2 style="font-size:22px; font-weight:700; margin-bottom:20px; color:#4ecdc4;">Understanding Our Metrics</h2>
-    <div style="margin-bottom:18px;">
-      <h3 style="font-size:16px; font-weight:600; margin-bottom:6px;">Accuracy: 96.2%</h3>
-      <p style="font-size:14px; color:#9898a0; line-height:1.6;">Of all tokens we classify, 96.2% are classified correctly — whether safe or rug pull.</p>
-    </div>
-    <div style="margin-bottom:18px;">
-      <h3 style="font-size:16px; font-weight:600; margin-bottom:6px;">Model Confidence: 0.970</h3>
-      <p style="font-size:14px; color:#9898a0; line-height:1.6;">Our model's ability to distinguish safe tokens from rug pulls, measured across all thresholds. 1.0 is perfect — ours is 0.970.</p>
-    </div>
-    <div style="margin-bottom:18px;">
-      <h3 style="font-size:16px; font-weight:600; margin-bottom:6px;">Flag Accuracy: 94%</h3>
-      <p style="font-size:14px; color:#9898a0; line-height:1.6;">When we flag a token as a rug pull, we're right 94% of the time.</p>
-    </div>
-    <div>
-      <h3 style="font-size:16px; font-weight:600; margin-bottom:6px;">Detection Rate: 96.5%</h3>
-      <p style="font-size:14px; color:#9898a0; line-height:1.6;">We catch 96.5% of actual rug pulls.</p>
-    </div>
-  </div>
-</div>
-<script>
-'use strict';
+
 
 // ── KDE Distribution Data ──
 const KDE_X = [0.0,0.005,0.01,0.015,0.02,0.025,0.03,0.035,0.04,0.045,0.05,0.055,0.06,0.065,0.07,0.075,0.08,0.085,0.09,0.095,0.1,0.105,0.11,0.115,0.12,0.125,0.13,0.135,0.14,0.145,0.15,0.155,0.16,0.165,0.17,0.175,0.18,0.185,0.19,0.195,0.2,0.205,0.21,0.215,0.22,0.225,0.23,0.235,0.24,0.245,0.25,0.255,0.26,0.265,0.27,0.275,0.28,0.285,0.29,0.295,0.3,0.305,0.31,0.315,0.32,0.325,0.33,0.335,0.34,0.345,0.35,0.355,0.36,0.365,0.37,0.375,0.38,0.385,0.39,0.395,0.4,0.405,0.41,0.415,0.42,0.425,0.43,0.435,0.44,0.445,0.45,0.455,0.46,0.465,0.47,0.475,0.48,0.485,0.49,0.495,0.5,0.505,0.51,0.515,0.52,0.525,0.53,0.535,0.54,0.545,0.55,0.555,0.56,0.565,0.57,0.575,0.58,0.585,0.59,0.595,0.6,0.605,0.61,0.615,0.62,0.625,0.63,0.635,0.64,0.645,0.65,0.655,0.66,0.665,0.67,0.675,0.68,0.685,0.69,0.695,0.7,0.705,0.71,0.715,0.72,0.725,0.73,0.735,0.74,0.745,0.75,0.755,0.76,0.765,0.77,0.775,0.78,0.785,0.79,0.795,0.8,0.805,0.81,0.815,0.82,0.825,0.83,0.835,0.84,0.845,0.85,0.855,0.86,0.865,0.87,0.875,0.88,0.885,0.89,0.895,0.9,0.905,0.91,0.915,0.92,0.925,0.93,0.935,0.94,0.945,0.95,0.955,0.96,0.965,0.97,0.975,0.98,0.985,0.99,0.995,1.0];
@@ -140,7 +37,7 @@ const ACTS = [
 ];
 
 // ── Canvas Setup (bounded, DPR-aware) ──
-const canvas = document.getElementById('c');
+// canvas passed as parameter
 const ctx = canvas.getContext('2d');
 let W, H, dpr;
 let _graphCache = null; // declared early so resize() can clear it
@@ -155,6 +52,7 @@ function resize() {
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   _graphCache = null;
 }
+let _destroyed = false;
 window.addEventListener('resize', resize);
 resize();
 
@@ -2896,11 +2794,11 @@ let _persistCTA = null;
 let _statsBounds = null;
 
 // ── Modal handling (pauses animation) ──
-const statsModal = document.getElementById('stats-modal');
+// statsModal passed as parameter
 let _modalOpen = false;
 let _pausedAt = null; // the animation time when we paused
 
-document.getElementById('modal-close').addEventListener('click', () => {
+modalCloseBtn.addEventListener('click', () => {
   statsModal.style.display = 'none';
   if (_modalOpen && _pausedAt !== null) {
     // Resume: adjust t0 so animation continues from where it paused
@@ -3096,10 +2994,21 @@ function frame(ts) {
   } catch(e) {
     console.error('FRAME ERROR at t=' + t.toFixed(2) + ':', e.message, e.stack);
   }
-  requestAnimationFrame(frame);
+  if (!_destroyed) requestAnimationFrame(frame);
 }
 
-document.fonts.ready.then(() => requestAnimationFrame(frame));
-</script>
-</body>
-</html>
+
+  // Start animation
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => requestAnimationFrame(frame));
+  } else {
+    requestAnimationFrame(frame);
+  }
+  
+  // Return cleanup function
+  return function cleanup() {
+    window.removeEventListener('resize', resize);
+    _destroyed = true;
+  };
+
+}
