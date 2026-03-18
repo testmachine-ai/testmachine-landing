@@ -16,28 +16,28 @@
             <span class="diff-item-icon">&times;</span>
             <div class="diff-item-text">
               <strong>One-time review</strong>
-              <span>A snapshot of your code on a single day. Tomorrow it's already stale.</span>
+              <span>A snapshot of your code on a single day. Tomorrow it's already redundant.</span>
             </div>
           </div>
           <div class="diff-item diff-item--old">
             <span class="diff-item-icon">&times;</span>
             <div class="diff-item-text">
               <strong>Weeks of waiting</strong>
-              <span>Manual line-by-line analysis. Ship dates slip. Threats don't wait.</span>
+              <span>Manual analysis takes time. Security reviews slow releases while new threats continue to emerge.</span>
             </div>
           </div>
           <div class="diff-item diff-item--old">
             <span class="diff-item-icon">&times;</span>
             <div class="diff-item-text">
-              <strong>Blind to runtime</strong>
-              <span>Reading code in isolation. Can't see how contracts actually behave on-chain.</span>
+              <strong>Blind to runtime behavior</strong>
+              <span>Audits analyze code statically. They can't observe how contracts actually behave during real transactions.</span>
             </div>
           </div>
           <div class="diff-item diff-item--old">
             <span class="diff-item-icon">&times;</span>
             <div class="diff-item-text">
               <strong>False confidence</strong>
-              <span>100% of major 2024 hacks hit audited projects. The badge didn't help.</span>
+              <span>100% of major 2024 hacks hit audited projects. A report doesn't guarantee safety.</span>
             </div>
           </div>
         </div>
@@ -54,28 +54,28 @@
             <span class="diff-item-icon">&check;</span>
             <div class="diff-item-text">
               <strong>Continuous adversarial testing</strong>
-              <span>AI agents that probe your contracts around the clock, catching upgrades and state changes.</span>
+              <span>AI agents continuously attack your contracts, detecting vulnerabilities introduced by upgrades, integrations, or state changes.</span>
             </div>
           </div>
           <div class="diff-item diff-item--new">
             <span class="diff-item-icon">&check;</span>
             <div class="diff-item-text">
               <strong>Seconds, not weeks</strong>
-              <span>Automated scans at machine speed. Results before your next standup.</span>
+              <span>Automated scans at machine speed, producing results in minutes instead of weeks of manual review.</span>
             </div>
           </div>
           <div class="diff-item diff-item--new">
             <span class="diff-item-icon">&check;</span>
             <div class="diff-item-text">
               <strong>Full EVM simulation</strong>
-              <span>Attacks run inside a high-fidelity replica of mainnet. Real behavior, real exploits.</span>
+              <span>Attacks run inside a forked mainnet environment, replicating real transaction behavior to uncover true exploit paths.</span>
             </div>
           </div>
           <div class="diff-item diff-item--new">
             <span class="diff-item-icon">&check;</span>
             <div class="diff-item-text">
               <strong>Zero false positives</strong>
-              <span>TestMachine either drains tokens or it doesn't. No noise. No guesswork.</span>
+              <span>If Azimuth reports a vulnerability, it has already been successfully exploited. No more noise or guesswork.</span>
             </div>
           </div>
         </div>
