@@ -529,11 +529,12 @@
     margin-bottom: 1.5rem;
   }
   .azimuth-desc {
-    font-size: 1.125rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
     color: var(--fg-muted);
-    max-width: 70ch;
+    max-width: 640px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.75;
+    text-align: left;
   }
 
   /* Frame */
