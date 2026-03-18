@@ -50,10 +50,11 @@
 <Differentiator />
 
 <!-- Backed By Investors -->
-<BackedBy />
-
-<!-- Partnerships/Trusted By -->
+<!-- Trusted By -->
 <Partnerships />
+
+<!-- Backed By -->
+<BackedBy />
 
 <!-- Contact Form -->
 <Contact />
