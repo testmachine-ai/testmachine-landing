@@ -516,15 +516,16 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--accent);
-    margin-bottom: 1rem;
+    color: var(--fg-muted);
+    margin-bottom: 0.75rem;
   }
   .section-title {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1.875rem, 4vw, 3rem);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.12;
     color: var(--fg);
+    letter-spacing: -0.025em;
     margin-bottom: 1.5rem;
   }
   .azimuth-desc {

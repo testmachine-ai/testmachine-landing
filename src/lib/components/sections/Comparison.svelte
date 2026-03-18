@@ -89,13 +89,14 @@
   }
   
   .section-label {
+    display: inline-block;
     font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--fg-muted);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
   
   .section-title {

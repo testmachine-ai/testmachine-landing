@@ -43,22 +43,22 @@
   .section-label {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--accent);
-    margin-bottom: 1rem;
+    letter-spacing: 0.15em;
+    color: var(--fg-muted);
+    margin-bottom: 0.75rem;
   }
 
   .section-title {
     font-family: var(--font-display);
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-    font-weight: 600;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
     color: var(--fg);
     margin-bottom: 48px;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
   }
 
   .backed-by-grid {
