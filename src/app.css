@@ -741,20 +741,20 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 }
 
 /* ---------- Predator ---------- */
-.predator {
+.token-custody {
   padding: var(--section-py) 0;
   border-bottom: 1px solid var(--border-subtle);
   background: var(--bg-raised);
 }
 
-.predator-grid {
+.token-custody-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(40px, 6vw, 80px);
   align-items: center;
 }
 
-.predator-desc {
+.token-custody-desc {
   font-family: var(--font-body);
   font-size: clamp(1rem, 2vw, 1.125rem);
   color: var(--fg-muted);
@@ -842,11 +842,11 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 }
 
 /* ── Token Custody Screenshot ── */
-.predator-screenshot {
+.token-custody-screenshot {
   border: 1px solid var(--border);
   overflow: hidden;
 }
-.predator-screenshot-img {
+.token-custody-screenshot-img {
   display: block;
   width: 100%;
   height: auto;
@@ -1319,7 +1319,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
     display: flex;
   }
 
-  .predator-grid {
+  .token-custody-grid {
     grid-template-columns: 1fr;
   }
 

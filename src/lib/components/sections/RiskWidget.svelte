@@ -94,16 +94,6 @@
     margin-bottom: clamp(32px, 5vw, 48px);
   }
 
-  .section-label {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--fg-muted);
-    margin-bottom: 0.75rem;
-  }
 
   .section-title {
     font-family: var(--font-display);
@@ -191,7 +181,7 @@
   .modal-content {
     background: oklch(0.16 0.005 260);
     border: 1px solid oklch(0.30 0.005 260);
-    border-radius: 8px;
+    border-radius: 0;
     max-width: 560px;
     width: 90%;
     padding: 32px;

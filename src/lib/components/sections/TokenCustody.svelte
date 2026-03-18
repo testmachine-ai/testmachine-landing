@@ -23,19 +23,19 @@
 </script>
 
 <!-- Token Custody Technology -->
-<section class="predator" id="solutions">
+<section class="token-custody" id="solutions">
   <div class="container">
-    <div class="predator-grid">
-      <div class="predator-text" data-animate>
+    <div class="token-custody-grid">
+      <div class="token-custody-text" data-animate>
         <span class="section-label">Our Technology</span>
         <h2 class="section-title">Token Custody</h2>
-        <p class="predator-desc">Token Custody secures tokens at scale for Coinbase, exchanges, and DeFi protocols. Every token listed on-chain is analyzed for dangerous behaviors — confiscation, hidden minting, proxy manipulation — in real time. Over 9 million tokens analyzed. Zero false positives.</p>
+        <p class="token-custody-desc">Token Custody secures tokens at scale for Coinbase, exchanges, and DeFi protocols. Every token listed on-chain is analyzed for dangerous behaviors — confiscation, hidden minting, proxy manipulation — in real time. Over 9 million tokens analyzed. Zero false positives.</p>
       </div>
-      <div class="predator-screenshot" data-animate>
-        <img 
-          src="/assets/token-custody-detail.jpg" 
+      <div class="token-custody-screenshot" data-animate>
+        <img
+          src="/assets/token-custody-detail.jpg"
           alt="Token Custody — MORPHO token analysis showing contract data, detected behaviors, and risk classification"
-          class="predator-screenshot-img"
+          class="token-custody-screenshot-img"
           loading="lazy"
         />
       </div>

@@ -509,16 +509,6 @@
     text-align: center;
     margin-bottom: 4rem;
   }
-  .section-label {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--fg-muted);
-    margin-bottom: 0.75rem;
-  }
   .section-title {
     font-family: var(--font-display);
     font-size: clamp(1.875rem, 4vw, 3rem);

@@ -259,7 +259,7 @@
     transform: translateX(-50%);
     background: oklch(0.15 0.005 260);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 0;
     padding: 8px 0;
     min-width: 160px;
     box-shadow: 0 8px 32px oklch(0 0 0 / 0.4);

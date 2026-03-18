@@ -15,7 +15,7 @@
 
 <style>
   .social-proof {
-    padding: clamp(64px, 8vw, 100px) 0;
+    padding: var(--section-py) 0;
     border-bottom: 1px solid var(--border-subtle);
     background: var(--bg);
   }

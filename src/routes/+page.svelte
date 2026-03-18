@@ -6,7 +6,7 @@
   import Stats from '$lib/components/sections/Stats.svelte';
   import Problem from '$lib/components/sections/Problem.svelte';
   import Comparison from '$lib/components/sections/Comparison.svelte';
-  import Predator from '$lib/components/sections/Predator.svelte';
+  import TokenCustody from '$lib/components/sections/TokenCustody.svelte';
   import AzimuthAnalysis from '$lib/components/sections/AzimuthAnalysis.svelte';
   import Differentiator from '$lib/components/sections/Differentiator.svelte';
   import BackedBy from '$lib/components/sections/BackedBy.svelte';
@@ -41,7 +41,7 @@
 <Comparison />
 
 <!-- Token Custody Technology -->
-<Predator />
+<TokenCustody />
 
 <!-- Azimuth Analysis Demo -->
 <AzimuthAnalysis />
