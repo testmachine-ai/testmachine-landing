@@ -62,7 +62,7 @@
     </a>
     
     <div class="mobile-menu-cta">
-      <a href="https://app.testmachine.ai/" class="btn btn--primary btn--block">
+      <a href="https://app.testmachine.ai/" class="btn btn--primary btn--block" target="_blank" rel="noopener noreferrer">
         Launch App
       </a>
     </div>

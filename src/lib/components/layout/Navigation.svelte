@@ -60,7 +60,7 @@
     
     <div class="nav-actions">
       <ThemeToggle />
-      <a href="https://app.testmachine.ai/" class="btn btn--primary btn--nav">Launch App</a>
+      <a href="https://app.testmachine.ai/" class="btn btn--primary btn--nav" target="_blank" rel="noopener noreferrer">Launch App</a>
       
       <button 
         class="hamburger" 

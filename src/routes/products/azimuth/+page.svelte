@@ -213,7 +213,7 @@
     </div>
 
     <div class="pd-section-action" data-animate>
-      <a href="https://app.testmachine.ai/" class="btn btn--secondary">Run Azimuth Analysis &rarr;</a>
+      <a href="https://app.testmachine.ai/" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Run Azimuth Analysis &rarr;</a>
     </div>
   </div>
 </section>
@@ -270,7 +270,7 @@
   <div class="container" data-animate>
     <h2 class="pd-cta-title">Secure your protocol today</h2>
     <p class="pd-cta-sub">RL-powered security analysis with zero false positives. Every finding includes a working proof-of-concept exploit.</p>
-    <a href="https://app.testmachine.ai/" class="btn btn--primary">Run Azimuth Analysis</a>
+    <a href="https://app.testmachine.ai/" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Run Azimuth Analysis</a>
   </div>
 </section>
 

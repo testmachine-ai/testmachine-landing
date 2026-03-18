@@ -119,7 +119,7 @@
     </div>
 
     <div class="pd-section-action" data-animate>
-      <a href="https://app.testmachine.ai/token-explorer" class="btn btn--secondary">Explore Tokens &rarr;</a>
+      <a href="https://app.testmachine.ai/token-explorer" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Explore Tokens &rarr;</a>
     </div>
   </div>
 </section>
@@ -216,7 +216,7 @@
   <div class="container" data-animate>
     <h2 class="pd-cta-title">Start securing your portfolio</h2>
     <p class="pd-cta-sub">Explore 9M+ tokens with real-time risk scoring across every EVM chain. Zero false positives.</p>
-    <a href="https://app.testmachine.ai/token-explorer" class="btn btn--primary">Launch Token Custody</a>
+    <a href="https://app.testmachine.ai/token-explorer" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Launch Token Custody</a>
   </div>
 </section>
 

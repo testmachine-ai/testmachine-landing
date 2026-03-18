@@ -16,7 +16,7 @@
       </p>
 
       <div class="hero-actions">
-        <a href="https://app.testmachine.ai/" class="btn btn--primary">
+        <a href="https://app.testmachine.ai/" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
           Launch App
         </a>
         <a href="#trajectory" class="btn btn--secondary">

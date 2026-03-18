@@ -956,7 +956,7 @@
   <div class="container" data-animate>
     <h2 class="eng-cta-title">See it in action</h2>
     <p class="eng-cta-sub">Point TestMachine at your protocol. Get confirmed vulnerabilities with proof-of-concept exploits. Zero false positives.</p>
-    <a href="https://app.testmachine.ai/" class="btn btn--primary">Launch App</a>
+    <a href="https://app.testmachine.ai/" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Launch App</a>
   </div>
 </section>
 

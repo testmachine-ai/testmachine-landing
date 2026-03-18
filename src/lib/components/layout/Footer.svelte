@@ -26,7 +26,7 @@
       <div class="footer-col">
         <h4 class="footer-heading">Product</h4>
         <ul class="footer-links">
-          <li><a href="https://app.testmachine.ai/">Launch App</a></li>
+          <li><a href="https://app.testmachine.ai/" target="_blank" rel="noopener noreferrer">Launch App</a></li>
           <li><a href="/#contact">Contact</a></li>
           <li><a href="/#contact">Privacy Policy</a></li>
         </ul>
