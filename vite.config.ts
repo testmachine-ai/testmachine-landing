@@ -6,7 +6,7 @@ export default defineConfig({
   
   server: {
     host: true,
-    allowedHosts: ['fermihome.local', 'FERMIHOME.local']
+    allowedHosts: ['fermihome.local', 'FERMIHOME.local', 'testmachine.lightscalar.net']
   },
   
   optimizeDeps: {
