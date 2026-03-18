@@ -400,6 +400,63 @@
 
 
 <!-- =========================================================
+     RISK INTELLIGENCE
+     ========================================================= -->
+<section class="pd-section" id="risk-intelligence">
+  <div class="container">
+    <div class="pd-section-header" data-animate>
+      <span class="section-label">Risk Intelligence</span>
+      <h2 class="pd-section-title">Every token gets a risk score</h2>
+    </div>
+    <div class="risk-intel-layout" data-animate>
+      <div class="risk-intel-text">
+        <p class="risk-intel-body">
+          Token Custody analyzes every token on-chain and produces a risk score from 0&ndash;100, incorporating key factors like LP burned status, deployer token holdings, pool age, pause capabilities, minting permissions, and more.
+        </p>
+        <p class="risk-intel-body">
+          The score aggregates these signals into a single number that exchanges and protocols can act on &mdash; automatically flagging dangerous tokens before they reach your users.
+        </p>
+        <div class="risk-intel-factors">
+          <span class="risk-factor-tag">LP Burned Status</span>
+          <span class="risk-factor-tag">Deployer Holdings</span>
+          <span class="risk-factor-tag">Pool Age</span>
+          <span class="risk-factor-tag">Pause Capabilities</span>
+          <span class="risk-factor-tag">Minting Permissions</span>
+          <span class="risk-factor-tag">Proxy Patterns</span>
+        </div>
+      </div>
+      <div class="risk-intel-image">
+        <img src="/assets/risk-score-panel.jpg" alt="Risk score panel showing a 27.4% probability gauge, key risk factors bar chart, and risk score by pool age curve" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     RUG PULL DETECTION WIDGET
+     ========================================================= -->
+<section class="pd-section" id="rug-detection">
+  <div class="container">
+    <div class="pd-section-header" data-animate>
+      <span class="section-label">Live Demo</span>
+      <h2 class="pd-section-title">Rug pull detection in action</h2>
+      <p class="pd-section-desc">Watch the model classify tokens in real time. The visualization below shows how TestMachine separates legitimate tokens from rug pulls using on-chain signal distributions.</p>
+    </div>
+    <div class="rug-widget-container" data-animate>
+      <iframe
+        src="/rug-pull-widget.html"
+        title="Rug Pull Detection Visualization"
+        class="rug-widget-iframe"
+        loading="lazy"
+        sandbox="allow-scripts"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
      CHAINS
      ========================================================= -->
 <section class="pd-section" id="chains">
@@ -927,6 +984,77 @@
     margin-right: auto;
   }
 
+  /* ================================
+     RISK INTELLIGENCE
+     ================================ */
+  .risk-intel-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .risk-intel-body {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    color: var(--fg-muted);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+  .risk-intel-body:last-of-type {
+    margin-bottom: 1.5rem;
+  }
+  .risk-intel-factors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .risk-factor-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    background: oklch(0.22 0.005 260);
+    border: 1px solid var(--border-subtle);
+    color: var(--fg-muted);
+  }
+  :global([data-theme="light"]) .risk-factor-tag {
+    background: oklch(0.92 0.003 260);
+  }
+  .risk-intel-image {
+    position: relative;
+    border: 1px solid var(--border-subtle);
+    overflow: hidden;
+    background: oklch(0.13 0.005 260);
+  }
+  :global([data-theme="light"]) .risk-intel-image {
+    background: oklch(0.97 0 0);
+  }
+  .risk-intel-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ================================
+     RUG PULL WIDGET
+     ================================ */
+  .rug-widget-container {
+    border: 1px solid var(--border-subtle);
+    background: oklch(0.13 0.005 260);
+    overflow: hidden;
+    position: relative;
+  }
+  :global([data-theme="light"]) .rug-widget-container {
+    background: oklch(0.97 0 0);
+    border-color: oklch(0.85 0 0);
+  }
+  .rug-widget-iframe {
+    width: 100%;
+    height: 700px;
+    border: none;
+    display: block;
+  }
+
   /* -- Responsive -- */
   @media (max-width: 900px) {
     .pd-chains-grid {
@@ -946,6 +1074,13 @@
     }
     .pd-chains-grid {
       grid-template-columns: repeat(3, 1fr);
+    }
+    .risk-intel-layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .rug-widget-iframe {
+      height: 500px;
     }
   }
   @media (max-width: 480px) {
