@@ -1,16 +1,6 @@
-<script lang="ts">
-  import { onMount } from 'svelte';
-  
-  let mounted = false;
-  
-  onMount(() => {
-    mounted = true;
-  });
-</script>
-
 <section class="social-proof" id="social-proof">
   <div class="container">
-    <div class="social-proof-inner" class:visible={mounted}>
+    <div class="social-proof-inner">
       <blockquote class="social-proof-text">
         &ldquo;[TestMachine] stood out because it achieved 100% accuracy on all tokens, 
         with no false positives or negatives, even catching human errors in our own reviews.&rdquo;
@@ -30,18 +20,16 @@
     background: var(--bg);
   }
   
+  @keyframes sectionFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   .social-proof-inner {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  
-  .social-proof-inner.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: sectionFadeIn 0.6s ease both;
   }
   
   .social-proof-text {

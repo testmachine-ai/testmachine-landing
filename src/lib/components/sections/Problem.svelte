@@ -1,16 +1,6 @@
-<script lang="ts">
-  import { onMount } from 'svelte';
-  
-  let mounted = false;
-  
-  onMount(() => {
-    mounted = true;
-  });
-</script>
-
 <section class="problem" id="problem">
   <div class="container">
-    <div class="problem-inner" class:visible={mounted}>
+    <div class="problem-inner">
       <h2 class="section-title">The Problem</h2>
       <p class="problem-text">
         $2.2 billion stolen in 2024. $1.5 billion in a single hack in 2025. 
@@ -28,18 +18,16 @@
     border-bottom: 1px solid var(--border-subtle);
   }
   
+  @keyframes sectionFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   .problem-inner {
     max-width: 780px;
     padding-left: 28px;
     border-left: 3px solid var(--accent);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  
-  .problem-inner.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: sectionFadeIn 0.6s ease both;
   }
   
   .section-title {

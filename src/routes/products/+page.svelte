@@ -306,9 +306,9 @@
      ========================================================= -->
 <section class="pd-hero">
   <div class="container">
-    <span class="pd-hero-tag" data-animate>Products</span>
-    <h1 class="pd-hero-title" data-animate>Your Security Stack</h1>
-    <p class="pd-hero-sub" data-animate>Two products. <strong>Zero false positives.</strong> From token risk scoring to deep protocol analysis &mdash; everything you need to secure your on-chain exposure.</p>
+    <span class="pd-hero-tag">Products</span>
+    <h1 class="pd-hero-title">Your Security Stack</h1>
+    <p class="pd-hero-sub">Two products. <strong>Zero false positives.</strong> From token risk scoring to deep protocol analysis &mdash; everything you need to secure your on-chain exposure.</p>
   </div>
 </section>
 
@@ -670,6 +670,7 @@
       radial-gradient(ellipse 40% 40% at 25% 60%, oklch(0.20 0.02 280 / 0.15) 0%, transparent 60%);
     pointer-events: none;
   }
+  @keyframes heroFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   .pd-hero-tag {
     display: inline-block;
     font-family: var(--font-mono);
@@ -679,6 +680,7 @@
     letter-spacing: 0.15em;
     color: var(--accent);
     margin-bottom: 1.5rem;
+    animation: heroFadeIn 0.8s ease 0.2s both;
   }
   .pd-hero-title {
     font-family: var(--font-display);
@@ -688,6 +690,7 @@
     letter-spacing: -0.035em;
     margin-bottom: 1.5rem;
     color: var(--fg);
+    animation: heroFadeIn 0.8s ease 0.4s both;
   }
   .pd-hero-sub {
     font-size: clamp(0.9375rem, 2vw, 1.125rem);
@@ -695,6 +698,7 @@
     max-width: 680px;
     margin: 0 auto;
     line-height: 1.7;
+    animation: heroFadeIn 0.8s ease 0.6s both;
   }
   .pd-hero-sub strong {
     color: var(--accent);

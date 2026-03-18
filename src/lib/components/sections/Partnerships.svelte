@@ -1,12 +1,4 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  
-  let mounted = false;
-  
-  onMount(() => {
-    mounted = true;
-  });
-
   interface Partner {
     name: string;
     logo: string;
@@ -27,12 +19,12 @@
 
 <section class="partnerships" id="partnerships">
   <div class="container">
-    <h2 class="section-title" class:visible={mounted}>Trusted By</h2>
-    <p class="partnerships-desc" class:visible={mounted}>
-      Securing tokens and protocols for leading exchanges, protocols, 
+    <h2 class="section-title">Trusted By</h2>
+    <p class="partnerships-desc">
+      Securing tokens and protocols for leading exchanges, protocols,
       and institutions across the ecosystem.
     </p>
-    <div class="partnerships-grid" class:visible={mounted}>
+    <div class="partnerships-grid">
       {#each partners as partner}
         <div class="partnership-card">
           {#if partner.isText}
@@ -57,6 +49,11 @@
     background: var(--bg-raised);
   }
   
+  @keyframes sectionFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   .section-title {
     font-family: var(--font-display);
     font-size: clamp(1.875rem, 4vw, 3rem);
@@ -64,47 +61,23 @@
     line-height: 1.12;
     letter-spacing: -0.025em;
     margin-bottom: 1.5rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    transition-delay: 0.05s;
+    animation: sectionFadeIn 0.6s ease 0.05s both;
   }
-  
-  .section-title.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
+
   .partnerships-desc {
     font-size: 0.9375rem;
     color: var(--fg-muted);
     line-height: 1.75;
     max-width: 560px;
     margin-bottom: clamp(28px, 4vw, 40px);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    transition-delay: 0.1s;
+    animation: sectionFadeIn 0.6s ease 0.1s both;
   }
-  
-  .partnerships-desc.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
+
   .partnerships-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    transition-delay: 0.15s;
-  }
-  
-  .partnerships-grid.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: sectionFadeIn 0.6s ease 0.15s both;
   }
   
   .partnership-card {

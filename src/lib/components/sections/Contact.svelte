@@ -1,7 +1,4 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  
-  let mounted = false;
   let showSuccess = false;
   
   let formData = {
@@ -19,10 +16,6 @@
   const HUBSPOT_PORTAL_ID = '23470671';
   const HUBSPOT_FORM_GUID = '19da09d1-35e3-4e6e-b8a0-1bc7e51a3929';
   
-  onMount(() => {
-    mounted = true;
-  });
-
   function validateForm(): boolean {
     formErrors = {};
     if (!formData.firstName.trim()) formErrors.firstName = 'Required';
@@ -89,7 +82,7 @@
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-grid">
-      <div class="contact-info" class:visible={mounted}>
+      <div class="contact-info">
         <h2 class="section-title">Get in Touch</h2>
         <p class="contact-desc">
           Ready to secure your Web3 project? Let's talk about how TestMachine 
@@ -127,7 +120,7 @@
         </div>
       </div>
       
-      <div class="contact-form-wrap" class:visible={mounted}>
+      <div class="contact-form-wrap">
         {#if !showSuccess}
           <form class="contact-form" on:submit={handleSubmit} novalidate>
             <div class="form-row">
@@ -191,15 +184,13 @@
     align-items: start;
   }
   
-  .contact-info {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+  @keyframes sectionFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-  
-  .contact-info.visible {
-    opacity: 1;
-    transform: translateY(0);
+
+  .contact-info {
+    animation: sectionFadeIn 0.6s ease both;
   }
   
   .section-title {
@@ -287,15 +278,7 @@
   }
   
   .contact-form-wrap {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    transition-delay: 0.1s;
-  }
-  
-  .contact-form-wrap.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: sectionFadeIn 0.6s ease 0.1s both;
   }
   
   .contact-form {

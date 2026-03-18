@@ -813,9 +813,9 @@
 <!-- Hero -->
 <section class="eng-hero">
   <div class="container">
-    <span class="eng-hero-tag" data-animate>Our Technology</span>
-    <h1 class="eng-hero-title" data-animate>How TestMachine Works</h1>
-    <p class="eng-hero-sub" data-animate><strong>Dynamic code execution + reinforcement learning = zero false positives.</strong> We don't guess at vulnerabilities. We prove them.</p>
+    <span class="eng-hero-tag">Our Technology</span>
+    <h1 class="eng-hero-title">How TestMachine Works</h1>
+    <p class="eng-hero-sub"><strong>Dynamic code execution + reinforcement learning = zero false positives.</strong> We don't guess at vulnerabilities. We prove them.</p>
   </div>
 </section>
 
@@ -964,9 +964,10 @@
 <style>
   .eng-hero { padding: calc(var(--nav-h) + 100px) 0 80px; text-align: center; position: relative; overflow: hidden; }
   .eng-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.25 0.04 192 / 0.35) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 80% 40%, oklch(0.22 0.02 220 / 0.2) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 20% 60%, oklch(0.20 0.02 280 / 0.15) 0%, transparent 60%); pointer-events: none; }
-  .eng-hero-tag { display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 1.5rem; }
-  .eng-hero-title { font-family: var(--font-display); font-size: clamp(2.75rem, 7vw, 4.5rem); font-weight: 800; line-height: 1.06; letter-spacing: -0.035em; margin-bottom: 1.5rem; color: var(--fg); }
-  .eng-hero-sub { font-size: clamp(0.9375rem, 2vw, 1.125rem); color: var(--fg-muted); max-width: 680px; margin: 0 auto; line-height: 1.7; }
+  @keyframes heroFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .eng-hero-tag { display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 1.5rem; animation: heroFadeIn 0.8s ease 0.2s both; }
+  .eng-hero-title { font-family: var(--font-display); font-size: clamp(2.75rem, 7vw, 4.5rem); font-weight: 800; line-height: 1.06; letter-spacing: -0.035em; margin-bottom: 1.5rem; color: var(--fg); animation: heroFadeIn 0.8s ease 0.4s both; }
+  .eng-hero-sub { font-size: clamp(0.9375rem, 2vw, 1.125rem); color: var(--fg-muted); max-width: 680px; margin: 0 auto; line-height: 1.7; animation: heroFadeIn 0.8s ease 0.6s both; }
   .eng-hero-sub :global(strong) { color: var(--accent); font-weight: 600; }
   .eng-section { padding: var(--section-py) 0; border-top: 1px solid var(--border-subtle); }
   .eng-section-header { margin-bottom: 3rem; }

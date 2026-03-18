@@ -18,11 +18,8 @@
   
   let containerElement: HTMLElement;
   let hasAnimated = false;
-  let mounted = false;
-  
+
   onMount(() => {
-    mounted = true;
-    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -80,8 +77,8 @@
 
 <section class="stats" id="stats">
   <div class="container">
-    <span class="section-label" class:visible={mounted}>By the Numbers</span>
-    <div bind:this={containerElement} class="stats-grid" class:visible={mounted}>
+    <span class="section-label">By the Numbers</span>
+    <div bind:this={containerElement} class="stats-grid">
       {#each stats as stat, index}
         <div class="stats-card" style="--i:{index}">
           <span 
@@ -104,6 +101,11 @@
     background: var(--bg-raised);
   }
   
+  @keyframes sectionFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   .section-label {
     display: block;
     font-family: var(--font-mono);
@@ -113,28 +115,14 @@
     letter-spacing: 0.15em;
     color: var(--fg-muted);
     margin-bottom: 0.5rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    animation: sectionFadeIn 0.6s ease both;
   }
-  
-  .section-label.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
+
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--gap);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  
-  .stats-grid.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: sectionFadeIn 0.6s ease 0.1s both;
   }
   
   .stats-card {

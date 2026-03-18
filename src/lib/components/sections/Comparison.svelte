@@ -1,12 +1,4 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  
-  let mounted = false;
-  
-  onMount(() => {
-    mounted = true;
-  });
-
   const staticSteps = [
     'Parse source code into AST',
     'Match patterns against known vulnerability database', 
@@ -24,12 +16,12 @@
 
 <section class="eng-section" id="comparison">
   <div class="container">
-    <div class="eng-section-header" class:visible={mounted}>
+    <div class="eng-section-header">
       <span class="section-label">The Difference</span>
       <h2 class="section-title">Static analysis vs dynamic execution</h2>
     </div>
 
-    <div class="eng-compare-grid" class:visible={mounted}>
+    <div class="eng-compare-grid">
       <div class="eng-compare-col eng-compare-static">
         <div class="eng-compare-header">
           <span class="eng-compare-header-dot" aria-hidden="true"></span> 
@@ -85,17 +77,15 @@
     border-bottom: 1px solid var(--border-subtle);
   }
   
+  @keyframes sectionFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   .eng-section-header {
     text-align: center;
     margin-bottom: 48px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  
-  .eng-section-header.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: sectionFadeIn 0.6s ease both;
   }
   
   .section-label {
@@ -122,15 +112,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 2px;
     background: var(--border-subtle);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    transition-delay: 0.15s;
-  }
-  
-  .eng-compare-grid.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: sectionFadeIn 0.6s ease 0.15s both;
   }
   
   .eng-compare-col {
