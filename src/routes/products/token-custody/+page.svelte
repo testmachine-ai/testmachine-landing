@@ -88,17 +88,8 @@
   let teCurrentIdx = $state(0);
   let teDetail: HTMLDivElement | undefined = $state();
   let teFrame: HTMLDivElement | undefined = $state();
-  let azFrame: HTMLDivElement | undefined = $state();
   let teAutoTimer: ReturnType<typeof setInterval> | undefined;
   let teObserver: IntersectionObserver | undefined;
-  let azObserver: IntersectionObserver | undefined;
-
-  // Azimuth stat elements
-  let pdAzInvest: HTMLDivElement | undefined = $state();
-  let pdAzConfirm: HTMLDivElement | undefined = $state();
-  let pdAzFP: HTMLDivElement | undefined = $state();
-  let pdAzTime: HTMLDivElement | undefined = $state();
-  let pdAzSignal: HTMLDivElement | undefined = $state();
 
   function teScoreColor(score: number): string {
     if (score <= -60) return '#ef4444';
@@ -112,8 +103,6 @@
     return 'pd-te-factor-' + level;
   }
 
-  // teRender builds the detail panel HTML from the hardcoded teTokens array.
-  // All data is static/trusted (no user input), so innerHTML is safe here.
   function teRender(idx: number) {
     if (!teDetail) return;
     const t = teTokens[idx];
@@ -189,23 +178,9 @@
     teStartAuto();
   }
 
-  // Azimuth counter animation
-  function azCounter(el: HTMLElement, target: number, dur: number = 600) {
-    const t0 = performance.now();
-    (function tick(now: number) {
-      const p = Math.min((now - t0) / dur, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = String(Math.round(target * eased));
-      if (p < 1) requestAnimationFrame(tick);
-      else el.textContent = String(target);
-    })(t0);
-  }
-
   onMount(() => {
-    // Initialize first token detail
     teRender(0);
 
-    // Token Explorer auto-cycle via IntersectionObserver
     if (teFrame) {
       teObserver = new IntersectionObserver(function(entries) {
         if (entries[0].isIntersecting) {
@@ -217,7 +192,6 @@
       teObserver.observe(teFrame);
     }
 
-    // Scale stats count-up animation (stats-number elements)
     const statNumbers = document.querySelectorAll('.stats-number[data-value]');
     function animateCountUp(el: HTMLElement) {
       const target = parseFloat(el.getAttribute('data-value') || '0');
@@ -257,64 +231,35 @@
       );
       statNumbers.forEach((el) => statsObserver.observe(el));
     }
-
-    // Azimuth stats animation
-    let azAnimated = false;
-    if (azFrame) {
-      azObserver = new IntersectionObserver(function(entries) {
-        if (entries[0].isIntersecting && !azAnimated) {
-          azAnimated = true;
-
-          setTimeout(function() {
-            if (pdAzInvest) azCounter(pdAzInvest, 2);
-          }, 300);
-          setTimeout(function() {
-            if (pdAzConfirm) azCounter(pdAzConfirm, 2);
-          }, 500);
-          setTimeout(function() {
-            if (pdAzFP) pdAzFP.textContent = '0';
-          }, 700);
-          setTimeout(function() {
-            // Azimuth time display uses trusted static content only
-            if (pdAzTime) pdAzTime.innerHTML = '12.6<span style="font-size:0.75rem;color:oklch(0.5 0 0)">m</span>';
-          }, 900);
-          setTimeout(function() {
-            if (pdAzSignal) pdAzSignal.style.opacity = '1';
-          }, 1100);
-        }
-      }, { threshold: 0.15 });
-      azObserver.observe(azFrame);
-    }
   });
 
   onDestroy(() => {
     clearInterval(teAutoTimer);
     teObserver?.disconnect();
-    azObserver?.disconnect();
   });
 </script>
 
 <svelte:head>
-  <title>Token Custody — TestMachine</title>
-  <meta name="description" content="Token Custody - Token Explorer for 9M+ tokens with real-time risk scoring and security analysis. Zero false positives." />
-  <meta name="keywords" content="Web3 security, token risk scoring, smart contract audit, blockchain security, AI security, DeFi security, token explorer, azimuth" />
+  <title>Token Explorer — TestMachine</title>
+  <meta name="description" content="Risk scoring for 9M+ tokens across every EVM chain. Autonomous AI agents classify behaviors and produce risk scores. Zero false positives." />
+  <meta name="keywords" content="Web3 security, token risk scoring, smart contract audit, blockchain security, AI security, DeFi security, token explorer" />
 </svelte:head>
 
 
 <!-- =========================================================
-     SECTION 1: Hero
+     HERO
      ========================================================= -->
 <section class="pd-hero">
   <div class="container">
-    <span class="pd-hero-tag">Products</span>
-    <h1 class="pd-hero-title">Your Security Stack</h1>
-    <p class="pd-hero-sub">Two products. <strong>Zero false positives.</strong> From token risk scoring to deep protocol analysis &mdash; everything you need to secure your on-chain exposure.</p>
+    <span class="pd-hero-tag">Token Explorer</span>
+    <h1 class="pd-hero-title">Know Every Token</h1>
+    <p class="pd-hero-sub">Risk scoring for <strong>9M+ tokens</strong> across every EVM chain. Autonomous AI agents probe every function of every contract &mdash; classifying behaviors and producing risk scores in real time.</p>
   </div>
 </section>
 
 
 <!-- =========================================================
-     SECTION 2: Scale Stats
+     SCALE STATS
      ========================================================= -->
 <section class="pd-scale" id="scale">
   <div class="container">
@@ -341,14 +286,14 @@
 
 
 <!-- =========================================================
-     SECTION 3: Token Explorer
+     TOKEN EXPLORER
      ========================================================= -->
 <section class="pd-section" id="token-explorer">
   <div class="container">
     <div class="pd-section-header" data-animate>
-      <span class="section-label">Product 01</span>
+      <span class="section-label">How It Works</span>
       <h2 class="pd-section-title">Token Explorer</h2>
-      <p class="pd-section-desc">Risk scoring for 9M+ tokens across every EVM chain. Autonomous AI agents probe every function of every contract, classifying behaviors and producing risk scores from &minus;100 (critical danger) to +100 (safe). Continuously re-tested as contracts change.</p>
+      <p class="pd-section-desc">Autonomous AI agents probe every function of every contract, classifying behaviors and producing risk scores from &minus;100 (critical danger) to +100 (safe). Continuously re-tested as contracts change.</p>
       <div class="pd-section-features">
         <span class="pd-feature">8.1M+ tokens</span>
         <span class="pd-feature">7 EVM chains</span>
@@ -454,10 +399,245 @@
 </section>
 
 
+<!-- =========================================================
+     CHAINS
+     ========================================================= -->
+<section class="pd-section" id="chains">
+  <div class="container">
+    <div class="pd-section-header" data-animate>
+      <span class="section-label">Coverage</span>
+      <h2 class="pd-section-title">Every major EVM chain</h2>
+      <p class="pd-section-desc">One engine. Full coverage. Every chain analyzed with the same depth and rigor.</p>
+    </div>
+    <div class="pd-chains-grid" data-animate>
+      <div class="pd-chain-card">
+        <div class="pd-chain-icon"><svg viewBox="0 0 256 417" xmlns="http://www.w3.org/2000/svg"><path fill="#627EEA" d="M127.961 0l-2.795 9.5v275.668l2.795 2.79 127.962-75.638z"/><path fill="#627EEA" opacity=".6" d="M127.962 0L0 212.32l127.962 75.639V154.158z"/><path fill="#627EEA" d="M127.961 312.187l-1.575 1.92V414.2l1.575 4.6L256 236.587z"/><path fill="#627EEA" opacity=".6" d="M127.962 418.8v-106.61L0 236.585z"/></svg></div>
+        <div class="pd-chain-name">Ethereum</div>
+      </div>
+      <div class="pd-chain-card">
+        <div class="pd-chain-icon"><svg viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg"><circle cx="55.5" cy="55.5" r="55.5" fill="#0052FF"/><path d="M55.5 22C37 22 22 37 22 55.5S37 89 55.5 89c15.2 0 28-10.1 32.2-24H72.8c-3.5 8-11.4 13.5-17.3 13.5C45.2 78.5 36 69.3 36 55.5S45.2 32.5 55.5 32.5c5.9 0 13.8 5.5 17.3 13.5h14.9C83.5 32.1 70.7 22 55.5 22z" fill="#fff"/></svg></div>
+        <div class="pd-chain-name">Base</div>
+      </div>
+      <div class="pd-chain-card">
+        <div class="pd-chain-icon"><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M151.818 141.296L128.065 177.888 104.193 141.296 128.065 0z" fill="#28A0F0"/><path d="M128.065 189.888L104.193 153.296 128.065 256 151.818 153.296z" fill="#28A0F0"/><path d="M128.065 0L40 141.296 128.065 189.888 216.13 141.296z" fill="#28A0F0" opacity=".6"/></svg></div>
+        <div class="pd-chain-name">Arbitrum</div>
+      </div>
+      <div class="pd-chain-card">
+        <div class="pd-chain-icon"><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><circle cx="128" cy="128" r="128" fill="#FF0420"/><path d="M81.4 170.4c-4.8 0-7.6-3.2-6.4-8l22-94.4c1.6-6 7.6-10 13.6-10h38.8c20 0 33.2 12.4 30 30-2 10.8-8.4 19.6-16.8 25.2 6 4 9.2 11.2 7.6 20.4-2.8 16.4-16.8 28.8-34 28.8H81.4zm43.6-14c8.4 0 14.4-6 15.6-13.2 1.2-7.2-3.2-12.8-11.6-12.8h-18l-5.6 26h19.6zm4.8-42c7.6 0 13.2-5.2 14.4-12 1.2-6.4-2.8-11.6-10.4-11.6h-16.4l-5.2 23.6h17.6z" fill="#fff"/></svg></div>
+        <div class="pd-chain-name">Optimism</div>
+      </div>
+      <div class="pd-chain-card">
+        <div class="pd-chain-icon"><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M128 0L233.6 60.8v121.6L128 256 22.4 182.4V60.8z" fill="#8247E5"/><path d="M170.4 101.6c-3.2-1.6-7.2-1.6-10.4 0l-24 14.4-16.4 9.2-24 14.4c-3.2 1.6-7.2 1.6-10.4 0l-18.8-11.2c-3.2-1.6-5.2-5.2-5.2-8.8v-21.6c0-3.6 2-7.2 5.2-8.8l18.8-10.8c3.2-1.6 7.2-1.6 10.4 0l18.8 10.8c3.2 1.6 5.2 5.2 5.2 8.8v14.4l16.4-9.6v-14.4c0-3.6-2-7.2-5.2-8.8l-35.2-20.4c-3.2-1.6-7.2-1.6-10.4 0l-36 20.8c-3.2 1.6-5.2 5.2-5.2 8.8v41.2c0 3.6 2 7.2 5.2 8.8l35.6 20.4c3.2 1.6 7.2 1.6 10.4 0l24-13.6 16.4-9.6 24-13.6c3.2-1.6 7.2-1.6 10.4 0l18.8 10.8c3.2 1.6 5.2 5.2 5.2 8.8v21.6c0 3.6-2 7.2-5.2 8.8l-18.4 11.2c-3.2 1.6-7.2 1.6-10.4 0l-18.8-10.8c-3.2-1.6-5.2-5.2-5.2-8.8v-14.4l-16.4 9.6v14.4c0 3.6 2 7.2 5.2 8.8l35.6 20.4c3.2 1.6 7.2 1.6 10.4 0l35.6-20.4c3.2-1.6 5.2-5.2 5.2-8.8v-41.2c0-3.6-2-7.2-5.2-8.8z" fill="#fff"/></svg></div>
+        <div class="pd-chain-name">Polygon</div>
+      </div>
+      <div class="pd-chain-card">
+        <div class="pd-chain-icon"><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><circle cx="128" cy="128" r="128" fill="#E84142"/><path d="M171.8 130.8c4.4-2.4 4.4-8.4 0-10.8L135.6 98c-4.4-2.4-9.6.8-9.6 5.6v43.6c0 4.8 5.2 8 9.6 5.6l36.2-22zm-52.4 30.4c4.4 2.4 9.6-.8 9.6-5.6V112c0-4.8-5.2-8-9.6-5.6l-36.2 22c-4.4 2.4-4.4 8.4 0 10.8l36.2 22z" fill="#fff"/></svg></div>
+        <div class="pd-chain-name">Avalanche</div>
+      </div>
+      <div class="pd-chain-card">
+        <div class="pd-chain-icon"><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><circle cx="128" cy="128" r="128" fill="#F3BA2F"/><path d="M128 60l30 30-30 30-30-30zm50 50l30 30-30 30-30-30zm-100 0l30 30-30 30-30-30zm50 50l30 30-30 30-30-30z" fill="#fff"/></svg></div>
+        <div class="pd-chain-name">BNB Chain</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     CTA
+     ========================================================= -->
+<section class="pd-cta" id="cta">
+  <div class="container" data-animate>
+    <h2 class="pd-cta-title">Start securing your portfolio</h2>
+    <p class="pd-cta-sub">Explore 9M+ tokens with real-time risk scoring across every EVM chain. Zero false positives.</p>
+    <a href="https://app.testmachine.ai/token-explorer" class="btn btn--primary">Launch Token Explorer</a>
+  </div>
+</section>
+
+
 <style>
-  /* =========================================================
+  /* ========== Token Explorer Page Styles ========== */
+
+  /* -- Hero -- */
+  .pd-hero {
+    padding: calc(var(--nav-h) + 100px) 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .pd-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% -10%, oklch(0.25 0.04 192 / 0.35) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 75% 40%, oklch(0.22 0.02 220 / 0.2) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 25% 60%, oklch(0.20 0.02 280 / 0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  @keyframes heroFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .pd-hero-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    animation: heroFadeIn 0.8s ease 0.2s both;
+  }
+  .pd-hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    margin-bottom: 1.5rem;
+    color: var(--fg);
+    animation: heroFadeIn 0.8s ease 0.4s both;
+  }
+  .pd-hero-sub {
+    font-size: clamp(0.9375rem, 2vw, 1.125rem);
+    color: var(--fg-muted);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.7;
+    animation: heroFadeIn 0.8s ease 0.6s both;
+  }
+  .pd-hero-sub strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* -- Scale Stats -- */
+  .pd-scale {
+    padding: var(--section-py) 0;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .pd-scale-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--gap);
+  }
+  .pd-scale-card {
+    text-align: center;
+    padding: 28px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+  }
+  .pd-scale-num {
+    font-family: var(--font-mono);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .pd-scale-label {
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+  }
+
+  /* -- Section Shared -- */
+  .pd-section {
+    padding: var(--section-py) 0;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .pd-section-header {
+    margin-bottom: 2.5rem;
+  }
+  .pd-section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.75rem;
+    color: var(--fg);
+  }
+  .pd-section-desc {
+    font-family: var(--font-body);
+    color: var(--fg-muted);
+    max-width: 640px;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+  .pd-section-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1.25rem;
+  }
+  .pd-feature {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    padding: 4px 12px;
+    background: oklch(0.22 0.005 260);
+    border: 1px solid var(--border-subtle);
+    color: var(--fg-muted);
+  }
+  :global([data-theme="light"]) .pd-feature {
+    background: oklch(0.92 0.003 260);
+  }
+  .pd-section-action {
+    margin-top: 2rem;
+  }
+
+  /* -- Mock Frame Shared -- */
+  .pd-frame {
+    background: oklch(0.13 0.005 260);
+    border: 1px solid oklch(0.25 0.005 260);
+    overflow: hidden;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+  :global([data-theme="light"]) .pd-frame {
+    background: oklch(0.97 0 0);
+    border-color: oklch(0.85 0 0);
+  }
+  .pd-titlebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: oklch(0.16 0.005 260);
+    border-bottom: 1px solid oklch(0.22 0 0);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+  :global([data-theme="light"]) .pd-titlebar {
+    background: oklch(0.94 0 0);
+    border-color: oklch(0.85 0 0);
+  }
+  .pd-titlebar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .pd-titlebar-dots {
+    display: flex;
+    gap: 6px;
+  }
+  .pd-titlebar-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .pd-titlebar-url {
+    font-size: 0.6875rem;
+    color: oklch(0.45 0 0);
+  }
+  .pd-titlebar-url .pd-domain {
+    color: oklch(0.65 0 0);
+  }
+
+  /* ================================
      TOKEN EXPLORER MOCK
-     ========================================================= */
+     ================================ */
   .pd-te-header {
     display: flex;
     justify-content: space-between;
@@ -579,8 +759,6 @@
   .pd-chain-base { background: oklch(0.22 0 0); color: oklch(0.7 0 0); }
   .pd-chain-eth { background: oklch(0.2 0.02 260); color: oklch(0.7 0.04 260); }
   .pd-chain-arb { background: oklch(0.2 0.02 220); color: oklch(0.7 0.04 220); }
-  .pd-chain-polygon { background: oklch(0.2 0.02 300); color: oklch(0.7 0.04 300); }
-  .pd-chain-op { background: oklch(0.2 0.02 25); color: oklch(0.7 0.04 25); }
   :global([data-theme="light"]) .pd-chain-base { background: oklch(0.9 0 0); color: oklch(0.4 0 0); }
   :global([data-theme="light"]) .pd-chain-eth { background: oklch(0.92 0.02 260); color: oklch(0.4 0.04 260); }
   :global([data-theme="light"]) .pd-chain-arb { background: oklch(0.92 0.02 220); color: oklch(0.4 0.04 220); }
@@ -631,386 +809,54 @@
     opacity: 0;
     transform: translateY(8px);
   }
-  .pd-te-detail :global(.pd-te-detail-head) {
-    margin-bottom: 16px;
-  }
-  .pd-te-detail :global(.pd-te-detail-name) {
-    font-size: 0.875rem;
-    color: oklch(0.85 0 0);
-    margin-bottom: 4px;
-  }
+  .pd-te-detail :global(.pd-te-detail-head) { margin-bottom: 16px; }
+  .pd-te-detail :global(.pd-te-detail-name) { font-size: 0.875rem; color: oklch(0.85 0 0); margin-bottom: 4px; }
   :global([data-theme="light"]) .pd-te-detail :global(.pd-te-detail-name) { color: oklch(0.2 0 0); }
-  .pd-te-detail :global(.pd-te-detail-name strong) {
-    font-weight: 700;
-    color: oklch(0.95 0 0);
-  }
+  .pd-te-detail :global(.pd-te-detail-name strong) { font-weight: 700; color: oklch(0.95 0 0); }
   :global([data-theme="light"]) .pd-te-detail :global(.pd-te-detail-name strong) { color: oklch(0.1 0 0); }
-  .pd-te-detail :global(.pd-te-detail-meta) {
-    font-size: 0.6875rem;
-    color: oklch(0.4 0 0);
-  }
+  .pd-te-detail :global(.pd-te-detail-meta) { font-size: 0.6875rem; color: oklch(0.4 0 0); }
   .pd-te-detail :global(.pd-te-verified) { color: #22c55e; }
-
-  .pd-te-detail :global(.pd-te-detail-grid) {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 20px;
-  }
-
-  /* Risk Score Panel */
-  .pd-te-detail :global(.pd-te-risk-panel) {
-    text-align: center;
-    padding: 16px 0;
-  }
-  .pd-te-detail :global(.pd-te-risk-big) {
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 1;
-    margin-bottom: 4px;
-    font-variant-numeric: tabular-nums;
-  }
-  .pd-te-detail :global(.pd-te-risk-label) {
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    margin-bottom: 16px;
-  }
-  .pd-te-detail :global(.pd-te-risk-bar) {
-    margin: 0 auto;
-    max-width: 200px;
-  }
-  .pd-te-detail :global(.pd-te-risk-track) {
-    height: 6px;
-    background: linear-gradient(to right, #ef4444, #f59e0b, #22c55e);
-    position: relative;
-    margin-bottom: 6px;
-  }
-  .pd-te-detail :global(.pd-te-risk-marker) {
-    position: absolute;
-    top: -4px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    border: 2px solid oklch(0.13 0 0);
-    transform: translateX(-50%);
-    transition: left 0.5s ease, background 0.3s;
-  }
-  :global([data-theme="light"]) .pd-te-detail :global(.pd-te-risk-marker) {
-    border-color: oklch(0.97 0 0);
-  }
-  .pd-te-detail :global(.pd-te-risk-labels) {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.5625rem;
-    color: oklch(0.4 0 0);
-  }
-
-  /* Score Factors */
-  .pd-te-detail :global(.pd-te-factors) {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .pd-te-detail :global(.pd-te-factor) {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .pd-te-detail :global(.pd-te-factor-score) {
-    font-size: 0.75rem;
-    font-weight: 700;
-    min-width: 36px;
-    text-align: right;
-    flex-shrink: 0;
-  }
+  .pd-te-detail :global(.pd-te-detail-grid) { display: grid; grid-template-columns: 1fr 1.4fr; gap: 20px; }
+  .pd-te-detail :global(.pd-te-risk-panel) { text-align: center; padding: 16px 0; }
+  .pd-te-detail :global(.pd-te-risk-big) { font-size: 3rem; font-weight: 800; line-height: 1; margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+  .pd-te-detail :global(.pd-te-risk-label) { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.08em; margin-bottom: 16px; }
+  .pd-te-detail :global(.pd-te-risk-bar) { margin: 0 auto; max-width: 200px; }
+  .pd-te-detail :global(.pd-te-risk-track) { height: 6px; background: linear-gradient(to right, #ef4444, #f59e0b, #22c55e); position: relative; margin-bottom: 6px; }
+  .pd-te-detail :global(.pd-te-risk-marker) { position: absolute; top: -4px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid oklch(0.13 0 0); transform: translateX(-50%); transition: left 0.5s ease, background 0.3s; }
+  :global([data-theme="light"]) .pd-te-detail :global(.pd-te-risk-marker) { border-color: oklch(0.97 0 0); }
+  .pd-te-detail :global(.pd-te-risk-labels) { display: flex; justify-content: space-between; font-size: 0.5625rem; color: oklch(0.4 0 0); }
+  .pd-te-detail :global(.pd-te-factors) { display: flex; flex-direction: column; gap: 10px; }
+  .pd-te-detail :global(.pd-te-factor) { display: flex; align-items: flex-start; gap: 10px; }
+  .pd-te-detail :global(.pd-te-factor-score) { font-size: 0.75rem; font-weight: 700; min-width: 36px; text-align: right; flex-shrink: 0; }
   .pd-te-detail :global(.pd-te-factor-crit) { color: #ef4444; }
   .pd-te-detail :global(.pd-te-factor-warn) { color: #f97316; }
   .pd-te-detail :global(.pd-te-factor-med) { color: #eab308; }
   .pd-te-detail :global(.pd-te-factor-info) { color: oklch(0.5 0 0); }
   .pd-te-detail :global(.pd-te-factor-safe) { color: #22c55e; }
-  .pd-te-detail :global(.pd-te-factor-info-wrap) {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .pd-te-detail :global(.pd-te-factor-info-wrap strong) {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: oklch(0.85 0 0);
-  }
+  .pd-te-detail :global(.pd-te-factor-info-wrap) { display: flex; flex-direction: column; gap: 2px; }
+  .pd-te-detail :global(.pd-te-factor-info-wrap strong) { font-size: 0.75rem; font-weight: 600; color: oklch(0.85 0 0); }
   :global([data-theme="light"]) .pd-te-detail :global(.pd-te-factor-info-wrap strong) { color: oklch(0.2 0 0); }
-  .pd-te-detail :global(.pd-te-factor-info-wrap span) {
-    font-size: 0.6875rem;
-    color: oklch(0.45 0 0);
-  }
-
-  /* Detected Behaviors */
-  .pd-te-detail :global(.pd-te-behaviors) {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid oklch(0.22 0 0);
-  }
-  .pd-te-detail :global(.pd-te-behaviors-title) {
-    font-size: 0.6875rem;
-    font-weight: 600;
-    color: oklch(0.6 0 0);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 10px;
-  }
-  .pd-te-detail :global(.pd-te-no-behaviors) {
-    font-size: 0.75rem;
-    color: #22c55e;
-    padding: 12px 0;
-  }
-  .pd-te-detail :global(.pd-te-behav-item) {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid oklch(0.18 0 0);
-    font-size: 0.75rem;
-  }
+  .pd-te-detail :global(.pd-te-factor-info-wrap span) { font-size: 0.6875rem; color: oklch(0.45 0 0); }
+  .pd-te-detail :global(.pd-te-behaviors) { margin-top: 16px; padding-top: 16px; border-top: 1px solid oklch(0.22 0 0); }
+  .pd-te-detail :global(.pd-te-behaviors-title) { font-size: 0.6875rem; font-weight: 600; color: oklch(0.6 0 0); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+  .pd-te-detail :global(.pd-te-no-behaviors) { font-size: 0.75rem; color: #22c55e; padding: 12px 0; }
+  .pd-te-detail :global(.pd-te-behav-item) { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid oklch(0.18 0 0); font-size: 0.75rem; }
   .pd-te-detail :global(.pd-te-behav-item:last-child) { border-bottom: none; }
-  .pd-te-detail :global(.pd-te-behav-dot) {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 4px;
-  }
+  .pd-te-detail :global(.pd-te-behav-dot) { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
   .pd-te-detail :global(.pd-te-dot-red) { background: #ef4444; }
   .pd-te-detail :global(.pd-te-dot-yellow) { background: #eab308; }
   .pd-te-detail :global(.pd-te-dot-green) { background: #22c55e; }
   .pd-te-detail :global(.pd-te-dot-blue) { background: #3b82f6; }
   .pd-te-detail :global(.pd-te-dot-purple) { background: #a855f7; }
   .pd-te-detail :global(.pd-te-behav-info) { flex: 1; }
-  .pd-te-detail :global(.pd-te-behav-cat) {
-    font-weight: 600;
-    color: oklch(0.8 0 0);
-  }
+  .pd-te-detail :global(.pd-te-behav-cat) { font-weight: 600; color: oklch(0.8 0 0); }
   :global([data-theme="light"]) .pd-te-detail :global(.pd-te-behav-cat) { color: oklch(0.2 0 0); }
-  .pd-te-detail :global(.pd-te-behav-fn) {
-    color: var(--accent);
-    font-size: 0.6875rem;
-  }
-  .pd-te-detail :global(.pd-te-behav-auth) {
-    font-size: 0.625rem;
-    color: oklch(0.4 0 0);
-  }
-  .pd-te-detail :global(.pd-te-dim) {
-    color: oklch(0.4 0 0);
-    font-size: 0.6875rem;
-  }
+  .pd-te-detail :global(.pd-te-behav-fn) { color: var(--accent); font-size: 0.6875rem; }
+  .pd-te-detail :global(.pd-te-behav-auth) { font-size: 0.625rem; color: oklch(0.4 0 0); }
+  .pd-te-detail :global(.pd-te-dim) { color: oklch(0.4 0 0); font-size: 0.6875rem; }
 
   /* ================================
-     AZIMUTH REPORT MOCK
-     ================================ */
-  .pd-az-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 20px;
-    border-bottom: 1px solid oklch(0.22 0 0);
-  }
-  .pd-az-title {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: oklch(0.9 0 0);
-  }
-  :global([data-theme="light"]) .pd-az-title { color: oklch(0.15 0 0); }
-  .pd-az-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 0.6875rem;
-    font-weight: 500;
-    padding: 3px 10px;
-  }
-  .pd-az-badge-done {
-    color: #22c55e;
-    background: rgba(34,197,94,0.1);
-  }
-
-  .pd-az-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: oklch(0.22 0 0);
-    border-bottom: 1px solid oklch(0.22 0 0);
-  }
-  .pd-az-stat {
-    background: oklch(0.15 0 0);
-    padding: 16px 20px;
-    text-align: center;
-  }
-  :global([data-theme="light"]) .pd-az-stat { background: oklch(0.96 0 0); }
-  .pd-az-stat-label {
-    font-size: 0.625rem;
-    color: oklch(0.45 0 0);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 6px;
-  }
-  .pd-az-stat-val {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: oklch(0.9 0 0);
-    font-variant-numeric: tabular-nums;
-  }
-  :global([data-theme="light"]) .pd-az-stat-val { color: oklch(0.15 0 0); }
-  .pd-az-val-green { color: #22c55e; }
-  .pd-az-val-emerald { color: #10b981; }
-
-  .pd-az-signal {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 20px;
-    border-bottom: 1px solid oklch(0.22 0 0);
-    font-size: 0.6875rem;
-  }
-  .pd-az-signal-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: #22c55e;
-    font-weight: 500;
-  }
-  .pd-az-signal-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #22c55e;
-  }
-  .pd-az-cost {
-    color: oklch(0.45 0 0);
-  }
-  .pd-az-cost-val { color: var(--accent); }
-
-  /* Findings */
-  .pd-az-findings {
-    padding: 20px;
-  }
-  .pd-az-findings-head {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: oklch(0.85 0 0);
-  }
-  :global([data-theme="light"]) .pd-az-findings-head { color: oklch(0.2 0 0); }
-  .pd-sev {
-    font-size: 0.5625rem;
-    font-weight: 600;
-    padding: 2px 8px;
-    letter-spacing: 0.02em;
-  }
-  .pd-sev-critical { background: #7f1d1d; color: #fca5a5; }
-  .pd-sev-high { background: #7c2d12; color: #fdba74; }
-  .pd-sev-medium { background: #78350f; color: #fcd34d; }
-  .pd-sev-low { background: #14532d; color: #bbf7d0; }
-  :global([data-theme="light"]) .pd-sev-critical { background: #fef2f2; color: #dc2626; }
-  :global([data-theme="light"]) .pd-sev-high { background: #fff7ed; color: #ea580c; }
-  :global([data-theme="light"]) .pd-sev-low { background: #f0fdf4; color: #16a34a; }
-
-  .pd-az-finding {
-    padding: 16px;
-    background: oklch(0.15 0.005 260);
-    border: 1px solid oklch(0.22 0 0);
-    margin-bottom: 12px;
-  }
-  :global([data-theme="light"]) .pd-az-finding {
-    background: oklch(0.96 0 0);
-    border-color: oklch(0.88 0 0);
-  }
-  .pd-az-finding-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  .pd-az-finding-title {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: oklch(0.9 0 0);
-  }
-  :global([data-theme="light"]) .pd-az-finding-title { color: oklch(0.15 0 0); }
-  .pd-az-confirmed {
-    color: #22c55e;
-    font-weight: 500;
-    font-size: 0.6875rem;
-  }
-  .pd-az-finding-desc {
-    font-size: 0.75rem;
-    color: oklch(0.6 0 0);
-    line-height: 1.6;
-    margin-bottom: 12px;
-  }
-  :global([data-theme="light"]) .pd-az-finding-desc { color: oklch(0.4 0 0); }
-
-  /* Attack Steps */
-  .pd-az-steps-title {
-    font-size: 0.6875rem;
-    font-weight: 600;
-    color: oklch(0.55 0 0);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 10px;
-  }
-  .pd-az-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 6px 0;
-    font-size: 0.75rem;
-    color: oklch(0.65 0 0);
-    line-height: 1.5;
-  }
-  :global([data-theme="light"]) .pd-az-step { color: oklch(0.4 0 0); }
-  .pd-az-step-num {
-    font-weight: 700;
-    color: var(--accent);
-    min-width: 16px;
-    flex-shrink: 0;
-  }
-
-  /* PoC Code Block */
-  .pd-code-label {
-    font-size: 0.625rem;
-    font-weight: 600;
-    color: oklch(0.5 0 0);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin: 16px 0 8px;
-  }
-  .pd-code {
-    background: oklch(0.1 0.005 260);
-    border: 1px solid oklch(0.22 0 0);
-    padding: 16px 20px;
-    overflow-x: auto;
-    font-size: 0.6875rem;
-    line-height: 1.7;
-  }
-  :global([data-theme="light"]) .pd-code {
-    background: oklch(0.95 0 0);
-    border-color: oklch(0.85 0 0);
-  }
-  .pd-code code {
-    font-family: var(--font-mono);
-    color: oklch(0.7 0 0);
-  }
-  .pd-code .kw { color: #c084fc; }
-  .pd-code .fn { color: #60a5fa; }
-  .pd-code .str { color: #86efac; }
-  .pd-code .cm { color: oklch(0.4 0 0); }
-  .pd-code .num { color: #fcd34d; }
-  .pd-code .type { color: #22d3ee; }
-
-  /* ================================
-     EVM CHAINS SECTION
+     EVM CHAINS
      ================================ */
   .pd-chains-grid {
     display: grid;
@@ -1098,9 +944,6 @@
     .pd-te-row td:nth-child(3) {
       display: none;
     }
-    .pd-az-stats {
-      grid-template-columns: repeat(2, 1fr);
-    }
     .pd-chains-grid {
       grid-template-columns: repeat(3, 1fr);
     }
@@ -1114,11 +957,11 @@
       gap: 16px;
       flex-wrap: wrap;
     }
-    .pd-chains-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
     .pd-section-features {
       gap: 6px;
+    }
+    .pd-chains-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>

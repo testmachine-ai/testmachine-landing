@@ -1,102 +1,16 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
 
-  // ========================================
-  // TOKEN EXPLORER DATA & STATE
-  // ========================================
-  const teTokens = [
-    {
-      name: 'JUDEX', sub: 'JudexAI', chain: 'Base', contract: 'ClankerToken',
-      block: '42,333,363', verified: true, score: -100, riskLabel: 'CRITICAL RISK',
-      factors: [
-        [-100, 'crit', 'Confiscation', 'Can reduce or remove token balances from specific accounts'],
-        [-20, 'warn', 'Minting', 'New tokens can be created, increasing total supply'],
-        [-20, 'warn', 'Assembly', 'Contains low-level assembly code'],
-        [0, 'info', 'Management', 'Admin functions for role management']
-      ],
-      behaviors: [
-        ['red', 'Confiscation', 'crosschainBurn(address,uint256)', '0x4200...0028'],
-        ['yellow', 'Management', 'updateAdmin(address)', '0x1391...E492'],
-        ['green', 'Minting', 'crosschainMint(address,uint256)', '0x4200...0028'],
-        ['blue', 'Assembly', '26 variants \u2014 escapeJSON, getAddressSlot, _unsafeReadBytesOffset...', '']
-      ]
-    },
-    {
-      name: 'WILDE', sub: 'Lobstar Wilde', chain: 'Base', contract: 'ERC20Token',
-      block: '41,892,110', verified: true, score: -80, riskLabel: 'HIGH RISK',
-      factors: [
-        [-80, 'crit', 'Confiscation', 'Owner can force-transfer tokens between arbitrary accounts'],
-        [-15, 'warn', 'Minting', 'Unlimited minting capability via owner-only function'],
-        [-15, 'warn', 'Assembly', 'Contains inline assembly in transfer logic']
-      ],
-      behaviors: [
-        ['red', 'Confiscation', 'forceTransfer(address,address,uint256)', '0x8b2f...a901'],
-        ['green', 'Minting', 'mint(address,uint256)', '0x8b2f...a901'],
-        ['blue', 'Assembly', '12 variants \u2014 transferFrom, _transfer, _approve...', '']
-      ]
-    },
-    {
-      name: 'WETH', sub: 'Wrapped Ether', chain: 'Ethereum', contract: 'WETH9',
-      block: '19,456,002', verified: true, score: 95, riskLabel: 'SAFE',
-      factors: [
-        [0, 'safe', 'No risky behaviors', 'Standard WETH implementation with no admin controls']
-      ],
-      behaviors: []
-    },
-    {
-      name: 'AAVE', sub: 'Aave Token', chain: 'Ethereum', contract: 'AaveTokenV3',
-      block: '18,892,340', verified: true, score: 72, riskLabel: 'LOW RISK',
-      factors: [
-        [-15, 'warn', 'Governance', 'Token holders can delegate voting power and propose changes'],
-        [-8, 'warn', 'Pausable', 'Emergency pause function controlled by guardian multisig']
-      ],
-      behaviors: [
-        ['yellow', 'Governance', 'propose(address[],uint256[],bytes[])', '0x7d2b...c301'],
-        ['purple', 'Pausable', 'pause()', '0x2af3...9e12']
-      ]
-    },
-    {
-      name: 'PEPE', sub: 'PepeCoin', chain: 'Ethereum', contract: 'PepeToken',
-      block: '17,046,105', verified: true, score: -45, riskLabel: 'MEDIUM RISK',
-      factors: [
-        [-25, 'warn', 'Minting', 'Owner can mint additional tokens beyond initial supply'],
-        [-10, 'med', 'Management', 'Owner can change fee parameters and recipient addresses'],
-        [-10, 'med', 'Assembly', 'Low-level assembly used in token transfer functions']
-      ],
-      behaviors: [
-        ['green', 'Minting', 'mint(address,uint256)', '0x6982...f234'],
-        ['yellow', 'Management', 'setOwner(address)', '0x6982...f234'],
-        ['blue', 'Assembly', '5 variants \u2014 _transfer, approve, transferFrom...', '']
-      ]
-    },
-    {
-      name: 'GEM', sub: 'GemToken', chain: 'Arbitrum', contract: 'TransparentProxy',
-      block: '178,234,501', verified: false, score: -90, riskLabel: 'CRITICAL RISK',
-      factors: [
-        [-90, 'crit', 'Confiscation', 'Admin can burn tokens from any address without approval'],
-        [-20, 'warn', 'Minting', 'Unlimited minting through owner-only function'],
-        [-15, 'warn', 'Proxy', 'Upgradeable proxy \u2014 implementation can be changed by admin']
-      ],
-      behaviors: [
-        ['red', 'Confiscation', 'burn(address,uint256)', '0x3e8a...7f01'],
-        ['green', 'Minting', 'mint(address,uint256)', '0x3e8a...7f01'],
-        ['purple', 'Proxy', 'upgradeTo(address)', '0x3e8a...7f01']
-      ]
-    }
-  ];
-
-  let teCurrentIdx = $state(0);
-  let teDetail: HTMLDivElement | undefined = $state();
-  let teFrame: HTMLDivElement | undefined = $state();
   let azFrame: HTMLDivElement | undefined = $state();
-  let teAutoTimer: ReturnType<typeof setInterval> | undefined;
-  let teObserver: IntersectionObserver | undefined;
   let azObserver: IntersectionObserver | undefined;
 
   // Azimuth stat elements
   let pdAzInvest: HTMLDivElement | undefined = $state();
   let pdAzConfirm: HTMLDivElement | undefined = $state();
   let pdAzFP: HTMLDivElement | undefined = $state();
+  let pdAzTime: HTMLDivElement | undefined = $state();
+  let pdAzSignal: HTMLDivElement | undefined = $state();
+
   // Azimuth counter animation
   function azCounter(el: HTMLElement, target: number, dur: number = 600) {
     const t0 = performance.now();
@@ -110,22 +24,7 @@
   }
 
   onMount(() => {
-    // Initialize first token detail
-    teRender(0);
-
-    // Token Explorer auto-cycle via IntersectionObserver
-    if (teFrame) {
-      teObserver = new IntersectionObserver(function(entries) {
-        if (entries[0].isIntersecting) {
-          teStartAuto();
-        } else {
-          clearInterval(teAutoTimer);
-        }
-      }, { threshold: 0.15 });
-      teObserver.observe(teFrame);
-    }
-
-    // Scale stats count-up animation (stats-number elements)
+    // Scale stats count-up animation
     const statNumbers = document.querySelectorAll('.stats-number[data-value]');
     function animateCountUp(el: HTMLElement) {
       const target = parseFloat(el.getAttribute('data-value') || '0');
@@ -183,7 +82,6 @@
             if (pdAzFP) pdAzFP.textContent = '0';
           }, 700);
           setTimeout(function() {
-            // Azimuth time display uses trusted static content only
             if (pdAzTime) pdAzTime.innerHTML = '12.6<span style="font-size:0.75rem;color:oklch(0.5 0 0)">m</span>';
           }, 900);
           setTimeout(function() {
@@ -196,52 +94,50 @@
   });
 
   onDestroy(() => {
-    clearInterval(teAutoTimer);
-    teObserver?.disconnect();
     azObserver?.disconnect();
   });
 </script>
 
 <svelte:head>
   <title>Azimuth — TestMachine</title>
-  <meta name="description" content="Azimuth - Deep security analysis powered by machine learning. Advanced threat detection and vulnerability assessment." />
-  <meta name="keywords" content="Web3 security, token risk scoring, smart contract audit, blockchain security, AI security, DeFi security, token explorer, azimuth" />
+  <meta name="description" content="Azimuth - RL-powered security engine for smart contracts. Autonomous agents attack your code in sandboxed environments. Zero false positives." />
+  <meta name="keywords" content="Web3 security, smart contract audit, blockchain security, AI security, DeFi security, azimuth, reinforcement learning" />
 </svelte:head>
 
 
 <!-- =========================================================
-     SECTION 1: Hero
+     HERO
      ========================================================= -->
 <section class="pd-hero">
   <div class="container">
-    <span class="pd-hero-tag">Products</span>
-    <h1 class="pd-hero-title">Your Security Stack</h1>
-    <p class="pd-hero-sub">Two products. <strong>Zero false positives.</strong> From token risk scoring to deep protocol analysis &mdash; everything you need to secure your on-chain exposure.</p>
+    <span class="pd-hero-tag">Azimuth</span>
+    <h1 class="pd-hero-title">Attack to Defend</h1>
+    <p class="pd-hero-sub">The <strong>RL-powered security engine</strong> for protocols and smart contracts. Agents attack your code in sandboxed forked environments. Every finding comes with a working proof-of-concept exploit.</p>
   </div>
 </section>
 
 
 <!-- =========================================================
-     SECTION 2: Scale Stats
+     SCALE STATS
      ========================================================= -->
 <section class="pd-scale" id="scale">
   <div class="container">
     <div class="pd-scale-grid" data-animate>
       <div class="pd-scale-card">
-        <div class="pd-scale-num stats-number" data-value="8.1" data-suffix="M+">0M+</div>
-        <div class="pd-scale-label">Tokens analyzed</div>
+        <div class="pd-scale-num stats-number" data-value="847">0</div>
+        <div class="pd-scale-label">Exploits discovered</div>
       </div>
       <div class="pd-scale-card">
-        <div class="pd-scale-num stats-number" data-value="7">0</div>
-        <div class="pd-scale-label">EVM chains</div>
+        <div class="pd-scale-num stats-number" data-value="12">0</div>
+        <div class="pd-scale-label">Protocols analyzed</div>
       </div>
       <div class="pd-scale-card">
         <div class="pd-scale-num" style="color: #22c55e;">0</div>
         <div class="pd-scale-label">False positives</div>
       </div>
       <div class="pd-scale-card">
-        <div class="pd-scale-num">24/7</div>
-        <div class="pd-scale-label">Continuous analysis</div>
+        <div class="pd-scale-num stats-number" data-value="100" data-suffix="%">0%</div>
+        <div class="pd-scale-label">Working exploits</div>
       </div>
     </div>
   </div>
@@ -249,128 +145,14 @@
 
 
 <!-- =========================================================
-     SECTION 3: Token Explorer
-     ========================================================= -->
-<section class="pd-section" id="token-explorer">
-  <div class="container">
-    <div class="pd-section-header" data-animate>
-      <span class="section-label">Product 01</span>
-      <h2 class="pd-section-title">Token Explorer</h2>
-      <p class="pd-section-desc">Risk scoring for 9M+ tokens across every EVM chain. Autonomous AI agents probe every function of every contract, classifying behaviors and producing risk scores from &minus;100 (critical danger) to +100 (safe). Continuously re-tested as contracts change.</p>
-      <div class="pd-section-features">
-        <span class="pd-feature">8.1M+ tokens</span>
-        <span class="pd-feature">7 EVM chains</span>
-        <span class="pd-feature">Real-time scores</span>
-        <span class="pd-feature">Behavior classification</span>
-        <span class="pd-feature">Continuous re-testing</span>
-      </div>
-    </div>
-
-    <div class="pd-frame" data-animate bind:this={teFrame}>
-      <!-- Titlebar -->
-      <div class="pd-titlebar">
-        <div class="pd-titlebar-left">
-          <div class="pd-titlebar-dots">
-            <span style="background:#ef4444"></span>
-            <span style="background:#f59e0b"></span>
-            <span style="background:#22c55e"></span>
-          </div>
-          <div class="pd-titlebar-url"><span class="pd-domain">app.testmachine.ai</span>/token-explorer</div>
-        </div>
-      </div>
-
-      <!-- Explorer Header -->
-      <div class="pd-te-header">
-        <div class="pd-te-title">Token Explorer</div>
-        <div class="pd-te-live"><span class="pd-te-live-dot"></span> Live</div>
-      </div>
-
-      <!-- Stats -->
-      <div class="pd-te-stats">
-        <div>
-          <span class="pd-te-stat-num">8,101,870</span>
-          <span class="pd-te-stat-label">tokens analyzed</span>
-        </div>
-        <div>
-          <span class="pd-te-stat-num">2,379,208</span>
-          <span class="pd-te-stat-label">behaviors surfaced</span>
-        </div>
-        <div>
-          <span class="pd-te-stat-num">7</span>
-          <span class="pd-te-stat-label">chains covered</span>
-        </div>
-      </div>
-
-      <!-- Token Table -->
-      <table class="pd-te-table">
-        <thead>
-          <tr>
-            <th style="width:22%">Token</th>
-            <th style="width:12%">Network</th>
-            <th style="width:42%">Behaviors</th>
-            <th style="width:12%">Risk Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="pd-te-row" class:pd-te-selected={teCurrentIdx === 0} onclick={() => handleRowClick(0)}>
-            <td><span class="pd-te-tok-name">JUDEX</span><span class="pd-te-tok-sub">JudexAI</span></td>
-            <td><span class="pd-chain pd-chain-base">Base</span></td>
-            <td><div class="pd-te-behavs"><span class="pd-badge pd-badge-red">Confiscation</span><span class="pd-badge pd-badge-yellow">Governance</span><span class="pd-badge pd-badge-blue">Assembly</span><span class="pd-te-dim">+2</span></div></td>
-            <td><span class="pd-risk-crit">-100</span></td>
-          </tr>
-          <tr class="pd-te-row" class:pd-te-selected={teCurrentIdx === 1} onclick={() => handleRowClick(1)}>
-            <td><span class="pd-te-tok-name">WILDE</span><span class="pd-te-tok-sub">Lobstar Wilde</span></td>
-            <td><span class="pd-chain pd-chain-base">Base</span></td>
-            <td><div class="pd-te-behavs"><span class="pd-badge pd-badge-red">Confiscation</span><span class="pd-badge pd-badge-green">Minting</span><span class="pd-badge pd-badge-blue">Assembly</span></div></td>
-            <td><span class="pd-risk-high">-80</span></td>
-          </tr>
-          <tr class="pd-te-row" class:pd-te-selected={teCurrentIdx === 2} onclick={() => handleRowClick(2)}>
-            <td><span class="pd-te-tok-name">WETH</span><span class="pd-te-tok-sub">Wrapped Ether</span></td>
-            <td><span class="pd-chain pd-chain-eth">Ethereum</span></td>
-            <td><div class="pd-te-behavs"><span class="pd-badge pd-badge-none">None detected</span></div></td>
-            <td><span class="pd-risk-safe">+95</span></td>
-          </tr>
-          <tr class="pd-te-row" class:pd-te-selected={teCurrentIdx === 3} onclick={() => handleRowClick(3)}>
-            <td><span class="pd-te-tok-name">AAVE</span><span class="pd-te-tok-sub">Aave Token</span></td>
-            <td><span class="pd-chain pd-chain-eth">Ethereum</span></td>
-            <td><div class="pd-te-behavs"><span class="pd-badge pd-badge-yellow">Governance</span><span class="pd-badge pd-badge-purple">Pausable</span></div></td>
-            <td><span class="pd-risk-low">+72</span></td>
-          </tr>
-          <tr class="pd-te-row" class:pd-te-selected={teCurrentIdx === 4} onclick={() => handleRowClick(4)}>
-            <td><span class="pd-te-tok-name">PEPE</span><span class="pd-te-tok-sub">PepeCoin</span></td>
-            <td><span class="pd-chain pd-chain-eth">Ethereum</span></td>
-            <td><div class="pd-te-behavs"><span class="pd-badge pd-badge-green">Minting</span><span class="pd-badge pd-badge-yellow">Management</span><span class="pd-badge pd-badge-blue">Assembly</span></div></td>
-            <td><span class="pd-risk-med">-45</span></td>
-          </tr>
-          <tr class="pd-te-row" class:pd-te-selected={teCurrentIdx === 5} onclick={() => handleRowClick(5)}>
-            <td><span class="pd-te-tok-name">GEM</span><span class="pd-te-tok-sub">GemToken</span></td>
-            <td><span class="pd-chain pd-chain-arb">Arbitrum</span></td>
-            <td><div class="pd-te-behavs"><span class="pd-badge pd-badge-red">Confiscation</span><span class="pd-badge pd-badge-green">Minting</span><span class="pd-badge pd-badge-purple">Proxy</span></div></td>
-            <td><span class="pd-risk-crit">-90</span></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- Detail Panel (populated by JS) -->
-      <div class="pd-te-detail" bind:this={teDetail}></div>
-    </div>
-
-    <div class="pd-section-action" data-animate>
-      <a href="https://app.testmachine.ai/token-explorer" class="btn btn--secondary">Explore Tokens &rarr;</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- =========================================================
-     SECTION 4: Azimuth - Deep Security Analysis
+     AZIMUTH DEMO
      ========================================================= -->
 <section class="pd-section" id="azimuth-product">
   <div class="container">
     <div class="pd-section-header" data-animate>
-      <span class="section-label">Product 02</span>
-      <h2 class="pd-section-title">Azimuth &mdash; Deep Security Analysis</h2>
-      <p class="pd-section-desc">The RL-powered security engine for protocols and smart contracts. Agents attack your code in sandboxed forked environments. Every finding comes with a working proof-of-concept exploit. If it's reported, it was actually exploited.</p>
+      <span class="section-label">How It Works</span>
+      <h2 class="pd-section-title">Deep Security Analysis</h2>
+      <p class="pd-section-desc">RL-powered agents attack your code in sandboxed forked environments. Every finding comes with a working proof-of-concept exploit. If it's reported, it was actually exploited.</p>
       <div class="pd-section-features">
         <span class="pd-feature">RL-powered agents</span>
         <span class="pd-feature">Zero false positives</span>
@@ -503,7 +285,7 @@
 
 
 <!-- =========================================================
-     SECTION 6: All EVM Chains
+     CHAINS
      ========================================================= -->
 <section class="pd-section" id="chains">
   <div class="container">
@@ -547,19 +329,19 @@
 
 
 <!-- =========================================================
-     SECTION 7: CTA
+     CTA
      ========================================================= -->
 <section class="pd-cta" id="cta">
   <div class="container" data-animate>
     <h2 class="pd-cta-title">Start securing your protocol</h2>
-    <p class="pd-cta-sub">Explore 9M+ tokens. Run deep security analysis. Zero false positives. All in one platform.</p>
-    <a href="https://app.testmachine.ai/" class="btn btn--primary">Launch App</a>
+    <p class="pd-cta-sub">Run deep security analysis with RL-powered agents. Zero false positives. Working exploits for every finding.</p>
+    <a href="https://app.testmachine.ai/" class="btn btn--primary">Run Analysis</a>
   </div>
 </section>
 
 
 <style>
-  /* ========== Products Page Styles ========== */
+  /* ========== Azimuth Page Styles ========== */
 
   /* -- Hero -- */
   .pd-hero {
@@ -736,5 +518,313 @@
   }
   .pd-titlebar-url .pd-domain {
     color: oklch(0.65 0 0);
+  }
+
+  /* ================================
+     AZIMUTH REPORT MOCK
+     ================================ */
+  .pd-az-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid oklch(0.22 0 0);
+  }
+  .pd-az-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: oklch(0.9 0 0);
+  }
+  :global([data-theme="light"]) .pd-az-title { color: oklch(0.15 0 0); }
+  .pd-az-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    padding: 3px 10px;
+  }
+  .pd-az-badge-done {
+    color: #22c55e;
+    background: rgba(34,197,94,0.1);
+  }
+
+  .pd-az-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: oklch(0.22 0 0);
+    border-bottom: 1px solid oklch(0.22 0 0);
+  }
+  .pd-az-stat {
+    background: oklch(0.15 0 0);
+    padding: 16px 20px;
+    text-align: center;
+  }
+  :global([data-theme="light"]) .pd-az-stat { background: oklch(0.96 0 0); }
+  .pd-az-stat-label {
+    font-size: 0.625rem;
+    color: oklch(0.45 0 0);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .pd-az-stat-val {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: oklch(0.9 0 0);
+    font-variant-numeric: tabular-nums;
+  }
+  :global([data-theme="light"]) .pd-az-stat-val { color: oklch(0.15 0 0); }
+  .pd-az-val-green { color: #22c55e; }
+  .pd-az-val-emerald { color: #10b981; }
+
+  .pd-az-signal {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid oklch(0.22 0 0);
+    font-size: 0.6875rem;
+  }
+  .pd-az-signal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #22c55e;
+    font-weight: 500;
+  }
+  .pd-az-signal-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #22c55e;
+  }
+  .pd-az-cost {
+    color: oklch(0.45 0 0);
+  }
+  .pd-az-cost-val { color: var(--accent); }
+
+  /* Findings */
+  .pd-az-findings {
+    padding: 20px;
+  }
+  .pd-az-findings-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: oklch(0.85 0 0);
+  }
+  :global([data-theme="light"]) .pd-az-findings-head { color: oklch(0.2 0 0); }
+  .pd-sev {
+    font-size: 0.5625rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    letter-spacing: 0.02em;
+  }
+  .pd-sev-critical { background: #7f1d1d; color: #fca5a5; }
+  .pd-sev-high { background: #7c2d12; color: #fdba74; }
+  .pd-sev-medium { background: #78350f; color: #fcd34d; }
+  .pd-sev-low { background: #14532d; color: #bbf7d0; }
+  :global([data-theme="light"]) .pd-sev-critical { background: #fef2f2; color: #dc2626; }
+  :global([data-theme="light"]) .pd-sev-high { background: #fff7ed; color: #ea580c; }
+  :global([data-theme="light"]) .pd-sev-low { background: #f0fdf4; color: #16a34a; }
+
+  .pd-az-finding {
+    padding: 16px;
+    background: oklch(0.15 0.005 260);
+    border: 1px solid oklch(0.22 0 0);
+    margin-bottom: 12px;
+  }
+  :global([data-theme="light"]) .pd-az-finding {
+    background: oklch(0.96 0 0);
+    border-color: oklch(0.88 0 0);
+  }
+  .pd-az-finding-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .pd-az-finding-title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: oklch(0.9 0 0);
+  }
+  :global([data-theme="light"]) .pd-az-finding-title { color: oklch(0.15 0 0); }
+  .pd-az-confirmed {
+    color: #22c55e;
+    font-weight: 500;
+    font-size: 0.6875rem;
+  }
+  .pd-az-finding-desc {
+    font-size: 0.75rem;
+    color: oklch(0.6 0 0);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  :global([data-theme="light"]) .pd-az-finding-desc { color: oklch(0.4 0 0); }
+
+  /* Attack Steps */
+  .pd-az-steps-title {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: oklch(0.55 0 0);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+  .pd-az-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 0.75rem;
+    color: oklch(0.65 0 0);
+    line-height: 1.5;
+  }
+  :global([data-theme="light"]) .pd-az-step { color: oklch(0.4 0 0); }
+  .pd-az-step-num {
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 16px;
+    flex-shrink: 0;
+  }
+
+  /* PoC Code Block */
+  .pd-code-label {
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: oklch(0.5 0 0);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 16px 0 8px;
+  }
+  .pd-code {
+    background: oklch(0.1 0.005 260);
+    border: 1px solid oklch(0.22 0 0);
+    padding: 16px 20px;
+    overflow-x: auto;
+    font-size: 0.6875rem;
+    line-height: 1.7;
+  }
+  :global([data-theme="light"]) .pd-code {
+    background: oklch(0.95 0 0);
+    border-color: oklch(0.85 0 0);
+  }
+  .pd-code code {
+    font-family: var(--font-mono);
+    color: oklch(0.7 0 0);
+  }
+  .pd-code .kw { color: #c084fc; }
+  .pd-code .fn { color: #60a5fa; }
+  .pd-code .str { color: #86efac; }
+  .pd-code .cm { color: oklch(0.4 0 0); }
+  .pd-code .num { color: #fcd34d; }
+  .pd-code .type { color: #22d3ee; }
+
+  /* ================================
+     EVM CHAINS
+     ================================ */
+  .pd-chains-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--gap);
+  }
+  .pd-chain-card {
+    padding: 24px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    text-align: center;
+    transition: border-color var(--transition), transform var(--transition);
+  }
+  .pd-chain-card:hover {
+    border-color: var(--border);
+    transform: translateY(-2px);
+  }
+  .pd-chain-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pd-chain-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+  .pd-chain-name {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  /* ================================
+     CTA
+     ================================ */
+  .pd-cta {
+    padding: var(--section-py) 0;
+    border-top: 2px solid var(--accent);
+    text-align: center;
+    position: relative;
+  }
+  .pd-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, oklch(0.72 0.12 192 / 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .pd-cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    margin-bottom: 1rem;
+    color: var(--fg);
+  }
+  .pd-cta-sub {
+    color: var(--fg-muted);
+    font-size: 0.9375rem;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* -- Responsive -- */
+  @media (max-width: 900px) {
+    .pd-chains-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .pd-scale-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .pd-az-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .pd-chains-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .pd-scale-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .pd-chains-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .pd-section-features {
+      gap: 6px;
+    }
   }
 </style>
