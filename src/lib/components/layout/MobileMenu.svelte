@@ -30,12 +30,20 @@
       How It Works
     </a>
     <a 
-      href="/products" 
+      href="/products/token-custody" 
       class="mobile-menu-link"
-      class:active={$page.url.pathname === '/products'}
+      class:active={$page.url.pathname === '/products/token-custody'}
       on:click={handleLinkClick}
     >
-      Products
+      Token Custody
+    </a>
+    <a 
+      href="/products/azimuth" 
+      class="mobile-menu-link"
+      class:active={$page.url.pathname === '/products/azimuth'}
+      on:click={handleLinkClick}
+    >
+      Azimuth
     </a>
     <a 
       href="/blog" 

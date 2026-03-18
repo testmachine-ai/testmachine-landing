@@ -7,6 +7,7 @@
   let scrolled = false;
   let navElement: HTMLElement;
   let mobileMenuOpen = false;
+  let productsDropdownOpen = false;
   
   function handleScroll() {
     scrolled = window.scrollY > 40;
@@ -35,7 +36,24 @@
     <div class="nav-links">
       <a href="/" class="nav-link" class:nav-link--active={$page.url.pathname === '/'}>Home</a>
       <a href="/solutions" class="nav-link" class:nav-link--active={$page.url.pathname === '/solutions'}>How It Works</a>
-      <a href="/products" class="nav-link" class:nav-link--active={$page.url.pathname === '/products'}>Products</a>
+      
+      <div 
+        class="nav-dropdown" 
+        on:mouseenter={() => productsDropdownOpen = true}
+        on:mouseleave={() => productsDropdownOpen = false}
+      >
+        <span class="nav-link" class:nav-link--active={$page.url.pathname.startsWith('/products')}>
+          Products
+          <svg width="12" height="8" viewBox="0 0 12 8" fill="none" class="dropdown-arrow">
+            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <div class="nav-dropdown-menu" class:show={productsDropdownOpen}>
+          <a href="/products/token-custody" class="nav-dropdown-item">Token Custody</a>
+          <a href="/products/azimuth" class="nav-dropdown-item">Azimuth</a>
+        </div>
+      </div>
+      
       <a href="/blog" class="nav-link" class:nav-link--active={$page.url.pathname === '/blog'}>Blog</a>
       <a href="/#contact" class="nav-link">Contact</a>
     </div>
@@ -215,6 +233,65 @@
     }
   }
   
+  .nav-dropdown {
+    position: relative;
+  }
+  
+  .nav-dropdown .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: default;
+  }
+  
+  .dropdown-arrow {
+    transition: transform var(--transition);
+  }
+  
+  .nav-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-panel);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 8px 0;
+    min-width: 160px;
+    box-shadow: 0 8px 32px oklch(0 0 0 / 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(-8px);
+    transition: all var(--transition);
+    z-index: 1000;
+  }
+  
+  .nav-dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  .nav-dropdown-item {
+    display: block;
+    padding: 8px 16px;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--fg-muted);
+    transition: all var(--transition);
+    white-space: nowrap;
+  }
+  
+  .nav-dropdown-item:hover {
+    background: var(--bg-subtle);
+    color: var(--fg);
+  }
+
   @media (max-width: 768px) {
     .nav-logo-icon {
       width: 34px;
