@@ -19,25 +19,24 @@
 
 <section class="partnerships" id="partnerships">
   <div class="container">
-    <h2 class="section-title">Trusted By</h2>
-    <p class="partnerships-desc">
-      Securing tokens and protocols for leading exchanges, protocols,
-      and institutions across the ecosystem.
-    </p>
-    <div class="partnerships-grid">
-      {#each partners as partner}
-        <div class="partnership-card">
-          {#if partner.isText}
-            <span class="partnership-text-logo">{partner.name}</span>
-          {:else}
-            <img 
-              src={partner.logo} 
-              alt={partner.name} 
-              loading="lazy"
-            />
-          {/if}
-        </div>
-      {/each}
+    <div class="partnerships-inner" data-animate>
+      <span class="section-label">Trusted By</span>
+      <h2 class="section-title">Securing tokens and protocols for leading exchanges, protocols, and institutions.</h2>
+      <div class="partnerships-grid">
+        {#each partners as partner}
+          <div class="partnership-card">
+            {#if partner.isText}
+              <span class="partnership-text-logo">{partner.name}</span>
+            {:else}
+              <img 
+                src={partner.logo} 
+                alt={partner.name} 
+                loading="lazy"
+              />
+            {/if}
+          </div>
+        {/each}
+      </div>
     </div>
   </div>
 </section>
@@ -45,39 +44,43 @@
 <style>
   .partnerships {
     padding: var(--section-py) 0;
-    border-bottom: 1px solid var(--border-subtle);
-    background: var(--bg-raised);
+    border-top: 1px solid var(--border);
   }
-  
-  @keyframes sectionFadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+
+  .partnerships-inner {
+    text-align: center;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 1rem;
   }
 
   .section-title {
     font-family: var(--font-display);
-    font-size: clamp(1.875rem, 4vw, 3rem);
-    font-weight: 700;
-    line-height: 1.12;
-    letter-spacing: -0.025em;
-    margin-bottom: 1.5rem;
-    animation: sectionFadeIn 0.6s ease 0.05s both;
-  }
-
-  .partnerships-desc {
-    font-size: 0.9375rem;
-    color: var(--fg-muted);
-    line-height: 1.75;
-    max-width: 560px;
-    margin-bottom: clamp(28px, 4vw, 40px);
-    animation: sectionFadeIn 0.6s ease 0.1s both;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    color: var(--fg);
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    max-width: 600px;
+    margin: 0 auto clamp(28px, 4vw, 48px);
   }
 
   .partnerships-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    animation: sectionFadeIn 0.6s ease 0.15s both;
+    gap: 1px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--border);
+    border: 1px solid var(--border);
   }
   
   .partnership-card {
@@ -85,15 +88,13 @@
     align-items: center;
     justify-content: center;
     padding: 32px 20px;
-    border: 1px solid var(--border-subtle);
+    background: var(--bg);
     min-height: 88px;
-    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    transition: background var(--transition);
   }
   
   .partnership-card:hover {
-    border-color: var(--border);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px oklch(0 0 0 / 0.1);
+    background: var(--bg-raised);
   }
   
   .partnership-card img {
@@ -132,7 +133,7 @@
   @media (max-width: 480px) {
     .partnerships-grid {
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 1px;
     }
     
     .partnership-card {

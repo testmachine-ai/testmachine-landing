@@ -15,7 +15,7 @@
   <div class="container">
     <div class="backed-by-inner" data-animate>
       <span class="section-label">Backed By</span>
-      <h3 class="backed-by-amount">$6.5M raised to scale AI-driven blockchain security</h3>
+      <h2 class="section-title">$6.5M raised to scale AI-driven blockchain security</h2>
       <div class="backed-by-grid">
         {#each investors as investor}
           <a class="investor-card" href={investor.url} target="_blank" rel="noopener">
@@ -40,13 +40,25 @@
     text-align: center;
   }
 
-  .backed-by-amount {
+  .section-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
     font-family: var(--font-display);
     font-size: clamp(1.25rem, 2.5vw, 1.75rem);
     font-weight: 600;
     color: var(--fg);
-    margin: 20px 0 48px;
+    margin-bottom: 48px;
     letter-spacing: -0.02em;
+    line-height: 1.3;
   }
 
   .backed-by-grid {
