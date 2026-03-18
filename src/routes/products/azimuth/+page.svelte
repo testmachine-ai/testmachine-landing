@@ -1,6 +1,9 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
 
+  // ========================================
+  // AZIMUTH DATA & STATE
+  // ========================================
   let azFrame: HTMLDivElement | undefined = $state();
   let azObserver: IntersectionObserver | undefined;
 
@@ -24,47 +27,6 @@
   }
 
   onMount(() => {
-    // Scale stats count-up animation
-    const statNumbers = document.querySelectorAll('.stats-number[data-value]');
-    function animateCountUp(el: HTMLElement) {
-      const target = parseFloat(el.getAttribute('data-value') || '0');
-      const prefix = el.getAttribute('data-prefix') || '';
-      const suffix = el.getAttribute('data-suffix') || '';
-      const duration = 2000;
-      let start: number | null = null;
-      const decimals = target % 1 === 0 ? 0 : 1;
-
-      function update(timestamp: number) {
-        if (!start) start = timestamp;
-        const elapsed = timestamp - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = target * eased;
-        el.textContent = prefix + Number(current.toFixed(decimals)).toLocaleString() + suffix;
-        if (progress < 1) {
-          requestAnimationFrame(update);
-        } else {
-          el.textContent = prefix + Number(target.toFixed(decimals)).toLocaleString() + suffix;
-        }
-      }
-      requestAnimationFrame(update);
-    }
-
-    if (statNumbers.length > 0) {
-      const statsObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              animateCountUp(entry.target as HTMLElement);
-              statsObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
-      statNumbers.forEach((el) => statsObserver.observe(el));
-    }
-
     // Azimuth stats animation
     let azAnimated = false;
     if (azFrame) {
@@ -100,8 +62,8 @@
 
 <svelte:head>
   <title>Azimuth — TestMachine</title>
-  <meta name="description" content="Azimuth - RL-powered security engine for smart contracts. Autonomous agents attack your code in sandboxed environments. Zero false positives." />
-  <meta name="keywords" content="Web3 security, smart contract audit, blockchain security, AI security, DeFi security, azimuth, reinforcement learning" />
+  <meta name="description" content="Azimuth — RL-powered deep security analysis for protocols and smart contracts. Every finding comes with a working proof-of-concept exploit. Zero false positives." />
+  <meta name="keywords" content="Web3 security, smart contract audit, blockchain security, AI security, DeFi security, protocol analysis, penetration testing, azimuth" />
 </svelte:head>
 
 
@@ -111,35 +73,8 @@
 <section class="pd-hero">
   <div class="container">
     <span class="pd-hero-tag">Azimuth</span>
-    <h1 class="pd-hero-title">Attack to Defend</h1>
-    <p class="pd-hero-sub">The <strong>RL-powered security engine</strong> for protocols and smart contracts. Agents attack your code in sandboxed forked environments. Every finding comes with a working proof-of-concept exploit.</p>
-  </div>
-</section>
-
-
-<!-- =========================================================
-     SCALE STATS
-     ========================================================= -->
-<section class="pd-scale" id="scale">
-  <div class="container">
-    <div class="pd-scale-grid" data-animate>
-      <div class="pd-scale-card">
-        <div class="pd-scale-num stats-number" data-value="847">0</div>
-        <div class="pd-scale-label">Exploits discovered</div>
-      </div>
-      <div class="pd-scale-card">
-        <div class="pd-scale-num stats-number" data-value="12">0</div>
-        <div class="pd-scale-label">Protocols analyzed</div>
-      </div>
-      <div class="pd-scale-card">
-        <div class="pd-scale-num" style="color: #22c55e;">0</div>
-        <div class="pd-scale-label">False positives</div>
-      </div>
-      <div class="pd-scale-card">
-        <div class="pd-scale-num stats-number" data-value="100" data-suffix="%">0%</div>
-        <div class="pd-scale-label">Working exploits</div>
-      </div>
-    </div>
+    <h1 class="pd-hero-title">Deep Protocol Security</h1>
+    <p class="pd-hero-sub">RL-powered agents attack your code in sandboxed forked environments. Every finding comes with a <strong>working proof-of-concept exploit.</strong> If it's reported, it was actually exploited.</p>
   </div>
 </section>
 
@@ -151,8 +86,8 @@
   <div class="container">
     <div class="pd-section-header" data-animate>
       <span class="section-label">How It Works</span>
-      <h2 class="pd-section-title">Deep Security Analysis</h2>
-      <p class="pd-section-desc">RL-powered agents attack your code in sandboxed forked environments. Every finding comes with a working proof-of-concept exploit. If it's reported, it was actually exploited.</p>
+      <h2 class="pd-section-title">Azimuth &mdash; Deep Security Analysis</h2>
+      <p class="pd-section-desc">The RL-powered security engine for protocols and smart contracts. Agents attack your code in sandboxed forked environments. Every finding comes with a working proof-of-concept exploit. If it's reported, it was actually exploited.</p>
       <div class="pd-section-features">
         <span class="pd-feature">RL-powered agents</span>
         <span class="pd-feature">Zero false positives</span>
@@ -333,9 +268,9 @@
      ========================================================= -->
 <section class="pd-cta" id="cta">
   <div class="container" data-animate>
-    <h2 class="pd-cta-title">Start securing your protocol</h2>
-    <p class="pd-cta-sub">Run deep security analysis with RL-powered agents. Zero false positives. Working exploits for every finding.</p>
-    <a href="https://app.testmachine.ai/" class="btn btn--primary">Run Analysis</a>
+    <h2 class="pd-cta-title">Secure your protocol today</h2>
+    <p class="pd-cta-sub">RL-powered security analysis with zero false positives. Every finding includes a working proof-of-concept exploit.</p>
+    <a href="https://app.testmachine.ai/" class="btn btn--primary">Run Azimuth Analysis</a>
   </div>
 </section>
 
@@ -393,36 +328,6 @@
   .pd-hero-sub strong {
     color: var(--accent);
     font-weight: 600;
-  }
-
-  /* -- Scale Stats -- */
-  .pd-scale {
-    padding: var(--section-py) 0;
-    border-top: 1px solid var(--border-subtle);
-  }
-  .pd-scale-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--gap);
-  }
-  .pd-scale-card {
-    text-align: center;
-    padding: 28px 16px;
-    background: var(--card-bg);
-    border: 1px solid var(--border-subtle);
-  }
-  .pd-scale-num {
-    font-family: var(--font-mono);
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 700;
-    color: var(--accent);
-    font-variant-numeric: tabular-nums;
-    line-height: 1.2;
-    margin-bottom: 6px;
-  }
-  .pd-scale-label {
-    font-size: 0.75rem;
-    color: var(--fg-muted);
   }
 
   /* -- Section Shared -- */
@@ -521,7 +426,7 @@
   }
 
   /* ================================
-     AZIMUTH REPORT MOCK
+     AZIMUTH MOCK
      ================================ */
   .pd-az-header {
     display: flex;
@@ -719,15 +624,15 @@
     font-family: var(--font-mono);
     color: oklch(0.7 0 0);
   }
-  .pd-code .kw { color: #c084fc; }
-  .pd-code .fn { color: #60a5fa; }
-  .pd-code .str { color: #86efac; }
-  .pd-code .cm { color: oklch(0.4 0 0); }
-  .pd-code .num { color: #fcd34d; }
-  .pd-code .type { color: #22d3ee; }
+  .pd-code :global(.kw) { color: #c084fc; }
+  .pd-code :global(.fn) { color: #60a5fa; }
+  .pd-code :global(.str) { color: #86efac; }
+  .pd-code :global(.cm) { color: oklch(0.4 0 0); }
+  .pd-code :global(.num) { color: #fcd34d; }
+  .pd-code :global(.type) { color: #22d3ee; }
 
   /* ================================
-     EVM CHAINS
+     EVM CHAINS SECTION
      ================================ */
   .pd-chains-grid {
     display: grid;
@@ -805,9 +710,6 @@
     }
   }
   @media (max-width: 768px) {
-    .pd-scale-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
     .pd-az-stats {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -816,10 +718,6 @@
     }
   }
   @media (max-width: 480px) {
-    .pd-scale-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
     .pd-chains-grid {
       grid-template-columns: repeat(2, 1fr);
     }
