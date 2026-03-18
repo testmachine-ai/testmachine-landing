@@ -1,32 +1,22 @@
-<script lang="ts">
-  import { onMount } from 'svelte';
-  
-  let mounted = false;
-  
-  onMount(() => {
-    mounted = true;
-  });
-</script>
-
 <section class="hero" id="home">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-content">
-      <div class="hero-brand" class:visible={mounted}>
+      <div class="hero-brand">
         <img src="/assets/logo-icon-white.png" alt="TestMachine logo" class="hero-brand-icon" />
         <span class="hero-brand-name">TESTMACHINE</span>
       </div>
-      
-      <h1 class="hero-title" class:visible={mounted}>
+
+      <h1 class="hero-title">
         Web3 Security<br />That Actually Works
       </h1>
-      
-      <p class="hero-subtitle" class:visible={mounted}>
-        RL agents that attack your contracts. Risk scores across 9M+ tokens. 
+
+      <p class="hero-subtitle">
+        RL agents that attack your contracts. Risk scores across 9M+ tokens.
         Security that never sleeps.
       </p>
-      
-      <div class="hero-actions" class:visible={mounted}>
+
+      <div class="hero-actions">
         <a href="https://app.testmachine.ai/" class="btn btn--primary">
           Launch App
         </a>
@@ -80,21 +70,24 @@
     padding: 80px 0;
   }
   
+  @keyframes heroFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .hero-brand {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
     margin-bottom: 36px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease;
-    transition-delay: 0.2s;
-  }
-  
-  .hero-brand.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: heroFadeIn 0.8s ease 0.2s both;
   }
   
   .hero-brand-icon {
@@ -122,15 +115,7 @@
     line-height: 1.02;
     letter-spacing: -0.035em;
     margin-bottom: 24px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-    transition-delay: 0.4s;
-  }
-  
-  .hero-title.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: heroFadeIn 0.8s ease 0.4s both;
   }
   
   .hero-subtitle {
@@ -139,15 +124,7 @@
     color: var(--fg-muted);
     margin-bottom: 48px;
     font-weight: 400;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease;
-    transition-delay: 0.6s;
-  }
-  
-  .hero-subtitle.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: heroFadeIn 0.8s ease 0.6s both;
   }
   
   .hero-actions {
@@ -155,15 +132,7 @@
     gap: 16px;
     flex-wrap: wrap;
     justify-content: center;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease;
-    transition-delay: 0.8s;
-  }
-  
-  .hero-actions.visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: heroFadeIn 0.8s ease 0.8s both;
   }
   
   .hero-scroll-hint {
