@@ -945,7 +945,7 @@
   <div class="container">
     <div class="eng-section-header" data-animate><span class="section-label">Products</span><h2 class="eng-section-title">Powered by the engine</h2></div>
     <div class="eng-products-grid" data-animate>
-      <div class="eng-product-card"><div class="eng-product-label">Product 01</div><h3>Token Explorer</h3><p>Risk scoring for 9M+ tokens across all EVM chains. Every token analyzed for confiscation, hidden minting, proxy manipulation, and more. Scores from &minus;100 (critical) to +100 (safe).</p></div>
+      <div class="eng-product-card"><div class="eng-product-label">Product 01</div><h3>Token Custody</h3><p>Risk scoring for 9M+ tokens across all EVM chains. Every token analyzed for confiscation, hidden minting, proxy manipulation, and more. Scores from &minus;100 (critical) to +100 (safe).</p></div>
       <div class="eng-product-card"><div class="eng-product-label">Product 02</div><h3>Azimuth</h3><p>AI agents that actively attack your smart contracts in forked mainnet environments with real transaction execution. Zero false positives — if Azimuth reports a vulnerability, it was actually exploited. Results in minutes, not weeks.</p></div>
     </div>
   </div>

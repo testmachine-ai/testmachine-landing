@@ -46,7 +46,7 @@
 </script>
 
 <svelte:head>
-  <title>Token Explorer — TestMachine</title>
+  <title>Token Custody — TestMachine</title>
   <meta name="description" content="Risk scoring for 9M+ tokens across every EVM chain. Autonomous AI agents classify behaviors and produce risk scores. Zero false positives." />
   <meta name="keywords" content="Web3 security, token risk scoring, smart contract audit, blockchain security, AI security, DeFi security, token explorer" />
 </svelte:head>
@@ -57,7 +57,7 @@
      ========================================================= -->
 <section class="pd-hero">
   <div class="container">
-    <span class="pd-hero-tag">Token Explorer</span>
+    <span class="pd-hero-tag">Token Custody</span>
     <h1 class="pd-hero-title">Know Every Token</h1>
     <p class="pd-hero-sub">Risk scoring for <strong>9M+ tokens</strong> across every EVM chain. Autonomous AI agents probe every function of every contract &mdash; classifying behaviors and producing risk scores in real time.</p>
   </div>
@@ -98,7 +98,7 @@
   <div class="container">
     <div class="pd-section-header" data-animate>
       <span class="section-label">How It Works</span>
-      <h2 class="pd-section-title">Token Explorer</h2>
+      <h2 class="pd-section-title">Token Custody</h2>
       <p class="pd-section-desc">Autonomous AI agents probe every function of every contract, classifying behaviors and producing risk scores from &minus;100 (critical danger) to +100 (safe). Continuously re-tested as contracts change.</p>
       <div class="pd-section-features">
         <span class="pd-feature">8.1M+ tokens</span>
@@ -112,7 +112,7 @@
     <div class="pd-screenshot-frame" data-animate>
       <img 
         src="/assets/token-explorer-screenshot.jpg" 
-        alt="Token Explorer — Recently analyzed tokens with behavior classifications and risk scores"
+        alt="Token Custody — Recently analyzed tokens with behavior classifications and risk scores"
         class="pd-screenshot-img"
         loading="lazy"
       />
@@ -216,13 +216,13 @@
   <div class="container" data-animate>
     <h2 class="pd-cta-title">Start securing your portfolio</h2>
     <p class="pd-cta-sub">Explore 9M+ tokens with real-time risk scoring across every EVM chain. Zero false positives.</p>
-    <a href="https://app.testmachine.ai/token-explorer" class="btn btn--primary">Launch Token Explorer</a>
+    <a href="https://app.testmachine.ai/token-explorer" class="btn btn--primary">Launch Token Custody</a>
   </div>
 </section>
 
 
 <style>
-  /* ========== Token Explorer Page Styles ========== */
+  /* ========== Token Custody Page Styles ========== */
 
   /* -- Hero -- */
   .pd-hero {
