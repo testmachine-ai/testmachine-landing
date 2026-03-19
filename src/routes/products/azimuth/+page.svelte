@@ -322,7 +322,7 @@
 
       <div class="pd-compare-label">Cost</div>
       <div class="pd-compare-cell pd-compare-trad">$50K&ndash;$500K</div>
-      <div class="pd-compare-cell pd-compare-az pd-compare-highlight">From $0.05 per analysis</div>
+      <div class="pd-compare-cell pd-compare-az pd-compare-highlight">Fraction of traditional audit cost</div>
 
       <div class="pd-compare-label">False positives</div>
       <div class="pd-compare-cell pd-compare-trad">Common &mdash; findings require manual triage</div>
