@@ -337,7 +337,7 @@
       <div class="pd-compare-cell pd-compare-az pd-compare-highlight">Continuous re-analysis as contracts change</div>
 
       <div class="pd-compare-label">Scalability</div>
-      <div class="pd-compare-cell pd-compare-trad">One contract per engagement</div>
+      <div class="pd-compare-cell pd-compare-trad">One project per engagement</div>
       <div class="pd-compare-cell pd-compare-az pd-compare-highlight">Thousands of contracts per day</div>
     </div>
   </div>
