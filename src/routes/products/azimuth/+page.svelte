@@ -901,7 +901,7 @@
      ================================ */
   .pd-process-grid {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 0;
     justify-content: center;
   }
