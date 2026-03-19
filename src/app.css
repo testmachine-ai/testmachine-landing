@@ -749,7 +749,7 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 
 .token-custody-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: clamp(40px, 6vw, 80px);
   align-items: center;
 }
