@@ -134,60 +134,60 @@ export const blogPosts: BlogPost[] = [
     <p>TestMachine demonstrates the merits of task-specific reinforcement learning models over reasoning-limited large language models. By focusing advanced RL algorithms on the problem of smart contract security analysis, the system unlocks measurable security advancements that are unattainable from surface-level, LLM-based audit reviews.</p>`
   },
   {
-    slug: 'azimuth-vs-euler',
-    title: "TestMachine's Azimuth Vs Euler: Recreating a $196 Million Exploit",
+    slug: 'testmachine-vs-euler',
+    title: "TestMachine Vs Euler: Recreating a $196 Million Exploit",
     tag: 'Product',
     date: 'February 11, 2026',
-    excerpt: "Azimuth successfully replicated the Euler Finance hack, demonstrating its ability to identify complex vulnerabilities that eluded human auditors using multi-agent simulation and reinforcement learning.",
+    excerpt: "TestMachine successfully replicated the Euler Finance hack, demonstrating its ability to identify complex vulnerabilities that eluded human auditors using multi-agent simulation and reinforcement learning.",
     content: `<p><em>Recreating a $196 million exploit.</em></p>
 
     <h3>Context</h3>
 
     <p>Euler Finance, a prominent decentralized finance (DeFi) lending protocol, suffered a significant exploit in March 2023. The hack resulted in the loss of approximately $196 million in cryptocurrency assets. The vulnerability stemmed from a subtle logic error in the protocol's smart contract that allowed a malicious actor to accumulate bad debt and and subsequently liquidate their own position, effectively draining tokens from the protocol's vault.</p>
 
-    <h3>How Azimuth Did It</h3>
+    <h3>How TestMachine Did It</h3>
 
-    <p>Azimuth, TestMachine's AI-driven smart contract auditing system, successfully replicated the Euler hack, demonstrating its ability to identify complex vulnerabilities that eluded human auditors. The system's approach highlighted several key advantages over traditional auditing methods:</p>
+    <p>TestMachine's AI-driven smart contract auditing system successfully replicated the Euler hack, demonstrating its ability to identify complex vulnerabilities that eluded human auditors. The system's approach highlighted several key advantages over traditional auditing methods:</p>
 
     <ol>
-      <li><strong>Multi-agent simulation:</strong> Azimuth utilized two simulated Externally Owned Accounts (EOAs) in its campaign. This multi-agent approach allowed it to circumvent Euler's security measures, which were designed to prevent a single account from both taking out a loan and liquidating its own position. By using one EOA to borrow and another to liquidate, Azimuth exploited a blind spot in the protocol's security logic.</li>
+      <li><strong>Multi-agent simulation:</strong> TestMachine utilized two simulated Externally Owned Accounts (EOAs) in its campaign. This multi-agent approach allowed it to circumvent Euler's security measures, which were designed to prevent a single account from both taking out a loan and liquidating its own position. By using one EOA to borrow and another to liquidate, TestMachine exploited a blind spot in the protocol's security logic.</li>
 
-      <li><strong>Identification of complex interaction patterns:</strong> The vulnerability in Euler's protocol arose from the intricate interplay between different contract functions. Azimuth's reinforcement learning algorithms excel at exploring vast state spaces and identifying non-obvious sequences of actions that can lead to exploitable states. This capability allowed it to discover the specific sequence of transactions that could breach the protocol's security.</li>
+      <li><strong>Identification of complex interaction patterns:</strong> The vulnerability in Euler's protocol arose from the intricate interplay between different contract functions. TestMachine's reinforcement learning algorithms excel at exploring vast state spaces and identifying non-obvious sequences of actions that can lead to exploitable states. This capability allowed it to discover the specific sequence of transactions that could breach the protocol's security.</li>
 
-      <li><strong>Simplified exploit execution:</strong> While the original Euler hack employed a flash loan, requiring the attacker to bundle a complex sequence of transactions as raw calldata, Azimuth demonstrated a more straightforward approach. The system's simulated agents were initialized with sufficient funds, eliminating the need for borrowing. This simplification allowed Azimuth to execute the exploit through a series of individual transactions, which could later be adapted into a flash loan attack if needed.</li>
+      <li><strong>Simplified exploit execution:</strong> While the original Euler hack employed a flash loan, requiring the attacker to bundle a complex sequence of transactions as raw calldata, TestMachine demonstrated a more straightforward approach. The system's simulated agents were initialized with sufficient funds, eliminating the need for borrowing. This simplification allowed TestMachine to execute the exploit through a series of individual transactions, which could later be adapted into a flash loan attack if needed.</li>
 
-      <li><strong>Rapid iteration and learning:</strong> Unlike human auditors who might be constrained by time or cognitive limitations, Azimuth can rapidly iterate through thousands of potential attack vectors. This exhaustive exploration allows it to uncover vulnerabilities that might be overlooked in manual code reviews or more targeted testing approaches.</li>
+      <li><strong>Rapid iteration and learning:</strong> Unlike human auditors who might be constrained by time or cognitive limitations, TestMachine can rapidly iterate through thousands of potential attack vectors. This exhaustive exploration allows it to uncover vulnerabilities that might be overlooked in manual code reviews or more targeted testing approaches.</li>
 
-      <li><strong>Invariant violation detection:</strong> Azimuth's ability to identify and exploit this vulnerability stemmed from its focus on violating key protocol invariants. In this case, the system recognized that the separation between borrower and liquidator accounts was a critical invariant that, if breached, could lead to unauthorised token extraction from the protocol's vault.</li>
+      <li><strong>Invariant violation detection:</strong> TestMachine's ability to identify and exploit this vulnerability stemmed from its focus on violating key protocol invariants. In this case, the system recognized that the separation between borrower and liquidator accounts was a critical invariant that, if breached, could lead to unauthorised token extraction from the protocol's vault.</li>
     </ol>
 
-    <p>By replicating the Euler hack, Azimuth demonstrated its capacity to identify sophisticated vulnerabilities in complex DeFi protocols. This case underscores the potential of AI-driven security auditing tools to complement and enhance traditional smart contract auditing processes, potentially preventing significant financial losses in the future.</p>`
+    <p>By replicating the Euler hack, TestMachine demonstrated its capacity to identify sophisticated vulnerabilities in complex DeFi protocols. This case underscores the potential of AI-driven security auditing tools to complement and enhance traditional smart contract auditing processes, potentially preventing significant financial losses in the future.</p>`
   },
   {
     slug: 'breaking-tokenomics',
     title: 'Breaking Virtuals Tokenomics: TestMachine Discovers a Critical Vulnerability in the Virtuals AI Agent Protocol',
     tag: 'Engineering',
     date: 'January 7, 2026',
-    excerpt: "Azimuth uncovered a severe vulnerability in the Virtuals AI Agent protocol that could allow an attacker to artificially inflate token balances to near-maximum values, posing a significant risk to users.",
+    excerpt: "TestMachine uncovered a severe vulnerability in the Virtuals AI Agent protocol that could allow an attacker to artificially inflate token balances to near-maximum values, posing a significant risk to users.",
     content: `<h3>Introduction</h3>
 
-    <p>At TestMachine, we specialize in uncovering threats in smart contracts before they can be exploited. Automated security analysis is critical in the rapidly evolving world of blockchain and smart contracts, and TestMachine's Azimuth platform uses a technique called reinforcement learning to autonomously scan and detect vulnerabilities in smart contracts at scale—without human intervention.</p>
+    <p>At TestMachine, we specialize in uncovering threats in smart contracts before they can be exploited. Automated security analysis is critical in the rapidly evolving world of blockchain and smart contracts, and the TestMachine platform uses a technique called reinforcement learning to autonomously scan and detect vulnerabilities in smart contracts at scale—without human intervention.</p>
 
-    <p>Recently, Azimuth uncovered a severe vulnerability in the <a href="http://app.virtuals.io/" target="_blank" rel="noopener noreferrer">Virtuals AI Agent</a> protocol that could allow an attacker to artificially inflate token balances to near-maximum values, posing a significant risk to users and market integrity. This vulnerability was present despite the fact that Virtuals participated in at least <a href="https://whitepaper.virtuals.io/about-virtuals/important-links/security-audits" target="_blank" rel="noopener noreferrer">two human-conducted audits</a> from major auditing firms in the last year. We have reported the flaw to the Virtuals security team.</p>
+    <p>Recently, TestMachine uncovered a severe vulnerability in the <a href="http://app.virtuals.io/" target="_blank" rel="noopener noreferrer">Virtuals AI Agent</a> protocol that could allow an attacker to artificially inflate token balances to near-maximum values, posing a significant risk to users and market integrity. This vulnerability was present despite the fact that Virtuals participated in at least <a href="https://whitepaper.virtuals.io/about-virtuals/important-links/security-audits" target="_blank" rel="noopener noreferrer">two human-conducted audits</a> from major auditing firms in the last year. We have reported the flaw to the Virtuals security team.</p>
 
-    <p>Azimuth, on the other hand, can scan tens of thousands of tokens per hour, while human auditors cannot even identify such subtle vulnerabilities in a single contract over the course of a several week audit.</p>
+    <p>TestMachine, on the other hand, can scan tens of thousands of tokens per hour, while human auditors cannot even identify such subtle vulnerabilities in a single contract over the course of a several week audit.</p>
 
-    <p>Here we discuss the nature of the flaw, how Azimuth discovered it, and how Azimuth's automated, scalable, AI-driven security assessments will become increasingly necessary as digital assets proliferate and grow more complex.</p>
+    <p>Here we discuss the nature of the flaw, how TestMachine discovered it, and how TestMachine's automated, scalable, AI-driven security assessments will become increasingly necessary as digital assets proliferate and grow more complex.</p>
 
     <h3>What is Virtuals.io?</h3>
 
     <p><a href="http://virtuals.io/" target="_blank" rel="noopener noreferrer">Virtuals.io</a> is a decentralized AI agent platform that transforms autonomous, multimodal agents into tokenized, co-owned digital entities. Each agent operates across multiple platforms—games, social media, chat apps—with consistent memory and personality, powered by a modular AI framework called GAME. Using blockchain infrastructure, Virtuals enables fractional ownership of agents via fungible tokens, decentralized governance, and on-chain revenue sharing. Agents can earn and spend crypto, evolve through community contributions, and monetize through real-world applications, such as live-streaming or in-game interactions. By combining AI autonomy, immersive interaction, and tokenized economics, Virtuals.io pioneers a new class of intelligent, composable, and investable digital actors.</p>
 
-    <p>Virtuals tokens are used within the ecosystem to facilitate operations, with taxation mechanisms built into their contracts to support liquidity, development, and operational costs. However, flaws in these taxation mechanisms can lead to unintended security vulnerabilities, as demonstrated by the issue Azimuth identified.</p>
+    <p>Virtuals tokens are used within the ecosystem to facilitate operations, with taxation mechanisms built into their contracts to support liquidity, development, and operational costs. However, flaws in these taxation mechanisms can lead to unintended security vulnerabilities, as demonstrated by the issue TestMachine identified.</p>
 
     <h3>The Vulnerability: Unchecked Tax Processing</h3>
 
-    <p>The flaw Azimuth discovered arises from an unchecked underflow in the contract's tax processing logic. If exploited, it could irreparably damage the integrity of Virtuals-based tokens, potentially leading to catastrophic devaluation and loss of trust in the ecosystem.</p>
+    <p>The flaw TestMachine discovered arises from an unchecked underflow in the contract's tax processing logic. If exploited, it could irreparably damage the integrity of Virtuals-based tokens, potentially leading to catastrophic devaluation and loss of trust in the ecosystem.</p>
 
     <p>The flaw resides in the <code>_taxProcessing</code> function of the Virtuals token implementation contract (address: <code>0x082Cb6e892Dd0699B5f0d22f7D2e638BBAdA5D94</code>).</p>
 
@@ -197,7 +197,7 @@ export const blogPosts: BlogPost[] = [
 
     <h3>Why Is This Dangerous</h3>
 
-    <p>Azimuth, via its reinforcement learning-driven penetration testing, identified that if <code>projectBuyTaxBasisPoints</code> is set higher than <code>BP_DENOM</code>, the tax deducted from a transaction could exceed the original amount, causing <code>amountLessTax_</code> to underflow. As a result, the recipient of the transaction would receive a large token balance, breaking the tax mechanism and invalidating the token economy entirely.</p>
+    <p>TestMachine, via its reinforcement learning-driven penetration testing, identified that if <code>projectBuyTaxBasisPoints</code> is set higher than <code>BP_DENOM</code>, the tax deducted from a transaction could exceed the original amount, causing <code>amountLessTax_</code> to underflow. As a result, the recipient of the transaction would receive a large token balance, breaking the tax mechanism and invalidating the token economy entirely.</p>
 
     <p>In short:</p>
 
@@ -209,11 +209,11 @@ export const blogPosts: BlogPost[] = [
 
     <p>In simple terms, an attacker (or even the contract owner) could instantly inflate an account's token balance to near-infinity, all while keeping the total supply of the token unchanged—effectively destroying the token's economy.</p>
 
-    <h3>Automated Discovery via Azimuth</h3>
+    <h3>Automated Discovery via TestMachine</h3>
 
-    <p>Unlike traditional security audits that require manual review, Azimuth autonomously identified this flaw through its reinforcement learning-driven vulnerability detection. Within minutes of analyzing the Virtuals token contracts, Azimuth flagged the unchecked arithmetic operation as a potential high-risk underflow condition and generated a reproducible exploit scenario.</p>
+    <p>Unlike traditional security audits that require manual review, TestMachine autonomously identified this flaw through its reinforcement learning-driven vulnerability detection. Within minutes of analyzing the Virtuals token contracts, TestMachine flagged the unchecked arithmetic operation as a potential high-risk underflow condition and generated a reproducible exploit scenario.</p>
 
-    <p>Azimuth's ability to rapidly detect these kinds of subtle but critical issues demonstrates the power of AI-driven, automated security testing. As smart contract ecosystems grow more complex, automation is essential for uncovering vulnerabilities before they can be exploited in the wild.</p>
+    <p>TestMachine's ability to rapidly detect these kinds of subtle but critical issues demonstrates the power of AI-driven, automated security testing. As smart contract ecosystems grow more complex, automation is essential for uncovering vulnerabilities before they can be exploited in the wild.</p>
 
     <h3>Exploitation Risk: Who Can Trigger This?</h3>
 
@@ -237,7 +237,7 @@ export const blogPosts: BlogPost[] = [
     <ul>
       <li>Implement multi-signature protection for tax adjustments.</li>
       <li>Decentralize ownership or transition to on-chain governance for tax rate changes.</li>
-      <li>Conduct regular Azimuth campaigns to detect the possibility of privilege escalations.</li>
+      <li>Conduct regular TestMachine campaigns to detect the possibility of privilege escalations.</li>
       <li>Revoke admin privileges as necessary to limit the attack surface.</li>
     </ul>
 
@@ -245,39 +245,39 @@ export const blogPosts: BlogPost[] = [
 
     <p>This vulnerability underscores a broader issue in Web3: even well-intentioned, frequently audited smart contracts may still harbor catastrophic bugs if not rigorously tested using autonomous solutions.</p>
 
-    <p>With Azimuth, TestMachine is leading the charge in proactive security, uncovering exploits before they can be weaponized. As the DeFi and AI-agent space continues to expand, projects must embrace automated, self-evolving security tools to stay ahead of attackers. It's security through offense rather than passive inspection.</p>
+    <p>TestMachine is leading the charge in proactive security, uncovering exploits before they can be weaponized. As the DeFi and AI-agent space continues to expand, projects must embrace automated, self-evolving security tools to stay ahead of attackers. It's security through offense rather than passive inspection.</p>
 
-    <p>Want to ensure your contracts are secure? <a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">Run a Token Custody scan today</a>.</p>`
+    <p>Want to ensure your contracts are secure? <a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">Run a TestMachine scan today</a>.</p>`
   },
   {
     slug: 'funding-announcement',
     title: 'TestMachine Secures Over $6.5M In Venture Funding',
     tag: 'Partnerships',
     date: 'December 15, 2025',
-    excerpt: "TestMachine has raised $6.5M to scale Token Custody and Azimuth, its AI products analyzing 1M+ tokens and delivering real-time blockchain security for exchanges, developers, and DeFi.",
-    content: `<p><em>TestMachine has raised $6.5M to scale Token Custody and Azimuth, its AI products monitoring 1M+ tokens and delivering real-time blockchain security for exchanges, developers, and DeFi.</em></p>
+    excerpt: "TestMachine has raised $6.5M to scale its AI-driven platform analyzing 1M+ tokens and delivering real-time blockchain security for exchanges, developers, and DeFi.",
+    content: `<p><em>TestMachine has raised $6.5M to scale its AI-driven platform monitoring 1M+ tokens and delivering real-time blockchain security for exchanges, developers, and DeFi.</em></p>
 
-    <p><a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">TestMachine</a>, the AI-driven blockchain security company safeguarding billions in digital assets, today announced it has raised $6.5 million in venture funding to accelerate the global rollout of its flagship products, Token Custody and Azimuth. The round was led by BlockChange Ventures, Decasonic, Delphi Ventures, and New Form Capital. The investment will accelerate the development and deployment of TestMachine's flagship AI products, Token Custody and Azimuth, which are now fully integrated into Coinbase's token security and deployment process.</p>
+    <p><a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">TestMachine</a>, the AI-driven blockchain security company safeguarding billions in digital assets, today announced it has raised $6.5 million in venture funding to accelerate the global rollout of its flagship platform. The round was led by BlockChange Ventures, Decasonic, Delphi Ventures, and New Form Capital. The investment will accelerate the development and deployment of TestMachine's flagship AI platform, which is now fully integrated into Coinbase's token security and deployment process.</p>
 
-    <p>Other participants in the round included Baboon, UDHC, Auros Global, Generative Ventures, Contango Digital and Santiago Santos. The funding will support the further development of Azimuth's high-fidelity simulation capabilities.</p>
+    <p>Other participants in the round included Baboon, UDHC, Auros Global, Generative Ventures, Contango Digital and Santiago Santos. The funding will support the further development of TestMachine's high-fidelity simulation capabilities.</p>
 
-    <p>TestMachine's groundbreaking automated security approach has been implemented and trusted by leaders across the digital asset industry. Coinbase has integrated Token Custody into its CEX and newly launched DEX trading feature, using TestMachine to scan millions of tokens across multiple risk factors on a daily basis. With Token Custody, it takes just seconds to analyze an asset for risks, faster and deeper than any manual process.</p>
+    <p>TestMachine's groundbreaking automated security approach has been implemented and trusted by leaders across the digital asset industry. Coinbase has integrated TestMachine into its CEX and newly launched DEX trading feature, using TestMachine to scan millions of tokens across multiple risk factors on a daily basis. With TestMachine, it takes just seconds to analyze an asset for risks, faster and deeper than any manual process.</p>
 
     <p>A Coinbase blockchain security engineer commented:</p>
 
-    <blockquote><p>"Our team evaluated publicly available tools to identify and flag ERC-20 custodiability risks, …We rigorously assessed these tools over a three-stage work trial, and Token Custody stood out because it achieved 100% accuracy on all tokens (with no false positives or negatives), even catching human errors in our own reviews."</p></blockquote>
+    <blockquote><p>"Our team evaluated publicly available tools to identify and flag ERC-20 custodiability risks, …We rigorously assessed these tools over a three-stage work trial, and TestMachine stood out because it achieved 100% accuracy on all tokens (with no false positives or negatives), even catching human errors in our own reviews."</p></blockquote>
 
     <p>Dr. Matthew J. Lewis, CEO of TestMachine, emphasized the growing importance of automated security in the blockchain sector.</p>
 
     <blockquote><p>"As blockchain networks and decentralized finance continue to expand, the complexity and volume of transactions make it increasingly difficult to detect vulnerabilities manually." He said "Our goal is to empower investors, developers, and exchanges with tools that proactively identify, monitor, and mitigate risks before they manifest."</p></blockquote>
 
-    <p>The funding will help TestMachine expand Token Custody and Azimuth across crypto exchanges, custodians, market makers and DeFi protocols. By simulating real-world attacks before they happen, the platform empowers the industry to stay ahead of threats—delivering stronger, more reliable blockchain infrastructure for the entire ecosystem.</p>
+    <p>The funding will help TestMachine expand across crypto exchanges, custodians, market makers and DeFi protocols. By simulating real-world attacks before they happen, the platform empowers the industry to stay ahead of threats—delivering stronger, more reliable blockchain infrastructure for the entire ecosystem.</p>
 
     <h3>About TestMachine</h3>
 
-    <p><a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">TestMachine</a> was founded in 2021 with a core mission: to ensure the safety, transparency, and reliability of smart contracts, digital assets, and blockchain infrastructure—empowering a secure and trustworthy decentralized future. TestMachine's flagship products, Token Custody and Azimuth, provide developers, DeFi protocols, traders, and exchanges with an AI-driven, continuous security platform that detects, mitigates, and prevents risk in real time.</p>
+    <p><a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">TestMachine</a> was founded in 2021 with a core mission: to ensure the safety, transparency, and reliability of smart contracts, digital assets, and blockchain infrastructure—empowering a secure and trustworthy decentralized future. TestMachine's flagship platform provides developers, DeFi protocols, traders, and exchanges with an AI-driven, continuous security platform that detects, mitigates, and prevents risk in real time.</p>
 
-    <p>Azimuth leverages AI to dynamically identify and exploit smart contract vulnerabilities. Unlike traditional code audits, it offers a complete view of blockchain assets—from economic risk to software vulnerabilities and semantic behaviors. By combining continuous testing with real-time behavioral analysis, TestMachine delivers the most proactive and adaptive layer of security in Web3.</p>
+    <p>TestMachine leverages AI to dynamically identify and exploit smart contract vulnerabilities. Unlike traditional code audits, it offers a complete view of blockchain assets—from economic risk to software vulnerabilities and semantic behaviors. By combining continuous testing with real-time behavioral analysis, TestMachine delivers the most proactive and adaptive layer of security in Web3.</p>
 
     <p>TestMachine is currently monitoring over 1 million tokens in real time, surfacing an unprecedented volume of real-world risks. From a validation set of 11,000 tokens, the system correctly identified 100% of rug pulls, totaling over $120M in value.</p>
 
