@@ -877,7 +877,7 @@
     <div class="eng-section-header" data-animate>
       <span class="section-label">Deep Dive</span>
       <h2 class="eng-section-title">RL agents attack your protocol</h2>
-      <p class="eng-section-desc">Watch reinforcement learning agents probe a DeFi protocol. They explore every entry point, discover attack paths, and prove exploits by executing them.</p>
+      <p class="eng-section-desc">Lodestar, our RL engine, deploys agents that probe DeFi protocols. They explore every entry point, discover attack paths, and prove exploits by executing them.</p>
     </div>
     <div class="eng-rl-viz" bind:this={rlViz} data-animate>
       <div class="eng-rl-titlebar">

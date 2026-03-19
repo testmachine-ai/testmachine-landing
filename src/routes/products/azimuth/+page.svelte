@@ -87,7 +87,7 @@
     <div class="pd-section-header" data-animate>
       <span class="section-label">How It Works</span>
       <h2 class="pd-section-title">Azimuth &mdash; Automated Security Analysis</h2>
-      <p class="pd-section-desc">Azimuth deploys AI agents that actively attack your smart contracts. Running against forked mainnet environments with real transaction execution, Azimuth probes every function, chains multi-step attacks, and proves exploits end-to-end. If Azimuth reports a vulnerability, it was actually exploited — not just theoretically possible.</p>
+      <p class="pd-section-desc">Azimuth deploys AI agents — powered by Lodestar, our reinforcement learning engine — that actively attack your smart contracts. Running against forked mainnet environments with real transaction execution, Azimuth probes every function, chains multi-step attacks, and proves exploits end-to-end. If Azimuth reports a vulnerability, it was actually exploited — not just theoretically possible.</p>
       <div class="pd-section-features">
         <span class="pd-feature">AI agents</span>
         <span class="pd-feature">Zero false positives</span>

@@ -1063,7 +1063,7 @@
     <div class="trajectory-header" data-animate>
       <span class="section-label">Reinforcement Learning</span>
       <h2 class="section-title">Our agents learn to break contracts</h2>
-      <p class="trajectory-desc">Our agents interact with live contract forks — calling functions, passing arguments, observing state changes. Each trajectory below is one episode projected from 16-dimensional observation space. Early runs explore randomly; over hundreds of trials, the agent converges on the exact sequence of calls that drains funds.</p>
+      <p class="trajectory-desc">Lodestar, our reinforcement learning engine, deploys agents that interact with live contract forks — calling functions, passing arguments, observing state changes. Each trajectory below is one episode projected from 16-dimensional observation space. Early runs explore randomly; over hundreds of trials, the agent converges on the exact sequence of calls that drains funds.</p>
     </div>
     <div class="trajectory-viz" data-animate>
       <div class="traj-target-bar">
