@@ -71,7 +71,7 @@
   <div class="container">
     <div class="pd-scale-grid" data-animate>
       <div class="pd-scale-card">
-        <div class="pd-scale-num stats-number" data-value="8.1" data-suffix="M+">0M+</div>
+        <div class="pd-scale-num stats-number" data-value="9" data-suffix="M+">0M+</div>
         <div class="pd-scale-label">Tokens analyzed</div>
       </div>
       <div class="pd-scale-card">
@@ -101,7 +101,7 @@
       <h2 class="pd-section-title">Token Custody</h2>
       <p class="pd-section-desc">Autonomous AI agents probe every function of every contract, classifying behaviors and producing risk scores from 0 (safe) to 100 (critical danger). Continuously re-tested as contracts change.</p>
       <div class="pd-section-features">
-        <span class="pd-feature">8.1M+ tokens</span>
+        <span class="pd-feature">9M+ tokens</span>
         <span class="pd-feature">7 EVM chains</span>
         <span class="pd-feature">Real-time scores</span>
         <span class="pd-feature">Behavior classification</span>
