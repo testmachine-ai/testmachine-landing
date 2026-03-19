@@ -220,6 +220,339 @@
 
     <p>Users can visit <a href="http://www.testmachine.ai/">www.testmachine.ai</a> for more information and to get started today!</p>
 
+  {:else if post.slug === 'auditagent-vs-azimuth'}
+    <p>AI tools are rapidly becoming part of the smart contract security workflow. Some teams experiment with them internally, while others are beginning to rely on them as a <strong>first line of defense before manual audits</strong>.</p>
+
+    <p>But a fundamental question remains: how well do these tools actually perform when analyzing real codebases?</p>
+
+    <p>To explore that question, we ran a comparison between two systems:</p>
+
+    <ul>
+      <li><strong>AuditAgent</strong> — a static AI auditing tool focused on vulnerability detection</li>
+      <li><strong>Azimuth</strong> — a behavioral analysis engine designed to simulate exploit paths and protocol interactions</li>
+    </ul>
+
+    <p>Rather than evaluating a single repository, we tested both systems across <strong>four different codebases</strong>, each representing a different category of smart contract architecture.</p>
+
+    <h3>Repositories Analyzed</h3>
+
+    <ul>
+      <li>PrimeVault — DeFi protocol (<a href="https://app.testmachine.ai/share/repo/c6fcb6e8cc8957d91553da408da5f9095ac40f4080bd7d59cfb6cb6c93cc390d" target="_blank" rel="noopener noreferrer">view report</a>)</li>
+      <li>LendMachine — Lending protocol (<a href="https://app.testmachine.ai/share/repo/38a3f72dcda7de29dad5e7d4eb70a1795419eab1891b905f6274a4a413b235d6" target="_blank" rel="noopener noreferrer">view report</a>)</li>
+      <li>Murky — Utility library (<a href="https://app.testmachine.ai/share/repo/74d4d96ff14ef2a019f827634d9acdc4a61956cb1f1631b89689aa377772bc47" target="_blank" rel="noopener noreferrer">view report</a>)</li>
+      <li>BaseTap — Payment protocol (<a href="https://app.testmachine.ai/share/repo/c5ce0498654d9d14d29ddfcacdee97c30ca8e48ee0938a9722df364bc5e8d3f1" target="_blank" rel="noopener noreferrer">view report</a>)</li>
+    </ul>
+
+    <p>Each repository was analyzed independently by both systems and compared across several dimensions:</p>
+
+    <ul>
+      <li>vulnerability detection</li>
+      <li>exploit modeling</li>
+      <li>protocol reasoning</li>
+      <li>workflow analysis</li>
+      <li>code-quality observations</li>
+    </ul>
+
+    <p>The results were instructive.</p>
+
+    <h3>Methodology</h3>
+
+    <p>For each repository we:</p>
+
+    <ul>
+      <li>Ran <strong>AuditAgent</strong> to generate a full audit report</li>
+      <li>Ran <strong>Azimuth</strong> to generate behavioral exploit hypotheses</li>
+      <li>Compared the outputs across several dimensions:
+        <ul>
+          <li>number of findings</li>
+          <li>exploit depth</li>
+          <li>cross-contract reasoning</li>
+          <li>economic attack modeling</li>
+          <li>operational failure modes</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>Importantly, these were <strong>unmodified repositories</strong> analyzed in their original state.</p>
+
+    <h3>Repository 1 — PrimeVault</h3>
+
+    <p>Full analysis: <a href="https://app.testmachine.ai/share/repo/c6fcb6e8cc8957d91553da408da5f9095ac40f4080bd7d59cfb6cb6c93cc390d" target="_blank" rel="noopener noreferrer">view Azimuth report</a></p>
+
+    <p>PrimeVault is a DeFi protocol with vault mechanics and capital flows between multiple contracts.</p>
+
+    <p>This kind of architecture introduces several attack surfaces:</p>
+
+    <ul>
+      <li>asset accounting</li>
+      <li>permission controls</li>
+      <li>economic manipulation</li>
+      <li>cross-contract interactions</li>
+    </ul>
+
+    <table>
+      <thead>
+        <tr><th>Capability</th><th>AuditAgent</th><th>Azimuth</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Static vulnerability detection</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Cross-function exploit discovery</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Protocol economic modeling</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Multi-contract reasoning</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Implementation &amp; best-practice feedback</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+
+    <p>AuditAgent correctly identified several <strong>isolated contract risks</strong> and best-practice violations.</p>
+
+    <p>Azimuth expanded those issues into <strong>realistic exploit paths</strong>, including scenarios where attackers could manipulate protocol flows across multiple contracts.</p>
+
+    <p>This is a recurring theme: static scanners can identify risky code patterns, but often stop short of modeling <strong>how those risks translate into real attacks</strong>.</p>
+
+    <h3>Repository 2 — LendMachine</h3>
+
+    <p>Full analysis: <a href="https://app.testmachine.ai/share/repo/38a3f72dcda7de29dad5e7d4eb70a1795419eab1891b905f6274a4a413b235d6" target="_blank" rel="noopener noreferrer">view Azimuth report</a></p>
+
+    <p>LendMachine is a simplified lending protocol with collateral, borrowing, liquidation, and reward mechanics.</p>
+
+    <p>These systems are especially sensitive to <strong>economic exploits</strong>, where small logic flaws can create large financial consequences.</p>
+
+    <table>
+      <thead>
+        <tr><th>Capability</th><th>AuditAgent</th><th>Azimuth</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Static vulnerability detection</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Reentrancy detection</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Cross-function exploit discovery</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Economic attack modeling</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Protocol reasoning</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+
+    <p>Both tools detected a configuration risk around <strong>interest rate control</strong>.</p>
+
+    <p>AuditAgent noted that the interest rate setter lacked access control. Azimuth went further and modeled several exploit scenarios:</p>
+
+    <ul>
+      <li>artificially inflating interest rates to force liquidations</li>
+      <li>temporarily setting rates to zero to disable accrual</li>
+      <li>manipulating borrower health factors during liquidation windows</li>
+    </ul>
+
+    <p>Additionally, Azimuth identified issues in <strong>reward accounting synchronization</strong>, which could lead to phantom reward accumulation under certain conditions.</p>
+
+    <p>These types of vulnerabilities are difficult for static scanners to detect because they require reasoning about <strong>state transitions across multiple transactions</strong>.</p>
+
+    <h3>Repository 3 — Murky</h3>
+
+    <p>Full analysis: <a href="https://app.testmachine.ai/share/repo/74d4d96ff14ef2a019f827634d9acdc4a61956cb1f1631b89689aa377772bc47" target="_blank" rel="noopener noreferrer">view Azimuth report</a></p>
+
+    <p>Murky is not a protocol at all.</p>
+
+    <p>It is a <strong>Merkle tree utility library</strong> used primarily for testing and proof generation.</p>
+
+    <p>That makes it an interesting control case.</p>
+
+    <p>Because Murky has:</p>
+
+    <ul>
+      <li>no capital flows</li>
+      <li>no incentives</li>
+      <li>no multi-contract architecture</li>
+    </ul>
+
+    <p>...the number of meaningful attack surfaces is naturally limited.</p>
+
+    <table>
+      <thead>
+        <tr><th>Capability</th><th>AuditAgent</th><th>Azimuth</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Static vulnerability detection</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Merkle logic analysis</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Edge-case reasoning</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Protocol exploit modeling</td><td>⭐</td><td>⭐</td></tr>
+      </tbody>
+    </table>
+
+    <p>In this case, both tools performed similarly.</p>
+
+    <p>AuditAgent produced a larger set of <strong>code hygiene observations</strong>, including style issues and gas optimizations.</p>
+
+    <p>Azimuth focused more on <strong>edge cases in Merkle proof verification</strong>, such as malformed trees and integration misuse.</p>
+
+    <p>But the differences were much smaller than in protocol repositories. This is expected. When the codebase is a simple utility library, there are simply <strong>fewer opportunities for exploit modeling to add value</strong>.</p>
+
+    <h3>Repository 4 — BaseTap</h3>
+
+    <p>Full analysis: <a href="https://app.testmachine.ai/share/repo/c5ce0498654d9d14d29ddfcacdee97c30ca8e48ee0938a9722df364bc5e8d3f1" target="_blank" rel="noopener noreferrer">view Azimuth report</a></p>
+
+    <p>BaseTap is a modular payment protocol designed around taps, which allow controlled token flows between accounts.</p>
+
+    <p>The system includes:</p>
+
+    <ul>
+      <li>tap registries</li>
+      <li>execution contracts</li>
+      <li>payment sessions</li>
+      <li>batching logic</li>
+      <li>split payments</li>
+    </ul>
+
+    <p>This architecture introduces several workflow risks.</p>
+
+    <table>
+      <thead>
+        <tr><th>Capability</th><th>AuditAgent</th><th>Azimuth</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Static vulnerability detection</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Access-control analysis</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Workflow reasoning</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Payment-flow exploit modeling</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Cross-contract reasoning</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+
+    <p>AuditAgent identified several important issues, including:</p>
+
+    <ul>
+      <li>missing authorization checks</li>
+      <li>inconsistencies between <code>canExecute()</code> and <code>executeTap()</code></li>
+      <li>architectural design weaknesses</li>
+    </ul>
+
+    <p>Azimuth expanded these into <strong>attack scenarios affecting real users</strong>.</p>
+
+    <ul>
+      <li>a payment session could be griefed by malicious actors calling <code>markPaid()</code> before legitimate settlement</li>
+      <li>ETH transfers could become permanently locked when interacting with ERC20 tap paths</li>
+      <li>tap owners could inflate payment amounts after users grant approvals</li>
+    </ul>
+
+    <p>These are not simply coding errors. They are <strong>product trust failures</strong>, where legitimate users could be harmed even though the contract technically behaves as written.</p>
+
+    <h3>Cross-Repository Comparison</h3>
+
+    <p>Looking across the four repositories reveals a consistent pattern.</p>
+
+    <table>
+      <thead>
+        <tr><th>Capability</th><th>AuditAgent</th><th>Azimuth</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Static vulnerability detection</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>Cross-function exploit discovery</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Protocol economic modeling</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Workflow / state-machine reasoning</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Implementation &amp; best-practice feedback</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+
+    <p>Each tool excels in different areas.</p>
+
+    <p><strong>AuditAgent strengths</strong></p>
+
+    <ul>
+      <li>strong static analysis</li>
+      <li>best-practice detection</li>
+      <li>architectural hygiene</li>
+    </ul>
+
+    <p><strong>Azimuth strengths</strong></p>
+
+    <ul>
+      <li>exploit path modeling</li>
+      <li>economic attack analysis</li>
+      <li>multi-contract reasoning</li>
+      <li>workflow failure detection</li>
+    </ul>
+
+    <h3>What This Means for AI Auditing</h3>
+
+    <p>The results suggest an important distinction between two categories of AI security tools.</p>
+
+    <h4>Static AI auditors</h4>
+
+    <p>These tools behave similarly to traditional vulnerability scanners.</p>
+
+    <p>They excel at identifying:</p>
+
+    <ul>
+      <li>reentrancy risks</li>
+      <li>missing access control</li>
+      <li>unsafe patterns</li>
+      <li>implementation issues</li>
+    </ul>
+
+    <p>But they often struggle to reason about:</p>
+
+    <ul>
+      <li>multi-step attacks</li>
+      <li>economic incentives</li>
+      <li>protocol workflows</li>
+    </ul>
+
+    <h4>Behavioral security engines</h4>
+
+    <p>Systems like Azimuth focus less on pattern matching and more on <strong>simulating how contracts behave under adversarial conditions</strong>.</p>
+
+    <p>This enables them to surface vulnerabilities that appear only when:</p>
+
+    <ul>
+      <li>multiple transactions interact</li>
+      <li>cross-contract calls occur</li>
+      <li>incentives are manipulated</li>
+    </ul>
+
+    <h3>The Bigger Picture</h3>
+
+    <p>Smart contract security is evolving.</p>
+
+    <p>Early tools focused on <strong>code correctness</strong>.</p>
+
+    <p>Modern protocols require analysis of <strong>economic behavior and system interactions</strong>.</p>
+
+    <p>Both layers matter.</p>
+
+    <p>Static scanners are valuable for quickly catching implementation mistakes.</p>
+
+    <p>But as protocols grow more complex, security tools must also understand:</p>
+
+    <ul>
+      <li>how users interact with systems</li>
+      <li>how attackers manipulate incentives</li>
+      <li>how state transitions create unexpected behavior</li>
+    </ul>
+
+    <h3>Conclusion</h3>
+
+    <p>Across the four repositories we analyzed — PrimeVault, LendMachine, Murky, and BaseTap — a consistent pattern emerged.</p>
+
+    <p>Static AI auditors were effective at identifying <strong>common vulnerability patterns and implementation risks</strong>.</p>
+
+    <p>But the most meaningful issues surfaced when the analysis moved beyond individual functions and began modeling <strong>how contracts behave as a system</strong>.</p>
+
+    <p>Many of the highest-impact findings depended on:</p>
+
+    <ul>
+      <li>multi-step interactions</li>
+      <li>cross-contract workflows</li>
+      <li>economic incentives</li>
+      <li>real user behavior</li>
+    </ul>
+
+    <p>Static analysis is an important first layer of defense, but modern smart contract exploits rarely arise from a single unsafe line of code.</p>
+
+    <p>They emerge from how components interact over time.</p>
+
+    <p><strong>Static analysis tells you where the code looks risky.</strong></p>
+
+    <p><strong>Dynamic analysis tells you how the system actually breaks.</strong></p>
+
+    <p>As smart contracts continue to grow in complexity, behavioral analysis will increasingly become a necessary complement to static scanning in serious security workflows.</p>
+
   {:else if post.slug === 'testmachine-vs-llms'}
     <p><em>The research is in: LLMs cannot secure smart contracts. Here's why execution-driven reinforcement learning is the only reliable approach.</em></p>
 
