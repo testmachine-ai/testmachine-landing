@@ -153,18 +153,31 @@ export const blogPosts: BlogPost[] = [
       <li>cross-contract interactions</li>
     </ul>
 
-    <table>
-      <thead>
-        <tr><th>Capability</th><th>AuditAgent</th><th>Azimuth</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Static vulnerability detection</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
-        <tr><td>Cross-function exploit discovery</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Protocol economic modeling</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Multi-contract reasoning</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Implementation &amp; best-practice feedback</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
-      </tbody>
-    </table>
+    <div class="blog-compare-grid">
+      <div class="blog-compare-header">Capability</div>
+      <div class="blog-compare-header">AuditAgent</div>
+      <div class="blog-compare-header blog-compare-az">Azimuth</div>
+
+      <div class="blog-compare-label">Static vulnerability detection</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-stars">⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Cross-function exploit discovery</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Protocol economic modeling</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Multi-contract reasoning</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Implementation &amp; best-practice feedback</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-stars">⭐⭐⭐</div>
+    </div>
 
     <p>AuditAgent correctly identified several <strong>isolated contract risks</strong> and best-practice violations.</p>
 
@@ -180,18 +193,31 @@ export const blogPosts: BlogPost[] = [
 
     <p>These systems are especially sensitive to <strong>economic exploits</strong>, where small logic flaws can create large financial consequences.</p>
 
-    <table>
-      <thead>
-        <tr><th>Capability</th><th>AuditAgent</th><th>Azimuth</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Static vulnerability detection</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
-        <tr><td>Reentrancy detection</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Cross-function exploit discovery</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Economic attack modeling</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Protocol reasoning</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-      </tbody>
-    </table>
+    <div class="blog-compare-grid">
+      <div class="blog-compare-header">Capability</div>
+      <div class="blog-compare-header">AuditAgent</div>
+      <div class="blog-compare-header blog-compare-az">Azimuth</div>
+
+      <div class="blog-compare-label">Static vulnerability detection</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-stars">⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Reentrancy detection</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Cross-function exploit discovery</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Economic attack modeling</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Protocol reasoning</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+    </div>
 
     <p>Both tools detected a configuration risk around <strong>interest rate control</strong>.</p>
 
@@ -227,17 +253,27 @@ export const blogPosts: BlogPost[] = [
 
     <p>...the number of meaningful attack surfaces is naturally limited.</p>
 
-    <table>
-      <thead>
-        <tr><th>Capability</th><th>AuditAgent</th><th>Azimuth</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Static vulnerability detection</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
-        <tr><td>Merkle logic analysis</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Edge-case reasoning</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Protocol exploit modeling</td><td>⭐</td><td>⭐</td></tr>
-      </tbody>
-    </table>
+    <div class="blog-compare-grid">
+      <div class="blog-compare-header">Capability</div>
+      <div class="blog-compare-header">AuditAgent</div>
+      <div class="blog-compare-header blog-compare-az">Azimuth</div>
+
+      <div class="blog-compare-label">Static vulnerability detection</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-stars">⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Merkle logic analysis</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Edge-case reasoning</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Protocol exploit modeling</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-stars">⭐</div>
+    </div>
 
     <p>In this case, both tools performed similarly.</p>
 
@@ -265,18 +301,31 @@ export const blogPosts: BlogPost[] = [
 
     <p>This architecture introduces several workflow risks.</p>
 
-    <table>
-      <thead>
-        <tr><th>Capability</th><th>AuditAgent</th><th>Azimuth</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Static vulnerability detection</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
-        <tr><td>Access-control analysis</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Workflow reasoning</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Payment-flow exploit modeling</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Cross-contract reasoning</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-      </tbody>
-    </table>
+    <div class="blog-compare-grid">
+      <div class="blog-compare-header">Capability</div>
+      <div class="blog-compare-header">AuditAgent</div>
+      <div class="blog-compare-header blog-compare-az">Azimuth</div>
+
+      <div class="blog-compare-label">Static vulnerability detection</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-stars">⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Access-control analysis</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Workflow reasoning</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Payment-flow exploit modeling</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Cross-contract reasoning</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+    </div>
 
     <p>AuditAgent identified several important issues, including:</p>
 
@@ -300,18 +349,31 @@ export const blogPosts: BlogPost[] = [
 
     <p>Looking across the four repositories reveals a consistent pattern.</p>
 
-    <table>
-      <thead>
-        <tr><th>Capability</th><th>AuditAgent</th><th>Azimuth</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Static vulnerability detection</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
-        <tr><td>Cross-function exploit discovery</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Protocol economic modeling</td><td>⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Workflow / state-machine reasoning</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
-        <tr><td>Implementation &amp; best-practice feedback</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
-      </tbody>
-    </table>
+    <div class="blog-compare-grid">
+      <div class="blog-compare-header">Capability</div>
+      <div class="blog-compare-header">AuditAgent</div>
+      <div class="blog-compare-header blog-compare-az">Azimuth</div>
+
+      <div class="blog-compare-label">Static vulnerability detection</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-stars">⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Cross-function exploit discovery</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Protocol economic modeling</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Workflow / state-machine reasoning</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-highlight blog-compare-stars">⭐⭐⭐⭐⭐</div>
+
+      <div class="blog-compare-label">Implementation &amp; best-practice feedback</div>
+      <div class="blog-compare-cell blog-compare-aa blog-compare-stars">⭐⭐⭐</div>
+      <div class="blog-compare-cell blog-compare-az blog-compare-stars">⭐⭐⭐</div>
+    </div>
 
     <p>Each tool excels in different areas.</p>
 

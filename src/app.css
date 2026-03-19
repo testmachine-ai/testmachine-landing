@@ -1942,6 +1942,86 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 }
 
 /* ============================================================
+   Blog Comparison Tables
+   ============================================================ */
+.blog-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--border-subtle);
+  border: 1px solid var(--border-subtle);
+  margin: 28px 0;
+}
+.blog-compare-header {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 14px 20px;
+  background: oklch(0.16 0.005 260);
+  color: var(--fg-muted);
+}
+[data-theme="light"] .blog-compare-header {
+  background: oklch(0.94 0 0);
+}
+.blog-compare-header.blog-compare-az {
+  color: var(--accent);
+  border-top: 2px solid var(--accent);
+}
+.blog-compare-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 16px 20px;
+  background: oklch(0.14 0.005 260);
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+}
+[data-theme="light"] .blog-compare-label {
+  background: oklch(0.96 0 0);
+}
+.blog-compare-cell {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  padding: 16px 20px;
+  color: var(--fg-muted);
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+}
+.blog-compare-cell.blog-compare-aa {
+  background: oklch(0.14 0.005 260);
+}
+[data-theme="light"] .blog-compare-cell.blog-compare-aa {
+  background: oklch(0.97 0 0);
+}
+.blog-compare-cell.blog-compare-az {
+  background: oklch(0.15 0.005 260);
+}
+[data-theme="light"] .blog-compare-cell.blog-compare-az {
+  background: oklch(0.96 0 0);
+}
+.blog-compare-highlight {
+  color: var(--fg);
+}
+.blog-compare-stars {
+  letter-spacing: 0.05em;
+}
+@media (max-width: 640px) {
+  .blog-compare-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .blog-compare-header,
+  .blog-compare-label,
+  .blog-compare-cell {
+    padding: 10px 12px;
+    font-size: 0.625rem;
+  }
+}
+
+/* ============================================================
    Solutions & Use Cases Page Styles
    ============================================================ */
 
