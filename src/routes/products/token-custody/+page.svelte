@@ -99,7 +99,7 @@
     <div class="pd-section-header" data-animate>
       <span class="section-label">How It Works</span>
       <h2 class="pd-section-title">Token Custody</h2>
-      <p class="pd-section-desc">Autonomous AI agents probe every function of every contract, classifying behaviors and producing risk scores from &minus;100 (critical danger) to +100 (safe). Continuously re-tested as contracts change.</p>
+      <p class="pd-section-desc">Autonomous AI agents probe every function of every contract, classifying behaviors and producing risk scores from 0 (safe) to 100 (critical danger). Continuously re-tested as contracts change.</p>
       <div class="pd-section-features">
         <span class="pd-feature">8.1M+ tokens</span>
         <span class="pd-feature">7 EVM chains</span>
@@ -137,7 +137,7 @@
     <div class="risk-intel-layout" data-animate>
       <div class="risk-intel-text">
         <p class="risk-intel-body">
-          Token Custody analyzes every token on-chain and produces a risk score from 0&ndash;100, incorporating key factors like LP burned status, deployer token holdings, pool age, pause capabilities, minting permissions, and more.
+          Token Custody analyzes every token on-chain and produces a risk probability from 0 (safe) to 100 (critical), incorporating key factors like LP burned status, deployer token holdings, pool age, pause capabilities, minting permissions, and more.
         </p>
         <p class="risk-intel-body">
           The score aggregates these signals into a single number that exchanges and protocols can act on &mdash; automatically flagging dangerous tokens before they reach your users.
