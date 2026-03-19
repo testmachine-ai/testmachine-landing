@@ -506,7 +506,7 @@
     background: var(--bg);
   }
   .azimuth-header {
-    text-align: center;
+    text-align: left;
     margin-bottom: 4rem;
   }
   .section-title {
