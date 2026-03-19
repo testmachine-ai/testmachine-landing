@@ -220,6 +220,199 @@
 
 
 <!-- =========================================================
+     HOW AZIMUTH WORKS (3-step process)
+     ========================================================= -->
+<section class="pd-section" id="how-azimuth-works">
+  <div class="container">
+    <div class="pd-section-header" data-animate>
+      <span class="section-label">Process</span>
+      <h2 class="pd-section-title">Submit. Fork. Attack. Report.</h2>
+    </div>
+    <div class="pd-process-grid" data-animate>
+      <div class="pd-process-step">
+        <div class="pd-process-num">01</div>
+        <h3 class="pd-process-name">Submit</h3>
+        <p class="pd-process-desc">Point Azimuth at any contract address or GitHub repo. Works with deployed contracts or pre-deployment code.</p>
+      </div>
+      <div class="pd-process-connector" aria-hidden="true">
+        <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="var(--border-subtle)" stroke-width="2"/></svg>
+      </div>
+      <div class="pd-process-step">
+        <div class="pd-process-num">02</div>
+        <h3 class="pd-process-name">Fork &amp; Attack</h3>
+        <p class="pd-process-desc">Azimuth forks live mainnet state and deploys RL agents powered by Lodestar. Agents chain multi-step attacks, probing every function and state transition.</p>
+      </div>
+      <div class="pd-process-connector" aria-hidden="true">
+        <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="var(--border-subtle)" stroke-width="2"/></svg>
+      </div>
+      <div class="pd-process-step">
+        <div class="pd-process-num">03</div>
+        <h3 class="pd-process-name">Report</h3>
+        <p class="pd-process-desc">Every finding includes a working proof-of-concept exploit. Zero false positives &mdash; if Azimuth reports it, it was actually exploited.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     WHAT AZIMUTH CATCHES (vulnerability classes)
+     ========================================================= -->
+<section class="pd-section" id="what-azimuth-catches">
+  <div class="container">
+    <div class="pd-section-header" data-animate>
+      <span class="section-label">Vulnerability Coverage</span>
+      <h2 class="pd-section-title">Behavioral vulnerabilities that static analysis misses</h2>
+      <p class="pd-section-desc">Azimuth discovers exploit paths through execution, not pattern matching. These vulnerability classes require understanding contract state across sequences of transactions &mdash; exactly what LLMs and static analyzers cannot do.</p>
+    </div>
+    <div class="pd-vuln-grid" data-animate>
+      <div class="pd-vuln-card">
+        <div class="pd-vuln-icon">&circlearrowright;</div>
+        <h3 class="pd-vuln-name">Reentrancy</h3>
+        <p class="pd-vuln-desc">Detects recursive call exploits across single and cross-function patterns, including read-only reentrancy.</p>
+      </div>
+      <div class="pd-vuln-card">
+        <div class="pd-vuln-icon">&zigrarr;</div>
+        <h3 class="pd-vuln-name">Flash Loan Attacks</h3>
+        <p class="pd-vuln-desc">Discovers multi-step flash loan sequences that manipulate prices, drain pools, or exploit composability gaps.</p>
+      </div>
+      <div class="pd-vuln-card">
+        <div class="pd-vuln-icon">&oplus;</div>
+        <h3 class="pd-vuln-name">Access Control</h3>
+        <p class="pd-vuln-desc">Finds privilege escalation paths, unprotected admin functions, and misconfigured role hierarchies.</p>
+      </div>
+      <div class="pd-vuln-card">
+        <div class="pd-vuln-icon">&target;</div>
+        <h3 class="pd-vuln-name">Oracle Manipulation</h3>
+        <p class="pd-vuln-desc">Identifies price feed exploits, TWAP manipulation windows, and stale oracle dependencies.</p>
+      </div>
+      <div class="pd-vuln-card">
+        <div class="pd-vuln-icon">&Delta;</div>
+        <h3 class="pd-vuln-name">Economic Logic Flaws</h3>
+        <p class="pd-vuln-desc">Uncovers broken incentive structures, sandwich attack vectors, and arbitrage-exploitable pricing curves.</p>
+      </div>
+      <div class="pd-vuln-card">
+        <div class="pd-vuln-icon">&sext;</div>
+        <h3 class="pd-vuln-name">Governance Attacks</h3>
+        <p class="pd-vuln-desc">Tests voting manipulation, quorum exploitation, timelock bypasses, and proposal hijacking scenarios.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     AZIMUTH VS TRADITIONAL AUDITS (comparison)
+     ========================================================= -->
+<section class="pd-section" id="comparison">
+  <div class="container">
+    <div class="pd-section-header" data-animate>
+      <span class="section-label">Comparison</span>
+      <h2 class="pd-section-title">Minutes, not months</h2>
+      <p class="pd-section-desc">Azimuth is not a replacement for human auditors &mdash; it is a continuous security layer that catches what point-in-time audits cannot.</p>
+    </div>
+    <div class="pd-compare-grid" data-animate>
+      <div class="pd-compare-header pd-compare-label"></div>
+      <div class="pd-compare-header pd-compare-trad">Traditional Audit</div>
+      <div class="pd-compare-header pd-compare-az">Azimuth</div>
+
+      <div class="pd-compare-label">Time to results</div>
+      <div class="pd-compare-cell pd-compare-trad">4&ndash;8 weeks</div>
+      <div class="pd-compare-cell pd-compare-az pd-compare-highlight">Minutes</div>
+
+      <div class="pd-compare-label">Cost</div>
+      <div class="pd-compare-cell pd-compare-trad">$50K&ndash;$500K</div>
+      <div class="pd-compare-cell pd-compare-az pd-compare-highlight">From $0.05 per analysis</div>
+
+      <div class="pd-compare-label">False positives</div>
+      <div class="pd-compare-cell pd-compare-trad">Common &mdash; findings require manual triage</div>
+      <div class="pd-compare-cell pd-compare-az pd-compare-highlight">Zero &mdash; every finding is a proven exploit</div>
+
+      <div class="pd-compare-label">Output</div>
+      <div class="pd-compare-cell pd-compare-trad">PDF report with recommendations</div>
+      <div class="pd-compare-cell pd-compare-az pd-compare-highlight">Working PoC exploit code for every finding</div>
+
+      <div class="pd-compare-label">Coverage</div>
+      <div class="pd-compare-cell pd-compare-trad">Point-in-time snapshot</div>
+      <div class="pd-compare-cell pd-compare-az pd-compare-highlight">Continuous re-analysis as contracts change</div>
+
+      <div class="pd-compare-label">Scalability</div>
+      <div class="pd-compare-cell pd-compare-trad">One contract per engagement</div>
+      <div class="pd-compare-cell pd-compare-az pd-compare-highlight">Thousands of contracts per day</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     WHERE AZIMUTH FITS (integration/workflow)
+     ========================================================= -->
+<section class="pd-section" id="integration">
+  <div class="container">
+    <div class="pd-section-header" data-animate>
+      <span class="section-label">Integration</span>
+      <h2 class="pd-section-title">Security at every stage</h2>
+      <p class="pd-section-desc">From first commit to production monitoring, Azimuth fits into your existing workflow.</p>
+    </div>
+    <div class="pd-integration-grid" data-animate>
+      <div class="pd-vuln-card">
+        <span class="pd-integration-tag">Pre-Deployment</span>
+        <p class="pd-vuln-desc">Run Azimuth before deploying to mainnet. Catch exploitable vulnerabilities while fixes are still cheap.</p>
+      </div>
+      <div class="pd-vuln-card">
+        <span class="pd-integration-tag">CI/CD Pipeline</span>
+        <p class="pd-vuln-desc">Integrate via GitHub Actions or CLI. Every pull request automatically tested for security regressions.</p>
+      </div>
+      <div class="pd-vuln-card">
+        <span class="pd-integration-tag">Continuous Monitoring</span>
+        <p class="pd-vuln-desc">Post-deployment, Azimuth continuously re-analyzes as proxy contracts upgrade and external dependencies change.</p>
+      </div>
+      <div class="pd-vuln-card">
+        <span class="pd-integration-tag">Due Diligence</span>
+        <p class="pd-vuln-desc">Exchanges, VCs, and protocols use Azimuth to evaluate token and protocol risk before listing or investing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
+     POWERED BY LODESTAR
+     ========================================================= -->
+<section class="pd-section" id="lodestar">
+  <div class="container">
+    <div class="pd-section-header" data-animate>
+      <span class="section-label">The Engine</span>
+      <h2 class="pd-section-title">Powered by Lodestar</h2>
+    </div>
+    <div class="pd-lodestar-layout" data-animate>
+      <div class="pd-lodestar-body">
+        <p class="pd-lodestar-copy">Lodestar is TestMachine's proprietary reinforcement learning engine. Unlike LLMs that pattern-match against known vulnerability templates, Lodestar agents learn by doing &mdash; interacting with smart contracts through thousands of transaction sequences, receiving reward signals when exploits succeed, and adapting their strategies to each contract's unique logic.</p>
+      </div>
+      <div class="pd-lodestar-points">
+        <div class="pd-lodestar-point">
+          <span class="pd-lodestar-marker"></span>
+          <span>Learns from every interaction &mdash; agents improve as they explore more contracts</span>
+        </div>
+        <div class="pd-lodestar-point">
+          <span class="pd-lodestar-marker"></span>
+          <span>State-aware &mdash; tracks the full contract state across multi-step attack sequences</span>
+        </div>
+        <div class="pd-lodestar-point">
+          <span class="pd-lodestar-marker"></span>
+          <span>Novel vulnerability discovery &mdash; finds exploits that have never been documented</span>
+        </div>
+        <div class="pd-lodestar-point">
+          <span class="pd-lodestar-marker"></span>
+          <span>Adversarial by design &mdash; attacks contracts the way a real attacker would</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
      CHAINS
      ========================================================= -->
 <section class="pd-section" id="chains">
@@ -703,10 +896,226 @@
     margin-right: auto;
   }
 
+  /* ================================
+     HOW AZIMUTH WORKS (3-step process)
+     ================================ */
+  .pd-process-grid {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    justify-content: center;
+  }
+  .pd-process-step {
+    flex: 1;
+    max-width: 320px;
+    padding: 28px 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+  }
+  .pd-process-step:hover {
+    border-color: var(--border);
+  }
+  .pd-process-num {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .pd-process-name {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--fg);
+    margin-bottom: 0.5rem;
+  }
+  .pd-process-desc {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    line-height: 1.65;
+  }
+  .pd-process-connector {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  /* ================================
+     WHAT AZIMUTH CATCHES (vulnerability grid)
+     ================================ */
+  .pd-vuln-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+  }
+  .pd-vuln-card {
+    padding: 28px 24px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    transition: border-color var(--transition);
+  }
+  .pd-vuln-card:hover {
+    border-color: var(--border);
+  }
+  .pd-vuln-icon {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    line-height: 1;
+  }
+  .pd-vuln-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--fg);
+    margin-bottom: 0.5rem;
+  }
+  .pd-vuln-desc {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+    line-height: 1.65;
+  }
+
+  /* ================================
+     COMPARISON GRID
+     ================================ */
+  .pd-compare-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr 1fr;
+    gap: 1px;
+    background: var(--border-subtle);
+    border: 1px solid var(--border-subtle);
+  }
+  .pd-compare-header {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 14px 20px;
+    background: oklch(0.16 0.005 260);
+    color: var(--fg-muted);
+  }
+  :global([data-theme="light"]) .pd-compare-header {
+    background: oklch(0.94 0 0);
+  }
+  .pd-compare-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 16px 20px;
+    background: oklch(0.14 0.005 260);
+    color: var(--fg);
+    display: flex;
+    align-items: center;
+  }
+  :global([data-theme="light"]) .pd-compare-label {
+    background: oklch(0.96 0 0);
+  }
+  .pd-compare-cell {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    padding: 16px 20px;
+    color: var(--fg-muted);
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+  }
+  .pd-compare-cell.pd-compare-trad {
+    background: oklch(0.14 0.005 260);
+  }
+  :global([data-theme="light"]) .pd-compare-cell.pd-compare-trad {
+    background: oklch(0.97 0 0);
+  }
+  .pd-compare-cell.pd-compare-az {
+    background: oklch(0.15 0.005 260);
+  }
+  :global([data-theme="light"]) .pd-compare-cell.pd-compare-az {
+    background: oklch(0.96 0 0);
+  }
+  .pd-compare-highlight {
+    color: var(--fg);
+    border-top: 2px solid var(--accent);
+  }
+  .pd-compare-header.pd-compare-az {
+    color: var(--accent);
+    border-top: 2px solid var(--accent);
+  }
+
+  /* ================================
+     INTEGRATION GRID
+     ================================ */
+  .pd-integration-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap);
+  }
+  .pd-integration-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  /* ================================
+     POWERED BY LODESTAR
+     ================================ */
+  .pd-lodestar-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .pd-lodestar-copy {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    color: var(--fg-muted);
+    line-height: 1.75;
+  }
+  .pd-lodestar-points {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .pd-lodestar-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    line-height: 1.6;
+  }
+  .pd-lodestar-marker {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    margin-top: 7px;
+    background: var(--accent);
+  }
+
   /* -- Responsive -- */
   @media (max-width: 900px) {
     .pd-chains-grid {
       grid-template-columns: repeat(3, 1fr);
+    }
+    .pd-vuln-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .pd-compare-grid {
+      grid-template-columns: 120px 1fr 1fr;
+    }
+    .pd-lodestar-layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
     }
   }
   @media (max-width: 768px) {
@@ -716,6 +1125,23 @@
     .pd-chains-grid {
       grid-template-columns: repeat(3, 1fr);
     }
+    .pd-process-grid {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .pd-process-step {
+      max-width: none;
+    }
+    .pd-process-connector {
+      display: none;
+    }
+    .pd-integration-grid {
+      grid-template-columns: 1fr;
+    }
+    .pd-compare-grid {
+      grid-template-columns: 100px 1fr 1fr;
+      font-size: 0.75rem;
+    }
   }
   @media (max-width: 480px) {
     .pd-chains-grid {
@@ -723,6 +1149,17 @@
     }
     .pd-section-features {
       gap: 6px;
+    }
+    .pd-vuln-grid {
+      grid-template-columns: 1fr;
+    }
+    .pd-compare-grid {
+      grid-template-columns: 80px 1fr 1fr;
+    }
+    .pd-compare-label,
+    .pd-compare-cell {
+      padding: 12px 10px;
+      font-size: 0.6875rem;
     }
   }
 </style>
