@@ -171,8 +171,6 @@
         GOLDEN[i][2] = GOLDEN[i][2] * (1-pull) + bz * pull;
       }
     }
-    buildGolden(Date.now());
-
     const TOTAL_EPS = 200;
     let allBolts: any[] = [];
     let rewardCap = 1 + Math.random() * 24;
@@ -231,8 +229,6 @@
         });
       }
     }
-    generateBolts();
-
     let angle = 0;
     let currentEp = 0;
     let animStartTime = 0;
@@ -685,7 +681,9 @@
 
       ctx.lineCap = 'round'; ctx.lineJoin = 'round';
       let mFadeHalf = isMobileCanvas ? 4000 : 8000;
-      for (let ti = 0; ti < drawnTrails.length; ti++) {
+      // On mobile cap the backlog to the most recent 40 trails to bound per-frame work.
+      let trailStart = isMobileCanvas ? Math.max(0, drawnTrails.length - 40) : 0;
+      for (let ti = trailStart; ti < drawnTrails.length; ti++) {
         let trail = drawnTrails[ti];
         if (isMobileCanvas && !trail.converged && ti % 2 === 1) continue;
         let age = ts - trailBirths[ti];
@@ -698,6 +696,9 @@
 
         let baseE = trail.converged ? 0.22 : (isDark ? 0.03 : 0.08);
         let energy = baseE * fade;
+        // Skip trails that have faded below the visible threshold — no point
+        // allocating gradients and projecting points for invisible geometry.
+        if (energy < 0.005) continue;
         let radius = (trail.converged ? 10 : 6) * dpr;
 
         ctx.globalCompositeOperation = (trail.converged || !isDark) ? 'source-over' : 'lighter';
@@ -1002,10 +1003,18 @@
       requestAnimationFrame(draw);
     }
 
-    // IntersectionObserver
+    // IntersectionObserver — data generation is deferred here so it doesn't
+    // run at page load and block the main thread before the section is visible.
+    let dataReady = false;
     let observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting && !running) {
+          if (!dataReady) {
+            let seed = Date.now();
+            buildGolden(seed);
+            generateBolts();
+            dataReady = true;
+          }
           running = true; animStartTime = 0; drawnTrails = []; trailBirths = []; rewardHistory = []; lastLogStep = -1;
           resizeCanvas(); requestAnimationFrame(draw);
         } else if (!entry.isIntersecting) { running = false; }
