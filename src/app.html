@@ -9,14 +9,13 @@
     <!-- Preload critical LCP asset -->
     <link rel="preload" as="image" href="/assets/logo-icon-white.webp" fetchpriority="high">
 
-    <!-- Font preloads — start downloading before CSS is parsed, breaking the
-         HTML → CSS → @font-face discovery chain that was delaying LCP by ~400ms.
-         All files are at stable /fonts/ URLs so the preload href matches @font-face src. -->
+    <!-- Preload only Manrope — the LCP font used by the hero heading.
+         JetBrains Mono is below the fold on first load; preloading all 4 weights
+         (~88 KiB) competed with CSS downloads on mobile and hurt FCP. -->
     <link rel="preload" as="font" href="/fonts/manrope-variable-latin.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="/fonts/jetbrains-mono-latin-400.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="/fonts/jetbrains-mono-latin-500.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="/fonts/jetbrains-mono-latin-600.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="/fonts/jetbrains-mono-latin-700.woff2" type="font/woff2" crossorigin>
+
+    <!-- Preconnect to HubSpot form origin — Lighthouse flags 350ms LCP savings -->
+    <link rel="preconnect" href="https://js.hscollectedforms.net">
 
     <!-- HubSpot -->
     <script async defer src="https://js.hs-scripts.com/23470671.js"></script>
