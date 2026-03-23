@@ -122,12 +122,12 @@ resource "aws_s3_bucket_policy" "landing" {
 # ---------------------------------------------------------------------------
 # CloudFront Function — URL rewrite for static site serving
 #
-# adapter-static (trailingSlash: 'never') outputs flat .html files:
-#   /blog                        →  blog.html
-#   /blog/coinbase-dex-expansion →  blog/coinbase-dex-expansion.html
+# adapter-static (trailingSlash: 'always') outputs directory index files:
+#   /blog/                        →  blog/index.html
+#   /blog/coinbase-dex-expansion/ →  blog/coinbase-dex-expansion/index.html
 #
-# S3 via OAC serves exact key matches only, so this function appends .html
-# to extensionless paths. Root / is handled by default_root_object.
+# S3 via OAC serves exact key matches only, so this function rewrites
+# extensionless paths to their index.html equivalent.
 # ---------------------------------------------------------------------------
 resource "aws_cloudfront_function" "url_rewrite" {
   name    = "testmachine-landing-url-rewrite-${var.environment}"
@@ -139,17 +139,16 @@ resource "aws_cloudfront_function" "url_rewrite" {
       var request = event.request;
       var uri = request.uri;
 
-      // Strip trailing slash (except root) before resolving
-      if (uri !== '/' && uri.endsWith('/')) {
-        uri = uri.slice(0, -1);
+      // Pass through requests with a file extension unchanged
+      if (uri.includes('.')) {
+        return request;
       }
 
-      // Append .html for extensionless paths; root is handled by default_root_object
-      if (uri !== '/' && !uri.includes('.')) {
-        request.uri = uri + '.html';
-      } else {
-        request.uri = uri;
+      // Normalise to trailing slash then resolve to index.html
+      if (!uri.endsWith('/')) {
+        uri = uri + '/';
       }
+      request.uri = uri + 'index.html';
 
       return request;
     }
@@ -199,18 +198,17 @@ resource "aws_cloudfront_distribution" "landing" {
   }
 
   # S3 returns 403 (not 404) for objects missing behind OAC.
-  # Serves home page for unmatched routes — add a src/routes/+error.svelte
-  # to generate a proper build/404.html and update response_page_path.
+  # Both are mapped to 404.html (the SvelteKit fallback / error page).
   custom_error_response {
     error_code         = 403
     response_code      = 404
-    response_page_path = "/index.html"
+    response_page_path = "/404.html"
   }
 
   custom_error_response {
     error_code         = 404
     response_code      = 404
-    response_page_path = "/index.html"
+    response_page_path = "/404.html"
   }
 
   restrictions {
@@ -439,15 +437,13 @@ resource "aws_cloudfront_function" "staging_viewer_request" {
         };
       }
 
-      // URL rewrite — append .html for extensionless paths
+      // URL rewrite — resolve extensionless paths to index.html
       var uri = request.uri;
-      if (uri !== '/' && uri.endsWith('/')) {
-        uri = uri.slice(0, -1);
-      }
-      if (uri !== '/' && !uri.includes('.')) {
-        request.uri = uri + '.html';
-      } else {
-        request.uri = uri;
+      if (!uri.includes('.')) {
+        if (!uri.endsWith('/')) {
+          uri = uri + '/';
+        }
+        request.uri = uri + 'index.html';
       }
 
       return request;
@@ -498,13 +494,13 @@ resource "aws_cloudfront_distribution" "landing_staging" {
   custom_error_response {
     error_code         = 403
     response_code      = 404
-    response_page_path = "/index.html"
+    response_page_path = "/404.html"
   }
 
   custom_error_response {
     error_code         = 404
     response_code      = 404
-    response_page_path = "/index.html"
+    response_page_path = "/404.html"
   }
 
   restrictions {
