@@ -1081,7 +1081,7 @@
         <span class="traj-target-name" bind:this={trajTargetName}></span>
       </div>
       <div class="traj-branding-overlay" style="position:absolute;top:42px;left:14px;z-index:10;opacity:0.4;display:flex;align-items:center;gap:6px;">
-        <img src="/assets/logo-icon-white.png" alt="" style="width:22px;height:22px;object-fit:contain;flex-shrink:0;">
+        <img src="/assets/logo-icon-white.webp" alt="" style="width:22px;height:22px;object-fit:contain;flex-shrink:0;">
         <span style="font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);letter-spacing:0.06em;text-transform:uppercase;">Contract State Space</span>
       </div>
       <span class="traj-pca-label" style="position:absolute;top:42px;right:14px;z-index:10;opacity:0.4;font-family:var(--font-mono);font-size:13px;color:var(--text-secondary);letter-spacing:0.04em;">PCA 16d → 3d</span>

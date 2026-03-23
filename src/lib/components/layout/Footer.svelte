@@ -7,7 +7,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="nav-logo">
-          <img src="/assets/logo-icon-white.png" alt="" class="nav-logo-icon" />
+          <img src="/assets/logo-icon-white.webp" alt="" class="nav-logo-icon" />
           <span class="nav-logo-text">TestMachine</span>
         </a>
         <p class="footer-address">TestMachine Inc., 20 W 34th St, New York, NY</p>

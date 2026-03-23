@@ -29,7 +29,7 @@
 <nav bind:this={navElement} class="nav" class:scrolled>
   <div class="nav-container">
     <a href="/" class="nav-logo">
-      <img src="/assets/logo-icon-white.png" alt="" class="nav-logo-icon" />
+      <img src="/assets/logo-icon-white.webp" alt="" class="nav-logo-icon" />
       <span class="nav-logo-text">TestMachine</span>
     </a>
     

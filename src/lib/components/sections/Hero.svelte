@@ -3,7 +3,7 @@
   <div class="container">
     <div class="hero-content">
       <div class="hero-brand">
-        <img src="/assets/logo-icon-white.png" alt="TestMachine logo" class="hero-brand-icon" width="72" height="72" loading="eager" />
+        <img src="/assets/logo-icon-white.webp" alt="TestMachine logo" class="hero-brand-icon" width="72" height="72" loading="eager" />
         <span class="hero-brand-name">TESTMACHINE</span>
       </div>
 

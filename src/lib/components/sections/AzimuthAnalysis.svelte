@@ -330,7 +330,7 @@
         <div class="az-app-viewport">
           <div class="az-sidebar">
             <div class="az-sidebar-logo">
-              <img src="/assets/logo-icon-white.png" alt="" style="width:18px;height:18px;filter:brightness(0) invert(70%) sepia(40%) saturate(500%) hue-rotate(130deg) brightness(1.05);">
+              <img src="/assets/logo-icon-white.webp" alt="" style="width:18px;height:18px;filter:brightness(0) invert(70%) sepia(40%) saturate(500%) hue-rotate(130deg) brightness(1.05);">
               TestMachine
             </div>
             <div class="az-sidebar-item">

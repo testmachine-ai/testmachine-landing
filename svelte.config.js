@@ -23,7 +23,9 @@ const config = {
           return;
         }
         throw new Error(message);
-      }
+      },
+      // #trajectory is rendered client-side (lazy-loaded component) — warn only
+      handleMissingId: 'warn'
     },
 
     paths: {
