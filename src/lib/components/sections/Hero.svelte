@@ -80,6 +80,14 @@
     }
   }
 
+  /* LCP-safe variant: title is always visible (opacity:1), only slides up.
+     heroFadeIn starts opacity at 0 which delays the LCP timestamp by the
+     full animation-delay; heroTitleIn avoids this by never touching opacity. */
+  @keyframes heroTitleIn {
+    from { transform: translateY(20px); }
+    to   { transform: translateY(0); }
+  }
+
   .hero-brand {
     display: flex;
     align-items: center;
@@ -114,7 +122,7 @@
     line-height: 1.02;
     letter-spacing: -0.035em;
     margin-bottom: 24px;
-    animation: heroFadeIn 0.8s ease 0.4s both;
+    animation: heroTitleIn 0.8s ease 0.4s both;
   }
   
   .hero-subtitle {
