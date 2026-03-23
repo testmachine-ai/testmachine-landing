@@ -9,7 +9,7 @@ const config = {
     adapter: adapter({
       pages: 'build',
       assets: 'build',
-      fallback: undefined,
+      fallback: '404.html',
       precompress: false,
       strict: true
     }),
@@ -24,6 +24,10 @@ const config = {
         }
         throw new Error(message);
       }
+    },
+
+    paths: {
+      relative: false
     },
 
     // Alias for cleaner imports
