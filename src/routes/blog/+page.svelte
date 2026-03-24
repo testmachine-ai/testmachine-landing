@@ -1,4 +1,5 @@
 <script lang="ts">
+  import '$lib/styles/blog.css';
   import { blogPosts } from '$lib/data/blog-posts';
   
   const featured = blogPosts.find(p => p.featured);

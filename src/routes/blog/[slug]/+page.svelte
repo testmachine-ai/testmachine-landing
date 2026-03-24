@@ -1,4 +1,5 @@
 <script lang="ts">
+  import '$lib/styles/blog.css';
   import type { PageData } from './$types';
   
   export let data: PageData;

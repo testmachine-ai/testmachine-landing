@@ -1,5 +1,5 @@
 <script lang="ts">
-  // Contact page
+  import '$lib/styles/solutions.css';
 </script>
 
 <svelte:head>
