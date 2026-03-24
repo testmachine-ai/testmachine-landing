@@ -122,7 +122,9 @@
     line-height: 1.02;
     letter-spacing: -0.035em;
     margin-bottom: 24px;
-    animation: heroTitleIn 0.8s ease 0.4s both;
+    /* No animation — any CSS animation on the LCP element delays its timestamp
+       by the full duration+delay, because Chrome re-emits the LCP candidate on
+       every animated frame. The surrounding elements still animate in. */
   }
   
   .hero-subtitle {
