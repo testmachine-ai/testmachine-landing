@@ -7,7 +7,7 @@
 
 <svelte:head>
   <title>{post.title} — TestMachine</title>
-  <meta name="description" content={post.excerpt} />
+  <meta name="description" content={post.seoDescription || post.excerpt} />
 </svelte:head>
 
 <section class="article-header">
@@ -24,7 +24,70 @@
 </section>
 
 <article class="article-body container">
-  {#if post.slug === 'coinbase-dex-expansion'}
+  {#if post.slug === 'resolv-hack-permissions-analysis'}
+    <p>When incidents like the recent Resolv exploit occur, the instinct is to search for the point of failure. A compromised key, a missed vulnerability, a breakdown in process. Something must have gone wrong.</p>
+
+    <p>But in many cases, nothing actually breaks. The system behaves exactly as it was designed to.</p>
+
+    <p>The Resolv incident is a good example of this. Funds moved, positions were affected, and value was extracted. From the outside, it looks like an attack. From the inside, it looks like the system executing a valid path.</p>
+
+    <p>Because the more important question isn't how access was obtained. It's what that access allowed.</p>
+
+    <p>In this case, the critical capability wasn't obscure. It was foundational: the ability to mint tokens.</p>
+
+    <img src="/images/minting_USR.png" alt="Minting Interface Screenshot" style="max-width: 100%; border-radius: 8px; margin: 2rem 0;" />
+
+    <p>That single permission changes the entire risk profile of a system.</p>
+
+    <p>A contract that can mint is not just tracking value—it can create it. And whoever controls that permission effectively controls supply, pricing dynamics, and downstream liquidity. If that authority is concentrated or insufficiently constrained, the system carries an embedded form of risk that doesn't require a bug to materialize.</p>
+
+    <p>It only requires use.</p>
+
+    <p>Seen through that lens, the exploit wasn't the creation of a new capability. It was the activation of an existing one. The mint function didn't behave incorrectly. It behaved exactly as permitted—just in a way that the system could not absorb.</p>
+
+    <p>This is where most post-mortems fall short. They do an excellent job tracing transactions and explaining how funds moved after the fact. But they often miss the more important question: what capabilities existed before anything happened?</p>
+
+    <p>If you evaluate the Resolv USR token from that perspective, the signal is straightforward.</p>
+
+    <p>The contract had minting authority. That authority was accessible through privileged control. And that combination—supply creation tied to a small set of actors—is one of the clearest indicators of systemic risk in a token.</p>
+
+    <p>These are not hidden properties. They are visible, definable behaviors.</p>
+
+    <p>And more importantly, they are interpretable.</p>
+
+    <p>A system with mint authority isn't inherently malicious. But it does introduce a specific question that needs to be answered clearly:</p>
+
+    <p><em>Under what conditions can supply be created, and who decides?</em></p>
+
+    <p>If the answer is "a small set of keys," then the system's risk is no longer hypothetical.</p>
+
+    <p>At TestMachine, we think about this in terms of behavioral exposure. Not just whether a contract has vulnerabilities, but whether it has capabilities that can materially impact users if exercised.</p>
+
+    <p>Minting is one of the clearest examples. Alongside behaviors like confiscation or blacklist control, it represents a class of permissions that directly affect ownership and value. These are not edge cases. They are core mechanics.</p>
+
+    <p>Which points to a broader shift in how smart contract risk should be evaluated.</p>
+
+    <p>For years, the industry has focused on vulnerabilities—cases where code behaves incorrectly. But many of the most significant losses don't come from broken logic. They come from valid logic used exactly as written.</p>
+
+    <p>That's not a vulnerability problem. It's a permissions problem.</p>
+
+    <p>Or more precisely, it's a question of what the system allows to happen under legitimate conditions.</p>
+
+    <p>Instead of asking whether a contract can be exploited, it may be more useful to ask:</p>
+
+    <p><em>What happens if the most powerful function in this contract is used to its fullest extent?</em></p>
+
+    <p>In the case of Resolv, that function was minting.</p>
+
+    <p>And once it was used, the outcome wasn't surprising. It was inevitable.</p>
+
+    <p>The lesson here isn't just about key management. It's about recognizing that in smart contracts, permissions define reality. If a system allows supply to be created at will, then that possibility must be treated as part of the system—not as an exception to it.</p>
+
+    <p>Because in the end, nothing unusual has to happen for things to go wrong.</p>
+
+    <p>Everything just has to work as designed.</p>
+
+  {:else if post.slug === 'coinbase-dex-expansion'}
     <p><em>A behind-the-scenes look at how Coinbase uses TestMachine to safely scale access to millions of ERC-20 tokens on its new retail DEX integration.</em></p>
 
     <p>When Coinbase announced that users could now trade millions of ERC-20 DEX tokens directly from their Coinbase app, it marked a major moment for decentralized access — one that didn't compromise on safety.</p>
