@@ -36,7 +36,9 @@ export const blogPosts: BlogPost[] = [
 
     <h2>Beyond Post-Mortems: Evaluating Pre-Existing Capabilities</h2>
 
-    <p>This is where most post-mortems fall short. They do an excellent job tracing transactions and explaining how funds moved after the fact. But they often miss the more important question: what capabilities existed before anything happened? In a deeper sense, the Resolv hack is a story about how DeFi protocols inherit the security assumptions—and the vulnerabilities—of the off-chain infrastructure they depend on. The on-chain smart contract worked perfectly. The broader system design and off-chain infrastructure of the compromised key apparently did not. If you evaluate the Resolv USR token from that perspective, the signal is straightforward.</p>
+    <p>This is where most post-mortems fall short. They do an excellent job tracing transactions and explaining how funds moved after the fact. But they often miss the more important question: what capabilities existed before anything happened?</p>
+
+    <p>In a deeper sense, the Resolv hack is a story about how DeFi protocols inherit the security assumptions—and the vulnerabilities—of the off-chain infrastructure they depend on. The on-chain smart contract worked perfectly. The broader system design and off-chain infrastructure of the compromised key apparently did not. If you evaluate the Resolv USR token from that perspective, the signal is straightforward.</p>
 
     <p>The contract had minting authority. That authority was accessible through privileged control. And that combination—supply creation tied to a small set of actors—is one of the clearest indicators of systemic risk in a token. These are not hidden properties. They are visible, definable behaviors—and more importantly, they are interpretable.</p>
 
@@ -132,7 +134,7 @@ export const blogPosts: BlogPost[] = [
 
     <p>Together, Coinbase and TestMachine are proving that scale and trust can move in lockstep, and that the next era of decentralized trading will be defined by intelligence, not compromise.</p>
 
-    <p>Learn more about how TestMachine powers token safety at <a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">testmachine.ai</a> or reach us at contact@testmachine.ai. Experience and learn more about <a href="https://www.coinbase.com/trade-crypto/dex" target="_blank" rel="noopener noreferrer">Coinbase DEX</a>.</p>
+    <p>Learn more about how TestMachine powers token safety at <a href="https://testmachine.ai" target="_blank" rel="noopener noreferrer">testmachine.ai</a> or reach us at contact@testmachine.ai. Experience and learn more about <a href="https://www.coinbase.com/trade-crypto/dex" target="_blank" rel="noopener noreferrer">Coinbase DEX</a>.</p>
 
     <p class="article-disclaimer"><em>Disclaimer: Coinbase &amp; TestMachine make no guarantees that users will not be exposed to malicious tokens on Coinbase DEX.</em></p>`
   },
@@ -723,7 +725,7 @@ export const blogPosts: BlogPost[] = [
 
     <p>TestMachine is leading the charge in proactive security, uncovering exploits before they can be weaponized. As the DeFi and AI-agent space continues to expand, projects must embrace automated, self-evolving security tools to stay ahead of attackers. It's security through offense rather than passive inspection.</p>
 
-    <p>Want to ensure your contracts are secure? <a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">Run a TestMachine scan today</a>.</p>`
+    <p>Want to ensure your contracts are secure? <a href="https://testmachine.ai" target="_blank" rel="noopener noreferrer">Run a TestMachine scan today</a>.</p>`
   },
   {
     slug: 'funding-announcement',
@@ -733,7 +735,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: "TestMachine has raised $6.5M to scale its AI-driven platform analyzing 1M+ tokens and delivering real-time blockchain security for exchanges, developers, and DeFi.",
     content: `<p><em>TestMachine has raised $6.5M to scale its AI-driven platform monitoring 1M+ tokens and delivering real-time blockchain security for exchanges, developers, and DeFi.</em></p>
 
-    <p><a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">TestMachine</a>, the AI-driven blockchain security company safeguarding billions in digital assets, today announced it has raised $6.5 million in venture funding to accelerate the global rollout of its flagship platform. The round was led by BlockChange Ventures, Decasonic, Delphi Ventures, and New Form Capital. The investment will accelerate the development and deployment of TestMachine's flagship AI platform, which is now fully integrated into Coinbase's token security and deployment process.</p>
+    <p><a href="https://testmachine.ai" target="_blank" rel="noopener noreferrer">TestMachine</a>, the AI-driven blockchain security company safeguarding billions in digital assets, today announced it has raised $6.5 million in venture funding to accelerate the global rollout of its flagship platform. The round was led by BlockChange Ventures, Decasonic, Delphi Ventures, and New Form Capital. The investment will accelerate the development and deployment of TestMachine's flagship AI platform, which is now fully integrated into Coinbase's token security and deployment process.</p>
 
     <p>Other participants in the round included Baboon, UDHC, Auros Global, Generative Ventures, Contango Digital and Santiago Santos. The funding will support the further development of TestMachine's high-fidelity simulation capabilities.</p>
 
@@ -751,13 +753,13 @@ export const blogPosts: BlogPost[] = [
 
     <h3>About TestMachine</h3>
 
-    <p><a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">TestMachine</a> was founded in 2021 with a core mission: to ensure the safety, transparency, and reliability of smart contracts, digital assets, and blockchain infrastructure—empowering a secure and trustworthy decentralized future. TestMachine's flagship platform provides developers, DeFi protocols, traders, and exchanges with an AI-driven, continuous security platform that detects, mitigates, and prevents risk in real time.</p>
+    <p><a href="https://testmachine.ai" target="_blank" rel="noopener noreferrer">TestMachine</a> was founded in 2021 with a core mission: to ensure the safety, transparency, and reliability of smart contracts, digital assets, and blockchain infrastructure—empowering a secure and trustworthy decentralized future. TestMachine's flagship platform provides developers, DeFi protocols, traders, and exchanges with an AI-driven, continuous security platform that detects, mitigates, and prevents risk in real time.</p>
 
     <p>TestMachine leverages AI to dynamically identify and exploit smart contract vulnerabilities. Unlike traditional code audits, it offers a complete view of blockchain assets—from economic risk to software vulnerabilities and semantic behaviors. By combining continuous testing with real-time behavioral analysis, TestMachine delivers the most proactive and adaptive layer of security in Web3.</p>
 
     <p>TestMachine is currently monitoring over 1 million tokens in real time, surfacing an unprecedented volume of real-world risks. From a validation set of 11,000 tokens, the system correctly identified 100% of rug pulls, totaling over $120M in value.</p>
 
-    <p>Users can visit <a href="https://testmachine.lightscalar.net" target="_blank" rel="noopener noreferrer">www.testmachine.ai</a> for more information and to get started today!</p>`
+    <p>Users can visit <a href="https://testmachine.ai" target="_blank" rel="noopener noreferrer">www.testmachine.ai</a> for more information and to get started today!</p>`
   }
 ];
 
