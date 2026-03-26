@@ -1,0 +1,231 @@
+/* ============================================================
+   Solutions & Use Cases Page Styles
+   ============================================================ */
+
+/* ---------- Shared Page Hero ---------- */
+.page-hero {
+  padding: calc(var(--nav-h) + 72px) 0 52px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.page-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin-bottom: 14px;
+}
+
+.page-hero-desc {
+  font-size: 0.9375rem;
+  color: var(--fg-muted);
+  max-width: 520px;
+}
+
+/* ---------- Solutions Sections ---------- */
+.sol-section {
+  padding: var(--section-py) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sol-section--alt {
+  background: var(--bg-raised);
+}
+
+.sol-header {
+  max-width: 640px;
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+
+.sol-desc {
+  font-size: 0.9375rem;
+  color: var(--fg-muted);
+  line-height: 1.75;
+  margin-bottom: 1em;
+}
+
+.sol-highlight {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  margin-bottom: 1em;
+}
+
+.sol-cta {
+  margin-top: clamp(32px, 4vw, 48px);
+}
+
+/* ---------- Feature Cards ---------- */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+}
+
+.feature-card {
+  padding: clamp(28px, 3vw, 40px);
+  border: 1px solid var(--border-subtle);
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.feature-card:hover {
+  border-color: var(--border);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px oklch(0 0 0 / 0.12);
+}
+
+.feature-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--fg-dim);
+  opacity: 0.2;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.feature-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.feature-desc {
+  font-size: 0.875rem;
+  color: var(--fg-muted);
+  line-height: 1.7;
+}
+
+/* ---------- Chains Section ---------- */
+.chains-section {
+  padding: var(--section-py) 0;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-raised);
+}
+
+.chains-inner {
+  text-align: center;
+}
+
+.chains-inner .section-label {
+  margin-bottom: 1rem;
+}
+
+.chains-inner .section-title {
+  color: var(--accent);
+  margin-bottom: 0;
+}
+
+/* ---------- Use Case Sections ---------- */
+.uc-section {
+  padding: var(--section-py) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.uc-section--alt {
+  background: var(--bg-raised);
+}
+
+.uc-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+
+.uc-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--fg-dim);
+  opacity: 0.15;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.uc-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  color: var(--accent);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.uc-desc {
+  font-size: 0.9375rem;
+  color: var(--fg-muted);
+  line-height: 1.75;
+  margin-bottom: 1em;
+}
+
+.uc-list {
+  list-style: disc;
+  padding-left: 1.5em;
+  margin-bottom: 2em;
+}
+
+.uc-list li {
+  font-size: 0.9375rem;
+  color: var(--fg-muted);
+  line-height: 1.75;
+  margin-bottom: 0.5em;
+}
+
+/* ---------- Solutions & Use Cases Responsive ---------- */
+@media (max-width: 768px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .uc-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ---------- Use Cases CTA (homepage) ---------- */
+.use-cases-cta {
+  padding: 80px 0;
+}
+
+.use-cases-cta-inner {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.use-cases-cta-desc {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  margin: 16px 0 32px;
+}
+
+/* ---------- Chains Description ---------- */
+.chains-desc {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+  margin-top: 16px;
+  max-width: 560px;
+}
+
+.chains-inner {
+  text-align: center;
+}
+
+.chains-desc {
+  margin-left: auto;
+  margin-right: auto;
+}
+

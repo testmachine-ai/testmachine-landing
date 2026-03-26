@@ -33,7 +33,7 @@
       </div>
       <div class="token-custody-screenshot" data-animate>
         <img
-          src="/assets/token-custody-detail.jpg"
+          src="/assets/token-custody-detail.webp"
           alt="Token Custody — MORPHO token analysis showing contract data, detected behaviors, and risk classification"
           class="token-custody-screenshot-img"
           loading="lazy"

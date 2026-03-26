@@ -111,7 +111,7 @@
 
     <div class="pd-screenshot-frame" data-animate>
       <img 
-        src="/assets/token-explorer-screenshot.jpg" 
+        src="/assets/token-explorer-screenshot.webp" 
         alt="Token Custody — Recently analyzed tokens with behavior classifications and risk scores"
         class="pd-screenshot-img"
         loading="lazy"
@@ -152,7 +152,7 @@
         </div>
       </div>
       <div class="risk-intel-image">
-        <img src="/assets/risk-score-panel.jpg" alt="Risk score panel showing a 27.4% probability gauge, key risk factors bar chart, and risk score by pool age curve" loading="lazy" />
+        <img src="/assets/risk-score-panel.webp" alt="Risk score panel showing a 27.4% probability gauge, key risk factors bar chart, and risk score by pool age curve" loading="lazy" />
       </div>
     </div>
   </div>

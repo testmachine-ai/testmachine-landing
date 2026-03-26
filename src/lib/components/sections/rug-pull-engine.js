@@ -2518,7 +2518,7 @@ function drawAct7(t) {
 
 // Preload logo and create teal-tinted version
 const _logo = new Image();
-_logo.src = 'assets/logo-icon-white.png';
+_logo.src = 'assets/logo-icon-white.webp';
 let _tealLogo = null;
 _logo.onload = () => {
   const oc = document.createElement('canvas');

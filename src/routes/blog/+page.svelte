@@ -1,4 +1,5 @@
 <script lang="ts">
+  import '$lib/styles/blog.css';
   import { blogPosts } from '$lib/data/blog-posts';
   
   const featured = blogPosts.find(p => p.featured);
@@ -37,9 +38,9 @@
         </div>
         <div class="blog-featured-visual">
           <div class="blog-featured-logos">
-            <img src="/assets/logo-icon-white.png" alt="TestMachine" class="blog-featured-logo">
+            <img src="/assets/logo-icon-white.webp" alt="TestMachine" class="blog-featured-logo">
             <span class="blog-featured-x">&times;</span>
-            <img src="/assets/partner-coinbase.png" alt="Coinbase" class="blog-featured-logo-wide">
+            <img src="/assets/partner-coinbase.webp" alt="Coinbase" class="blog-featured-logo-wide">
           </div>
         </div>
       </div>

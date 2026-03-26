@@ -6,14 +6,14 @@
   }
 
   const partners: Partner[] = [
-    { name: 'Avalanche', logo: '/assets/partner-avalanche.png' },
-    { name: 'Concrete', logo: '/assets/partner-concrete.png' },
-    { name: 'InferenceLabs', logo: '/assets/partner-inferencelabs.png' },
-    { name: 'Infinifi', logo: '/assets/partner-infinifi.png' },
-    { name: 'Spectral', logo: '/assets/partner-spectral.png' },
-    { name: 'Paragon', logo: '/assets/partner-paragon.png' },
+    { name: 'Avalanche', logo: '/assets/partner-avalanche.webp' },
+    { name: 'Concrete', logo: '/assets/partner-concrete.webp' },
+    { name: 'InferenceLabs', logo: '/assets/partner-inferencelabs.webp' },
+    { name: 'Infinifi', logo: '/assets/partner-infinifi.webp' },
+    { name: 'Spectral', logo: '/assets/partner-spectral.webp' },
+    { name: 'Paragon', logo: '/assets/partner-paragon.webp' },
     { name: 'coinbase', logo: '', isText: true },
-    { name: 'Membrane', logo: '/assets/partner-membrane.png' },
+    { name: 'Membrane', logo: '/assets/partner-membrane.webp' },
   ];
 </script>
 

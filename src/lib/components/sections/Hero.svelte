@@ -3,7 +3,7 @@
   <div class="container">
     <div class="hero-content">
       <div class="hero-brand">
-        <img src="/assets/logo-icon-white.png" alt="TestMachine logo" class="hero-brand-icon" width="72" height="72" loading="eager" />
+        <img src="/assets/logo-icon-white.webp" alt="TestMachine logo" class="hero-brand-icon" width="72" height="72" loading="eager" />
         <span class="hero-brand-name">TESTMACHINE</span>
       </div>
 
@@ -80,6 +80,14 @@
     }
   }
 
+  /* LCP-safe variant: title is always visible (opacity:1), only slides up.
+     heroFadeIn starts opacity at 0 which delays the LCP timestamp by the
+     full animation-delay; heroTitleIn avoids this by never touching opacity. */
+  @keyframes heroTitleIn {
+    from { transform: translateY(20px); }
+    to   { transform: translateY(0); }
+  }
+
   .hero-brand {
     display: flex;
     align-items: center;
@@ -114,7 +122,9 @@
     line-height: 1.02;
     letter-spacing: -0.035em;
     margin-bottom: 24px;
-    animation: heroFadeIn 0.8s ease 0.4s both;
+    /* No animation — any CSS animation on the LCP element delays its timestamp
+       by the full duration+delay, because Chrome re-emits the LCP candidate on
+       every animated frame. The surrounding elements still animate in. */
   }
   
   .hero-subtitle {

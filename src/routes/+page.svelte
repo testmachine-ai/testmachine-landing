@@ -1,6 +1,5 @@
 <script lang="ts">
   import Hero from '$lib/components/sections/Hero.svelte';
-  import TrajectoryVisualization from '$lib/components/sections/TrajectoryVisualization.svelte';
   import ProductOverview from '$lib/components/sections/ProductOverview.svelte';
   import SocialProof from '$lib/components/sections/SocialProof.svelte';
   import Stats from '$lib/components/sections/Stats.svelte';
@@ -22,8 +21,13 @@
 <!-- Hero Section -->
 <Hero />
 
-<!-- RL Agent Trajectory Visualization -->
-<TrajectoryVisualization />
+<!-- RL Agent Trajectory Visualization — lazy-loaded to keep main bundle lean.
+     The placeholder preserves height to avoid CLS on larger viewports. -->
+{#await import('$lib/components/sections/TrajectoryVisualization.svelte')}
+  <div id="trajectory" style="min-height:600px;" aria-hidden="true"></div>
+{:then { default: TrajectoryVisualization }}
+  <svelte:component this={TrajectoryVisualization} />
+{/await}
 
 <!-- Product Overview Cards -->
 <ProductOverview />
