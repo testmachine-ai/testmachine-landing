@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     date: 'March 26, 2026',
     excerpt: "The Resolv exploit reveals a deeper issue in Web3: permission risk. When incidents like the recent Resolv exploit occur, the instinct is to search for the point of failure. But in many cases, nothing actually breaks. The system behaves exactly as it was designed to.",
     seoDescription: "The Resolv exploit reveals a deeper issue in Web3: permission risk. Learn how AI-powered security is redefining smart contract safety beyond vulnerabilities.",
-    content: `<p>When incidents like the recent Resolv exploit occur, the instinct is to search for the point of failure. A compromised key, a missed vulnerability, a breakdown in process. Something must have gone wrong. But in many cases, nothing actually breaks. The system behaves exactly as it was designed to.</p>
+    content: `<p>When incidents like the recent Resolv exploit occur, the instinct is to search for the point of failure. A compromised key, a missed vulnerability, a breakdown in process. Something must have gone wrong. But in many cases, nothing actually breaks. The system behaves exactly as it was designed to. Resolv had undergone all the classic security measures—as many as 18 audits—and yet, in the simplest telling, an attacker got a key, used it to print money, and sold the fake money before anyone noticed.</p>
 
     <h2>When Systems Work as Designed</h2>
 
@@ -36,7 +36,7 @@ export const blogPosts: BlogPost[] = [
 
     <h2>Beyond Post-Mortems: Evaluating Pre-Existing Capabilities</h2>
 
-    <p>This is where most post-mortems fall short. They do an excellent job tracing transactions and explaining how funds moved after the fact. But they often miss the more important question: what capabilities existed before anything happened? If you evaluate the Resolv USR token from that perspective, the signal is straightforward.</p>
+    <p>This is where most post-mortems fall short. They do an excellent job tracing transactions and explaining how funds moved after the fact. But they often miss the more important question: what capabilities existed before anything happened? In a deeper sense, the Resolv hack is a story about how DeFi protocols inherit the security assumptions—and the vulnerabilities—of the off-chain infrastructure they depend on. The on-chain smart contract worked perfectly. The broader system design and off-chain infrastructure of the compromised key apparently did not. If you evaluate the Resolv USR token from that perspective, the signal is straightforward.</p>
 
     <p>The contract had minting authority. That authority was accessible through privileged control. And that combination—supply creation tied to a small set of actors—is one of the clearest indicators of systemic risk in a token. These are not hidden properties. They are visible, definable behaviors—and more importantly, they are interpretable.</p>
 
@@ -60,7 +60,7 @@ export const blogPosts: BlogPost[] = [
 
     <p>The lesson here isn't just about key management. It's about recognizing that in smart contracts, permissions define reality. If a system allows supply to be created at will, then that possibility must be treated as part of the system—not as an exception to it. Nothing unusual has to happen for things to go wrong. Everything just has to work as designed.</p>
 
-    <p>This is where AI-powered security becomes transformative. By analyzing permissions and simulating real-world behavior, AI can uncover risks that traditional audits miss.</p>
+    <p>This is where AI-powered security becomes transformative. By analyzing permissions and simulating real-world behavior, AI can uncover risks that traditional audits miss. Real-time monitoring and automated response mechanisms are now a necessity, not a luxury, as exploits unfold in minutes, leaving no time for reactive measures once the damage is visible.</p>
 
     <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--border-subtle);" />
 
