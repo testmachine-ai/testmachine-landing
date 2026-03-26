@@ -22,9 +22,13 @@ export const blogPosts: BlogPost[] = [
 
     <p>But in many cases, nothing actually breaks. The system behaves exactly as it was designed to.</p>
 
+    <h2>When Systems Work as Designed</h2>
+
     <p>The Resolv incident is a good example of this. Funds moved, positions were affected, and value was extracted. From the outside, it looks like an attack. From the inside, it looks like the system executing a valid path.</p>
 
     <p>Because the more important question isn't how access was obtained. It's what that access allowed.</p>
+
+    <h2>The Critical Capability: Minting Authority</h2>
 
     <p>In this case, the critical capability wasn't obscure. It was foundational: the ability to mint tokens.</p>
 
@@ -37,6 +41,8 @@ export const blogPosts: BlogPost[] = [
     <p>It only requires use.</p>
 
     <p>Seen through that lens, the exploit wasn't the creation of a new capability. It was the activation of an existing one. The mint function didn't behave incorrectly. It behaved exactly as permitted—just in a way that the system could not absorb.</p>
+
+    <h2>Beyond Post-Mortems: Evaluating Pre-Existing Capabilities</h2>
 
     <p>This is where most post-mortems fall short. They do an excellent job tracing transactions and explaining how funds moved after the fact. But they often miss the more important question: what capabilities existed before anything happened?</p>
 
@@ -54,6 +60,8 @@ export const blogPosts: BlogPost[] = [
 
     <p>If the answer is "a small set of keys," then the system's risk is no longer hypothetical.</p>
 
+    <h2>Behavioral Exposure vs Traditional Vulnerabilities</h2>
+
     <p>At TestMachine, we think about this in terms of behavioral exposure. Not just whether a contract has vulnerabilities, but whether it has capabilities that can materially impact users if exercised.</p>
 
     <p>Minting is one of the clearest examples. Alongside behaviors like confiscation or blacklist control, it represents a class of permissions that directly affect ownership and value. These are not edge cases. They are core mechanics.</p>
@@ -61,6 +69,8 @@ export const blogPosts: BlogPost[] = [
     <p>Which points to a broader shift in how smart contract risk should be evaluated.</p>
 
     <p>For years, the industry has focused on vulnerabilities—cases where code behaves incorrectly. But many of the most significant losses don't come from broken logic. They come from valid logic used exactly as written.</p>
+
+    <h2>The Permissions Problem</h2>
 
     <p>That's not a vulnerability problem. It's a permissions problem.</p>
 
@@ -73,6 +83,8 @@ export const blogPosts: BlogPost[] = [
     <p>In the case of Resolv, that function was minting.</p>
 
     <p>And once it was used, the outcome wasn't surprising. It was inevitable.</p>
+
+    <h2>A New Framework for Risk Assessment</h2>
 
     <p>The lesson here isn't just about key management. It's about recognizing that in smart contracts, permissions define reality. If a system allows supply to be created at will, then that possibility must be treated as part of the system—not as an exception to it.</p>
 
