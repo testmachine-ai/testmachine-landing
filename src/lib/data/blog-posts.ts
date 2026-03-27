@@ -28,7 +28,7 @@ export const blogPosts: BlogPost[] = [
 
     <p>In this case, the critical capability wasn't obscure. It was foundational: the ability to mint tokens.</p>
 
-    <img src="/images/minting_USR.png" alt="Minting Interface Screenshot" style="max-width: 100%; border-radius: 8px; margin: 2rem 0;" />
+    <a href="https://app.testmachine.ai/token/1/0x66a1e37c9b0eaddca17d3662d6c05f4decf3e110" target="_blank" rel="noopener noreferrer"><img src="/images/minting_USR.png" alt="Minting Interface Screenshot" style="max-width: 100%; border-radius: 8px; margin: 2rem 0;" /></a>
 
     <p>That single permission changes the entire risk profile of a system. A contract that can mint is not just tracking value—it can create it. And whoever controls that permission effectively controls supply, pricing dynamics, and downstream liquidity. If that authority is concentrated or insufficiently constrained, the system carries an embedded form of risk that doesn't require a bug to materialize. It only requires use.</p>
 
