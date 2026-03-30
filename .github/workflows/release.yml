@@ -52,12 +52,23 @@ jobs:
             s3://${{ vars.LANDING_BUCKET }}/fonts/ \
             --cache-control "public, max-age=31536000, immutable"
 
-      - name: Sync remaining files (no-cache for HTML, short cache for assets)
+      - name: Sync static assets (long cache — images, logos; filenames rarely change)
+        run: |
+          aws s3 sync build/assets/ \
+            s3://${{ vars.LANDING_BUCKET }}/assets/ \
+            --cache-control "public, max-age=31536000, immutable"
+          aws s3 sync build/images/ \
+            s3://${{ vars.LANDING_BUCKET }}/images/ \
+            --cache-control "public, max-age=31536000, immutable"
+
+      - name: Sync remaining files (no-cache for HTML)
         run: |
           aws s3 sync build/ s3://${{ vars.LANDING_BUCKET }} \
             --delete \
             --exclude "_app/immutable/*" \
             --exclude "fonts/*" \
+            --exclude "assets/*" \
+            --exclude "images/*" \
             --cache-control "public, max-age=0, must-revalidate"
 
       - name: Invalidate CloudFront cache

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import Hero from '$lib/components/sections/Hero.svelte';
   import ProductOverview from '$lib/components/sections/ProductOverview.svelte';
   import SocialProof from '$lib/components/sections/SocialProof.svelte';
@@ -11,6 +12,15 @@
   import BackedBy from '$lib/components/sections/BackedBy.svelte';
   import Partnerships from '$lib/components/sections/Partnerships.svelte';
   import Contact from '$lib/components/sections/Contact.svelte';
+
+  /* Lazy-load TrajectoryVisualization in onMount so SvelteKit cannot
+     statically trace the import — this prevents its CSS from being
+     emitted as a render-blocking <link rel="stylesheet"> in the HTML. */
+  let TrajectoryComponent: any = $state(null);
+  onMount(async () => {
+    const mod = await import('$lib/components/sections/TrajectoryVisualization.svelte');
+    TrajectoryComponent = mod.default;
+  });
 </script>
 
 <svelte:head>
@@ -21,13 +31,13 @@
 <!-- Hero Section -->
 <Hero />
 
-<!-- RL Agent Trajectory Visualization — lazy-loaded to keep main bundle lean.
-     The placeholder preserves height to avoid CLS on larger viewports. -->
-{#await import('$lib/components/sections/TrajectoryVisualization.svelte')}
+<!-- RL Agent Trajectory Visualization — lazy-loaded in onMount to keep
+     both the JS bundle and the render-blocking CSS off the critical path. -->
+{#if TrajectoryComponent}
+  <svelte:component this={TrajectoryComponent} />
+{:else}
   <div id="trajectory" style="min-height:600px;" aria-hidden="true"></div>
-{:then { default: TrajectoryVisualization }}
-  <svelte:component this={TrajectoryVisualization} />
-{/await}
+{/if}
 
 <!-- Product Overview Cards -->
 <ProductOverview />
