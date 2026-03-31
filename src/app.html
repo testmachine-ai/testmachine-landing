@@ -27,24 +27,19 @@
       .container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 clamp(20px,4vw,40px)}
     </style>
 
-    <!-- Third-party scripts deferred until after page load to free bandwidth
-         for critical CSS, fonts, and the LCP element on mobile. -->
+    <!-- Google Analytics: async + small, loads immediately for pageview attribution -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=%sveltekit.env.PUBLIC_GA_ID%"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){window.dataLayer.push(arguments);};
+      window.gtag('js', new Date());
+      window.gtag('config', '%sveltekit.env.PUBLIC_GA_ID%');
+    </script>
+
+    <!-- HubSpot & Gainsight PX: heavy scripts deferred until after page load
+         to free bandwidth for critical CSS, fonts, and LCP on mobile. -->
     <script>
       window.addEventListener('load', function() {
-        // Stub gtag early so calls before script loads are queued
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function(){window.dataLayer.push(arguments);};
-
-        // Google Analytics
-        var ga = document.createElement('script');
-        ga.src = 'https://www.googletagmanager.com/gtag/js?id=%sveltekit.env.PUBLIC_GA_ID%';
-        ga.async = true;
-        ga.onload = function() {
-          window.gtag('js', new Date());
-          window.gtag('config', '%sveltekit.env.PUBLIC_GA_ID%');
-        };
-        document.head.appendChild(ga);
-
         // HubSpot
         var hs = document.createElement('script');
         hs.src = 'https://js.hs-scripts.com/23470671.js';
