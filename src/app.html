@@ -28,7 +28,14 @@
       .container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 clamp(20px,4vw,40px)}
     </style>
 
-    <!-- Google Analytics: async + small, loads immediately for pageview attribution -->
+    <!-- HubSpot -->
+    <script async defer src="https://js.hs-scripts.com/23470671.js"></script>
+
+    <!-- Ahrefs Analytics -->
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="Fh4I1gpcjcFeow2+ShAxqg" async></script>
+
+    <!-- Google Analytics: external script is async; config uses type=module (deferred,
+         non-blocking). window.gtag assigned explicitly so it is globally accessible. -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=%sveltekit.env.PUBLIC_GA_ID%"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
