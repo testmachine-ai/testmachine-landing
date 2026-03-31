@@ -36,18 +36,10 @@
       window.gtag('config', '%sveltekit.env.PUBLIC_GA_ID%');
     </script>
 
-    <!-- HubSpot & Gainsight PX: heavy scripts deferred until after page load
-         to free bandwidth for critical CSS, fonts, and LCP on mobile. -->
+    <!-- Gainsight PX: deferred until after page load to free bandwidth
+         for critical CSS, fonts, and LCP on mobile. -->
     <script>
       window.addEventListener('load', function() {
-        // HubSpot
-        var hs = document.createElement('script');
-        hs.src = 'https://js.hs-scripts.com/23470671.js';
-        hs.async = true;
-        hs.defer = true;
-        document.head.appendChild(hs);
-
-        // Gainsight PX
         (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
           (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
           var r=t.createElement("script");r.async=!0;r.src=a+"?a="+e;
