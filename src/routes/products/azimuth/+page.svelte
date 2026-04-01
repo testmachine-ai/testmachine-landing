@@ -457,6 +457,38 @@
 
 
 <!-- =========================================================
+     FEEDBACK
+     ========================================================= -->
+<section class="pd-section pd-feedback" id="feedback">
+  <div class="container">
+    <div class="pd-feedback-header" data-animate>
+      <span class="section-label">What Auditors Are Saying</span>
+    </div>
+    <div class="pd-feedback-grid" data-animate>
+      <div class="pd-feedback-card">
+        <blockquote class="pd-feedback-quote">
+          &ldquo;Overall, I&rsquo;m really impressed by the tool, mainly because it provides very high signal. As an auditor, I hate spending 15 minutes reading an AI finding only to realize it hallucinated a line of code and I&rsquo;ve wasted time. I can definitely see myself using this tool during audits to at least get baseline coverage across the project, knowing I don&rsquo;t have to spend time validating its output. I can also see myself recommending this tool to clients who do not have enough budget for a manual review.&rdquo;
+        </blockquote>
+        <div class="pd-feedback-attribution">
+          <a href="https://x.com/LuxLode" target="_blank" rel="noopener noreferrer" class="pd-feedback-name">@LuxLode</a>
+          <span class="pd-feedback-role">Independent Security Auditor</span>
+        </div>
+      </div>
+      <div class="pd-feedback-card">
+        <blockquote class="pd-feedback-quote">
+          &ldquo;Checking the results took least amount of time, as it includes roughly half of items (due to no FP present) and the findings are well-written.&rdquo;
+        </blockquote>
+        <div class="pd-feedback-attribution">
+          <a href="https://x.com/pessimistic_io" target="_blank" rel="noopener noreferrer" class="pd-feedback-name">@pessimistic_io</a>
+          <span class="pd-feedback-role">Pessimistic Security</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================================
      CTA
      ========================================================= -->
 <section class="pd-cta" id="cta">
@@ -1102,6 +1134,61 @@
     background: var(--accent);
   }
 
+  /* ================================
+     FEEDBACK
+     ================================ */
+  .pd-feedback-header {
+    margin-bottom: 2rem;
+  }
+  .pd-feedback-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap);
+    align-items: start;
+  }
+  .pd-feedback-card {
+    background: oklch(0.15 0.005 260);
+    border: 1px solid var(--border-subtle);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  :global([data-theme="light"]) .pd-feedback-card {
+    background: oklch(0.97 0 0);
+  }
+  .pd-feedback-quote {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--fg);
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+  }
+  .pd-feedback-attribution {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .pd-feedback-name {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .pd-feedback-name:hover {
+    text-decoration: underline;
+  }
+  .pd-feedback-role {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+  }
+
   /* -- Responsive -- */
   @media (max-width: 900px) {
     .pd-chains-grid {
@@ -1136,6 +1223,9 @@
       display: none;
     }
     .pd-integration-grid {
+      grid-template-columns: 1fr;
+    }
+    .pd-feedback-grid {
       grid-template-columns: 1fr;
     }
     .pd-compare-grid {
