@@ -4,7 +4,7 @@
   let track: HTMLDivElement | undefined = $state();
   let current = $state(0);
   let autoTimer: ReturnType<typeof setInterval> | undefined;
-  const total = 3;
+  const total = 4;
 
   function goTo(i: number) {
     current = ((i % total) + total) % total;
@@ -17,7 +17,7 @@
 
   function resetAuto() {
     if (autoTimer) clearInterval(autoTimer);
-    autoTimer = setInterval(next, 6000);
+    autoTimer = setInterval(next, 9000);
   }
 
   function handleDot(i: number) {
@@ -46,17 +46,17 @@
             &ldquo;[TestMachine] stood out because it achieved 100% accuracy on all tokens, with no false positives or negatives, even catching human errors in our own reviews.&rdquo;
           </blockquote>
           <div class="sp-attribution">
-            <strong class="sp-name">Coinbase Blockchain Security Team</strong>
+            <a href="https://x.com/coinbase" target="_blank" rel="noopener noreferrer" class="sp-name sp-name-link">Coinbase Blockchain Security Team</a>
             <span class="sp-role">during evaluation of TestMachine for DEX token safety</span>
           </div>
         </div>
         <div class="sp-slide">
           <blockquote class="sp-quote">
-            &ldquo;Overall, I&rsquo;m really impressed by the tool, mainly because it provides very high signal. As an auditor, I hate spending 15 minutes reading an AI finding only to realize it hallucinated a line of code and I&rsquo;ve wasted time. I can definitely see myself using this tool during audits to at least get baseline coverage across the project, knowing I don&rsquo;t have to spend time validating its output. I can also see myself recommending this tool to clients who do not have enough budget for a manual review.&rdquo;
+            &ldquo;Overall, I&rsquo;m really impressed by the tool, mainly because it provides very high signal. As an auditor, I hate spending 15 minutes reading an AI finding only to realize it hallucinated a line of code and I&rsquo;ve wasted time.&rdquo;
           </blockquote>
           <div class="sp-attribution">
             <a href="https://x.com/LuxLode" target="_blank" rel="noopener noreferrer" class="sp-name sp-name-link">@LuxLode</a>
-            <span class="sp-role">Independent Security Auditor</span>
+            <span class="sp-role">Independent Security Researcher</span>
           </div>
         </div>
         <div class="sp-slide">
@@ -66,6 +66,15 @@
           <div class="sp-attribution">
             <a href="https://x.com/pessimistic_io" target="_blank" rel="noopener noreferrer" class="sp-name sp-name-link">@pessimistic_io</a>
             <span class="sp-role">Pessimistic Security</span>
+          </div>
+        </div>
+        <div class="sp-slide">
+          <blockquote class="sp-quote">
+            &ldquo;I can definitely see myself using this tool during audits to at least get baseline coverage across the project, knowing I don&rsquo;t have to spend time validating its output. I can also see myself recommending this tool to clients who do not have enough budget for a manual review.&rdquo;
+          </blockquote>
+          <div class="sp-attribution">
+            <a href="https://x.com/LuxLode" target="_blank" rel="noopener noreferrer" class="sp-name sp-name-link">@LuxLode</a>
+            <span class="sp-role">Independent Security Researcher</span>
           </div>
         </div>
       </div>

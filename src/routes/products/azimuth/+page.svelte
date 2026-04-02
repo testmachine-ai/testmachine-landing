@@ -467,11 +467,20 @@
     <div class="pd-feedback-grid" data-animate>
       <div class="pd-feedback-card">
         <blockquote class="pd-feedback-quote">
-          &ldquo;Overall, I&rsquo;m really impressed by the tool, mainly because it provides very high signal. As an auditor, I hate spending 15 minutes reading an AI finding only to realize it hallucinated a line of code and I&rsquo;ve wasted time. I can definitely see myself using this tool during audits to at least get baseline coverage across the project, knowing I don&rsquo;t have to spend time validating its output. I can also see myself recommending this tool to clients who do not have enough budget for a manual review.&rdquo;
+          &ldquo;Overall, I&rsquo;m really impressed by the tool, mainly because it provides very high signal. As an auditor, I hate spending 15 minutes reading an AI finding only to realize it hallucinated a line of code and I&rsquo;ve wasted time.&rdquo;
         </blockquote>
         <div class="pd-feedback-attribution">
           <a href="https://x.com/LuxLode" target="_blank" rel="noopener noreferrer" class="pd-feedback-name">@LuxLode</a>
-          <span class="pd-feedback-role">Independent Security Auditor</span>
+          <span class="pd-feedback-role">Independent Security Researcher</span>
+        </div>
+      </div>
+      <div class="pd-feedback-card">
+        <blockquote class="pd-feedback-quote">
+          &ldquo;I can definitely see myself using this tool during audits to at least get baseline coverage across the project, knowing I don&rsquo;t have to spend time validating its output. I can also see myself recommending this tool to clients who do not have enough budget for a manual review.&rdquo;
+        </blockquote>
+        <div class="pd-feedback-attribution">
+          <a href="https://x.com/LuxLode" target="_blank" rel="noopener noreferrer" class="pd-feedback-name">@LuxLode</a>
+          <span class="pd-feedback-role">Independent Security Researcher</span>
         </div>
       </div>
       <div class="pd-feedback-card">
