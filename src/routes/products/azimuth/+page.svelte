@@ -87,7 +87,7 @@
     <div class="pd-section-header" data-animate>
       <span class="section-label">How It Works</span>
       <h2 class="pd-section-title">Azimuth &mdash; Automated Security Analysis</h2>
-      <p class="pd-section-desc">Azimuth deploys AI agents — powered by Lodestar, our reinforcement learning engine — that actively attack your smart contracts. Running against forked mainnet environments with real transaction execution, Azimuth probes every function, chains multi-step attacks, and proves exploits end-to-end. If Azimuth reports a vulnerability, it was actually exploited — not just theoretically possible.</p>
+      <p class="pd-section-desc">Azimuth deploys AI agents that actively attack your smart contracts. Running against forked mainnet environments with real transaction execution, Azimuth probes every function, chains multi-step attacks, and proves exploits end-to-end. If Azimuth reports a vulnerability, it was actually exploited — not just theoretically possible.</p>
       <div class="pd-section-features">
         <span class="pd-feature">AI agents</span>
         <span class="pd-feature">Zero false positives</span>
@@ -240,7 +240,7 @@
       <div class="pd-process-step">
         <div class="pd-process-num">02</div>
         <h3 class="pd-process-name">Fork &amp; Attack</h3>
-        <p class="pd-process-desc">Azimuth forks live mainnet state and deploys RL agents powered by Lodestar. Agents chain multi-step attacks, probing every function and state transition.</p>
+        <p class="pd-process-desc">Azimuth forks live mainnet state and deploys RL agents that chain multi-step attacks, probing every function and state transition.</p>
       </div>
       <div class="pd-process-connector" aria-hidden="true">
         <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="var(--border-subtle)" stroke-width="2"/></svg>
@@ -364,10 +364,6 @@
         <p class="pd-vuln-desc">Integrate via GitHub Actions or CLI. Every pull request automatically tested for security regressions.</p>
       </div>
       <div class="pd-vuln-card">
-        <span class="pd-integration-tag">Continuous Monitoring</span>
-        <p class="pd-vuln-desc">Post-deployment, Azimuth continuously re-analyzes as proxy contracts upgrade and external dependencies change.</p>
-      </div>
-      <div class="pd-vuln-card">
         <span class="pd-integration-tag">Due Diligence</span>
         <p class="pd-vuln-desc">Exchanges, VCs, and protocols use Azimuth to evaluate token and protocol risk before listing or investing.</p>
       </div>
@@ -377,35 +373,30 @@
 
 
 <!-- =========================================================
-     POWERED BY LODESTAR
+     LANGUAGES
      ========================================================= -->
-<section class="pd-section" id="lodestar">
+<section class="pd-section" id="languages">
   <div class="container">
     <div class="pd-section-header" data-animate>
-      <span class="section-label">The Engine</span>
-      <h2 class="pd-section-title">Powered by Lodestar</h2>
+      <span class="section-label">Coverage</span>
+      <h2 class="pd-section-title">Every smart contract language</h2>
+      <p class="pd-section-desc">One engine. Full coverage. Solidity, Vyper, and Rust analyzed with the same depth and rigor.</p>
     </div>
-    <div class="pd-lodestar-layout" data-animate>
-      <div class="pd-lodestar-body">
-        <p class="pd-lodestar-copy">Lodestar is TestMachine's proprietary reinforcement learning engine. Unlike LLMs that pattern-match against known vulnerability templates, Lodestar agents learn by doing &mdash; interacting with smart contracts through thousands of transaction sequences, receiving reward signals when exploits succeed, and adapting their strategies to each contract's unique logic.</p>
+    <div class="pd-lang-grid" data-animate>
+      <div class="pd-lang-card">
+        <div class="pd-lang-icon"><svg viewBox="0 0 256 417" xmlns="http://www.w3.org/2000/svg"><path fill="#627EEA" d="M127.961 0l-2.795 9.5v275.668l2.795 2.79 127.962-75.638z"/><path fill="#627EEA" opacity=".6" d="M127.962 0L0 212.32l127.962 75.639V154.158z"/><path fill="#627EEA" d="M127.961 312.187l-1.575 1.92V414.2l1.575 4.6L256 236.587z"/><path fill="#627EEA" opacity=".6" d="M127.962 418.8v-106.61L0 236.585z"/></svg></div>
+        <div class="pd-lang-name">Solidity</div>
+        <div class="pd-lang-desc">EVM smart contracts — Ethereum, Base, Arbitrum, Optimism, Polygon, Avalanche, BNB Chain, and more.</div>
       </div>
-      <div class="pd-lodestar-points">
-        <div class="pd-lodestar-point">
-          <span class="pd-lodestar-marker"></span>
-          <span>Learns from every interaction &mdash; agents improve as they explore more contracts</span>
-        </div>
-        <div class="pd-lodestar-point">
-          <span class="pd-lodestar-marker"></span>
-          <span>State-aware &mdash; tracks the full contract state across multi-step attack sequences</span>
-        </div>
-        <div class="pd-lodestar-point">
-          <span class="pd-lodestar-marker"></span>
-          <span>Novel vulnerability discovery &mdash; finds exploits that have never been documented</span>
-        </div>
-        <div class="pd-lodestar-point">
-          <span class="pd-lodestar-marker"></span>
-          <span>Adversarial by design &mdash; attacks contracts the way a real attacker would</span>
-        </div>
+      <div class="pd-lang-card">
+        <div class="pd-lang-icon"><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><polygon points="128,16 232,72 232,184 128,240 24,184 24,72" fill="none" stroke="#333" stroke-width="12"/><path d="M80 100h96M80 128h96M80 156h64" stroke="#333" stroke-width="8" stroke-linecap="round"/><circle cx="176" cy="156" r="8" fill="#333"/></svg></div>
+        <div class="pd-lang-name">Vyper</div>
+        <div class="pd-lang-desc">Pythonic smart contracts — Curve, Yearn, and other protocols built on Vyper.</div>
+      </div>
+      <div class="pd-lang-card">
+        <div class="pd-lang-icon"><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><circle cx="128" cy="128" r="120" fill="none" stroke="#CE412B" stroke-width="12"/><path d="M96 80c0 0 32 16 64 0M80 128c0 0 48 32 96 0M96 176c0 0 32-16 64 0" stroke="#CE412B" stroke-width="10" fill="none" stroke-linecap="round"/></svg></div>
+        <div class="pd-lang-name">Rust</div>
+        <div class="pd-lang-desc">Solana programs, Anchor frameworks, and Rust-based smart contracts.</div>
       </div>
     </div>
   </div>
@@ -413,44 +404,36 @@
 
 
 <!-- =========================================================
-     CHAINS
+     PUBLIC REPORTS
      ========================================================= -->
-<section class="pd-section" id="chains">
+<section class="pd-section pd-reports" id="reports">
   <div class="container">
     <div class="pd-section-header" data-animate>
-      <span class="section-label">Coverage</span>
-      <h2 class="pd-section-title">Every major EVM chain</h2>
-      <p class="pd-section-desc">One engine. Full coverage. Every chain analyzed with the same depth and rigor.</p>
+      <h2 class="pd-section-title">Public Reports</h2>
+      <p class="pd-section-desc">Explore real Azimuth security analyses on production protocols.</p>
     </div>
-    <div class="pd-chains-grid" data-animate>
-      <div class="pd-chain-card">
-        <div class="pd-chain-icon"><svg viewBox="0 0 256 417" xmlns="http://www.w3.org/2000/svg"><path fill="#627EEA" d="M127.961 0l-2.795 9.5v275.668l2.795 2.79 127.962-75.638z"/><path fill="#627EEA" opacity=".6" d="M127.962 0L0 212.32l127.962 75.639V154.158z"/><path fill="#627EEA" d="M127.961 312.187l-1.575 1.92V414.2l1.575 4.6L256 236.587z"/><path fill="#627EEA" opacity=".6" d="M127.962 418.8v-106.61L0 236.585z"/></svg></div>
-        <div class="pd-chain-name">Ethereum</div>
-      </div>
-      <div class="pd-chain-card">
-        <div class="pd-chain-icon"><svg viewBox="0 0 111 111" xmlns="http://www.w3.org/2000/svg"><circle cx="55.5" cy="55.5" r="55.5" fill="#0052FF"/><path d="M55.5 22C37 22 22 37 22 55.5S37 89 55.5 89c15.2 0 28-10.1 32.2-24H72.8c-3.5 8-11.4 13.5-17.3 13.5C45.2 78.5 36 69.3 36 55.5S45.2 32.5 55.5 32.5c5.9 0 13.8 5.5 17.3 13.5h14.9C83.5 32.1 70.7 22 55.5 22z" fill="#fff"/></svg></div>
-        <div class="pd-chain-name">Base</div>
-      </div>
-      <div class="pd-chain-card">
-        <div class="pd-chain-icon"><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M151.818 141.296L128.065 177.888 104.193 141.296 128.065 0z" fill="#28A0F0"/><path d="M128.065 189.888L104.193 153.296 128.065 256 151.818 153.296z" fill="#28A0F0"/><path d="M128.065 0L40 141.296 128.065 189.888 216.13 141.296z" fill="#28A0F0" opacity=".6"/></svg></div>
-        <div class="pd-chain-name">Arbitrum</div>
-      </div>
-      <div class="pd-chain-card">
-        <div class="pd-chain-icon"><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><circle cx="128" cy="128" r="128" fill="#FF0420"/><path d="M81.4 170.4c-4.8 0-7.6-3.2-6.4-8l22-94.4c1.6-6 7.6-10 13.6-10h38.8c20 0 33.2 12.4 30 30-2 10.8-8.4 19.6-16.8 25.2 6 4 9.2 11.2 7.6 20.4-2.8 16.4-16.8 28.8-34 28.8H81.4zm43.6-14c8.4 0 14.4-6 15.6-13.2 1.2-7.2-3.2-12.8-11.6-12.8h-18l-5.6 26h19.6zm4.8-42c7.6 0 13.2-5.2 14.4-12 1.2-6.4-2.8-11.6-10.4-11.6h-16.4l-5.2 23.6h17.6z" fill="#fff"/></svg></div>
-        <div class="pd-chain-name">Optimism</div>
-      </div>
-      <div class="pd-chain-card">
-        <div class="pd-chain-icon"><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path d="M128 0L233.6 60.8v121.6L128 256 22.4 182.4V60.8z" fill="#8247E5"/><path d="M170.4 101.6c-3.2-1.6-7.2-1.6-10.4 0l-24 14.4-16.4 9.2-24 14.4c-3.2 1.6-7.2 1.6-10.4 0l-18.8-11.2c-3.2-1.6-5.2-5.2-5.2-8.8v-21.6c0-3.6 2-7.2 5.2-8.8l18.8-10.8c3.2-1.6 7.2-1.6 10.4 0l18.8 10.8c3.2 1.6 5.2 5.2 5.2 8.8v14.4l16.4-9.6v-14.4c0-3.6-2-7.2-5.2-8.8l-35.2-20.4c-3.2-1.6-7.2-1.6-10.4 0l-36 20.8c-3.2 1.6-5.2 5.2-5.2 8.8v41.2c0 3.6 2 7.2 5.2 8.8l35.6 20.4c3.2 1.6 7.2 1.6 10.4 0l24-13.6 16.4-9.6 24-13.6c3.2-1.6 7.2-1.6 10.4 0l18.8 10.8c3.2 1.6 5.2 5.2 5.2 8.8v21.6c0 3.6-2 7.2-5.2 8.8l-18.4 11.2c-3.2 1.6-7.2 1.6-10.4 0l-18.8-10.8c-3.2-1.6-5.2-5.2-5.2-8.8v-14.4l-16.4 9.6v14.4c0 3.6 2 7.2 5.2 8.8l35.6 20.4c3.2 1.6 7.2 1.6 10.4 0l35.6-20.4c3.2-1.6 5.2-5.2 5.2-8.8v-41.2c0-3.6-2-7.2-5.2-8.8z" fill="#fff"/></svg></div>
-        <div class="pd-chain-name">Polygon</div>
-      </div>
-      <div class="pd-chain-card">
-        <div class="pd-chain-icon"><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><circle cx="128" cy="128" r="128" fill="#E84142"/><path d="M171.8 130.8c4.4-2.4 4.4-8.4 0-10.8L135.6 98c-4.4-2.4-9.6.8-9.6 5.6v43.6c0 4.8 5.2 8 9.6 5.6l36.2-22zm-52.4 30.4c4.4 2.4 9.6-.8 9.6-5.6V112c0-4.8-5.2-8-9.6-5.6l-36.2 22c-4.4 2.4-4.4 8.4 0 10.8l36.2 22z" fill="#fff"/></svg></div>
-        <div class="pd-chain-name">Avalanche</div>
-      </div>
-      <div class="pd-chain-card">
-        <div class="pd-chain-icon"><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><circle cx="128" cy="128" r="128" fill="#F3BA2F"/><path d="M128 60l30 30-30 30-30-30zm50 50l30 30-30 30-30-30zm-100 0l30 30-30 30-30-30zm50 50l30 30-30 30-30-30z" fill="#fff"/></svg></div>
-        <div class="pd-chain-name">BNB Chain</div>
-      </div>
+    <div class="pd-reports-grid" data-animate>
+      <a href="https://app.testmachine.ai/share/repo/deeaac3e8f5bb8283194d471a84c879c9251d8bafb0c9f1a9f99674df95bcf4b" target="_blank" rel="noopener noreferrer" class="pd-report-card">
+        <div class="pd-report-logo">
+          <img src="/assets/Orca_Logo.png" alt="Orca logo" />
+        </div>
+        <div class="pd-report-name">Orca</div>
+        <span class="pd-report-link">View Report →</span>
+      </a>
+      <a href="https://app.testmachine.ai/share/repo/350f724054696ee5add7fe82cbac2ac108985bbfdd236d51e4f7a24479c6b56c" target="_blank" rel="noopener noreferrer" class="pd-report-card">
+        <div class="pd-report-logo">
+          <img src="/assets/Curve_logo.png" alt="Curve Finance logo" />
+        </div>
+        <div class="pd-report-name">Curve Finance</div>
+        <span class="pd-report-link">View Report →</span>
+      </a>
+      <a href="https://app.testmachine.ai/share/repo/84dc263e0b0545a734ba48276aff086aed11d6072823c88c64637027b5bbaecb" target="_blank" rel="noopener noreferrer" class="pd-report-card">
+        <div class="pd-report-logo">
+          <img src="/assets/uniswap-logo.png" alt="Uniswap logo" />
+        </div>
+        <div class="pd-report-name">Uniswap</div>
+        <span class="pd-report-link">View Report →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -866,41 +849,48 @@
   .pd-code :global(.type) { color: #22d3ee; }
 
   /* ================================
-     EVM CHAINS SECTION
+     LANGUAGES SECTION
      ================================ */
-  .pd-chains-grid {
+  .pd-lang-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--gap);
   }
-  .pd-chain-card {
-    padding: 24px 16px;
+  .pd-lang-card {
+    padding: 2rem 1.5rem;
     background: var(--card-bg);
     border: 1px solid var(--border-subtle);
     text-align: center;
     transition: border-color var(--transition), transform var(--transition);
   }
-  .pd-chain-card:hover {
+  .pd-lang-card:hover {
     border-color: var(--border);
     transform: translateY(-2px);
   }
-  .pd-chain-icon {
-    width: 40px;
-    height: 40px;
-    margin: 0 auto 10px;
+  .pd-lang-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 14px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .pd-chain-icon svg {
-    width: 36px;
-    height: 36px;
+  .pd-lang-icon svg {
+    width: 44px;
+    height: 44px;
   }
-  .pd-chain-name {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    font-weight: 600;
+  .pd-lang-name {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 700;
     color: var(--fg);
+    margin-bottom: 0.5rem;
+  }
+  .pd-lang-desc {
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+    line-height: 1.6;
   }
 
   /* ================================
@@ -1092,7 +1082,7 @@
      ================================ */
   .pd-integration-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--gap);
   }
   .pd-integration-tag {
@@ -1107,40 +1097,55 @@
   }
 
   /* ================================
-     POWERED BY LODESTAR
+     PUBLIC REPORTS
      ================================ */
-  .pd-lodestar-layout {
+  .pd-reports-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 48px;
-    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
   }
-  .pd-lodestar-copy {
-    font-family: var(--font-body);
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    color: var(--fg-muted);
-    line-height: 1.75;
-  }
-  .pd-lodestar-points {
+  .pd-report-card {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    background: oklch(0.15 0.005 260);
+    border: 1px solid var(--border-subtle);
+    text-decoration: none;
+    transition: border-color var(--transition), transform var(--transition);
   }
-  .pd-lodestar-point {
+  .pd-report-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+  }
+  :global([data-theme="light"]) .pd-report-card {
+    background: oklch(0.97 0 0);
+  }
+  .pd-report-logo {
+    width: 56px;
+    height: 56px;
     display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    color: var(--fg-muted);
-    line-height: 1.6;
+    align-items: center;
+    justify-content: center;
   }
-  .pd-lodestar-marker {
-    width: 6px;
-    height: 6px;
-    flex-shrink: 0;
-    margin-top: 7px;
-    background: var(--accent);
+  .pd-report-logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
+  .pd-report-name {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--fg);
+  }
+  .pd-report-link {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.02em;
   }
 
   /* ================================
@@ -1200,26 +1205,19 @@
 
   /* -- Responsive -- */
   @media (max-width: 900px) {
-    .pd-chains-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
     .pd-vuln-grid {
       grid-template-columns: repeat(2, 1fr);
     }
     .pd-compare-grid {
       grid-template-columns: 120px 1fr 1fr;
     }
-    .pd-lodestar-layout {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
   }
   @media (max-width: 768px) {
     .pd-az-stats {
       grid-template-columns: repeat(2, 1fr);
     }
-    .pd-chains-grid {
-      grid-template-columns: repeat(3, 1fr);
+    .pd-lang-grid {
+      grid-template-columns: 1fr;
     }
     .pd-process-grid {
       flex-direction: column;
@@ -1237,15 +1235,15 @@
     .pd-feedback-grid {
       grid-template-columns: 1fr;
     }
+    .pd-reports-grid {
+      grid-template-columns: 1fr;
+    }
     .pd-compare-grid {
       grid-template-columns: 100px 1fr 1fr;
       font-size: 0.75rem;
     }
   }
   @media (max-width: 480px) {
-    .pd-chains-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
     .pd-section-features {
       gap: 6px;
     }
