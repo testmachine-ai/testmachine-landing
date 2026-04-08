@@ -978,12 +978,12 @@
   .eng-pipe-track { position: relative; max-width: 900px; margin: 0 auto; }
   .eng-pipe-line { position: absolute; left: 24px; top: 0; bottom: 0; width: 2px; background: var(--border-subtle); }
   .eng-pipe-line-fill { position: absolute; left: 24px; top: 0; width: 2px; height: 0; background: var(--accent); transition: height 0.3s ease; }
-  .eng-pipe-stage { position: relative; padding-left: 64px; padding-bottom: 48px; opacity: 0; transform: translateX(-16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .eng-pipe-stage { position: relative; padding-left: 64px; padding-bottom: 48px; opacity: 1; transform: translateX(0); transition: opacity 0.5s ease, transform 0.5s ease; }
   :global(.eng-pipe-stage.eng-pipe-visible) { opacity: 1; transform: translateX(0); }
   .eng-pipe-stage:last-child { padding-bottom: 0; }
-  .eng-pipe-node { position: absolute; left: 12px; top: 0; width: 26px; height: 26px; border: 2px solid var(--border); background: var(--bg); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.625rem; font-weight: 700; color: var(--fg-dim); transition: all 0.3s ease; z-index: 2; }
+  .eng-pipe-node { position: absolute; left: 12px; top: 0; width: 26px; height: 26px; border: 2px solid var(--accent); background: var(--bg); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.625rem; font-weight: 700; color: var(--accent); transition: all 0.3s ease; z-index: 2; box-shadow: 0 0 12px oklch(0.72 0.12 192 / 0.2); }
   :global(.eng-pipe-stage.eng-pipe-visible) .eng-pipe-node { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 12px oklch(0.72 0.12 192 / 0.2); }
-  .eng-pipe-content { background: var(--card-bg); border: 1px solid var(--border-subtle); padding: 24px; transition: border-color 0.3s ease; }
+  .eng-pipe-content { background: var(--card-bg); border: 1px solid var(--border); padding: 24px; transition: border-color 0.3s ease; }
   :global(.eng-pipe-stage.eng-pipe-visible) .eng-pipe-content { border-color: var(--border); }
   .eng-pipe-label { font-family: var(--font-mono); font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 6px; }
   .eng-pipe-title { font-family: var(--font-display); font-size: clamp(1.125rem, 2vw, 1.375rem); font-weight: 700; color: var(--fg); margin-bottom: 8px; }
