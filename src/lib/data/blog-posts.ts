@@ -131,14 +131,6 @@ export const blogPosts: BlogPost[] = [
 <p><strong>X: @testmachine_ai</strong></p>`
   },
   {
-    slug: 'ai-powered-audit-tools-problem',
-    title: 'The Problem with "AI-Powered" Audit Tools',
-    tag: 'Analysis',
-    date: 'April 15, 2026',
-    excerpt: 'An analysis of the limitations and challenges facing AI-powered audit tools in the current security landscape.',
-    content: `[PLACEHOLDER - Content to be added by Elaine from Notion page]`
-  },
-  {
     slug: 'smart-contract-audit-tools-2026',
     title: 'Smart Contract Audits Are the Foundation, Not The Finish Line: Why Automated Security Tools Are Essential in 2026',
     tag: 'Security',
