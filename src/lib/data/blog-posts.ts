@@ -128,7 +128,7 @@ export const blogPosts: BlogPost[] = [
 
 <p><strong>Follow along:</strong></p>
 
-<p><strong>X: @testmachine_ai</strong></p>`
+<p><strong>X: <a href="https://x.com/testmachine_ai" target="_blank" rel="noopener noreferrer">@testmachine_ai</a></strong></p>`
   },
   {
     slug: 'smart-contract-audit-tools-2026',
