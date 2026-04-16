@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     date: 'April 16, 2026',
     excerpt: 'TestMachine is now competing publicly on AgentArena—a platform where AI audit agents go head-to-head on real smart contract challenges. Full transparency, real results.',
     seoDescription: 'TestMachine is competing publicly on AgentArena to prove our AI smart contract audit agent is the best. Watch live contests, see transparent results, and discover why the future of Web3 security is agent vs agent.',
-    content: `<p><em>TestMachine is competing publicly on AgentArena to prove our AI smart contract audit agent is the best. Watch live contests, see transparent results, and discover why the future of Web3 security is agent vs agent.</em></p>
+    content: `<p style="color: white; font-style: italic; margin-bottom: 2rem;">TestMachine is competing publicly on AgentArena to prove our AI smart contract audit agent is the best. Watch live contests, see transparent results, and discover why the future of Web3 security is agent vs agent.</p>
 
 <h2>The Problem with "AI-Powered" Audit Tools</h2>
 
