@@ -12,6 +12,121 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'ai-smart-contract-auditing-competing-publicly-agentalena',
+    title: 'AI Smart Contract Auditing: Why We\'re Competing Publicly on AgentArena',
+    tag: 'Security',
+    date: 'April 16, 2026',
+    excerpt: 'TestMachine is now competing publicly on AgentArena—a platform where AI audit agents go head-to-head on real smart contract challenges. Full transparency, real results.',
+    seoDescription: 'TestMachine is competing publicly on AgentArena to prove our AI smart contract audit agent is the best. Watch live contests, see transparent results, and discover why the future of Web3 security is agent vs agent.',
+    content: `<h2>The Problem with "AI-Powered" Audit Tools</h2>
+
+<p>Every smart contract security tool claims to use AI. Every vendor promises their agent is the best at finding vulnerabilities. But how do you actually know? How do you separate real capability from marketing fluff?</p>
+
+<p>The truth is, you can\'t. Most vendors never prove anything publicly. They run private tests, cherry-pick their wins, and hope you\'ll trust the sales deck.</p>
+
+<p>We\'re done with that.</p>
+
+<p>TestMachine is now competing publicly on <strong>AgentArena</strong>—a platform where AI audit agents go head-to-head on real smart contract challenges. Same codebases. Same vulnerabilities. Same time limits. Agents scan, find bugs, and get ranked. The scoreboard doesn\'t care about marketing claims. It cares about results.</p>
+
+<p>And we\'re putting our money where our mouth is.</p>
+
+<h2>Why We\'re Doing This Publicly</h2>
+
+<p>We could\'ve kept this internal—run benchmarks behind closed doors and only shared the wins. That\'s what most companies do. But that\'s not how you build trust.</p>
+
+<p>So here\'s what we\'re committing to: <strong>full transparency.</strong></p>
+
+<p>We\'ll publish results from every contest, wins and losses. We\'ll share detailed breakdowns of what we found, how we ranked, and what we learned when we got it wrong. We\'ll provide real-time updates through a live scoreboard showing TestMachine\'s performance against every competitor.</p>
+
+<p>No cherry-picking. If we lose a contest, you\'ll know about it.</p>
+
+<p>Why? Because we believe TestMachine is the best AI audit agent available. And if we\'re wrong, we\'ll improve until we\'re right.</p>
+
+<h2>How AgentArena Works</h2>
+
+<p>AgentArena runs live audit contests on real smart contracts—not toy examples, but production-grade protocols with actual vulnerabilities.</p>
+
+<h3>The Contest Format</h3>
+
+<p>The process is straightforward. A smart contract codebase is released, and AI agents (including TestMachine\'s) analyze it autonomously. Each agent submits the vulnerabilities it found, and results are ranked based on accuracy, coverage, and speed.</p>
+
+<h3>How Results Are Ranked</h3>
+
+<p>The leaderboard updates publicly, so every win and loss is visible. Agents are scored on:</p>
+
+<ul>
+<li><strong>Accuracy</strong> — Percentage of real vulnerabilities found vs total known issues</li>
+<li><strong>Coverage</strong> — Breadth of vulnerability types detected</li>
+<li><strong>Speed</strong> — Time to detection for critical issues</li>
+</ul>
+
+<h2>Why This Matters for Smart Contract Security</h2>
+
+<h3>The Scalability Problem with Traditional Audits</h3>
+
+<p>Traditional smart contract audits have a fundamental bottleneck: they\'re slow, expensive, and limited by the number of qualified auditors in the world.</p>
+
+<p>A single audit can take weeks and cost $50K–$100K. Audit firms are backlogged for months. And even the best auditors are human, so they miss things.</p>
+
+<h3>How AI Agents Solve the Speed vs Accuracy Challenge</h3>
+
+<p>AI agents solve the scalability problem. They operate in minutes or hours instead of weeks, at a fraction of the cost, with no waitlists. You can run audits in parallel across dozens or hundreds of contracts.</p>
+
+<p>But none of that matters if they\'re not accurate and if they don\'t actually find the bugs that matter.</p>
+
+<p>That\'s what AgentArena proves, or disproves.</p>
+
+<p>And we\'re confident TestMachine will prove it.</p>
+
+<h2>What We\'re NOT Claiming</h2>
+
+<p>Let\'s be clear about what this is and what it isn\'t.</p>
+
+<p><strong>We\'re not replacing human auditors.</strong> AI agents are fast, but they\'re not perfect. The best security teams use agents for the grunt work—scanning for known patterns and common vulnerabilities—while humans focus on complex issues that require judgment.</p>
+
+<p><strong>We won\'t win every contest.</strong> We\'ll lose some. That\'s fine. Losses show us where to improve and unlike most vendors, you\'ll see those losses.</p>
+
+<p>This also isn\'t about dunking on competitors. Competition makes everyone better. We want the entire AI audit space to level up, because higher standards benefit everyone. From protocols, to auditors, and of course to users.</p>
+
+<h2>The Real Test</h2>
+
+<p>Talk is cheap. Benchmarks can be gamed. Marketing claims are easy to make.</p>
+
+<p>But when you compete publicly—on the same codebases as everyone else, with a live leaderboard updating in real time—that\'s accountability.</p>
+
+<p>That\'s what TestMachine is signing up for.</p>
+
+<p>The era of "trust us, our AI is good" is over. The era of "watch us prove it" is here.</p>
+
+<p>If you\'re building in Web3, you deserve to know which audit tools actually work.</p>
+
+<h2>FAQ: AI Smart Contract Auditing</h2>
+
+<h3>What is AgentArena?</h3>
+
+<p>AgentArena is a platform where AI audit agents compete head-to-head on real smart contract security challenges. Agents analyze the same codebases, find vulnerabilities, and get ranked based on accuracy, coverage, and speed. It\'s like a live benchmark for AI security tools, but with production-grade contracts and public results.</p>
+
+<h3>Can AI agents replace human smart contract auditors?</h3>
+
+<p>No. AI agents excel at finding known patterns and common vulnerabilities quickly, but human auditors are still needed for complex business logic, economic attack modeling, and novel vulnerability detection. The best approach combines both: AI handles the grunt work (pattern matching, obvious bugs), while humans focus on creative thinking and edge cases that require deep domain expertise.</p>
+
+<h3>How does TestMachine\'s AI audit agent work?</h3>
+
+<p>TestMachine uses reinforcement learning agents to execute real attacks on forked mainnet environments. Instead of just flagging suspicious code patterns, our agents actually run exploit attempts and only report vulnerabilities they successfully exploited—with working proof-of-concept code. This behavioral testing approach eliminates false positives and proves exploitability, not just theoretical risk.</p>
+
+<h3>How long does an AI smart contract audit take?</h3>
+
+<p>AI agents can complete audits in minutes to hours instead of the 2-3 weeks typical for traditional manual audits. This speed makes continuous security monitoring feasible—you can audit every deployment, every code change, or run periodic scans without waiting in an audit firm\'s queue. For most contracts, TestMachine\'s analysis completes in 10-15 minutes.</p>
+
+<h3>Where can I see TestMachine\'s AgentArena results?</h3>
+
+<p>Follow @testmachine_ai on X/Twitter for real-time updates on contest results, including both wins and losses. We publish full transparency reports after each competition, including detailed breakdowns of what we found, how we ranked, and what we learned. No cherry-picking because every contest result goes public.</p>
+
+<p><strong>Follow along:</strong></p>
+
+<p><strong>X: @testmachine_ai</strong></p>`
+  },
+  {
     slug: 'ai-powered-audit-tools-problem',
     title: 'The Problem with "AI-Powered" Audit Tools',
     tag: 'Analysis',
