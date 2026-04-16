@@ -20,7 +20,9 @@ export const blogPosts: BlogPost[] = [
     seoDescription: 'TestMachine is competing publicly on AgentArena to prove our AI smart contract audit agent is the best. Watch live contests, see transparent results, and discover why the future of Web3 security is agent vs agent.',
     content: `<p style="color: white; font-style: italic; margin-bottom: 2rem;">TestMachine is competing publicly on AgentArena to prove our AI smart contract audit agent is the best. Watch live contests, see transparent results, and discover why the future of Web3 security is agent vs agent.</p>
 
-<h2>The Problem with "AI-Powered" Audit Tools</h2>
+<img src="/images/agentalena-testmachine-blog.png" alt="TestMachine competing on AgentArena" style="width: 100%; max-width: 800px; height: auto; margin: 2rem 0; border-radius: 8px;" />
+
+<h2>The Problem with \"AI-Powered\" Audit Tools</h2>
 
 <p>Every smart contract security tool claims to use AI. Every vendor promises their agent is the best at finding vulnerabilities. But how do you actually know? How do you separate real capability from marketing fluff?</p>
 
