@@ -62,6 +62,8 @@ export const blogPosts: BlogPost[] = [
 
 <p><strong>The answer to "will AI replace smart contract auditors?" is clear:</strong> no—but AI smart contract auditing tools will fundamentally transform how auditors work, enabling them to provide continuous assurance in ways that manual processes alone cannot achieve.</p>
 
+<p>Experience the future of smart contract security at <a href="https://app.testmachine.ai/" target="_blank" rel="noopener noreferrer">https://app.testmachine.ai/</a></p>
+
 <h2>References</h2>
 
 <p>Anderson, R. (2020). Security Engineering: a Guide to Building Dependable Distributed systems. S.L.: John Wiley & Sons.</p>
