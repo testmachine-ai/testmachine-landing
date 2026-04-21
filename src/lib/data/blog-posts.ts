@@ -68,19 +68,19 @@ export const blogPosts: BlogPost[] = [
 
 <p>Anderson, R. (2020). Security Engineering: a Guide to Building Dependable Distributed systems. S.L.: John Wiley & Sons.</p>
 
-<p>Antwi, B.O., Adelakun, B.O., Fatogun, D.T. and Olaiya, O.P. (2024). Enhancing Audit Accuracy: The role of AI in detecting financial anomalies and fraud. Finance & Accounting Research Journal, 6(6), pp.1049–1068. doi:https://doi.org/10.51594/farj.v6i6.1235.</p>
+<p>Antwi, B.O., Adelakun, B.O., Fatogun, D.T. and Olaiya, O.P. (2024). <a href="https://doi.org/10.51594/farj.v6i6.1235" target="_blank" rel="noopener noreferrer">Enhancing Audit Accuracy: The role of AI in detecting financial anomalies and fraud</a>. Finance & Accounting Research Journal, 6(6), pp.1049–1068. doi:https://doi.org/10.51594/farj.v6i6.1235.</p>
 
-<p>Celestin, M. and Vanitha, N. (2019). THE FUTURE OF AUDITING IN THE AGE OF AI: HOW AUTOMATION IS RESHAPING THE AUDIT PROFESSION. International Journal of Interdisciplinary Research in Arts and Humanities (IJIRAH) Impact Factor: 5, 225(2), pp.44–51. Available at: https://ijirah.dvpublication.com/uploads/673319d03cd4a_440.pdf.</p>
+<p>Celestin, M. and Vanitha, N. (2019). <a href="https://ijirah.dvpublication.com/uploads/673319d03cd4a_440.pdf" target="_blank" rel="noopener noreferrer">THE FUTURE OF AUDITING IN THE AGE OF AI: HOW AUTOMATION IS RESHAPING THE AUDIT PROFESSION</a>. International Journal of Interdisciplinary Research in Arts and Humanities (IJIRAH) Impact Factor: 5, 225(2), pp.44–51. Available at: https://ijirah.dvpublication.com/uploads/673319d03cd4a_440.pdf.</p>
 
-<p>Chainalysis Team. (2023, March 15). $197 million stolen: Euler Finance flash loan attack explained (updated April 6, 2023). Chainalysis. https://www.chainalysis.com/blog/euler-finance-flash-loan-attack/</p>
+<p>Chainalysis Team. (2023, March 15). <a href="https://www.chainalysis.com/blog/euler-finance-flash-loan-attack/" target="_blank" rel="noopener noreferrer">$197 million stolen: Euler Finance flash loan attack explained (updated April 6, 2023)</a>. Chainalysis. https://www.chainalysis.com/blog/euler-finance-flash-loan-attack/</p>
 
 <p>Fonkem, B.N. (2025). AI-Enhanced Blockchain Auditing for Decentralized Finance (DeFi) Risk Governance. Journal of Computational Analysis and Applications, 34(11), pp.324–348.</p>
 
-<p>Han, H., Shiwakoti, R.K., Jarvis, R., Mordi, C. and Botchie, D. (2022). Accounting and Auditing with Blockchain Technology and Artificial Intelligence: a Literature Review. International Journal of Accounting Information Systems, 48(1), p.100598. doi:https://doi.org/10.1016/j.accinf.2022.100598.</p>
+<p>Han, H., Shiwakoti, R.K., Jarvis, R., Mordi, C. and Botchie, D. (2022). <a href="https://doi.org/10.1016/j.accinf.2022.100598" target="_blank" rel="noopener noreferrer">Accounting and Auditing with Blockchain Technology and Artificial Intelligence: a Literature Review</a>. International Journal of Accounting Information Systems, 48(1), p.100598. doi:https://doi.org/10.1016/j.accinf.2022.100598.</p>
 
-<p>Karale, S.S., Chatterji, S.D., Modadugu, J.K., Ghadage, A.H., Alsailawi, H.A. and Mudhafar, M. (2025). The Future of AI-Powered Auditing: Enhancing Accuracy and Reducing Errors. 2025 IEEE 5th International Conference on ICT in Business Industry & Government (ICTBIG), pp.1–5. doi:https://doi.org/10.1109/ictbig68706.2025.11323708.</p>
+<p>Karale, S.S., Chatterji, S.D., Modadugu, J.K., Ghadage, A.H., Alsailawi, H.A. and Mudhafar, M. (2025). <a href="https://doi.org/10.1109/ictbig68706.2025.11323708" target="_blank" rel="noopener noreferrer">The Future of AI-Powered Auditing: Enhancing Accuracy and Reducing Errors</a>. 2025 IEEE 5th International Conference on ICT in Business Industry & Government (ICTBIG), pp.1–5. doi:https://doi.org/10.1109/ictbig68706.2025.11323708.</p>
 
-<p>Vivek Shivram (2024). Auditing with AI: A theoretical framework for applying machine learning across the internal audit lifecycle. EDPACS: The EDP Audit, Control, and Security Newsletter Online, 69(1), pp.1–19. doi:https://doi.org/10.1080/07366981.2024.2312025.</p>
+<p>Vivek Shivram (2024). <a href="https://doi.org/10.1080/07366981.2024.2312025" target="_blank" rel="noopener noreferrer">Auditing with AI: A theoretical framework for applying machine learning across the internal audit lifecycle</a>. EDPACS: The EDP Audit, Control, and Security Newsletter Online, 69(1), pp.1–19. doi:https://doi.org/10.1080/07366981.2024.2312025.</p>
 
 <p>Zhang, Z., Zhang, B., Wen, X., & Lin, Z. (2023). Demystifying exploitable bugs in smart contracts. In Proceedings of the 45th IEEE/ACM International Conference on Software Engineering (ICSE 2023) (pp. 615–627). IEEE.</p>`
   },
