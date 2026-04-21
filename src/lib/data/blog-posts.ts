@@ -32,7 +32,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Even comprehensive pre-deployment audits cannot anticipate all future execution contexts, evolving economic incentives, or inter-protocol dependencies. Numerous DeFi exploits demonstrate that vulnerabilities may emerge post-deployment despite extensive auditing efforts, particularly in systems where complex interactions and economic assumptions evolve over time, as evidenced by the Euler Finance flash loan attack (Chainalysis, 2023). This reflects a structural limitation rather than a failure of audit practice: once assumptions verified at the time of an audit no longer hold, the assurance provided by the audit degrades.</p>
 
-<blockquote style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); border-left: 4px solid #60a5fa; margin: 2rem 0; padding: 1.5rem; border-radius: 8px; color: white; font-style: italic; font-size: 1.1em; line-height: 1.6;">"Euler Finance lost $197M despite being heavily audited. The gap between point-in-time verification and continuous operation is where the money leaves."</blockquote>
+<blockquote><p>"Euler Finance lost $197M despite being heavily audited. The gap between point-in-time verification and continuous operation is where the money leaves."</p></blockquote>
 
 <p>The challenge facing security teams today is clear: how to audit a smart contract in a way that accounts not just for deployment-time correctness, but for ongoing operational security as protocols evolve and interact within the broader DeFi ecosystem.</p>
 
@@ -58,11 +58,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>While traditional auditing struggles to keep pace with the real-time, high-velocity, and complex transactions inherent in DeFi (Fonkem et al., 2024), AI-driven systems should not replace auditors, but rather enhance them. By extending audit coverage beyond deployment and enabling continuous monitoring, AI strengthens the auditor's ability to assess risk as systems evolve in production. With some studies saying that "AI powered methods showed an average fraud detection accuracy of 89%, surpassing traditional methods at 72% (Celestin and Vanitha, 2019) emphasising the importance of utilizing AI tools to enhance the audit process for increased accuracy, speed, and reliability.</p>
 
-<blockquote style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); border-left: 4px solid #60a5fa; margin: 2rem 0; padding: 1.5rem; border-radius: 8px; color: white; font-style: italic; font-size: 1.1em; line-height: 1.6;">"AI-powered fraud detection: 89% accuracy. Traditional methods: 72%. That 17-point gap isn't about replacement—it's about extension."</blockquote>
+<blockquote><p>"AI-powered fraud detection: 89% accuracy. Traditional methods: 72%. That 17-point gap isn't about replacement—it's about extension."</p></blockquote>
 
 <p>In this emerging model, auditors are no longer constrained to periodic validation of static assumptions. Instead, they are supported by intelligent systems that continuously test, monitor, and surface deviations from expected behavior. Platforms such as TestMachine operationalize this approach by integrating automated, execution-driven analysis into the audit lifecycle, allowing assurance to persist beyond deployment without removing human judgment from the process.</p>
 
-<blockquote style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); border-left: 4px solid #60a5fa; margin: 2rem 0; padding: 1.5rem; border-radius: 8px; color: white; font-style: italic; font-size: 1.1em; line-height: 1.6;">"AI handles execution-level scale. Auditors provide strategic oversight. Together, they extend assurance beyond point-in-time review."</blockquote>
+<blockquote><p>"AI handles execution-level scale. Auditors provide strategic oversight. Together, they extend assurance beyond point-in-time review."</p></blockquote>
 
 <p>Rather than rendering auditors irrelevant, AI repositions them as strategic overseers of complex, evolving systems, empowered by continuous insight rather than limited by point-in-time review. This shift reflects not the end of auditing, but its adaptation to the realities of decentralized, real-time financial infrastructure.</p>
 
