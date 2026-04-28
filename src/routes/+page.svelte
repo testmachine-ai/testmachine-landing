@@ -26,6 +26,20 @@
 <svelte:head>
   <title>TestMachine — Security Infrastructure for Web3</title>
   <meta name="description" content="Two products. Zero false positives. From token risk scoring to deep protocol analysis — AI-powered security infrastructure that scales with the chain." />
+  
+  <!-- Open Graph meta tags -->
+  <meta property="og:title" content="TestMachine — Web3 Security That Actually Works" />
+  <meta property="og:description" content="Two products. Zero false positives. From token risk scoring to deep protocol analysis — security infrastructure that scales with the chain." />
+  <meta property="og:image" content="https://testmachine.ai/assets/logo-full.png" />
+  <meta property="og:url" content="https://testmachine.ai" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TestMachine" />
+  
+  <!-- Twitter Card meta tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TestMachine — Web3 Security That Actually Works" />
+  <meta name="twitter:description" content="Two products. Zero false positives. From token risk scoring to deep protocol analysis — security infrastructure that scales with the chain." />
+  <meta name="twitter:image" content="https://testmachine.ai/assets/logo-full.png" />
 </svelte:head>
 
 <!-- Hero Section -->
