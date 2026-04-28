@@ -18,9 +18,7 @@ export const blogPosts: BlogPost[] = [
     date: 'April 28, 2026',
     excerpt: 'We tested CertiK AI and TestMachine on two different smart contract systems to understand how each tool interprets vulnerabilities. See how bug detection differs from exploit modeling.',
     seoDescription: 'We tested CertiK AI and TestMachine on two different smart contract systems to understand how each tool interprets vulnerabilities. See how bug detection differs from exploit modeling.',
-    content: `<h1>CertiK vs TestMachine: How AI Security Tools Interpret Smart Contract Vulnerabilities</h1>
-
-<p>AI tools have become very effective at analyzing smart contracts. Most can identify vulnerabilities accurately and explain root causes clearly.</p>
+    content: `<p>AI tools have become very effective at analyzing smart contracts. Most can identify vulnerabilities accurately and explain root causes clearly.</p>
 
 <p>A more important distinction is starting to emerge. The question isn't whether tools can find issues. The question is how they interpret what those issues actually mean for security.</p>
 
