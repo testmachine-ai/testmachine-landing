@@ -11,6 +11,7 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+
   {
     slug: 'ai-smart-contract-auditing-2026',
     title: 'Will AI Replace Smart Contract Auditors? How AI-Powered Vulnerability Detection Is Transforming DeFi Security',
