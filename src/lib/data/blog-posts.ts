@@ -18,200 +18,216 @@ export const blogPosts: BlogPost[] = [
     date: 'April 28, 2026',
     excerpt: 'We tested CertiK AI and TestMachine on two different smart contract systems to understand how each tool interprets vulnerabilities. See how bug detection differs from exploit modeling.',
     seoDescription: 'We tested CertiK AI and TestMachine on two different smart contract systems to understand how each tool interprets vulnerabilities. See how bug detection differs from exploit modeling.',
-    content: `
-# CertiK vs TestMachine: How AI Security Tools Interpret Smart Contract Vulnerabilities
+    content: `<h1>CertiK vs TestMachine: How AI Security Tools Interpret Smart Contract Vulnerabilities</h1>
 
-AI tools have become very effective at analyzing smart contracts. Most can identify vulnerabilities accurately and explain root causes clearly.
+<p>AI tools have become very effective at analyzing smart contracts. Most can identify vulnerabilities accurately and explain root causes clearly.</p>
 
-A more important distinction is starting to emerge. The question isn't whether tools can find issues. The question is how they interpret what those issues actually mean for security.
+<p>A more important distinction is starting to emerge. The question isn't whether tools can find issues. The question is how they interpret what those issues actually mean for security.</p>
 
-To explore that difference, we ran two very different smart contract systems through CertiK's AI scanning tool and TestMachine's behavioral analysis engine.
+<p>To explore that difference, we ran two very different smart contract systems through CertiK's AI scanning tool and TestMachine's behavioral analysis engine.</p>
 
-The systems we tested:
+<p>The systems we tested:</p>
 
-- PrimeVault — a DeFi protocol with reward accounting and capital flows
-- StablecoinDEX (Tempo) — an order-book based exchange system
+<ul>
+<li>PrimeVault — a DeFi protocol with reward accounting and capital flows</li>
+<li>StablecoinDEX (Tempo) — an order-book based exchange system</li>
+</ul>
 
-Both systems are complex in different ways. PrimeVault is sensitive to state transitions and reward logic. StablecoinDEX is sensitive to execution flow and market interactions.
+<p>Both systems are complex in different ways. PrimeVault is sensitive to state transitions and reward logic. StablecoinDEX is sensitive to execution flow and market interactions.</p>
 
-Despite those structural differences, the same pattern emerged across both analyses.
+<p>Despite those structural differences, the same pattern emerged across both analyses.</p>
 
-## How the Tools Compare
+<h2>How the Tools Compare</h2>
 
-| Capability | CertiK AI | TestMachine |
-|---|---|---|
-| Static vulnerability detection | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| Root cause explanation | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
-| Cross-function reasoning | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| Exploit path modeling | ⭐⭐ | ⭐⭐⭐⭐⭐ |
-| Economic attack analysis | ⭐⭐ | ⭐⭐⭐⭐⭐ |
-| Signal prioritization | ⭐⭐ | ⭐⭐⭐⭐⭐ |
+<table>
+<tr><th>Capability</th><th>CertiK AI</th><th>TestMachine</th></tr>
+<tr><td>Static vulnerability detection</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
+<tr><td>Root cause explanation</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+<tr><td>Cross-function reasoning</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>Exploit path modeling</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>Economic attack analysis</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>Signal prioritization</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+</table>
 
-## Where Both Tools Align
+<h2>Where Both Tools Align</h2>
 
-Across both PrimeVault and StablecoinDEX, both tools identify the same core issues.
+<p>Across both PrimeVault and StablecoinDEX, both tools identify the same core issues.</p>
 
-**For PrimeVault:**
+<p><strong>For PrimeVault:</strong></p>
 
-- Reward mispricing vulnerabilities
-- State synchronization issues
-- Withdrawal inconsistencies
-- Reentrancy exposure
+<ul>
+<li>Reward mispricing vulnerabilities</li>
+<li>State synchronization issues</li>
+<li>Withdrawal inconsistencies</li>
+<li>Reentrancy exposure</li>
+</ul>
 
-**For StablecoinDEX:**
+<p><strong>For StablecoinDEX:</strong></p>
 
-- Fee-on-transfer token accounting mismatch
-- CEI violations in withdrawals
-- Rounding loss vulnerabilities
-- Order book structure weaknesses
-- Missing access control
+<ul>
+<li>Fee-on-transfer token accounting mismatch</li>
+<li>CEI violations in withdrawals</li>
+<li>Rounding loss vulnerabilities</li>
+<li>Order book structure weaknesses</li>
+<li>Missing access control</li>
+</ul>
 
-This alignment is important. The difference between these tools isn't that one finds bugs and the other doesn't. The difference is what happens after the bug is found.
+<p>This alignment is important. The difference between these tools isn't that one finds bugs and the other doesn't. The difference is what happens after the bug is found.</p>
 
-## Case Study 1: PrimeVault (Reward & State System)
+<h2>Case Study 1: PrimeVault (Reward & State System)</h2>
 
-PrimeVault centers around reward distribution and state transitions over time. The system tracks user deposits, calculates rewards, and manages payouts based on changing reward rates.
+<p>PrimeVault centers around reward distribution and state transitions over time. The system tracks user deposits, calculates rewards, and manages payouts based on changing reward rates.</p>
 
-### How CertiK AI Analyzes PrimeVault
+<h3>How CertiK AI Analyzes PrimeVault</h3>
 
-CertiK identifies several critical issues:
+<p>CertiK identifies several critical issues:</p>
 
-- Reward mispricing caused by missing checkpointing
-- Inconsistent reward accounting across state transitions
-- Potential underfunded payout scenarios
-- Reentrancy vulnerabilities in withdrawal paths
+<ul>
+<li>Reward mispricing caused by missing checkpointing</li>
+<li>Inconsistent reward accounting across state transitions</li>
+<li>Potential underfunded payout scenarios</li>
+<li>Reentrancy vulnerabilities in withdrawal paths</li>
+</ul>
 
-These findings are clearly explained and grounded in specific code patterns. For the reward mispricing issue, CertiK walks through concrete scenarios showing how users can be overpaid or underpaid depending on timing.
+<p>These findings are clearly explained and grounded in specific code patterns. For the reward mispricing issue, CertiK walks through concrete scenarios showing how users can be overpaid or underpaid depending on timing.</p>
 
-The analysis answers the question: what is wrong with this contract, and why does the vulnerability exist?
+<p>The analysis answers the question: what is wrong with this contract, and why does the vulnerability exist?</p>
 
-### How TestMachine Analyzes PrimeVault
+<h3>How TestMachine Analyzes PrimeVault</h3>
 
-TestMachine starts from the same vulnerabilities but models how they turn into exploits:
+<p>TestMachine starts from the same vulnerabilities but models how they turn into exploits:</p>
 
-- Timing strategies around reward rate changes
-- User action sequencing (deposit → claim → withdraw)
-- Asymmetric extraction between participants
-- Liquidity condition exploitation
+<ul>
+<li>Timing strategies around reward rate changes</li>
+<li>User action sequencing (deposit → claim → withdraw)</li>
+<li>Asymmetric extraction between participants</li>
+<li>Liquidity condition exploitation</li>
+</ul>
 
-This transforms the analysis from identifying what is wrong with the code to modeling how someone would actually extract value from the system.
+<p>This transforms the analysis from identifying what is wrong with the code to modeling how someone would actually extract value from the system.</p>
 
-For example, the reward mispricing vulnerability becomes a strategic timing attack where users can deposit right before favorable reward rate changes and withdraw immediately after, extracting more value than legitimate long-term participants.
+<p>For example, the reward mispricing vulnerability becomes a strategic timing attack where users can deposit right before favorable reward rate changes and withdraw immediately after, extracting more value than legitimate long-term participants.</p>
 
-## Case Study 2: StablecoinDEX (Exchange & Market System)
+<h2>Case Study 2: StablecoinDEX (Exchange & Market System)</h2>
 
-StablecoinDEX introduces a different class of risk centered on order execution, liquidity interaction, and price discovery. The system manages an order book, processes trades, and handles deposits and withdrawals.
+<p>StablecoinDEX introduces a different class of risk centered on order execution, liquidity interaction, and price discovery. The system manages an order book, processes trades, and handles deposits and withdrawals.</p>
 
-### How CertiK AI Analyzes StablecoinDEX
+<h3>How CertiK AI Analyzes StablecoinDEX</h3>
 
-CertiK identifies:
+<p>CertiK identifies:</p>
 
-- Deposits crediting more than received (fee-on-transfer tokens)
-- CEI violations in withdrawal flow
-- Rounding issues in order fills
-- Order book enumeration limitations
-- Missing access control on critical functions
+<ul>
+<li>Deposits crediting more than received (fee-on-transfer tokens)</li>
+<li>CEI violations in withdrawal flow</li>
+<li>Rounding issues in order fills</li>
+<li>Order book enumeration limitations</li>
+<li>Missing access control on critical functions</li>
+</ul>
 
-Each issue is well-documented. For the fee-on-transfer vulnerability, CertiK correctly flags that deposits may credit users with more internal balance than the contract actually received.
+<p>Each issue is well-documented. For the fee-on-transfer vulnerability, CertiK correctly flags that deposits may credit users with more internal balance than the contract actually received.</p>
 
-The framing identifies conditions that can lead to inconsistencies or incorrect behavior in the system.
+<p>The framing identifies conditions that can lead to inconsistencies or incorrect behavior in the system.</p>
 
-### How TestMachine Analyzes StablecoinDEX
+<h3>How TestMachine Analyzes StablecoinDEX</h3>
 
-TestMachine connects those same issues into exploit sequences:
+<p>TestMachine connects those same issues into exploit sequences:</p>
 
-1. Attacker deposits fee-on-transfer token
-2. Contract credits inflated internal balance
-3. Attacker places orders using phantom balance
-4. Orders fill against legitimate users
-5. Attacker extracts real assets from the system
+<ol>
+<li>Attacker deposits fee-on-transfer token</li>
+<li>Contract credits inflated internal balance</li>
+<li>Attacker places orders using phantom balance</li>
+<li>Orders fill against legitimate users</li>
+<li>Attacker extracts real assets from the system</li>
+</ol>
 
-This transforms the abstract accounting inconsistency into a concrete attack path showing how an attacker extracts value from other participants through order execution.
+<p>This transforms the abstract accounting inconsistency into a concrete attack path showing how an attacker extracts value from other participants through order execution.</p>
 
-## The Pattern: From Bugs to Exploits
+<h2>The Pattern: From Bugs to Exploits</h2>
 
-Across both PrimeVault and StablecoinDEX, the same transformations occur. The difference between how CertiK and TestMachine interpret vulnerabilities follows a consistent pattern.
+<p>Across both PrimeVault and StablecoinDEX, the same transformations occur. The difference between how CertiK and TestMachine interpret vulnerabilities follows a consistent pattern.</p>
 
-### Transformation 1: Bug to Strategy
+<h3>Transformation 1: Bug to Strategy</h3>
 
-**CertiK:** Identifies incorrect accounting behavior
+<p><strong>CertiK:</strong> Identifies incorrect accounting behavior</p>
 
-**TestMachine:** Models how to exploit that behavior repeatedly for profit
+<p><strong>TestMachine:</strong> Models how to exploit that behavior repeatedly for profit</p>
 
-In PrimeVault, reward mispricing becomes a timing strategy. In StablecoinDEX, accounting mismatch becomes a phantom balance attack.
+<p>In PrimeVault, reward mispricing becomes a timing strategy. In StablecoinDEX, accounting mismatch becomes a phantom balance attack.</p>
 
-### Transformation 2: Local Issue to System Failure
+<h3>Transformation 2: Local Issue to System Failure</h3>
 
-**CertiK:** Highlights function-level inconsistencies
+<p><strong>CertiK:</strong> Highlights function-level inconsistencies</p>
 
-**TestMachine:** Shows how those inconsistencies propagate across the entire system
+<p><strong>TestMachine:</strong> Shows how those inconsistencies propagate across the entire system</p>
 
-Single-function bugs become system-wide failure modes when you model how users interact with multiple functions in sequence.
+<p>Single-function bugs become system-wide failure modes when you model how users interact with multiple functions in sequence.</p>
 
-### Transformation 3: Risk to Execution
+<h3>Transformation 3: Risk to Execution</h3>
 
-**CertiK:** Identifies CEI violation as risky pattern
+<p><strong>CertiK:</strong> Identifies CEI violation as risky pattern</p>
 
-**TestMachine:** Models callback-based drain scenario with specific execution steps
+<p><strong>TestMachine:</strong> Models callback-based drain scenario with specific execution steps</p>
 
-The reentrancy vulnerabilities found in both systems move from theoretical risk to concrete attack sequence with working exploit path.
+<p>The reentrancy vulnerabilities found in both systems move from theoretical risk to concrete attack sequence with working exploit path.</p>
 
-### Transformation 4: Observation to Exploit Narrative
+<h3>Transformation 4: Observation to Exploit Narrative</h3>
 
-**CertiK:** Multiple isolated findings documented separately
+<p><strong>CertiK:</strong> Multiple isolated findings documented separately</p>
 
-**TestMachine:** Consolidated attack paths showing how vulnerabilities combine
+<p><strong>TestMachine:</strong> Consolidated attack paths showing how vulnerabilities combine</p>
 
-This consolidation is critical. Real exploits rarely use a single vulnerability in isolation. They chain multiple issues together in ways that static analysis doesn't model.
+<p>This consolidation is critical. Real exploits rarely use a single vulnerability in isolation. They chain multiple issues together in ways that static analysis doesn't model.</p>
 
-## Understanding Tool Positioning
+<h2>Understanding Tool Positioning</h2>
 
-CertiK's reports include an important disclaimer: this analysis is intended for development use and not a substitute for a full audit.
+<p>CertiK's reports include an important disclaimer: this analysis is intended for development use and not a substitute for a full audit.</p>
 
-This positioning reflects how the tool is designed:
+<p>This positioning reflects how the tool is designed:</p>
 
-- Developer assistance during build phase
-- Code correctness validation
-- Early-stage vulnerability detection
+<ul>
+<li>Developer assistance during build phase</li>
+<li>Code correctness validation</li>
+<li>Early-stage vulnerability detection</li>
+</ul>
 
-The tool is optimized for finding code-level issues, not modeling adversarial attack scenarios or simulating system-wide behavior under malicious conditions.
+<p>The tool is optimized for finding code-level issues, not modeling adversarial attack scenarios or simulating system-wide behavior under malicious conditions.</p>
 
-## Why This Distinction Matters for DeFi Security
+<h2>Why This Distinction Matters for DeFi Security</h2>
 
-Modern smart contract exploits rarely emerge from a single bug discovered in isolation. They come from multi-step interactions, timing and sequencing strategies, economic incentives, and cross-function behavior patterns.
+<p>Modern smart contract exploits rarely emerge from a single bug discovered in isolation. They come from multi-step interactions, timing and sequencing strategies, economic incentives, and cross-function behavior patterns.</p>
 
-Across both PrimeVault and StablecoinDEX, static analysis tools correctly identify the underlying vulnerabilities. They excel at explaining what is wrong with the code and why those bugs exist.
+<p>Across both PrimeVault and StablecoinDEX, static analysis tools correctly identify the underlying vulnerabilities. They excel at explaining what is wrong with the code and why those bugs exist.</p>
 
-But understanding how attackers would actually exploit those vulnerabilities requires behavioral modeling. That means exploring adversarial paths, simulating system interactions, and modeling how value can be extracted under different conditions.
+<p>But understanding how attackers would actually exploit those vulnerabilities requires behavioral modeling. That means exploring adversarial paths, simulating system interactions, and modeling how value can be extracted under different conditions.</p>
 
-The gap between identifying issues and modeling real attacks is where the next generation of security tooling is evolving.
+<p>The gap between identifying issues and modeling real attacks is where the next generation of security tooling is evolving.</p>
 
-## Summary: Detection vs Interpretation
+<h2>Summary: Detection vs Interpretation</h2>
 
-| Stage | CertiK AI | TestMachine |
-|---|---|---|
-| Bug detection | ✅ | ✅ |
-| Root cause explanation | ✅ | ✅ |
-| Exploit path construction | ⚠️ Limited | ✅ |
-| System interaction modeling | ⚠️ Limited | ✅ |
-| Value extraction analysis | ❌ | ✅ |
+<table>
+<tr><th>Stage</th><th>CertiK AI</th><th>TestMachine</th></tr>
+<tr><td>Bug detection</td><td>✅</td><td>✅</td></tr>
+<tr><td>Root cause explanation</td><td>✅</td><td>✅</td></tr>
+<tr><td>Exploit path construction</td><td>⚠️ Limited</td><td>✅</td></tr>
+<tr><td>System interaction modeling</td><td>⚠️ Limited</td><td>✅</td></tr>
+<tr><td>Value extraction analysis</td><td>❌</td><td>✅</td></tr>
+</table>
 
-## Conclusion
+<h2>Conclusion</h2>
 
-Testing two very different smart contract systems revealed a consistent pattern. Both CertiK and TestMachine identify the same vulnerabilities. The difference lies in interpretation.
+<p>Testing two very different smart contract systems revealed a consistent pattern. Both CertiK and TestMachine identify the same vulnerabilities. The difference lies in interpretation.</p>
 
-Static analysis tools answer: what is wrong with this contract and why does the vulnerability exist?
+<p>Static analysis tools answer: what is wrong with this contract and why does the vulnerability exist?</p>
 
-Behavioral analysis answers: how would someone actually exploit this system to extract value?
+<p>Behavioral analysis answers: how would someone actually exploit this system to extract value?</p>
 
-Both questions matter. The gap between bug detection and exploit modeling represents the frontier of smart contract security tooling. Understanding how vulnerabilities combine, how attackers sequence operations, and which exploit paths are economically viable requires moving beyond static code analysis into behavioral modeling and adversarial simulation.
+<p>Both questions matter. The gap between bug detection and exploit modeling represents the frontier of smart contract security tooling. Understanding how vulnerabilities combine, how attackers sequence operations, and which exploit paths are economically viable requires moving beyond static code analysis into behavioral modeling and adversarial simulation.</p>
 
-That evolution from detection to interpretation is where security analysis is heading.
+<p>That evolution from detection to interpretation is where security analysis is heading.</p>
 
----
+<hr>
 
-[Try Azimuth](https://app.testmachine.ai/) and see which vulnerabilities are actually exploitable.
-`
+<p><a href="https://app.testmachine.ai/">Try Azimuth</a> and see which vulnerabilities are actually exploitable.</p>`
   },
 
   {
