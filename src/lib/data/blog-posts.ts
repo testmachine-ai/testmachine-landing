@@ -27,8 +27,8 @@ export const blogPosts: BlogPost[] = [
 <p>The systems we tested:</p>
 
 <ul>
-<li>PrimeVault — a DeFi protocol with reward accounting and capital flows</li>
-<li>StablecoinDEX (Tempo) — an order-book based exchange system</li>
+<li><strong>PrimeVault</strong> — a DeFi protocol with reward accounting and capital flows</li>
+<li><strong>StablecoinDEX (Tempo)</strong> — an order-book based exchange system</li>
 </ul>
 
 <p>Both systems are complex in different ways. PrimeVault is sensitive to state transitions and reward logic. StablecoinDEX is sensitive to execution flow and market interactions.</p>
