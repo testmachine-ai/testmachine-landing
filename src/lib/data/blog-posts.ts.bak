@@ -26,8 +26,8 @@ To explore that difference, we ran two very different smart contract systems thr
 
 The systems we tested:
 
-- PrimeVault — a DeFi protocol with reward accounting and capital flows
-- StablecoinDEX (Tempo) — an order-book based exchange system
+• PrimeVault — a DeFi protocol with reward accounting and capital flows
+• StablecoinDEX (Tempo) — an order-book based exchange system
 
 Both systems are complex in different ways. PrimeVault is sensitive to state transitions and reward logic. StablecoinDEX is sensitive to execution flow and market interactions.
 

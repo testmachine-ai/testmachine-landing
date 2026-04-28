@@ -1,0 +1,14 @@
+AI tools have become very effective at analyzing smart contracts. Most can identify vulnerabilities accurately and explain root causes clearly.
+
+A more important distinction is starting to emerge. The question isn't whether tools can find issues. The question is how they interpret what those issues actually mean for security.
+
+To explore that difference, we ran two very different smart contract systems through CertiK's AI scanning tool and TestMachine's behavioral analysis engine.
+
+The systems we tested:
+
+• PrimeVault — a DeFi protocol with reward accounting and capital flows
+• StablecoinDEX (Tempo) — an order-book based exchange system
+
+Both systems are complex in different ways. PrimeVault is sensitive to state transitions and reward logic. StablecoinDEX is sensitive to execution flow and market interactions.
+
+Despite those structural differences, the same pattern emerged across both analyses.
