@@ -13,7 +13,7 @@
   <!-- Open Graph meta tags -->
   <meta property="og:title" content="{post.title} — TestMachine" />
   <meta property="og:description" content={post.seoDescription || post.excerpt} />
-  <meta property="og:image" content="https://testmachine.ai/assets/logo-full.png" />
+  <meta property="og:image" content="https://testmachine.ai/testmachine-og-logo.png" />
   <meta property="og:url" content="https://testmachine.ai/blog/{post.slug}" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="TestMachine" />
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{post.title} — TestMachine" />
   <meta name="twitter:description" content={post.seoDescription || post.excerpt} />
-  <meta name="twitter:image" content="https://testmachine.ai/assets/logo-full.png" />
+  <meta name="twitter:image" content="https://testmachine.ai/testmachine-og-logo.png" />
 </svelte:head>
 
 <section class="article-header">

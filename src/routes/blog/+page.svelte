@@ -13,7 +13,7 @@
   <!-- Open Graph meta tags -->
   <meta property="og:title" content="Beyond the Audit — TestMachine Blog" />
   <meta property="og:description" content="Insights on real exploits, token risk, and AI systems that test security through execution — not static analysis." />
-  <meta property="og:image" content="https://testmachine.ai/assets/logo-full.png" />
+  <meta property="og:image" content="https://testmachine.ai/testmachine-og-logo.png" />
   <meta property="og:url" content="https://testmachine.ai/blog" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TestMachine" />
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Beyond the Audit — TestMachine Blog" />
   <meta name="twitter:description" content="Insights on real exploits, token risk, and AI systems that test security through execution — not static analysis." />
-  <meta name="twitter:image" content="https://testmachine.ai/assets/logo-full.png" />
+  <meta name="twitter:image" content="https://testmachine.ai/testmachine-og-logo.png" />
 </svelte:head>
 
 <!-- Blog Hero -->
