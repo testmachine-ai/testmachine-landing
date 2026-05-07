@@ -16,8 +16,8 @@ export const blogPosts: BlogPost[] = [
     title: 'Azimuth Vs $1B in Real DeFi Hacks. Here\'s What Happened.',
     tag: 'Research',
     date: 'May 7, 2026',
-    excerpt: 'Azimuth caught 70% of real DeFi exploits worth $1.12 billion—including Euler\'s $197M hack. AI doesn\'t replace auditors. But you can\'t ignore it anymore.',
-    seoDescription: 'Azimuth caught 70% of real DeFi exploits worth $1.12 billion—including Euler\'s $197M hack. AI doesn\'t replace auditors. But you can\'t ignore it anymore.',
+    excerpt: 'Azimuth caught **70% of real DeFi exploits worth $1.12 billion**—including Euler\'s $197M hack. AI doesn\'t replace auditors. But you can\'t ignore it anymore.',
+    seoDescription: 'Azimuth caught **70% of real DeFi exploits worth $1.12 billion**—including Euler\'s $197M hack. AI doesn\'t replace auditors. But you can\'t ignore it anymore.',
     content: `<p><em>Azimuth caught 70% of real DeFi exploits worth $1.12 billion—including Euler's $197M hack. AI doesn't replace auditors. But you can't ignore it anymore.</em></p>
 
 <p>We ran Azimuth against 54 real DeFi exploits.</p>
