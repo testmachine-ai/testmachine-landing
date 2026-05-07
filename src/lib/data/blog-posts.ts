@@ -161,7 +161,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>The question every protocol should ask: "If Azimuth had flagged this pre-deployment, would we have caught it in time?"</p>
 
-<p>For 70% of the $1.12 billion in losses we tested, the answer is yes.</p>`
+<p>For 70% of the $1.12 billion in losses we tested, the answer is yes.</p>
+
+<hr>
+
+<p>Interested in this topic? <a href="https://testmachine.ai/blog/ai-smart-contract-auditing-2026/">Read more here</a>.</p>`
   },
   {
     slug: 'certik-comparison-exploit-modeling',
