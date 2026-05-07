@@ -75,7 +75,7 @@
             <span class="blog-card-date">{post.date}</span>
           </div>
           <h2 class="blog-card-title"><a href="/blog/{post.slug}">{post.title}</a></h2>
-          <p class="blog-card-excerpt">{post.excerpt}</p>
+          <p class="blog-card-excerpt">{@html post.excerpt}</p>
           <a href="/blog/{post.slug}" class="blog-card-link">Read more &rarr;</a>
         </article>
       {/each}
