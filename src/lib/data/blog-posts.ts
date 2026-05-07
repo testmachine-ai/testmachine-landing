@@ -13,7 +13,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: 'azimuth-vs-1b-in-real-defi-hacks',
-    title: 'Azimuth Vs $1B in Real DeFi Hacks. Here\'s What Happened.',
+    title: 'Azimuth vs $1B in Real DeFi Hacks. Here\'s What Happened.',
     tag: 'Research',
     date: 'May 7, 2026',
     excerpt: 'Azimuth caught <strong>70% of real DeFi exploits worth $1.12 billion</strong>—including Euler\'s $197M hack. AI doesn\'t replace auditors. But you can\'t ignore it anymore.',
