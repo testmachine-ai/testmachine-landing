@@ -20,8 +20,6 @@ export const blogPosts: BlogPost[] = [
     seoDescription: 'Azimuth caught 70% of real DeFi exploits worth $1.12 billion—including Euler\'s $197M hack. AI doesn\'t replace auditors. But you can\'t ignore it anymore.',
     content: `<p><em>Azimuth caught 70% of real DeFi exploits worth $1.12 billion—including Euler's $197M hack. AI doesn't replace auditors. But you can't ignore it anymore.</em></p>
 
-<hr>
-
 <p>We ran Azimuth against 54 real DeFi exploits.</p>
 
 <p>Not theoretical vulnerabilities. Not CTF challenges. Actual production hacks that drained $1.12 billion from protocols between 2020 and 2026.</p>
@@ -31,8 +29,6 @@ export const blogPosts: BlogPost[] = [
 <p>That includes Euler Finance's $197M exploit. Penpie's $27M reentrancy. Lendf.me's $25M ERC777 attack. And 20 others.</p>
 
 <p>If you're still debating whether AI has a role in smart contract security, these numbers should end that conversation.</p>
-
-<hr>
 
 <h2>The $197M Test: Could AI Have Stopped Euler?</h2>
 
@@ -48,8 +44,6 @@ export const blogPosts: BlogPost[] = [
 
 <p>This wasn't a lucky guess. Azimuth identified <strong>23 exact matches</strong> across 54 exploits—the precise vulnerability that caused each hack.</p>
 
-<hr>
-
 <h2>What "70% Hit Rate" Actually Means</h2>
 
 <p>When we say Azimuth caught 70% of exploits, here's what that looks like in practice:</p>
@@ -61,8 +55,6 @@ export const blogPosts: BlogPost[] = [
 <p><strong>30% Missed</strong> — Azimuth analyzed the contract but didn't flag the vulnerability. These cluster around unverified proxy implementations, transient storage bugs, and post-incident bricked contracts.</p>
 
 <p>The 70% isn't "better than nothing." It's "better than most manual audits" on the specific vulnerability classes where AI excels.</p>
-
-<hr>
 
 <h2>The Exploits AI Catches (And The Ones It Doesn't)</h2>
 
@@ -118,8 +110,6 @@ export const blogPosts: BlogPost[] = [
 
 <p>When exploits span multiple protocols or subsystems, Azimuth sometimes focuses on the wrong layer. UsualMoney's $43K exploit was in the sync vault subsystem, but Azimuth analyzed the bond/redemption logic.</p>
 
-<hr>
-
 <h2>Why "AI Doesn't Replace Auditors" Isn't Just a Talking Point</h2>
 
 <p>The 30% miss rate tells you something important: <strong>human expertise isn't optional.</strong></p>
@@ -143,8 +133,6 @@ export const blogPosts: BlogPost[] = [
 </ol>
 
 <p>When you let AI handle the 70% of pattern-based vulnerabilities, your auditors can actually focus on the 30% that requires judgment, domain expertise, and creative thinking.</p>
-
-<hr>
 
 <h2>What This Actually Means for Web3 Security</h2>
 
