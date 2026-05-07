@@ -12,6 +12,170 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'azimuth-vs-1b-in-real-defi-hacks',
+    title: 'Azimuth Vs $1B in Real DeFi Hacks. Here\'s What Happened.',
+    tag: 'Research',
+    date: 'May 7, 2026',
+    excerpt: 'Azimuth caught 70% of real DeFi exploits worth $1.12 billion—including Euler\'s $197M hack. AI doesn\'t replace auditors. But you can\'t ignore it anymore.',
+    seoDescription: 'Azimuth caught 70% of real DeFi exploits worth $1.12 billion—including Euler\'s $197M hack. AI doesn\'t replace auditors. But you can\'t ignore it anymore.',
+    content: `<p><em>Azimuth caught 70% of real DeFi exploits worth $1.12 billion—including Euler's $197M hack. AI doesn't replace auditors. But you can't ignore it anymore.</em></p>
+
+<hr>
+
+<p>We ran Azimuth against 54 real DeFi exploits.</p>
+
+<p>Not theoretical vulnerabilities. Not CTF challenges. Actual production hacks that drained $1.12 billion from protocols between 2020 and 2026.</p>
+
+<p><strong>The result: Azimuth identified 70% of these exploits.</strong> In 43% of cases, it pinpointed the exact vulnerability that caused the hack.</p>
+
+<p>That includes Euler Finance's $197M exploit. Penpie's $27M reentrancy. Lendf.me's $25M ERC777 attack. And 20 others.</p>
+
+<p>If you're still debating whether AI has a role in smart contract security, these numbers should end that conversation.</p>
+
+<hr>
+
+<h2>The $197M Test: Could AI Have Stopped Euler?</h2>
+
+<p>March 2023. Euler Finance gets drained for $197 million in one of the largest DeFi hacks ever.</p>
+
+<p>The vulnerability? A subtle bypass in the <code>donateToReserves()</code> function that let attackers manipulate donation accounting to skip solvency checks.</p>
+
+<p>Euler had been audited. Multiple times. By reputable firms. The bug still shipped to production.</p>
+
+<p>We pointed Azimuth at Euler's contracts.</p>
+
+<p><strong>It caught it.</strong> Two separate hypotheses, both pointing directly at the donateToReserves bypass mechanism. Surgical precision on a vulnerability that cost $197 million.</p>
+
+<p>This wasn't a lucky guess. Azimuth identified <strong>23 exact matches</strong> across 54 exploits—the precise vulnerability that caused each hack.</p>
+
+<hr>
+
+<h2>What "70% Hit Rate" Actually Means</h2>
+
+<p>When we say Azimuth caught 70% of exploits, here's what that looks like in practice:</p>
+
+<p><strong>43% Exact Matches</strong> — Azimuth identified the specific vulnerability that caused the exploit. Not "there might be a reentrancy issue somewhere." More like "this callback in line 347 bypasses the solvency check and here's how to exploit it."</p>
+
+<p><strong>28% Partial Matches</strong> — Azimuth got within the right code surface but missed the specific bug implementation. Think: "there's an issue with this oracle pricing" when the actual bug was a subtle rounding error in how that oracle gets called.</p>
+
+<p><strong>30% Missed</strong> — Azimuth analyzed the contract but didn't flag the vulnerability. These cluster around unverified proxy implementations, transient storage bugs, and post-incident bricked contracts.</p>
+
+<p>The 70% isn't "better than nothing." It's "better than most manual audits" on the specific vulnerability classes where AI excels.</p>
+
+<hr>
+
+<h2>The Exploits AI Catches (And The Ones It Doesn't)</h2>
+
+<h3>Where Azimuth Dominates</h3>
+
+<p><strong>Oracle Manipulation</strong></p>
+
+<p>Azimuth caught 75% of oracle-based attacks. Short TWAP windows, spot price manipulation, self-referential oracle updates—patterns that slip through manual review because they're tedious to verify but easy for AI to model behaviorally.</p>
+
+<ul>
+<li>WOOFi ($8.75M): Self-swap oracle manipulation</li>
+<li>Rodeo Finance ($880K): 4-sample TWAP window</li>
+<li>InfinitySix ($273K): Stale TWAP in withdraw()</li>
+</ul>
+
+<p><strong>Reentrancy Patterns</strong></p>
+
+<p>71% hit rate on reentrancy exploits, including the canonical patterns everyone <em>thinks</em> they've eliminated:</p>
+
+<ul>
+<li>Lendf.me ($25M): ERC777 tokensReceived reentrancy — the textbook 2020 exploit</li>
+<li>Penpie ($27M): Malicious receipt token bypassing share verification</li>
+<li>Sushi RouteProcessor2 ($3.3M): Callback data injection</li>
+</ul>
+
+<p><strong>Donation/Inflation Attacks</strong></p>
+
+<p>83% hit rate on Compound-fork donation attacks and exchange rate manipulation:</p>
+
+<ul>
+<li>Sonne Finance ($20M): Donation attack on soVELO</li>
+<li>Lodestar Finance ($6.5M): PPS inflation on plvGLP</li>
+<li>Hundred Finance ($7.4M): Empty-market exchange rate inflation</li>
+</ul>
+
+<p>These are the high-frequency vulnerability classes that auditors miss not because they're incompetent, but because manual verification of hundreds of similar patterns is mind-numbing work.</p>
+
+<h3>Where Azimuth Struggles</h3>
+
+<p><strong>Unverified Implementations</strong></p>
+
+<p>If the smart contract source isn't verified on block explorers, Azimuth can't analyze it. Obvious limitation, but worth stating.</p>
+
+<p><strong>Novel Logic Flaws</strong></p>
+
+<p>First-time exploit patterns without historical precedent are hard for AI. When Beanstalk got hit with a flash-loan governance attack via BIP-18, Azimuth flagged the malicious-facet-via-governance surface but didn't connect the flash loan piece.</p>
+
+<p><strong>Bytecode-Level Bugs</strong></p>
+
+<p>Transient storage collisions (TSTORE/TLOAD) and other EVM opcode subtleties are challenging for behavioral analysis. SIR.trading's $355K exploit via TSTORE slot reuse? Missed it.</p>
+
+<p><strong>Cross-System Complexity</strong></p>
+
+<p>When exploits span multiple protocols or subsystems, Azimuth sometimes focuses on the wrong layer. UsualMoney's $43K exploit was in the sync vault subsystem, but Azimuth analyzed the bond/redemption logic.</p>
+
+<hr>
+
+<h2>Why "AI Doesn't Replace Auditors" Isn't Just a Talking Point</h2>
+
+<p>The 30% miss rate tells you something important: <strong>human expertise isn't optional.</strong></p>
+
+<p>But here's the thing—the 70% hit rate also tells you something: <strong>AI isn't optional either.</strong></p>
+
+<p>Think about it this way:</p>
+
+<ul>
+<li>Azimuth catches 83% of donation attacks (manual auditors: exhausted after the first dozen edge cases)</li>
+<li>Azimuth catches 75% of oracle manipulation (manual auditors: "this TWAP window looks fine")</li>
+<li>Azimuth catches 71% of reentrancy patterns (manual auditors: "we've checked for reentrancy")</li>
+</ul>
+
+<p>The ideal workflow isn't "AI or human." It's:</p>
+
+<ol>
+<li><strong>Azimuth scans</strong> catch the high-frequency patterns (oracle issues, reentrancy, donation attacks)</li>
+<li><strong>Human auditors</strong> focus on novel logic, cross-protocol interactions, and domain-specific business logic</li>
+<li><strong>Both together</strong> achieve coverage neither can reach alone</li>
+</ol>
+
+<p>When you let AI handle the 70% of pattern-based vulnerabilities, your auditors can actually focus on the 30% that requires judgment, domain expertise, and creative thinking.</p>
+
+<hr>
+
+<h2>What This Actually Means for Web3 Security</h2>
+
+<p>We're past the point where "AI can't audit smart contracts" is a defensible position.</p>
+
+<p>When AI catches Euler's $197M bug with surgical precision, the question isn't "can AI do security?" It's "how fast can we integrate it?"</p>
+
+<p><strong>This doesn't mean:</strong></p>
+
+<ul>
+<li>Fire your auditors</li>
+<li>Trust AI blindly</li>
+<li>Stop manual code review</li>
+</ul>
+
+<p><strong>This means:</strong></p>
+
+<ul>
+<li>Run Azimuth alongside your audits</li>
+<li>Let AI catch the pattern-based bugs</li>
+<li>Let humans focus on the novel/complex stuff</li>
+<li>Achieve coverage neither can reach alone</li>
+</ul>
+
+<p>The protocols that got hacked in our test? They were audited. By good firms. The bugs still shipped.</p>
+
+<p>The question every protocol should ask: "If Azimuth had flagged this pre-deployment, would we have caught it in time?"</p>
+
+<p>For 70% of the $1.12 billion in losses we tested, the answer is yes.</p>`
+  },
+  {
     slug: 'certik-comparison-exploit-modeling',
     title: 'CertiK vs TestMachine: How AI Security Tools Interpret Smart Contract Vulnerabilities',
     tag: 'Security',
