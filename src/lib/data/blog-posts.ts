@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>We ran Azimuth against 54 real DeFi exploits.</p>
 
-<p>Not theoretical vulnerabilities. Not CTF challenges. Actual production hacks that drained $1.12 billion from protocols between 2020 and 2026.</p>
+<p>These are not theoretical vulnerabilities, these are actual production hacks that drained $1.12 billion from protocols between 2020 and 2026.</p>
 
 <p><strong>The result: Azimuth identified 70% of these exploits.</strong> In 43% of cases, it pinpointed the exact vulnerability that caused the hack.</p>
 
