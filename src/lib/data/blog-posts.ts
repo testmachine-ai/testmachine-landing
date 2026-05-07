@@ -110,7 +110,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>When exploits span multiple protocols or subsystems, Azimuth sometimes focuses on the wrong layer. UsualMoney's $43K exploit was in the sync vault subsystem, but Azimuth analyzed the bond/redemption logic.</p>
 
-<h2>Why <a href="https://staging.testmachine.ai/blog/ai-smart-contract-auditing-2026/">"AI Doesn't Replace Auditors"</a> Isn't Just a Talking Point</h2>
+<h2>Why <a href="https://testmachine.ai/blog/ai-smart-contract-auditing-2026/">"AI Doesn't Replace Auditors"</a> Isn't Just a Talking Point</h2>
 
 <p>The 30% miss rate tells you something important: <strong>human expertise isn't optional.</strong></p>
 
