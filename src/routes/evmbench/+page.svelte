@@ -29,7 +29,8 @@
       found: 80,
       total: 120,
       sourceLabel: 'auditagent.nethermind.io/blog',
-      sourceUrl: 'https://auditagent.nethermind.io/blog/auditagent-on-evmbench-40-repositories-120-vulnerabilities-no-repos-skipped'
+      sourceUrl: 'https://auditagent.nethermind.io/blog/auditagent-on-evmbench-40-repositories-120-vulnerabilities-no-repos-skipped',
+      note: 'Scored against the original 120-finding release.'
     },
     {
       name: 'Kai',
@@ -51,7 +52,7 @@
       total: 117,
       sourceLabel: 'guardix.dev/blog',
       sourceUrl: 'https://guardix.dev/blog/evmbench-benchmark-results/',
-      note: 'Scored on 117 high-severity findings (Guardix methodology).'
+      note: 'Scored against the canonical 117-finding set (after OpenAI removed 3 findings post-release).'
     },
     {
       name: 'Azimuth',
@@ -145,11 +146,11 @@
   <title>EVMBench Leaderboard — AI Smart Contract Auditors</title>
   <meta
     name="description"
-    content="Public leaderboard of AI smart-contract security tools on EVMBench — the OpenAI benchmark of 120 ground-truth vulnerabilities across 40 Code4rena audits. AuditAgent, Guardix, Claude, GPT-5 and more."
+    content="Public leaderboard of AI smart-contract security tools on EVMBench — OpenAI's benchmark of 117 ground-truth vulnerabilities across 40 Code4rena audits. AuditAgent, Guardix, Kai, Claude, GPT-5 and more."
   />
   <meta name="keywords" content="EVMBench, AI security benchmark, smart contract audit, Nethermind AuditAgent, Guardix, Code4rena, leaderboard" />
   <meta property="og:title" content="EVMBench Leaderboard — AI Smart Contract Auditors" />
-  <meta property="og:description" content="120 vulnerabilities. 40 Code4rena audits. One scoreboard." />
+  <meta property="og:description" content="117 vulnerabilities. 40 Code4rena audits. One scoreboard." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://testmachine.ai/evmbench" />
 </svelte:head>
@@ -161,7 +162,7 @@
     <h1 class="lb-title">The EVMBench Leaderboard</h1>
     <p class="lb-sub">
       <strong>EVMBench</strong> is a standardized benchmark built by OpenAI for AI vulnerability detection on EVM
-      smart contracts: <strong>120 ground-truth vulnerabilities</strong> across <strong>40 Code4rena audits</strong>.
+      smart contracts: <strong>117 ground-truth vulnerabilities</strong> across <strong>40 Code4rena audits</strong>.
       Vendors keep publishing one-off numbers. No one has put them on a single board — so we did.
     </p>
     <div class="lb-meta">
@@ -170,8 +171,8 @@
         <span class="lb-meta-l">Repositories</span>
       </div>
       <div class="lb-meta-item">
-        <span class="lb-meta-n">120</span>
-        <span class="lb-meta-l">Vulnerabilities</span>
+        <span class="lb-meta-n">117</span>
+        <span class="lb-meta-l">Vulnerabilities <span class="lb-meta-foot">(120 at launch)</span></span>
       </div>
       <div class="lb-meta-item">
         <span class="lb-meta-n">{entries.filter(e => !e.pending).length}</span>
@@ -238,9 +239,12 @@
     </div>
 
     <p class="lb-disclaimer">
-      Results are self-reported by each vendor. We have not independently re-run other vendors' pipelines.
-      Bars are shown to a common 100% scale; denominators differ where noted (e.g. Guardix scores against
-      117 high-severity findings rather than the full 120).
+      <strong>Why some scores show /120 and others /117.</strong>
+      EVMBench launched with 120 findings, but shortly after release OpenAI
+      <a href="https://github.com/openai/frontier-evals/commit/20ba71827870452ecbd54df79075631da0b39d8d" target="_blank" rel="noopener noreferrer">removed three of them</a>,
+      leaving 117 as the canonical set. Vendors who scored before the patch (e.g. Nethermind AuditAgent) report against 120;
+      vendors who scored after (e.g. Guardix) report against 117. Bars are normalised to a common 100% recall scale, so they
+      remain directly comparable. Results are self-reported by each vendor; we have not independently re-run other vendors' pipelines.
     </p>
   </div>
 </section>
@@ -416,6 +420,13 @@
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--fg-muted);
+  }
+
+  .lb-meta-foot {
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--fg-dim);
+    margin-left: 4px;
   }
 
   /* ---------- board ---------- */
@@ -605,6 +616,14 @@
     line-height: 1.6;
     max-width: 820px;
   }
+
+  .lb-disclaimer strong { color: var(--fg-muted); }
+  .lb-disclaimer a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .lb-disclaimer a:hover { color: var(--accent-hover); }
 
   /* ---------- sections ---------- */
   .lb-section {
