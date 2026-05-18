@@ -19,7 +19,7 @@
      – Nethermind AuditAgent: 80/120 (67%) – Nethermind X post 2025
      – Guardix: 70/117 (59.8% recall) – Guardix blog post
      – Base-model bars (Claude / GPT-5 family): values from the Nethermind
-       EVMBench/03 results chart (image included in original tweet thread). */
+       EVMBench/03 results chart in the AuditAgent blog post. */
   const entries: Entry[] = [
     {
       name: 'AuditAgent',
@@ -28,8 +28,8 @@
       recall: 67,
       found: 80,
       total: 120,
-      sourceLabel: '@NethermindSec on X',
-      sourceUrl: 'https://x.com/NethermindSec/status/2032407080498242025'
+      sourceLabel: 'auditagent.nethermind.io/blog',
+      sourceUrl: 'https://auditagent.nethermind.io/blog/auditagent-on-evmbench-40-repositories-120-vulnerabilities-no-repos-skipped'
     },
     {
       name: 'Kai',
@@ -72,8 +72,8 @@
       recall: 47,
       found: 56,
       total: 120,
-      sourceLabel: 'Nethermind benchmark chart',
-      sourceUrl: 'https://x.com/NethermindSec/status/2032407080498242025'
+      sourceLabel: 'auditagent.nethermind.io/blog',
+      sourceUrl: 'https://auditagent.nethermind.io/blog/auditagent-on-evmbench-40-repositories-120-vulnerabilities-no-repos-skipped'
     },
     {
       name: 'GPT-5.2',
@@ -82,8 +82,8 @@
       recall: 38,
       found: 45,
       total: 120,
-      sourceLabel: 'Nethermind benchmark chart',
-      sourceUrl: 'https://x.com/NethermindSec/status/2032407080498242025'
+      sourceLabel: 'auditagent.nethermind.io/blog',
+      sourceUrl: 'https://auditagent.nethermind.io/blog/auditagent-on-evmbench-40-repositories-120-vulnerabilities-no-repos-skipped'
     },
     {
       name: 'GPT-5.3 Codex',
@@ -92,8 +92,8 @@
       recall: 36,
       found: 43,
       total: 120,
-      sourceLabel: 'Nethermind benchmark chart',
-      sourceUrl: 'https://x.com/NethermindSec/status/2032407080498242025'
+      sourceLabel: 'auditagent.nethermind.io/blog',
+      sourceUrl: 'https://auditagent.nethermind.io/blog/auditagent-on-evmbench-40-repositories-120-vulnerabilities-no-repos-skipped'
     },
     {
       name: 'GPT-5.2 Codex',
@@ -102,8 +102,8 @@
       recall: 33,
       found: 39,
       total: 120,
-      sourceLabel: 'Nethermind benchmark chart',
-      sourceUrl: 'https://x.com/NethermindSec/status/2032407080498242025'
+      sourceLabel: 'auditagent.nethermind.io/blog',
+      sourceUrl: 'https://auditagent.nethermind.io/blog/auditagent-on-evmbench-40-repositories-120-vulnerabilities-no-repos-skipped'
     },
     {
       name: 'GPT-5',
@@ -112,8 +112,8 @@
       recall: 21,
       found: 25,
       total: 120,
-      sourceLabel: 'Nethermind benchmark chart',
-      sourceUrl: 'https://x.com/NethermindSec/status/2032407080498242025'
+      sourceLabel: 'auditagent.nethermind.io/blog',
+      sourceUrl: 'https://auditagent.nethermind.io/blog/auditagent-on-evmbench-40-repositories-120-vulnerabilities-no-repos-skipped'
     }
   ].sort((a, b) => {
     // Pin our own entry to the top regardless of score
@@ -296,20 +296,20 @@
     <span class="section-label">Sources</span>
     <h2 class="lb-h2">Where these numbers come from</h2>
     <div class="lb-sources">
-      <a class="lb-source-card" href="https://x.com/NethermindSec/status/2032407080498242025" target="_blank" rel="noopener noreferrer">
+      <a class="lb-source-card" href="https://auditagent.nethermind.io/blog/auditagent-on-evmbench-40-repositories-120-vulnerabilities-no-repos-skipped" target="_blank" rel="noopener noreferrer">
         <div class="lb-source-card-org">Nethermind Security</div>
         <div class="lb-source-card-title">AuditAgent: 80/120 (67%) on EVMBench</div>
-        <div class="lb-source-card-meta">x.com/NethermindSec ↗</div>
+        <div class="lb-source-card-meta">auditagent.nethermind.io/blog ↗</div>
       </a>
       <a class="lb-source-card" href="https://guardix.dev/blog/evmbench-benchmark-results/" target="_blank" rel="noopener noreferrer">
         <div class="lb-source-card-org">Guardix</div>
         <div class="lb-source-card-title">59.8% recall across 117 high-severity vulnerabilities</div>
         <div class="lb-source-card-meta">guardix.dev/blog ↗</div>
       </a>
-      <a class="lb-source-card" href="https://x.com/NethermindSec/status/2032407080498242025" target="_blank" rel="noopener noreferrer">
+      <a class="lb-source-card" href="https://auditagent.nethermind.io/blog/auditagent-on-evmbench-40-repositories-120-vulnerabilities-no-repos-skipped" target="_blank" rel="noopener noreferrer">
         <div class="lb-source-card-org">Nethermind (chart)</div>
         <div class="lb-source-card-title">Claude Opus 4.6 / GPT-5 family base-model recall</div>
-        <div class="lb-source-card-meta">EVMBench // 03 slide ↗</div>
+        <div class="lb-source-card-meta">auditagent.nethermind.io/blog ↗</div>
       </a>
     </div>
   </div>
