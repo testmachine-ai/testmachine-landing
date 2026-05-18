@@ -32,6 +32,17 @@
       sourceUrl: 'https://x.com/NethermindSec/status/2032407080498242025'
     },
     {
+      name: 'Kai',
+      org: 'Dria (Kai Security)',
+      type: 'agent',
+      recall: 64.2,
+      found: 77,
+      total: 120,
+      sourceLabel: 'kai.dria.co/benchmark',
+      sourceUrl: 'https://kai.dria.co/benchmark?tab=evmbench',
+      note: 'Self-reported on Kai-Bench: 64.2% detect recall, $75k detect award.'
+    },
+    {
       name: 'Guardix',
       org: 'Guardix',
       type: 'agent',
