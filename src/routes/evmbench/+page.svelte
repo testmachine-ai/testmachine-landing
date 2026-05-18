@@ -104,7 +104,12 @@
       sourceLabel: 'Nethermind benchmark chart',
       sourceUrl: 'https://x.com/NethermindSec/status/2032407080498242025'
     }
-  ].sort((a, b) => b.recall - a.recall);
+  ].sort((a, b) => {
+    // Pin our own entry to the top regardless of score
+    if (a.self && !b.self) return -1;
+    if (b.self && !a.self) return 1;
+    return b.recall - a.recall;
+  });
 
   // Defer bar animation until visible
   let board: HTMLElement | undefined = $state();
