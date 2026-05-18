@@ -54,6 +54,7 @@
         </div>
       </div>
       
+      <a href="/evmbench" class="nav-link" class:nav-link--active={$page.url.pathname === '/evmbench'}>Leaderboard</a>
       <a href="/blog" class="nav-link" class:nav-link--active={$page.url.pathname === '/blog'}>Blog</a>
       <a href="/#contact" class="nav-link">Contact</a>
     </div>

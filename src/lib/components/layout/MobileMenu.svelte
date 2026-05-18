@@ -46,6 +46,14 @@
       Azimuth
     </a>
     <a 
+      href="/evmbench" 
+      class="mobile-menu-link"
+      class:active={$page.url.pathname === '/evmbench'}
+      on:click={handleLinkClick}
+    >
+      Leaderboard
+    </a>
+    <a 
       href="/blog" 
       class="mobile-menu-link"
       class:active={$page.url.pathname === '/blog'}
