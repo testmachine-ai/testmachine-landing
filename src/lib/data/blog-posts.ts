@@ -149,7 +149,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>Cost matters when modern development workflows require security testing on every commit and if there are a high number of false positives the human labor cost can exceed the tool cost itself. EVMBench measures detection capability but provides no visibility into total cost of ownership.</p>
 
-<p><strong>For Azimuth:</strong> To run all repos on EVMBench it cost us: X. X per repo.</p>
+<p><strong>For Azimuth:</strong> The average credit cost for Azimuth to evaluate an EVMBench repo is around 171 credits.</p>
 
 <p><strong>Usability: Can developers act on the findings without security expertise?</strong></p>
 
