@@ -19,7 +19,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: 'Azimuth achieves <strong>75.2% recall on EVMBench</strong>, outperforming AuditAgent (67%), Guardix (59.8%), and base models. How state space exploration beats static analysis.',
     seoDescription: 'Azimuth achieves 75.2% recall on EVMBench, outperforming AuditAgent (67%), Guardix (59.8%), and base models. How state space exploration beats static analysis.',
     content: `<div style="text-align: center; margin: 2rem 0;">
-<img src="/images/evmbench-results.jpg" alt="EVMBench Telemetry - State of the art on EVMBench: +19 findings recovered. Detection rate improved from 63.2% to 75.2%, with 19 gained and 5 regressed, for a top audit gain of +4 since 2024-07-benddao" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+<img src="/images/evmbench-results-new.jpg" alt="State of the art on EVMBench: +19 findings recovered. Detection rate improved from 63.2% to 75.2%, with 19 gained and 5 regressed, lifting overall detection by +12.0pp" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
 </div>
 
 <p>When AI security tools claim to find vulnerabilities, how do you know if those claims are real? Standardized benchmarks exist to answer that question.</p>
