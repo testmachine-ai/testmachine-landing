@@ -67,6 +67,17 @@
       pending: true
     },
     {
+      name: 'GPT-5.5 (Codex)',
+      org: 'OpenAI (base model)',
+      type: 'base',
+      recall: 53.8,
+      found: 63,
+      total: 117,
+      sourceLabel: 'codex-gpt-5.5 · detect split',
+      sourceUrl: 'https://github.com/openai/frontier-evals',
+      note: '40/40 tasks, 0 rollout failures. Detect award: 7.70% ($16.8k / $217.8k bounty pool).'
+    },
+    {
       name: 'Claude Opus 4.6',
       org: 'Anthropic (base model)',
       type: 'base',
