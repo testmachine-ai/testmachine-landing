@@ -40,7 +40,7 @@ export const blogPosts: BlogPost[] = [
 
 <hr>
 
-<h2>How Azimuth Was Tested: Revised</h2>
+<h2>How Azimuth Was Tested</h2>
 
 <p>We ran all 40 repositories without skipping any. Azimuth analyzed them in parallel, demonstrating the scalability advantage of automated behavioral testing over manual review.</p>
 
