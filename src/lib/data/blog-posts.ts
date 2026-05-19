@@ -12,6 +12,188 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'azimuth-evmbench-benchmark-results',
+    title: 'Azimuth Achieves 75.2% on EVMBench: Setting a New Standard for AI Smart Contract Security',
+    tag: 'Research',
+    date: 'May 19, 2026',
+    excerpt: 'Azimuth achieves <strong>75.2% recall on EVMBench</strong>, outperforming AuditAgent (67%), Guardix (59.8%), and base models. How state space exploration beats static analysis.',
+    seoDescription: 'Azimuth achieves 75.2% recall on EVMBench, outperforming AuditAgent (67%), Guardix (59.8%), and base models. How state space exploration beats static analysis.',
+    content: `<p>When AI security tools claim to find vulnerabilities, how do you know if those claims are real? Standardized benchmarks exist to answer that question.</p>
+
+<p>We ran Azimuth through EVMBench, the standardized benchmark for AI vulnerability detection created by OpenAI and Paradigm. Azimuth detected 88 out of 117 ground truth, high-severity vulnerabilities across 40 real audit repositories, achieving 75.2% recall — A state of the art result.</p>
+
+<p>This article breaks down those results, explains how Azimuth's behavioral validation differs from other approaches, and what these numbers mean for smart contract security.</p>
+
+<hr>
+
+<h2>Understanding EVMBench</h2>
+
+<p>EVMBench tests one thing: can an AI system find known vulnerabilities in real smart contract code?</p>
+
+<p>The benchmark contains 40 audit repositories from Code4rena contests, each with documented high-severity vulnerabilities that resulted in loss-of-funds. Tools are evaluated on how many of these 117 known exploits they can detect.</p>
+
+<p>EVMBench focuses specifically on recall (detection rate), not false positives or precision. This makes it a clean test of whether a tool can identify real vulnerabilities when they exist, though it doesn't measure how much noise comes with those findings.</p>
+
+<hr>
+
+<h2>How Azimuth Was Tested: Revised</h2>
+
+<p>We ran all 40 repositories without skipping any. Azimuth analyzed them in parallel, demonstrating the scalability advantage of automated behavioral testing over manual review.</p>
+
+<p>The process:</p>
+
+<ol>
+<li>Generate hypotheses about potential vulnerabilities through state space exploration</li>
+<li>Produce findings for evaluation against ground truth vulnerabilities</li>
+</ol>
+
+<p>EVMBench evaluates tools based on their detection output in a standardized environment. Azimuth's approach—systematic exploration of potential exploit paths—is what drives the 75.2% recall rate.</p>
+
+<p>In production use beyond this benchmark, Azimuth validates exploitability through mainnet forking and generates proof-of-concept code. But the EVMBench results reflect Azimuth's core detection capability within the benchmark's testing constraints.</p>
+
+<hr>
+
+<h2>The Results: 75.2% Recall, #1 on the Leaderboard</h2>
+
+<p><strong>Azimuth: 75.2% (88/117 vulnerabilities)</strong></p>
+
+<p>This beats every other tool we compared on EVMBench:</p>
+
+<ul>
+<li>AuditAgent (Nethermind): 67% (80/120)</li>
+<li>Guardix: 59.8% (70/117)</li>
+<li>Claude Opus 4.6 (base model): 47% (56/120)</li>
+<li>GPT-5.2 (base model): 38% (45/120)</li>
+</ul>
+
+<p><strong>View the full comparison:</strong> <a href="http://testmachine.ai/evmbench">http://testmachine.ai/evmbench</a></p>
+
+<p>The 8+ percentage point improvement over AuditAgent represents a significant jump in detection capability. At high recall levels, each additional vulnerability caught tends to be exponentially harder to find.</p>
+
+<hr>
+
+<h2>Why Azimuth's Detection Outperforms Other Tools</h2>
+
+<p>The performance gap exists because different tools use different detection approaches:</p>
+
+<p><strong>Static Analysis:</strong> Scan code for patterns that look like vulnerabilities</p>
+
+<p><strong>LLM Code Review:</strong> Analyze code and explain potential security issues</p>
+
+<p><strong>Azimuth:</strong> Systematic state space exploration to identify potential exploit paths</p>
+
+<p>For the EVMBench detection benchmark, Azimuth used its state space exploration capabilities to identify vulnerabilities. The 75.2% recall reflects how effectively Azimuth can detect potential exploits through this analysis approach.</p>
+
+<p>Azimuth's architecture includes two core benchmarked capabilities: vulnerability detection and exploit validation. The EVMBench Detect results measure the detection component, while exploit validation—including mainnet forking and proof-of-concept generation—maps to EVMBench Exploit, a separate benchmark we have not yet run.</p>
+
+<hr>
+
+<h2>What 75.2% Recall Actually Means</h2>
+
+<p>Three interpretations help understand this number:</p>
+
+<p><strong>1. Coverage:</strong> Three out of four known high-severity exploits can be caught automatically before code reaches production.</p>
+
+<p><strong>2. Auditor Efficiency:</strong> Manual auditors start review with 75% of pattern-based vulnerabilities already identified, letting them focus on novel logic and complex interactions.</p>
+
+<p><strong>3. Continuous Security:</strong> Protocols can run Azimuth continuously as code evolves, not just during pre-deployment audits.</p>
+
+<p>The 24.8% that Azimuth missed represents exactly where human expertise remains critical: novel attack patterns, complex cross-protocol interactions, and edge cases that require domain knowledge to recognize.</p>
+
+<hr>
+
+<h2>The Missing 24.8%: Where Humans Still Win</h2>
+
+<p>Automated systems struggle with:</p>
+
+<ul>
+<li><strong>Novel logic flaws:</strong> Attack patterns never seen before in training data</li>
+<li><strong>Economic attack vectors:</strong> Exploits requiring deep understanding of protocol incentives</li>
+<li><strong>Cross-system complexity:</strong> Vulnerabilities spanning multiple contracts or protocols</li>
+<li><strong>Business logic errors:</strong> Issues that are correct code-wise but wrong strategically</li>
+</ul>
+
+<p>These represent exactly the areas where skilled auditors provide irreplaceable value. The goal isn't replacement—it's letting AI handle pattern recognition at scale while humans focus on creative security thinking.</p>
+
+<hr>
+
+<h2>Limitations of EVMBench (And Why They Matter)</h2>
+
+<p>EVMBench measures recall (the percentage of known vulnerabilities detected) which is valuable but only covers one dimension of tool performance. In reality, security tools need to perform across multiple dimensions that the benchmark doesn't account for.</p>
+
+<h3>What EVMBench Doesn't Measure</h3>
+
+<p><strong>False Positive Rate: How much noise does this tool generate?</strong></p>
+
+<p>EVMBench evaluates detection capability in isolation. A tool with high recall but low precision would surface a large number of findings that then require manual triage to determine real vulnerabilities.</p>
+
+<p>In production, false positive rate determines whether a tool is actually useable. High false positives mean auditors spend more time than they need to investigating non-issues. A tool with 75% recall and 5% false positives may be more valuable and time saving than one with 85% recall and 40% false positives.</p>
+
+<p><strong>For Azimuth:</strong> Azimuth's exploitability validation layer filters detection hypotheses before surfacing findings, significantly improving precision beyond raw detection output.</p>
+
+<p><strong>Precision: What percentage of findings are actually exploitable?</strong></p>
+
+<p>EVMBench evaluates whether the tool found the known vulnerabilities, not whether it also flagged hundred of non-vulnerabilities alongside them. This makes it impossible to assess signal-to-noise ratio from the benchmark alone.</p>
+
+<p>A tool might detect 88 real vulnerabilities (high recall) but also report 500 false findings in the process. This high recall, low precision tool leaves developers manually triaging all 588 findings to identify the 88 real issues.</p>
+
+<p><strong>For Azimuth:</strong> After analyzing our precision metrics, Azimuth has a precision rate of 65-88%.</p>
+
+<p><strong>Cost: How much does it cost to run the tool at this detection level?</strong></p>
+
+<p>EVMBench doesn't account for model usage, API costs, or computational resources required to achieve a given recall level. A tool could achieve high recall but be prohibitively expensive to run continuously or at scale making it economically unviable.</p>
+
+<p>Cost matters when modern development workflows require security testing on every commit and if there are a high number of false positives the human labor cost can exceed the tool cost itself. EVMBench measures detection capability but provides no visibility into total cost of ownership.</p>
+
+<p><strong>For Azimuth:</strong> To run all repos on EVMBench it cost us: X. X per repo.</p>
+
+<p><strong>Usability: Can developers act on the findings without security expertise?</strong></p>
+
+<p>Tools vary significantly in how they communicate vulnerabilities. Some provide detailed attack sequences and remediation guidance while others flag potential issues without context. EVMBench doesn't distinguish between the two, both count as detecting the vulnerability if they identify the correct code path.</p>
+
+<p><strong>For Azimuth:</strong> For each hypothesis, Azimuth includes confidence scoring and generates proof-of-concept code demonstrating exploitability in production use.</p>
+
+<hr>
+
+<h2>Technical Details: How EVMBench Evaluates Tools</h2>
+
+<p>The benchmark gives each tool autonomous access to a smart contract repository in a Docker container. The tool must:</p>
+
+<ol>
+<li>Analyze the codebase without human guidance</li>
+<li>Produce an audit report in a single uninterrupted run</li>
+</ol>
+
+<p>EVMBench doesn't specify what types of vulnerabilities the tool should look for during the run. After the audit is complete, an LLM judge evaluates whether the report contains the ground truth loss-of-funds vulnerabilities from the benchmark dataset.</p>
+
+<p>The judge compares each finding against ground truth vulnerabilities using criteria defined in the benchmark's grading prompt. The judge allows flexible terminology but requires strict matching on vulnerability type, root cause, and code location. The evaluation determines whether the tool detected the known vulnerabilities, even if described using different terminology or formatting.</p>
+
+<hr>
+
+<h2>What This Means for the Industry</h2>
+
+<p>Azimuth's 75.2% recall establishes a new baseline for what AI-powered smart contract security can achieve.</p>
+
+<p><strong>For Developers:</strong> Run continuous adversarial testing as you build, not just before deployment. Catch three-fourths of high-severity vulnerabilities automatically.</p>
+
+<p><strong>For Auditors:</strong> Spend time on novel risks and complex logic instead of rediscovering pattern-based exploits. Let AI handle the scale.</p>
+
+<p><strong>For Protocols:</strong> Security testing that was previously manual-only and expensive becomes automated and continuous.</p>
+
+<p>The industry standard just moved from 67% to 75.2%. That eight-point gain represents dozens of real exploits caught that would otherwise require manual discovery—or worse, discovery by attackers.</p>
+
+<hr>
+
+<p><strong>Try Azimuth:</strong> <a href="http://app.testmachine.ai">app.testmachine.ai</a></p>
+
+<p><strong>Methodology:</strong></p>
+
+<ul>
+<li>EVMBench dataset: <a href="http://github.com/openai/frontier-evals">github.com/openai/frontier-evals</a></li>
+<li>EVMBench paper: <a href="http://cdn.openai.com/evmbench/evmbench.pdf">cdn.openai.com/evmbench/evmbench.pdf</a></li>
+</ul>`
+  },
+  {
     slug: 'azimuth-vs-1b-in-real-defi-hacks',
     title: 'Azimuth vs $1B in Real DeFi Hacks. Here\'s What Happened.',
     tag: 'Research',
