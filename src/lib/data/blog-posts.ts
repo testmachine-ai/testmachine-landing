@@ -70,7 +70,7 @@ export const blogPosts: BlogPost[] = [
 <li>GPT-5.2 (base model): 38% (45/120)</li>
 </ul>
 
-<p><strong>View the full comparison:</strong> <a href="http://testmachine.ai/evmbench">http://testmachine.ai/evmbench</a></p>
+<p><strong>View the full comparison:</strong> <a href="http://testmachine.ai/evmbench" target="_blank" rel="noopener noreferrer">http://testmachine.ai/evmbench</a></p>
 
 <p>The 8+ percentage point improvement over AuditAgent represents a significant jump in detection capability. At high recall levels, each additional vulnerability caught tends to be exponentially harder to find.</p>
 
@@ -188,13 +188,13 @@ export const blogPosts: BlogPost[] = [
 
 <hr>
 
-<p><strong>Try Azimuth:</strong> <a href="http://app.testmachine.ai">app.testmachine.ai</a></p>
+<p><strong>Try Azimuth:</strong> <a href="http://app.testmachine.ai" target="_blank" rel="noopener noreferrer">app.testmachine.ai</a></p>
 
 <p><strong>Methodology:</strong></p>
 
 <ul>
-<li>EVMBench dataset: <a href="http://github.com/openai/frontier-evals">github.com/openai/frontier-evals</a></li>
-<li>EVMBench paper: <a href="http://cdn.openai.com/evmbench/evmbench.pdf">cdn.openai.com/evmbench/evmbench.pdf</a></li>
+<li>EVMBench dataset: <a href="http://github.com/openai/frontier-evals" target="_blank" rel="noopener noreferrer">github.com/openai/frontier-evals</a></li>
+<li>EVMBench paper: <a href="http://cdn.openai.com/evmbench/evmbench.pdf" target="_blank" rel="noopener noreferrer">cdn.openai.com/evmbench/evmbench.pdf</a></li>
 </ul>`
   },
   {
@@ -296,7 +296,7 @@ export const blogPosts: BlogPost[] = [
 
 <p>When exploits span multiple protocols or subsystems, Azimuth sometimes focuses on the wrong layer. UsualMoney's $43K exploit was in the sync vault subsystem, but Azimuth analyzed the bond/redemption logic.</p>
 
-<h2>Why <a href="https://testmachine.ai/blog/ai-smart-contract-auditing-2026/">"AI Doesn't Replace Auditors"</a> Isn't Just a Talking Point</h2>
+<h2>Why <a href="https://testmachine.ai/blog/ai-smart-contract-auditing-2026/" target="_blank" rel="noopener noreferrer">"AI Doesn't Replace Auditors"</a> Isn't Just a Talking Point</h2>
 
 <p>The 30% miss rate tells you something important: <strong>human expertise isn't optional.</strong></p>
 
@@ -351,7 +351,7 @@ export const blogPosts: BlogPost[] = [
 
 <hr>
 
-<p>Interested in this topic? <a href="https://testmachine.ai/blog/ai-smart-contract-auditing-2026/">Read more here</a>.</p>`
+<p>Interested in this topic? <a href="https://testmachine.ai/blog/ai-smart-contract-auditing-2026/" target="_blank" rel="noopener noreferrer">Read more here</a>.</p>`
   },
   {
     slug: 'certik-comparison-exploit-modeling',
@@ -567,7 +567,7 @@ export const blogPosts: BlogPost[] = [
 
 <hr>
 
-<p><a href="https://app.testmachine.ai/">Try Azimuth</a> and see which vulnerabilities are actually exploitable.</p>`
+<p><a href="https://app.testmachine.ai/" target="_blank" rel="noopener noreferrer">Try Azimuth</a> and see which vulnerabilities are actually exploitable.</p>`
   },
 
   {
