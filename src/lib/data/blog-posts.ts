@@ -92,35 +92,6 @@ export const blogPosts: BlogPost[] = [
 
 <hr>
 
-<h2>What 75.2% Recall Actually Means</h2>
-
-<p>Three interpretations help understand this number:</p>
-
-<p><strong>1. Coverage:</strong> Three out of four known high-severity exploits can be caught automatically before code reaches production.</p>
-
-<p><strong>2. Auditor Efficiency:</strong> Manual auditors start review with 75% of pattern-based vulnerabilities already identified, letting them focus on novel logic and complex interactions.</p>
-
-<p><strong>3. Continuous Security:</strong> Protocols can run Azimuth continuously as code evolves, not just during pre-deployment audits.</p>
-
-<p>The 24.8% that Azimuth missed represents exactly where human expertise remains critical: novel attack patterns, complex cross-protocol interactions, and edge cases that require domain knowledge to recognize.</p>
-
-<hr>
-
-<h2>The Missing 24.8%: Where Humans Still Win</h2>
-
-<p>Automated systems struggle with:</p>
-
-<ul>
-<li><strong>Novel logic flaws:</strong> Attack patterns never seen before in training data</li>
-<li><strong>Economic attack vectors:</strong> Exploits requiring deep understanding of protocol incentives</li>
-<li><strong>Cross-system complexity:</strong> Vulnerabilities spanning multiple contracts or protocols</li>
-<li><strong>Business logic errors:</strong> Issues that are correct code-wise but wrong strategically</li>
-</ul>
-
-<p>These represent exactly the areas where skilled auditors provide irreplaceable value. The goal isn't replacement—it's letting AI handle pattern recognition at scale while humans focus on creative security thinking.</p>
-
-<hr>
-
 <h2>Limitations of EVMBench (And Why They Matter)</h2>
 
 <p>EVMBench measures recall (the percentage of known vulnerabilities detected) which is valuable but only covers one dimension of tool performance. In reality, security tools need to perform across multiple dimensions that the benchmark doesn't account for.</p>
