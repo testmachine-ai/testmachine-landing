@@ -14,7 +14,7 @@
   {#if post.slug === 'azimuth-evmbench-benchmark-results'}
     <meta property="og:title" content="State of the Art on EVMBench" />
     <meta property="og:description" content="Across 117 findings in 40 audits, our model recovered 19 previously missed findings and regressed on 5, lifting overall detection by +12.0pp — from 63.2% to 75.2%." />
-    <meta property="og:image" content="https://staging.testmachine.ai/images/evmbench-results-v2.jpg" />
+    <meta property="og:image" content="https://testmachine.ai/images/azimuth-evmbench-cover.jpg" />
   {:else}
     <meta property="og:title" content="{post.title} — TestMachine" />
     <meta property="og:description" content={post.seoDescription || post.excerpt} />
@@ -29,7 +29,7 @@
   {#if post.slug === 'azimuth-evmbench-benchmark-results'}
     <meta name="twitter:title" content="State of the Art on EVMBench" />
     <meta name="twitter:description" content="Across 117 findings in 40 audits, our model recovered 19 previously missed findings and regressed on 5, lifting overall detection by +12.0pp — from 63.2% to 75.2%." />
-    <meta name="twitter:image" content="https://staging.testmachine.ai/images/evmbench-results-v2.jpg" />
+    <meta name="twitter:image" content="https://testmachine.ai/images/azimuth-evmbench-cover.jpg" />
   {:else}
     <meta name="twitter:title" content="{post.title} — TestMachine" />
     <meta name="twitter:description" content={post.seoDescription || post.excerpt} />

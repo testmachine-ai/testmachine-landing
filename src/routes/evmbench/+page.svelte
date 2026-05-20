@@ -58,13 +58,13 @@
       name: 'Azimuth',
       org: 'TestMachine',
       type: 'agent',
-      recall: 0,
-      found: 0,
-      total: 120,
-      sourceLabel: 'Run in progress',
+      recall: 75.2,
+      found: 88,
+      total: 117,
+      sourceLabel: 'testmachine.ai/products/azimuth',
       sourceUrl: '/products/azimuth',
       self: true,
-      pending: true
+      note: 'Combined run across the canonical 117-finding set: 88/117 detected.'
     },
     {
       name: 'GPT-5.5 (Codex)',
