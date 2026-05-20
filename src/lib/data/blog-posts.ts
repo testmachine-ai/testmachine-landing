@@ -26,12 +26,10 @@ export const blogPosts: BlogPost[] = [
 
 <p>We ran Azimuth through EVMBench, the benchmark created by OpenAI and Paradigm to evaluate AI agents' performance in smart contract security. In EVMBench Detect mode, Azimuth identified 88 of 117 ground-truth, high-severity vulnerabilities across 40 real audit repositories, achieving 75.2% recall. That is a strong benchmark result, and in our comparison, it places Azimuth at the top of the current EVMBench detection leaderboard.</p>
 
-<p>This post explains what that number means, what it does not mean, and why Azimuth's approach differs from ordinary LLM code review. The short version is that Azimuth does not treat a smart contract repository as one large blob of text. It uses LLMs where they are powerful, but it tries to make their work tractable by breaking contracts and protocols into logical pieces, reasoning about the interactions between those pieces, and pushing as much of the analysis as possible toward structured, reproducible evaluation.</p>
-
 
 <h2>Understanding EVMBench</h2>
 
-<p>EVMBench asks a narrow but important question: can an AI agent find high-severity vulnerabilities in real smart contract code? The extensive EVMBench framework assesses agents across three modes: Detect, Patch, and Exploit. The results discussed here are for the Detect mode. In Detect mode, a tool is given a repository and asked to produce an audit report. The benchmark then evaluates whether the report identifies the ground-truth vulnerabilities in the repository.</p>
+<p>EVMBench asks a narrow but important question: can an AI agent find high-severity vulnerabilities in real smart contract code? The extensive EVMBench framework assesses agents across three modes: Detect, Patch, and Exploit. The results discussed here are for the Detect mode. In Detect mode, a tool is given a repository and asked to produce an audit report, which an LLM judge then evaluates against the ground-truth vulnerabilities — accepting different terminology but requiring a specific match on the underlying flaw and code path.</p>
 
 <p>The detection score is recall: what percentage of the benchmark's known vulnerabilities did the system find? For Azimuth, that number was 88 out of 117, or 75.2%. This is an important distinction. EVMBench Detect is not a complete measure of product quality. It does not fully measure false positives, remediation quality, exploit generation, cost, or how easy the results are for developers or auditors to use. It primarily tests detection coverage against a known set of serious vulnerabilities.</p>
 
@@ -40,13 +38,11 @@ export const blogPosts: BlogPost[] = [
 
 <h2>How Azimuth Was Tested</h2>
 
-<p>We ran Azimuth across all 40 repositories without skipping any. Azimuth analyzed the repositories in parallel, which is important because one of the real advantages of automated security analysis is not just raw detection capability, but the ability to run repeatedly and at scale.</p>
+<p>We ran Azimuth across all 40 repositories in parallel, without skipping any. The performance gap with other approaches reflects differences in methodology. Static analysis tools search for known patterns — suspicious external calls, access-control mistakes, reentrancy, arithmetic hazards — and tend to struggle when the vulnerability depends on protocol-specific semantics or a sequence of legitimate operations that becomes dangerous only when combined. Pure LLM code review has a different strength: a capable model can read code, infer intent, and generate hypotheses, but it becomes fragile when the repository is large, when context is distributed across many files, or when the issue depends on state changes that are hard to capture in a single prompt.</p>
 
-<p>Azimuth's analysis starts by organizing the repository into a simpler, manageable representation. Smart contract systems are rarely a single contract with a single obvious entry point. They are usually networks of contracts, libraries, interfaces, modifiers, roles, state variables, protocol assumptions, and external dependencies. A useful AI security system has to reduce that complexity while not destroying the relationships that make the system vulnerable.</p>
+<p>Azimuth is built on the idea that LLMs become more useful when given structure. Smart contract systems are rarely a single contract with a single entry point; they are networks of contracts, libraries, modifiers, roles, state variables, and external dependencies. Azimuth decomposes the repository into logical functional units, identifies the relevant interaction surfaces, and uses LLMs to investigate smaller, better-posed questions rather than asking a single model to "audit the code" in one pass. The goal is to turn an extensive repository into a set of bounded security questions that can be analyzed, checked, and, where possible, validated.</p>
 
-<p>Azimuth uses LLMs to help interpret code, summarize functionality, and generate vulnerability hypotheses. But the system is designed to avoid counting solely on unstructured LLM judgment. It breaks the protocol into logical functional units, identifies relevant interaction surfaces, and explores possible exploit paths in a more systematic way. The goal is to turn an extensive repository into a set of bounded security questions that can be analyzed, checked, and, where possible, validated.</p>
-
-<p>For EVMBench Detect, Azimuth produced findings that were evaluated against the benchmark's ground truth. In production use outside this benchmark, Azimuth also performs exploitability validation by forked execution environments and can generate proof-of-concept code. Those capabilities are important to the product, but they are not what is being scored in this EVMBench Detect result. The 75.2% number should be understood as a detection result, not as a claim about EVMBench Exploit or Patch performance.</p>
+<p>For EVMBench Detect, Azimuth produced findings that were evaluated against the benchmark's ground truth. In production use outside this benchmark, Azimuth also performs exploitability validation through forked execution environments and generates proof-of-concept code — but those capabilities are not scored here. The 75.2% number should be understood as a detection result, not as a claim about EVMBench Exploit or Patch performance.</p>
 
 
 <h2>The Results</h2>
@@ -71,30 +67,9 @@ export const blogPosts: BlogPost[] = [
 <p>The published denominators differ across some reported runs, so the cleanest comparison is percentage recall rather than unadjusted vulnerability counts. On that basis, Azimuth's result is a little more than eight percentage points above the published AuditAgent result. That improvement matters, but it should be interpreted carefully. At higher recall levels, additional detections tend to come from harder cases: subtler logic errors, more complicated code paths, or vulnerabilities that depend on interactions spanning multiple components. Moving from 67% to 75.2% does not mean the problem is solved. It suggests that the analysis's structure can materially affect the number of serious issues identified.</p>
 
 
-<h2>Why Azimuth's Approach Performs Differently</h2>
-
-<p>The performance gap is partly due to differences in methodology.</p>
-
-<p>Static analysis tools typically search for known patterns: suspicious external calls, access-control mistakes, reentrancy issues, arithmetic hazards, unsafe upgrade paths, and similar features. These techniques are useful, but they can struggle when the vulnerability depends on protocol-specific semantics or on a sequence of legitimate operations that becomes dangerous only when combined.</p>
-
-<p>Pure LLM code review has a different strength. A capable model can read code, infer intent, explain mechanisms, and generate plausible hypotheses. But raw LLM reviews become fragile when the repository is large, when important context is distributed across many files, or when the issue depends on status changes that are hard to capture in a single prompt window.</p>
-
-<p>Azimuth is built on the idea that LLMs become more useful when given structure. The system uses them as part of a larger analysis process: decomposing a protocol into functional regions, identifying which functions and roles matter, mapping how state can change, and then exploring the security implications of those interactions. The LLM is not asked to simply "audit the code" in one pass. It is used to help frame and investigate smaller, better-posed questions.</p>
-
-<p>That decomposition is especially important in DeFi, where many vulnerabilities are not local bugs. They emerge from the relationship between contracts: a vault and a registry, a router and a token, an oracle and a liquidation path, an upgrade mechanism, and an access-control surface. Azimuth's goal is to preserve those relationships while still making the analysis tractable.</p>
-
-<p>This is also where deterministic execution becomes important. The EVM is a deterministic state machine. Given the same starting state and the same sequence of transactions, the result is the same. Azimuth's broader product architecture tries to use that fact wherever possible. LLMs are valuable for hypothesis creation and interpretation, but exploitability is ultimately about what the code does when it runs. The more the system can move from speculation to execution, replay, and proof-of-concept validation, the more useful the finding becomes.</p>
-
-<p>For EVMBench Detect, the benchmark measures the detection component of that process. In production, Azimuth's validation layer is intended to filter hypotheses before surfacing findings, improving signal-to-noise and reducing manual triage. Those validation capabilities are adjacent to the EVMBench Detect result, but they should not be confused with it.</p>
-
-
 <h2>What EVMBench Does Not Measure</h2>
 
-<p>EVMBench is valuable because it delivers a standardized benchmark for detection. But recall is only one dimension of security-tool performance. The most important missing dimension is precision. Precision means: of the findings reported by the tool, what percentage are actually real? More formally, precision is true positives divided by all reported positives: TP / (TP + FP). That is different from recall, which asks what percentage of known real vulnerabilities were found: TP / (TP + FN).</p>
-
-<p>This distinction matters. A tool can achieve high recall by reporting many possible issues, including many that are wrong or irrelevant. In that case, the tool may technically find a large number of real vulnerabilities, but it also creates a large triage burden. Developers and auditors still have to sort through the noise.</p>
-
-<p>False positive rate is related, but it is not the same thing as precision. In the strict statistical sense, the false positive rate is the number of false positives divided by the total number of actual negatives: FP/(FP + TN). In smart contract auditing, that denominator is often hard to define because there is no simple list of every possible non-vulnerability in a repository. In practice, teams usually care about the false-positive burden or signal-to-noise ratio: how many reported findings are worth their time. Precision is usually the more useful way to talk about that.</p>
+<p>EVMBench is valuable because it delivers a standardized benchmark for detection. But recall is only one dimension of security-tool performance. The most important missing dimension is precision. Recall measures how many of the real vulnerabilities a tool catches — its true positives as a share of all actual vulnerabilities present in the code. Precision asks the reverse: of the findings a tool reports, how many are true positives rather than false positives? A tool can post high recall by flagging every plausible issue, producing many false positives along the way. The result is a large triage burden, and developers and auditors still have to sort through the noise.</p>
 
 <p>EVMBench Detect does not fully establish precision because its primary score is whether the tool found the known ground-truth vulnerabilities. It does not comprehensively validate every additional finding a tool might report. A system could identify 88 real vulnerabilities and also report hundreds of low-quality findings; EVMBench Detect would still primarily credit the 88 hits. That is why benchmark recall should not be confused with production usability. In our internal analysis, Azimuth's post-validation findings measured at 65–88% precision, depending on the evaluation setting. That number should be read as a separate internal metric, not as an EVMBench score.</p>
 
@@ -103,15 +78,6 @@ export const blogPosts: BlogPost[] = [
 <p>EVMBench also does not measure usability. Two tools can receive credit for detecting the same vulnerability, even if one produces a vague paragraph and the other provides a clear attack path, affected contracts, a confidence score, and remediation guidance. For developers and auditors, that difference is substantial. A finding is more useful when it explains what failed, why it matters, how it can be reproduced, and what should be fixed.</p>
 
 <p>Finally, EVMBench Detect does not measure exploit execution. It asks whether the vulnerability was identified in an audit-style report. That is valuable, but it is different from proving exploitability by performing transactions against a deployed or forked environment. EVMBench has a separate Exploit mode for that kind of evaluation. We have not yet run Azimuth through that benchmark mode.</p>
-
-
-<h2>How EVMBench Evaluates Tools</h2>
-
-<p>In Detect mode, the tool is given autonomous access to a smart contract repository inside a container. It must examine the codebase without human guidance and produce an audit report. The benchmark then evaluates that report against the known ground-truth vulnerabilities.</p>
-
-<p>The judge does not require identical terminology. A tool can describe the same vulnerability in different words and still receive credit. But the match must be specific. The finding has to describe the same underlying flaw, occur in the same relevant code path, and be fixable by the same kind of correction. A vague warning about a broad class of issues is not enough.</p>
-
-<p>This grading approach is useful because it avoids overfitting the benchmark to exact phrasing. Security findings are often described differently by different auditors. What matters is whether the tool actually found the bug, not whether it used the same title or wording as the original report. At the same time, model-based judging introduces its own limitations. It is a practical way to evaluate audit reports at scale, but it is not the same thing as a deterministic proof. That is another reason to treat EVMBench as a strong comparative signal rather than a complete measure of product performance.</p>
 
 
 <h2>What This Means for Smart Contract Security</h2>
@@ -127,8 +93,6 @@ export const blogPosts: BlogPost[] = [
 <p>For auditors, the best use of systems like Azimuth is not to replace judgment, but to shift attention. Automated tools can help cover broad surfaces, identify candidate paths, and produce evidence for known failure classes. Human auditors can then spend more time on the novel, economic, and protocol-specific risks that remain difficult to automate.</p>
 
 <p>For protocols, the long-term value is continuity. Smart contract security has historically depended on point-in-time reviews. Yet protocols evolve, integrations change, dependencies shift, and new attack paths appear as the surrounding ecosystem changes. A system that can repeatedly decompose, analyze, and validate protocol behavior gives teams a more living view of their risk surface.</p>
-
-<p>The industry should be careful with benchmark claims. A leaderboard number is not a guarantee of security. But it is still useful evidence. In this case, Azimuth's EVMBench Detect results suggest that TestMachine's approach—using LLMs within a structured, state-aware, validation-oriented workflow—can materially improve detection coverage of real smart contract vulnerabilities.</p>
 
 <p>The important point is not that LLMs alone can audit smart contracts. It is almost the opposite. LLMs become more useful when embedded in systems that understand how to break complex protocols into logical parts, reason regarding their interactions, and test security claims in the most deterministic environment available: the execution semantics of the EVM itself.</p>
 
