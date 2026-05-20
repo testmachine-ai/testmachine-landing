@@ -325,8 +325,8 @@
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
   color: var(--fg);
-  margin-top: 3em;
-  margin-bottom: 1em;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
   letter-spacing: -0.02em;
 }
 
